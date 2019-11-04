@@ -11,5 +11,5 @@ Feature: Monitor production App
     Then validate accounts
   #  And create milestone
   #  Then delete milestone
-    And validate profile
+  #  And validate profile
     Then logout of CDX
