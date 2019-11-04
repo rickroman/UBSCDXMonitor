@@ -8,36 +8,34 @@
     <!-- by driverClass property in env.resources dirs -->
     <!-- Set driver.name value to perfectoDriver       -->
     <parameter name="driver.name" value="perfectoDriver"/>
-    <parameter name="driver.capabilities.securityToken" value="${securityToken}"></parameter>
 
-
-    <test name="iPad CDX 1" enabled="true">
-        <parameter name="driver.capabilities.deviceName" value="00008027-000120391E85002E"></parameter>
+    <test name="iPhone CDX" enabled="true">
+        <parameter name="driver.capabilities.deviceName" value="00008020-000D58C20208002E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
             <run>
-                <include name="@monitoring"/>
+                <include name="@cdxiPhone"/>
             </run>
         </groups>
         <classes>
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-    <test name="iPad CDX 2" enabled="true">
-        <parameter name="driver.capabilities.deviceName" value="00008027-000269683E85002E"></parameter>
+    <test name="iPhone CDX 2" enabled="false">
+        <parameter name="driver.capabilities.deviceName" value=""></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
             <run>
-                <include name="@monitoring"/>
+                <include name="@cdxiPhone"/>
             </run>
         </groups>
         <classes>
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-
 
 
 </suite>
+
