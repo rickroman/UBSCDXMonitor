@@ -12,7 +12,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-import javafx.scene.web.WebView;
 import net.bytebuddy.implementation.bytecode.Throw;
 
 
