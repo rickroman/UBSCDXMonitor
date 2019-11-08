@@ -8,6 +8,7 @@
     <!-- by driverClass property in env.resources dirs -->
     <!-- Set driver.name value to perfectoDriver       -->
     <parameter name="driver.name" value="perfectoDriver"/>
+    <parameter name="driver.capabilities.securityToken" value="${securityToken}"></parameter>
 
     <test name="iPhone CDX" enabled="true">
         <parameter name="driver.capabilities.deviceName" value="00008020-000D58C20208002E"></parameter>
