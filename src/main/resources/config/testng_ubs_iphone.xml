@@ -11,7 +11,7 @@
     <parameter name="driver.capabilities.securityToken" value="${securityToken}"></parameter>
 
     <test name="iPhone CDX" enabled="true">
-        <parameter name="driver.capabilities.deviceName" value="00008020-000D58C20208002E"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008030-000578803688802E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
