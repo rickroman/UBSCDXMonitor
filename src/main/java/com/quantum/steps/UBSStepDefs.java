@@ -54,16 +54,10 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("login.next.iphone").click();
             new QAFExtendedWebElement("field.password.iphone").click();
 
-
-
-
         }else {
-
             // enter credentials
             new QAFExtendedWebElement("field.username").sendKeys("neotest66");
             new QAFExtendedWebElement("login.next").click();
-
-
         }
         new QAFExtendedWebElement("field.password").sendKeys("Ols12345");
         new QAFExtendedWebElement("login.signin.btn").click();
@@ -164,7 +158,19 @@ public class UBSStepDefs {
     }
     @Then("logout of CDX")
     public void logoutCDX() {
-        new QAFExtendedWebElement("main.sign.out").click();
+        if(getModel().equals("iphone")) {
+            new QAFExtendedWebElement("menu.iphone").click();
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("label", "Sign Out");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+
+
+
+        }
+        else {
+            new QAFExtendedWebElement("main.sign.out").click();
+        }
         DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
 
 
