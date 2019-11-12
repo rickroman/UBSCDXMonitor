@@ -147,7 +147,23 @@ public class UBSStepDefs {
             params2.put("label", "My information");
             params2.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-            new QAFExtendedWebElement("profile.primary").isDisplayed();
+            new QAFExtendedWebElement("profile.iphone.primary").isDisplayed();
+
+            new QAFExtendedWebElement("menu.iphone").click();
+            Map<String, Object> params = new HashMap<>();
+            params.put("label", "Relationships");
+            params.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
+            new QAFExtendedWebElement("profile.iphone.team").click();
+            new QAFExtendedWebElement("profile.iphone.advice").isDisplayed();
+            new QAFExtendedWebElement("home").click();
+
+
+
+
+
+
+
 
 
 
