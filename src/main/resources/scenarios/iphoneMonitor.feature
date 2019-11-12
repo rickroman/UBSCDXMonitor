@@ -8,5 +8,5 @@ Feature: Monitor production App
     When I launch CDX
     And Login to CDX
     #Then validate accounts
-    #And validate profile
-    Then logout of CDX
+    And validate profile
+    #Then logout of CDX

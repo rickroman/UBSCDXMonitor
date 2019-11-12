@@ -140,19 +140,32 @@ public class UBSStepDefs {
 
     @Then("validate profile")
     public void validateProfile() {
-        new QAFExtendedWebElement("main.profile").click();
-        new QAFExtendedWebElement("profile.primary").isDisplayed();
 
-        new QAFExtendedWebElement("profile.relationship").click();
-        new QAFExtendedWebElement("profile.team").click();
+        if(getModel().equals("iphone")) {
+            new QAFExtendedWebElement("menu.iphone").click();
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("label", "My information");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+            new QAFExtendedWebElement("profile.primary").isDisplayed();
 
-        Map<String, Object> params2 = new HashMap<>();
-        params2.put("content", "UBS Wealth Advice");
-        params2.put("timeout", "30");
-        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
-        new QAFExtendedWebElement("back").click();
-        new QAFExtendedWebElement("home").click();
+
+        }else {
+            new QAFExtendedWebElement("main.profile").click();
+            new QAFExtendedWebElement("profile.primary").isDisplayed();
+
+            new QAFExtendedWebElement("profile.relationship").click();
+            new QAFExtendedWebElement("profile.team").click();
+
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("content", "UBS Wealth Advice");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+
+            new QAFExtendedWebElement("back").click();
+            new QAFExtendedWebElement("home").click();
+        }
         validateHomePage();
 
     }
@@ -164,9 +177,6 @@ public class UBSStepDefs {
             params2.put("label", "Sign Out");
             params2.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-
-
-
         }
         else {
             new QAFExtendedWebElement("main.sign.out").click();
