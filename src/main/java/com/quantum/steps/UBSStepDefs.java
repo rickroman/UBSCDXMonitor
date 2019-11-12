@@ -22,8 +22,25 @@ import java.util.HashMap;
 public class UBSStepDefs {
 
 
+   // public String os = new QAFExtendedWebElement().getDescription();
+
+    public String getModel() {
+      //  String device = "";
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("property", "model");
+        String model =  DeviceUtils.getQAFDriver().executeScript("mobile:handset:info", params).toString();
+        if(model.contains("iPhone")) {
+            model = "iphone";
+        }else { model="ipad";}
+        return model;
+
+
+    }
+
     @When("I launch CDX")
     public void launch_cdx() {
+
         try { DeviceUtils.closeApp("Wealth", "name");
         }catch (Exception e){ System.out.println("app was not open"); }
         DeviceUtils.startApp("Wealth", "name");
@@ -31,9 +48,23 @@ public class UBSStepDefs {
     }
     @When("Login to CDX")
     public void loginCDX() {
-        // enter credentials
-        new QAFExtendedWebElement("field.username").sendKeys("neotest66");
-        new QAFExtendedWebElement("login.next").click();
+
+        if(getModel().equals("iphone")) {
+            new QAFExtendedWebElement("username.iphone").sendKeys("neotest66");
+            new QAFExtendedWebElement("login.next.iphone").click();
+            new QAFExtendedWebElement("field.password.iphone").click();
+
+
+
+
+        }else {
+
+            // enter credentials
+            new QAFExtendedWebElement("field.username").sendKeys("neotest66");
+            new QAFExtendedWebElement("login.next").click();
+
+
+        }
         new QAFExtendedWebElement("field.password").sendKeys("Ols12345");
         new QAFExtendedWebElement("login.signin.btn").click();
         // 2 validations of home page loading

@@ -8,8 +8,5 @@ Feature: Monitor production App
     When I launch CDX
     And Login to CDX
     #Then validate accounts
-    #Then validate milestone
-    #And create milestone
-    #Then delete milestone
     #And validate profile
-    #Then logout of CDX
+    Then logout of CDX
