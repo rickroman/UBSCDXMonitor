@@ -7,6 +7,6 @@ Feature: Monitor production App
     When I switch to native context
     When I launch CDX
     And Login to CDX
-    #Then validate accounts
+    Then validate accounts
     And validate profile
     Then logout of CDX

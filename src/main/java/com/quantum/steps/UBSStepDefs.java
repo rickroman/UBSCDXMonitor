@@ -67,33 +67,48 @@ public class UBSStepDefs {
     }
     @Then("validate accounts")
     public void validateAccounts() {
-        // click on accounts and validate table loads
-        new QAFExtendedWebElement("main.accounts").click();
-        new QAFExtendedWebElement("accounts.balances").isDisplayed();
-        new QAFExtendedWebElement("accounts.currentBalance").isPresent();
 
-        // click on holdings & validate
-        new QAFExtendedWebElement("accounts.holdings").click();
-        //  new QAFExtendedWebElement("holdings.msg").isDisplayed();
-        new QAFExtendedWebElement("holdings.cash").isPresent();
 
-        // click on Activity & validate
-        new QAFExtendedWebElement("accounts.activity").click();
-        new QAFExtendedWebElement("activity.type").isDisplayed();
+        if(getModel().equals("iphone")) {
 
-        // Financial tools
-        new QAFExtendedWebElement("accounts.financial.tools").click();
-        new QAFExtendedWebElement("financial.tools.msg").isDisplayed();
-        new QAFExtendedWebElement("net.balanc").isPresent();
+            new QAFExtendedWebElement("main.accounts").click();
+            new QAFExtendedWebElement("iphone.accounts.balances").click();
+            new QAFExtendedWebElement("iphone.priorday").isPresent();
 
-        new QAFExtendedWebElement("cash.flow").click();
-        new QAFExtendedWebElement("cash.flow.msg").isDisplayed();
-        new QAFExtendedWebElement("cash.flow.spending").click();
-        new QAFExtendedWebElement("cash.flow.expenses").isDisplayed();
 
-        // go back to home page
-        new QAFExtendedWebElement("back").click();
-        new QAFExtendedWebElement("home").click();
+            new QAFExtendedWebElement("home").click();
+
+
+        }else {
+
+            // click on accounts and validate table loads
+            new QAFExtendedWebElement("main.accounts").click();
+            new QAFExtendedWebElement("accounts.balances").isDisplayed();
+            new QAFExtendedWebElement("accounts.currentBalance").isPresent();
+
+            // click on holdings & validate
+            new QAFExtendedWebElement("accounts.holdings").click();
+            //  new QAFExtendedWebElement("holdings.msg").isDisplayed();
+            new QAFExtendedWebElement("holdings.cash").isPresent();
+
+            // click on Activity & validate
+            new QAFExtendedWebElement("accounts.activity").click();
+            new QAFExtendedWebElement("activity.type").isDisplayed();
+
+            // Financial tools
+            new QAFExtendedWebElement("accounts.financial.tools").click();
+            new QAFExtendedWebElement("financial.tools.msg").isDisplayed();
+            new QAFExtendedWebElement("net.balanc").isPresent();
+
+            new QAFExtendedWebElement("cash.flow").click();
+            new QAFExtendedWebElement("cash.flow.msg").isDisplayed();
+            new QAFExtendedWebElement("cash.flow.spending").click();
+            new QAFExtendedWebElement("cash.flow.expenses").isDisplayed();
+
+            // go back to home page
+            new QAFExtendedWebElement("back").click();
+            new QAFExtendedWebElement("home").click();
+        }
         validateHomePage();
     }
     @Then("create milestone")
