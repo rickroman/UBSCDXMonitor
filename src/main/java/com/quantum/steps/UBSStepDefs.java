@@ -76,6 +76,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("iphone.priorday").isPresent();
 
             // click on holdings & validate
+            new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("accounts.holdings").click();
             //  new QAFExtendedWebElement("holdings.msg").isDisplayed();
             new QAFExtendedWebElement("holdings.cash").isPresent();
