@@ -84,7 +84,11 @@ public class UBSStepDefs {
             // click on Activity & validate
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("accounts.activity").click();
-            new QAFExtendedWebElement("iphone.accounts.activity.detail").isDisplayed();
+            // checking filter button as it is only unique element on page
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("content", "Filter");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
             new QAFExtendedWebElement("home").click();
 
