@@ -90,6 +90,19 @@ public class UBSStepDefs {
             params2.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
+
+            // Financial tools
+            new QAFExtendedWebElement("accounts.financial.tools").click();
+            new QAFExtendedWebElement("iphone.financialtools.msg").isDisplayed();
+
+            new QAFExtendedWebElement("cash.flow").click();
+            new QAFExtendedWebElement("cash.flow.msg").isDisplayed();
+
+
+            new QAFExtendedWebElement("cash.flow.spending").click();
+            //new QAFExtendedWebElement("cash.flow.expenses").isDisplayed();
+
+
             new QAFExtendedWebElement("home").click();
 
 
