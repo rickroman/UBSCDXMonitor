@@ -70,11 +70,19 @@ public class UBSStepDefs {
 
 
         if(getModel().equals("iphone")) {
-
+            //click accoints and check balance of prior day
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("iphone.accounts.balances").click();
             new QAFExtendedWebElement("iphone.priorday").isPresent();
 
+            // click on holdings & validate
+            new QAFExtendedWebElement("accounts.holdings").click();
+            //  new QAFExtendedWebElement("holdings.msg").isDisplayed();
+            new QAFExtendedWebElement("holdings.cash").isPresent();
+
+            // click on Activity & validate
+            new QAFExtendedWebElement("accounts.activity").click();
+            new QAFExtendedWebElement("iphone.accounts.activity.detail").isDisplayed();
 
             new QAFExtendedWebElement("home").click();
 
@@ -172,15 +180,6 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("profile.iphone.team").click();
             new QAFExtendedWebElement("profile.iphone.advice").isDisplayed();
             new QAFExtendedWebElement("home").click();
-
-
-
-
-
-
-
-
-
 
         }else {
             new QAFExtendedWebElement("main.profile").click();
