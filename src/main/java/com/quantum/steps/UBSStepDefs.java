@@ -41,9 +41,25 @@ public class UBSStepDefs {
     @When("I launch CDX")
     public void launch_cdx() {
 
-        try { DeviceUtils.closeApp("Wealth", "name");
-        }catch (Exception e){ System.out.println("app was not open"); }
-        DeviceUtils.startApp("Wealth", "name");
+
+        if(getModel().equals("iphone")) {
+
+
+            try { DeviceUtils.closeApp("UBS", "name");
+            }catch (Exception e){ System.out.println("app was not open"); }
+            DeviceUtils.startApp("UBS", "name");
+
+
+        }else {
+
+
+            try { DeviceUtils.closeApp("Wealth", "name");
+            }catch (Exception e){ System.out.println("app was not open"); }
+            DeviceUtils.startApp("Wealth", "name");
+
+        }
+
+
         DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
     }
     @When("Login to CDX")
