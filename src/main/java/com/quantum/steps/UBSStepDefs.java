@@ -95,8 +95,8 @@ public class UBSStepDefs {
         if(getModel().equalsIgnoreCase("iphone")) {
             //click accoints and check balance of prior day
             new QAFExtendedWebElement("main.accounts").click();
-/*            new QAFExtendedWebElement("iphone.accounts.balances").click();
-            new QAFExtendedWebElement("iphone.priorday").isPresent();
+            new QAFExtendedWebElement("iphone.accounts.balances").click();
+    /*        new QAFExtendedWebElement("iphone.priorday").isPresent();
 
             // click on holdings & validate
             new QAFExtendedWebElement("main.accounts").click();
@@ -165,7 +165,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("back").click();
             new QAFExtendedWebElement("home").click();
         }
-        validateHomePage();
+      //  validateHomePage();
     }
     @Then("create milestone")
     public void createMilestone() {
