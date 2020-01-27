@@ -33,6 +33,7 @@ public class UBSStepDefs {
         if(model.contains("iPhone")) {
             model = "iphone";
         }else { model="ipad";}
+        System.out.println("model is" + model);
         return model;
 
 
@@ -91,7 +92,7 @@ public class UBSStepDefs {
     public void validateAccounts() {
 
 
-        if(getModel().equals("iphone")) {
+        if(getModel().equalsIgnoreCase("iphone")) {
             //click accoints and check balance of prior day
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("iphone.accounts.balances").click();
