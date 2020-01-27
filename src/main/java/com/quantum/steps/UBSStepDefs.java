@@ -101,11 +101,13 @@ public class UBSStepDefs {
             // click on holdings & validate
             new QAFExtendedWebElement("main.accounts").click();
 
-
+            try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
             new QAFExtendedWebElement("accounts.holdings").click();
+            try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
+
             //  new QAFExtendedWebElement("holdings.msg").isDisplayed();
-            new QAFExtendedWebElement("holdings.cash").isPresent();
-/*
+/*            new QAFExtendedWebElement("holdings.cash").isPresent();
+
             // click on Activity & validate
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("accounts.activity").click();
