@@ -169,7 +169,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("back").click();
             new QAFExtendedWebElement("home").click();
         }
-      //  validateHomePage();
+       validateHomePage();
     }
     @Then("create milestone")
     public void createMilestone() {
