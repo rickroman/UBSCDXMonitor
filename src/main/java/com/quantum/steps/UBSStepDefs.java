@@ -33,7 +33,7 @@ public class UBSStepDefs {
         if(model.contains("iPhone")) {
             model = "iphone";
         }else { model="ipad";}
-        System.out.println("model is" + model);
+        System.out.println("model is " + model);
         return model;
 
 
@@ -95,13 +95,13 @@ public class UBSStepDefs {
         if(getModel().equalsIgnoreCase("iphone")) {
             //click accoints and check balance of prior day
             new QAFExtendedWebElement("main.accounts").click();
-            new QAFExtendedWebElement("iphone.accounts.balances").click();
+/*            new QAFExtendedWebElement("iphone.accounts.balances").click();
             new QAFExtendedWebElement("iphone.priorday").isPresent();
 
             // click on holdings & validate
             new QAFExtendedWebElement("main.accounts").click();
 
-            /*
+
             new QAFExtendedWebElement("accounts.holdings").click();
             //  new QAFExtendedWebElement("holdings.msg").isDisplayed();
             new QAFExtendedWebElement("holdings.cash").isPresent();
@@ -128,10 +128,10 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("cash.flow.spending").click();
             //new QAFExtendedWebElement("cash.flow.expenses").isDisplayed();
 
+            new QAFExtendedWebElement("home").click();
 
 
             */
-            new QAFExtendedWebElement("home").click();
 
 
 
