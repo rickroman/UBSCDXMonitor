@@ -72,6 +72,12 @@ public class UBSStepDefs {
 
         }else {
             // enter credentials
+
+            Map<String, Object> params = new HashMap<>();
+            params.put("content", "Username");
+            DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
+
             new QAFExtendedWebElement("field.username").sendKeys("neotest66");
             new QAFExtendedWebElement("login.next").click();
         }
