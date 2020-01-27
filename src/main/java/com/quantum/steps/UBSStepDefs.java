@@ -119,7 +119,7 @@ public class UBSStepDefs {
             params2.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
-/*
+
             // Financial tools
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("accounts.financial.tools").click();
@@ -135,7 +135,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("home").click();
 
 
-            */
+
 
 
 
