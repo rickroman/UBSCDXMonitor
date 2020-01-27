@@ -102,7 +102,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("accounts.holdings").click();
             //  new QAFExtendedWebElement("holdings.msg").isDisplayed();
             new QAFExtendedWebElement("holdings.cash").isPresent();
-
+/*
             // click on Activity & validate
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("accounts.activity").click();
@@ -126,7 +126,10 @@ public class UBSStepDefs {
             //new QAFExtendedWebElement("cash.flow.expenses").isDisplayed();
 
 
+
+            */
             new QAFExtendedWebElement("home").click();
+
 
 
         }else {
