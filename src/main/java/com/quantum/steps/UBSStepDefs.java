@@ -96,12 +96,12 @@ public class UBSStepDefs {
             //click accoints and check balance of prior day
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("iphone.accounts.balances").click();
-    /*        new QAFExtendedWebElement("iphone.priorday").isPresent();
+            new QAFExtendedWebElement("iphone.priorday").isPresent();
 
             // click on holdings & validate
             new QAFExtendedWebElement("main.accounts").click();
 
-
+/*
             new QAFExtendedWebElement("accounts.holdings").click();
             //  new QAFExtendedWebElement("holdings.msg").isDisplayed();
             new QAFExtendedWebElement("holdings.cash").isPresent();
