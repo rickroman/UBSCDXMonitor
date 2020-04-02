@@ -67,7 +67,7 @@ public class UBSStepDefs {
     public void loginCDX() {
 
         if(getModel().equals("iphone")) {
-            new QAFExtendedWebElement("username.iphone").sendKeys("neotest66");
+            new QAFExtendedWebElement("username.iphone").sendKeys("securetest66");
             new QAFExtendedWebElement("login.next.iphone").click();
             new QAFExtendedWebElement("field.password.iphone").click();
 
@@ -79,10 +79,10 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
             try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
 
-            new QAFExtendedWebElement("field.username").sendKeys("neotest66");
+            new QAFExtendedWebElement("field.username").sendKeys("securetest66");
             new QAFExtendedWebElement("login.next").click();
         }
-        new QAFExtendedWebElement("field.password").sendKeys("Ols12345");
+        new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
         new QAFExtendedWebElement("login.signin.btn").click();
         // 2 validations of home page loading
         validateHomePage();
