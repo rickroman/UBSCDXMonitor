@@ -79,7 +79,7 @@ public class UBSStepDefs {
             Map<String, Object> params = new HashMap<>();
 
             params.put("text", Secured_uname);
-            params.put("by", "XPath");
+            params.put("by", "xpath");
             params.put("value", "//*[@value=\"Username\"]");
             DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
 
