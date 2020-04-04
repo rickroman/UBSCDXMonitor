@@ -22,6 +22,8 @@ import java.util.HashMap;
 public class UBSStepDefs {
 
     private static final String Secured_uname = "secured./h2sxa3ub4PCwXhsgCxWJQ==";
+    private static final String Secured_pw = "secured.Xh05tx5pw3z3iyHVTztGsQ==";
+
 
 
 
@@ -77,16 +79,15 @@ public class UBSStepDefs {
 
             //declare the Map for script parameters
             Map<String, Object> params = new HashMap<>();
-
-            params.put("text", Secured_uname);
-            params.put("by", "xpath");
-            params.put("value", "//*[@value=\"Username\"]");
+                params.put("text", Secured_uname);
+                params.put("by", "xpath");
+                params.put("value", "//*[@value=\"Username\"]");
             DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
 
 
-            // new QAFExtendedWebElement("username.iphone").sendKeys(Secured_uname);
-            //new QAFExtendedWebElement("username.iphone").sendKeys("securetest66");
             new QAFExtendedWebElement("login.next.iphone").click();
+
+
             new QAFExtendedWebElement("field.password.iphone").click();
 
         }else {
@@ -97,10 +98,28 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
             try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
 
-            new QAFExtendedWebElement("field.username").sendKeys("securetest66");
+
+            Map<String, Object> params3 = new HashMap<>();
+            params3.put("text", Secured_uname);
+            params3.put("by", "xpath");
+            params3.put("value", "//XCUIElementTypeTextField");
+            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params3);
+
+         //   new QAFExtendedWebElement("field.username").sendKeys("securetest66");
             new QAFExtendedWebElement("login.next").click();
         }
-        new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
+
+
+
+        Map<String, Object> params4 = new HashMap<>();
+
+        params4.put("text", Secured_pw);
+        params4.put("by", "xpath");
+        params4.put("value", "//XCUIElementTypeSecureTextField");
+        DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
+
+
+       // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
         new QAFExtendedWebElement("login.signin.btn").click();
         // 2 validations of home page loading
         validateHomePage();
