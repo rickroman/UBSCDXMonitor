@@ -21,8 +21,11 @@ import java.util.HashMap;
 @QAFTestStepProvider
 public class UBSStepDefs {
 
+    private static final String Secured_uname = "secured./h2sxa3ub4PCwXhsgCxWJQ==";
 
-   // public String os = new QAFExtendedWebElement().getDescription();
+
+
+    // public String os = new QAFExtendedWebElement().getDescription();
 
     public String getModel() {
       //  String device = "";
@@ -66,8 +69,11 @@ public class UBSStepDefs {
     @When("Login to CDX")
     public void loginCDX() {
 
+
+
         if(getModel().equals("iphone")) {
-            new QAFExtendedWebElement("username.iphone").sendKeys("securetest66");
+            new QAFExtendedWebElement("username.iphone").sendKeys(Secured_uname);
+            //new QAFExtendedWebElement("username.iphone").sendKeys("securetest66");
             new QAFExtendedWebElement("login.next.iphone").click();
             new QAFExtendedWebElement("field.password.iphone").click();
 
