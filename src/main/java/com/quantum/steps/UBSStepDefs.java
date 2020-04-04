@@ -72,7 +72,19 @@ public class UBSStepDefs {
 
 
         if(getModel().equals("iphone")) {
-            new QAFExtendedWebElement("username.iphone").sendKeys(Secured_uname);
+
+
+
+            //declare the Map for script parameters
+            Map<String, Object> params = new HashMap<>();
+
+            params.put("text", Secured_uname);
+            params.put("by", "XPath");
+            params.put("value", "//*[@value=\"Username\"]");
+            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
+
+
+            // new QAFExtendedWebElement("username.iphone").sendKeys(Secured_uname);
             //new QAFExtendedWebElement("username.iphone").sendKeys("securetest66");
             new QAFExtendedWebElement("login.next.iphone").click();
             new QAFExtendedWebElement("field.password.iphone").click();
