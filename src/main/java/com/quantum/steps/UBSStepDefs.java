@@ -336,9 +336,13 @@ public class UBSStepDefs {
 
 
             Map<String, Object> params4 = new HashMap<>();
-            params4.put("content", "PUBLIC:monitoring/iphone11settings_x.png");
+            params4.put("label", "PUBLIC:monitoring/iphone11settings_x.png");
             params4.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
+
+
+
+
 
             new QAFExtendedWebElement("menu.iphone").click();
 
