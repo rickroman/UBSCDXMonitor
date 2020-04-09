@@ -153,37 +153,33 @@ public class UBSStepDefs {
 
 
         if (getModel().equalsIgnoreCase("iphone")) {
-
             new QAFExtendedWebElement("banking.services").click();
             // At a glance
             new QAFExtendedWebElement("glance").click();
             new QAFExtendedWebElement("glance.recent").isDisplayed();
-            new QAFExtendedWebElement("banking.services").click();
+            new QAFExtendedWebElement("home").click();
 
             // transfer funds
+            new QAFExtendedWebElement("banking.services").click();
             new QAFExtendedWebElement("transfer.funds").click();
             new QAFExtendedWebElement("funds.move").isPresent();
             new QAFExtendedWebElement("banking.services").click();
+
             // pay bills
             new QAFExtendedWebElement("Pay Bills").click();
             new QAFExtendedWebElement("bills").isDisplayed();
+            new QAFExtendedWebElement("home").click();
             new QAFExtendedWebElement("banking.services").click();
             // pay credit card
             new QAFExtendedWebElement("pay.ubs").click();
             new QAFExtendedWebElement("pay.credit").isDisplayed();
+            new QAFExtendedWebElement("home").click();
             new QAFExtendedWebElement("banking.services").click();
             // deposit check
             new QAFExtendedWebElement("deposit.check").click();
             new QAFExtendedWebElement("noaccount").isDisplayed();
-
             new QAFExtendedWebElement("home").click();
             validateHomePage();
-
-
-
-
-
-
 
 
 
