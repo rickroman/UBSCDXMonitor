@@ -321,7 +321,6 @@ public class UBSStepDefs {
 
 
         if(getModel().equals("iphone")) {
-            // Relationship
             new QAFExtendedWebElement("menu.iphone").click();
             Map<String, Object> params2 = new HashMap<>();
             params2.put("label", "Support");
@@ -351,10 +350,102 @@ public class UBSStepDefs {
         }
 
     }
+    @Then("check feedback")
+    public void checkFeedback() {
+
+
+        if (getModel().equals("iphone")) {
+
+            new QAFExtendedWebElement("menu.iphone").click();
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("label", "Feedback");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+
+
+            Map<String, Object> params3 = new HashMap<>();
+            params3.put("content", "tell us what you think");
+            params3.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+
+            Map<String, Object> params4 = new HashMap<>();
+            params4.put("label","PUBLIC:monitoring/iphone11settings_x.png");
+            params4.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
+
+
+        } else {
+
+        }
+
+    }
+
+    @Then("check legal")
+    public void checkLegal() {
+
+
+        if (getModel().equals("iphone")) {
+
+            new QAFExtendedWebElement("menu.iphone").click();
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("label", "Legal and disclosures");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+
+
+            Map<String, Object> params3 = new HashMap<>();
+            params3.put("content", "products and services described");
+            params3.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+
+
+            Map<String, Object> params4 = new HashMap<>();
+            params4.put("label", "Cancel");
+            params4.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
 
 
 
-    @Then("validate profile")
+        } else {
+
+        }
+    }
+
+    @Then("contact financial advisor")
+    public void contactAdvisor() {
+
+
+        if (getModel().equals("iphone")) {
+
+            new QAFExtendedWebElement("menu.iphone").click();
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("label", "contact financial advisor");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+
+
+            Map<String, Object> params3 = new HashMap<>();
+            params3.put("content", "toll free");
+            params3.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+
+            Map<String, Object> params4 = new HashMap<>();
+            params4.put("label", "Close");
+            params4.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
+
+
+
+
+        } else {
+
+        }
+
+    }
+
+
+
+            @Then("validate profile")
     public void validateProfile() {
 
         if(getModel().equals("iphone")) {
