@@ -125,6 +125,51 @@ public class UBSStepDefs {
         validateHomePage();
 
     }
+
+    @Then("check milestone")
+    public void checkMilestone() {
+
+
+        if (getModel().equalsIgnoreCase("iphone")) {
+
+            new QAFExtendedWebElement("main.milestones").click();
+            new QAFExtendedWebElement("mile.scouts").click();
+            new QAFExtendedWebElement("mile.bsa").isDisplayed();
+            new QAFExtendedWebElement("mile.resources").isDisplayed();
+            new QAFExtendedWebElement("mile.back").click();
+            new QAFExtendedWebElement("home").click();
+            validateHomePage();
+
+        } else {
+
+        }
+    }
+
+
+    @Then("banking services")
+    public void bankingServices() {
+
+
+        if (getModel().equalsIgnoreCase("iphone")) {
+
+            new QAFExtendedWebElement("banking.services").click();
+            // At a glance
+            new QAFExtendedWebElement("glance").click();
+            new QAFExtendedWebElement("glance.recent").isDisplayed();
+            new QAFExtendedWebElement("banking.services").click();
+
+            // transfer funds
+            new QAFExtendedWebElement("transfer.funds").click();
+
+
+
+
+
+
+        } else {
+
+        }
+    }
     @Then("validate accounts")
     public void validateAccounts() {
 
