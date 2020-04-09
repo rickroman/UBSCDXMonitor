@@ -10,6 +10,7 @@ Feature: Monitor production App
     Then validate accounts
     And validate profile
     Then check milestone
+    Then validate banking services
     And validate relationship
     Then validate mindset
     And check settings

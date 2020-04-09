@@ -148,7 +148,7 @@ public class UBSStepDefs {
     }
 
 
-    @Then("banking services")
+    @Then("validate banking services")
     public void bankingServices() {
 
 
@@ -162,6 +162,25 @@ public class UBSStepDefs {
 
             // transfer funds
             new QAFExtendedWebElement("transfer.funds").click();
+            new QAFExtendedWebElement("funds.move").isPresent();
+            new QAFExtendedWebElement("banking.services").click();
+            // pay bills
+            new QAFExtendedWebElement("Pay Bills").click();
+            new QAFExtendedWebElement("bills").isDisplayed();
+            new QAFExtendedWebElement("banking.services").click();
+            // pay credit card
+            new QAFExtendedWebElement("pay.ubs").click();
+            new QAFExtendedWebElement("pay.credit").isDisplayed();
+            new QAFExtendedWebElement("banking.services").click();
+            // deposit check
+            new QAFExtendedWebElement("deposit.check").click();
+            new QAFExtendedWebElement("noaccount").isDisplayed();
+
+            new QAFExtendedWebElement("home").click();
+            validateHomePage();
+
+
+
 
 
 
