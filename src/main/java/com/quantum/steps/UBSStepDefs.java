@@ -250,13 +250,12 @@ public class UBSStepDefs {
 
     }
 
-    @Then("validate menu")
-    public void validateMenu() {
+    @Then("validate relationship")
+    public void validateRelationship() {
 
 
         if(getModel().equals("iphone")) {
             // Relationship
-            new QAFExtendedWebElement("menu.iphone").click();
             new QAFExtendedWebElement("menu.iphone").click();
             Map<String, Object> params2 = new HashMap<>();
             params2.put("label", "Relationship");
@@ -267,6 +266,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("relationship.advice").isDisplayed();
             new QAFExtendedWebElement("menu.iphone").click();
 
+            //
 
 
 
@@ -274,6 +274,81 @@ public class UBSStepDefs {
 
             }
     }
+
+
+    @Then("validate mindset")
+    public void validateMindset() {
+
+
+        if(getModel().equals("iphone")) {
+            // Relationship
+            new QAFExtendedWebElement("menu.iphone").click();
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("label", "Mindset and Interests");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+            new QAFExtendedWebElement("interest").isDisplayed();
+            new QAFExtendedWebElement("menu.iphone").click();
+
+        } else {
+
+        }
+
+    }
+
+    @Then("check settings")
+    public void validateSettings() {
+
+
+        if(getModel().equals("iphone")) {
+            // Relationship
+            new QAFExtendedWebElement("menu.iphone").click();
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("label", "Settings");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+            new QAFExtendedWebElement("settings.reset").isDisplayed();
+            new QAFExtendedWebElement("menu.iphone").click();
+
+        } else {
+
+        }
+
+    }
+
+    @Then("get support")
+    public void getSupport() {
+
+
+        if(getModel().equals("iphone")) {
+            // Relationship
+            new QAFExtendedWebElement("menu.iphone").click();
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("label", "Support");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+
+            Map<String, Object> params3 = new HashMap<>();
+            params3.put("content", "need assistance");
+            params3.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+
+
+
+            Map<String, Object> params4 = new HashMap<>();
+            params4.put("content", "PUBLIC:monitoring/iphone11settings_x.png");
+            params4.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
+
+            new QAFExtendedWebElement("menu.iphone").click();
+
+        } else {
+
+        }
+
+    }
+
+
 
     @Then("validate profile")
     public void validateProfile() {
