@@ -9,4 +9,5 @@ Feature: Monitor production App
     And Login to CDX
     Then validate accounts
     And validate profile
+    And validate menu
     Then logout of CDX

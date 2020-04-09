@@ -250,6 +250,31 @@ public class UBSStepDefs {
 
     }
 
+    @Then("validate menu")
+    public void validateMenu() {
+
+
+        if(getModel().equals("iphone")) {
+            // Relationship
+            new QAFExtendedWebElement("menu.iphone").click();
+            new QAFExtendedWebElement("menu.iphone").click();
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("label", "Relationship");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+            new QAFExtendedWebElement("relationship.community").isDisplayed();
+            new QAFExtendedWebElement("relationship.team").click();
+            new QAFExtendedWebElement("relationship.advice").isDisplayed();
+            new QAFExtendedWebElement("menu.iphone").click();
+
+
+
+
+        }else{
+
+            }
+    }
+
     @Then("validate profile")
     public void validateProfile() {
 
