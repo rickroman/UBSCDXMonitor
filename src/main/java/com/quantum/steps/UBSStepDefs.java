@@ -261,7 +261,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("iphone.intraday").click();
             String value = new QAFExtendedWebElement("iphone.intraday").getAttribute("value");
             System.out.println("value is" + value);
-            new QAFExtendedWebElement("iphone.investments").isDisplayed();
+            new QAFExtendedWebElement("iphone.change.value").isDisplayed();
 
             new QAFExtendedWebElement("iphone.priorday").click();
             new QAFExtendedWebElement("iphone.investments").isDisplayed();
