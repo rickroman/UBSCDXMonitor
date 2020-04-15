@@ -258,18 +258,34 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("iphone.accounts.balances").click();
             new QAFExtendedWebElement("iphone.priorday").isPresent();
-            try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
+            new QAFExtendedWebElement("iphone.intraday").click();
+            String value = new QAFExtendedWebElement("iphone.intraday").getAttribute("value");
+            System.out.println("value is" + value);
+            new QAFExtendedWebElement("iphone.investments").isDisplayed();
 
+            new QAFExtendedWebElement("iphone.priorday").click();
+            new QAFExtendedWebElement("iphone.investments").isDisplayed();
+
+
+            new QAFExtendedWebElement("iphone.all").click();
+            new QAFExtendedWebElement("phone.investment.assets").isDisplayed();
+            try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
 
             // click on holdings & validate
             new QAFExtendedWebElement("main.accounts").click();
 
             try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
-       new QAFExtendedWebElement("accounts.holdings").click();
+             new QAFExtendedWebElement("accounts.holdings").click();
             try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
 
             //  new QAFExtendedWebElement("holdings.msg").isDisplayed();
-        new QAFExtendedWebElement("holdings.cash").isPresent();
+             new QAFExtendedWebElement("holdings.cash").isPresent();
+            new QAFExtendedWebElement("iphone.priorday").isPresent();
+            new QAFExtendedWebElement("iphone.intraday").click();
+            new QAFExtendedWebElement("iphone.holdings.cash").isPresent();
+            new QAFExtendedWebElement("iphone.all").click();
+            new QAFExtendedWebElement("iphone.total.value").isPresent();
+
 
             // click on Activity & validate
             new QAFExtendedWebElement("main.accounts").click();
