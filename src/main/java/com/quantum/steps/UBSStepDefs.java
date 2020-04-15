@@ -268,7 +268,7 @@ public class UBSStepDefs {
 
 
             new QAFExtendedWebElement("iphone.all").click();
-            new QAFExtendedWebElement("phone.investment.assets").isDisplayed();
+            new QAFExtendedWebElement("iphone.investment.assets").isDisplayed();
             new QAFExtendedWebElement("iphone.ubs").click();
             try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
 
