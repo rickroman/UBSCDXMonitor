@@ -187,6 +187,58 @@ public class UBSStepDefs {
 
         }
     }
+
+    @Then("view insights")
+    public void viewInsights() {
+
+        if(getModel().equalsIgnoreCase("iphone")) {
+
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("content", "here are your periodically");
+            params2.put("scrolling", "scroll");
+            params2.put("next","SWIPE=(50%,85%),(50%,55%)");
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+
+
+
+
+
+        }else {
+
+        }
+
+
+
+
+
+        }
+
+
+    @Then("view market insights")
+    public void viewMarketInsights() {
+
+        if(getModel().equalsIgnoreCase("iphone")) {
+
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("content","\"djia\" \"as of\"");
+            params2.put("scrolling", "scroll");
+            params2.put("next","SWIPE=(50%,85%),(50%,55%)");
+            params2.put("target","all");
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+
+
+
+
+
+        }else {
+
+        }
+
+
+
+
+
+    }
     @Then("validate accounts")
     public void validateAccounts() {
 
