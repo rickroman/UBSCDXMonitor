@@ -16,6 +16,7 @@ import io.appium.java_client.ios.IOSDriver;
 import net.bytebuddy.implementation.bytecode.Throw;
 import java.util.Map;
 import java.util.HashMap;
+import java.time.*;
 
 
 @QAFTestStepProvider
@@ -230,6 +231,20 @@ public class UBSStepDefs {
             // check date
             String today = new QAFExtendedWebElement("home.asof").getAttribute("value");
             System.out.println("today is: " + today);
+            String thisYear = Year.now().toString();
+            System.out.println("this year: " + thisYear);
+
+            if(today.contains(thisYear)) {
+                System.out.println("the string contains" + thisYear);
+            }else {
+
+                System.out.println("the string DOES NOT include" + thisYear);
+
+
+            }
+
+
+
 
 
             // return to top
