@@ -228,6 +228,8 @@ public class UBSStepDefs {
 
 
             // check date
+            String today = new QAFExtendedWebElement("home.asof").getAttribute("value");
+            System.out.println("today is: " + today);
 
 
             // return to top
