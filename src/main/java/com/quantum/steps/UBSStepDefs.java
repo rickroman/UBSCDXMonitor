@@ -269,7 +269,7 @@ public class UBSStepDefs {
 
 
         if(getModel().equalsIgnoreCase("iphone")) {
-            //click accoints and check balance of prior day
+            //click acounts and check balance of prior day
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("iphone.accounts.balances").click();
             new QAFExtendedWebElement("iphone.priorday").isPresent();
@@ -329,13 +329,7 @@ public class UBSStepDefs {
 
             new QAFExtendedWebElement("home").click();
 
-
-
-
-
-
         }else {
-
             // click on accounts and validate table loads
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("accounts.balances").isDisplayed();
