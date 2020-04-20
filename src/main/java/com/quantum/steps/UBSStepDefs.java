@@ -235,18 +235,16 @@ public class UBSStepDefs {
             System.out.println("this year: " + thisYear);
 
             if(today.contains(thisYear)) {
-                System.out.println("the string contains" + thisYear);
+
+                String msg = "the string contains" + thisYear;
+                System.out.println(msg);
+                ReportUtils.logAssert(msg,true);
             }else {
-
-                System.out.println("the string DOES NOT include" + thisYear);
-
+                String msg = "the string DOES NOT include" + thisYear;
+                System.out.println(msg);
+                ReportUtils.logAssert(msg,false);
 
             }
-
-
-
-
-
             // return to top
             try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
             Map<String, Object> params = new HashMap<>();
