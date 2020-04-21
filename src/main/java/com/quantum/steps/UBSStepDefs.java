@@ -336,14 +336,18 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("accounts.currentBalance").isPresent();
             // click on all, validate and return
             new QAFExtendedWebElement("balances.all").click();
+            try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("all.assets").isPresent();
             new QAFExtendedWebElement("ubs").click();
+            try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("accounts.currentBalance").isPresent();
 
             // check prior day
             new QAFExtendedWebElement("balances.priorday").click();
+            try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("prior.day.investments").isDisplayed();
             new QAFExtendedWebElement("balances.intraday").click();
+            try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("accounts.balances").isDisplayed();
 
 
