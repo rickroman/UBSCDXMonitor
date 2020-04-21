@@ -368,7 +368,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("balances.intraday").click();
 
 
-            new QAFExtendedWebElement("all").click();
+            new QAFExtendedWebElement("balances.all").click();
             new QAFExtendedWebElement("holdings.cash").isPresent();
 
             // click on Activity & validate
