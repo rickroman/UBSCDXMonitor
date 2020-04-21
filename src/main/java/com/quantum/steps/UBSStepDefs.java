@@ -349,7 +349,15 @@ public class UBSStepDefs {
 
             // click on holdings & validate
             new QAFExtendedWebElement("accounts.holdings").click();
-            //  new QAFExtendedWebElement("holdings.msg").isDisplayed();
+            new QAFExtendedWebElement("ubs").click();
+            new QAFExtendedWebElement("holdings.ubs.change").isPresent();
+            // check prior day
+            new QAFExtendedWebElement("balances.priorday").click();
+            new QAFExtendedWebElement("holdings.quantity").isPresent();
+            new QAFExtendedWebElement("balances.intraday").click();
+
+
+            new QAFExtendedWebElement("all").click();
             new QAFExtendedWebElement("holdings.cash").isPresent();
 
             // click on Activity & validate
