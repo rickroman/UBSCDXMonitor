@@ -616,8 +616,7 @@ public class UBSStepDefs {
             params4.put("label", "Close");
             params4.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
-
-
+            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
 
 
         } else {
