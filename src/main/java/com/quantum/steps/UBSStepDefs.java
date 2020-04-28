@@ -248,8 +248,9 @@ public class UBSStepDefs {
             // return to top
             try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
             Map<String, Object> params = new HashMap<>();
-            params.put("content","learn more about your accounts");
+            params.put("content","\"learn more about your accounts\", \"includes ubs and external accounts\"");
             params.put("scrolling", "scroll");
+            params.put("target","any");
             params.put("next","SWIPE_DOWN");
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
 
