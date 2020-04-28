@@ -273,7 +273,9 @@ public class UBSStepDefs {
             //click acounts and check balance of prior day
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("iphone.accounts.balances").click();
-            new QAFExtendedWebElement("iphone.priorday").isPresent();
+            try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
+            new QAFExtendedWebElement("iphone.ubs").click();
+            new QAFExtendedWebElement("iphone.priorday").isDisplayed();
             new QAFExtendedWebElement("iphone.intraday").click();
             String value = new QAFExtendedWebElement("iphone.intraday").getAttribute("value");
             System.out.println("value is" + value);
