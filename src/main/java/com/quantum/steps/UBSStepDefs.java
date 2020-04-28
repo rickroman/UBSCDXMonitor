@@ -275,9 +275,9 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("iphone.accounts.balances").click();
             try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
 
-           Boolean res =  new QAFExtendedWebElement("iphone.priorday").isDisplayed();
-            System.out.println("page is in  mode" + res);
-            if(!res) {
+            try{
+                new QAFExtendedWebElement("iphone.priorday").isDisplayed();
+            }catch (Exception e) {
                 System.out.println("clicking on ubs");
                 new QAFExtendedWebElement("iphone.ubs").click();
             }
