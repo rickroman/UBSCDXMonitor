@@ -277,6 +277,10 @@ public class UBSStepDefs {
 
            Boolean res =  new QAFExtendedWebElement("iphone.priorday").isDisplayed();
             System.out.println("page is in  mode" + res);
+            if(!res) {
+                System.out.println("clicking on ubs");
+                new QAFExtendedWebElement("iphone.ubs").click();
+            }
 
             new QAFExtendedWebElement("iphone.intraday").click();
             String value = new QAFExtendedWebElement("iphone.intraday").getAttribute("value");
