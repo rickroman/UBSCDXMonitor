@@ -270,12 +270,14 @@ public class UBSStepDefs {
 
 
         if(getModel().equalsIgnoreCase("iphone")) {
-            //click acounts and check balance of prior day
+            //click accounts and check balance of prior day
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("iphone.accounts.balances").click();
             try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
-            new QAFExtendedWebElement("iphone.ubs").click();
-            new QAFExtendedWebElement("iphone.priorday").isDisplayed();
+
+           Boolean res =  new QAFExtendedWebElement("iphone.priorday").isDisplayed();
+            System.out.println("page is in  mode" + res);
+
             new QAFExtendedWebElement("iphone.intraday").click();
             String value = new QAFExtendedWebElement("iphone.intraday").getAttribute("value");
             System.out.println("value is" + value);
