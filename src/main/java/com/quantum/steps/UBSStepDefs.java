@@ -145,7 +145,7 @@ public class UBSStepDefs {
 
         } else {
 
-            new QAFExtendedWebElement("main.milestones").click();
+            new QAFExtendedWebElement("main.ipad.milestone").click();
             new QAFExtendedWebElement("mile.scouts").click();
             new QAFExtendedWebElement("mile.bsa").isDisplayed();
             new QAFExtendedWebElement("mile.resources").isDisplayed();
