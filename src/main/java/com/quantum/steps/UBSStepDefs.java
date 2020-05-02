@@ -378,6 +378,15 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("ubs").click();
             new QAFExtendedWebElement("holdings.ubs.change").isPresent();
             // check prior day
+
+            try{
+                new QAFExtendedWebElement("balances.priorday").isDisplayed();
+            }catch (Exception e) {
+                System.out.println("clicking on ubs");
+                new QAFExtendedWebElement("ubs").click();
+            }
+
+
             new QAFExtendedWebElement("balances.priorday").click();
             new QAFExtendedWebElement("holdings.quantity").isPresent();
             new QAFExtendedWebElement("balances.intraday").click();
