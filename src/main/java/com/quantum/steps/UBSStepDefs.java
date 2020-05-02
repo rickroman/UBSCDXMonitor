@@ -213,6 +213,7 @@ public class UBSStepDefs {
             params.put("scrolling", "scroll");
             params.put("target","any");
             params.put("next","SWIPE_DOWN");
+            params.put("maxscroll",10);
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
         }
 
