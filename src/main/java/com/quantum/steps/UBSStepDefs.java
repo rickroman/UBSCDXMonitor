@@ -206,6 +206,14 @@ public class UBSStepDefs {
             params2.put("scrolling", "scroll");
             params2.put("next","SWIPE=(50%,85%),(50%,55%)");
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+
+            // scroll back up
+            Map<String, Object> params = new HashMap<>();
+            params.put("content","\"net balance\", \"includes ubs and external accounts\"");
+            params.put("scrolling", "scroll");
+            params.put("target","any");
+            params.put("next","SWIPE_DOWN");
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
         }
 
 
