@@ -145,6 +145,16 @@ public class UBSStepDefs {
 
         } else {
 
+            new QAFExtendedWebElement("main.milestones").click();
+            new QAFExtendedWebElement("mile.scouts").click();
+            new QAFExtendedWebElement("mile.bsa").isDisplayed();
+            new QAFExtendedWebElement("mile.resources").isDisplayed();
+            new QAFExtendedWebElement("mile.back").click();
+            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+            new QAFExtendedWebElement("home").isPresent();
+            new QAFExtendedWebElement("home").click();
+            validateHomePage();
+
         }
     }
 
