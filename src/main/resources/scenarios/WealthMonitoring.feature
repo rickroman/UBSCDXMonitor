@@ -8,8 +8,7 @@ Feature: Monitor production App
     When I switch to native context
     When I launch CDX
     And Login to CDX
-    #And view insights
-    #Then view market insights
+    And view insights
    # Then validate accounts
     Then check milestone
     And validate profile

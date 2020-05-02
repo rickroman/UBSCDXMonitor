@@ -200,19 +200,17 @@ public class UBSStepDefs {
             params2.put("next","SWIPE=(50%,85%),(50%,55%)");
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
-
-
-
-
         }else {
-
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("content", "news and insights");
+            params2.put("scrolling", "scroll");
+            params2.put("next","SWIPE=(50%,85%),(50%,55%)");
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
         }
 
 
 
-
-
-        }
+    }
 
 
     @Then("view market insights")
