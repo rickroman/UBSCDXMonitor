@@ -661,6 +661,10 @@ public class UBSStepDefs {
 
 
         } else {
+            new QAFExtendedWebElement("contact").click();
+            new QAFExtendedWebElement("tollfree").isDisplayed();
+            new QAFExtendedWebElement("close").click();
+            validateHomePage();
 
         }
 
