@@ -525,7 +525,8 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("menu.iphone").click();
 
         } else {
-
+            new QAFExtendedWebElement("mindset").click();
+            new QAFExtendedWebElement("mindset.msg").isDisplayed();
         }
 
     }
@@ -545,6 +546,14 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("menu.iphone").click();
 
         } else {
+
+            new QAFExtendedWebElement("settings").click();
+            new QAFExtendedWebElement("settings.reset").isDisplayed();
+            new QAFExtendedWebElement("information").click();
+            new QAFExtendedWebElement("profile.back").click();
+            new QAFExtendedWebElement("home").click();
+            validateHomePage();
+
 
         }
 
