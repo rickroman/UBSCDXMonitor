@@ -10,10 +10,10 @@ Feature: Monitor production App
     And Login to CDX
    # And view insights
    # Then validate accounts
+    #Then validate banking services
     Then check milestone
-   # And validate profile
-   # Then validate banking services
-   # And validate relationship
+    And validate profile
+    And validate relationship
    # Then validate mindset
    # And check settings
    # Then get support
