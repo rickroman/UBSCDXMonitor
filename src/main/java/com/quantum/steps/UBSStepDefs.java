@@ -151,7 +151,12 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
             new QAFExtendedWebElement("mile.scouts").click();
             new QAFExtendedWebElement("mile.bsa").isDisplayed();
-            new QAFExtendedWebElement("mile.back.ipad").click();
+
+            Map<String, Object> params = new HashMap<>();
+            params.put("label","PUBLIC:monitoring/milestones_ipad_back.png");
+            params.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
+            new QAFExtendedWebElement("retirement").isDisplayed();
             try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("home").click();
             validateHomePage();
