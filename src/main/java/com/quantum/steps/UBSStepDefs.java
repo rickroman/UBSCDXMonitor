@@ -145,21 +145,14 @@ public class UBSStepDefs {
 
         } else {
 
-
             Map<String, Object> params4 = new HashMap<>();
             params4.put("label","PUBLIC:monitoring/milestones_ipad.png");
             params4.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
-
-
-
-
             new QAFExtendedWebElement("mile.scouts").click();
             new QAFExtendedWebElement("mile.bsa").isDisplayed();
-            new QAFExtendedWebElement("mile.resources").isDisplayed();
-            new QAFExtendedWebElement("mile.back").click();
+            new QAFExtendedWebElement("mile.back.ipad").click();
             try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
-            new QAFExtendedWebElement("home").isPresent();
             new QAFExtendedWebElement("home").click();
             validateHomePage();
 
