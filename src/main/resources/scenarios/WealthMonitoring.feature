@@ -16,8 +16,8 @@ Feature: Monitor production App
     And validate relationship
     Then validate mindset
     And check settings
-   # Then get support
-   # And check feedback
-   # And check legal
+    Then get support
+    And check feedback
+ #   And check legal
     Then contact financial advisor
     Then logout of CDX

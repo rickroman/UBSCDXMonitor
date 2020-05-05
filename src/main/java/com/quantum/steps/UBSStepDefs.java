@@ -549,13 +549,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("settings").click();
             new QAFExtendedWebElement("settings.reset").isDisplayed();
             new QAFExtendedWebElement("information").click();
-            new QAFExtendedWebElement("profile.back").click();
 
-            Map<String, Object> params4 = new HashMap<>();
-            params4.put("label","PUBLIC:monitoring/ipad_home.png");
-            params4.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
-            validateHomePage();
         }
     }
 
@@ -589,6 +583,15 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("menu.iphone").click();
 
         } else {
+            new QAFExtendedWebElement("support").click();
+            Map<String, Object> params3 = new HashMap<>();
+            params3.put("content", "need assistance");
+            params3.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+            new QAFExtendedWebElement("support.done").click();
+
+
+
 
         }
 
@@ -618,6 +621,21 @@ public class UBSStepDefs {
 
 
         } else {
+            new QAFExtendedWebElement("feedback").click();
+            Map<String, Object> params3 = new HashMap<>();
+            params3.put("content", "tell us what you think");
+            params3.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+            new QAFExtendedWebElement("feedback.cancel").click();
+
+            new QAFExtendedWebElement("profile.back").click();
+
+            Map<String, Object> params4 = new HashMap<>();
+            params4.put("label","PUBLIC:monitoring/ipad_home.png");
+            params4.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
+            validateHomePage();
+
 
         }
 
