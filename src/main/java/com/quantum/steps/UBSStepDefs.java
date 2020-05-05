@@ -544,19 +544,19 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
             new QAFExtendedWebElement("settings.reset").isDisplayed();
             new QAFExtendedWebElement("menu.iphone").click();
-
         } else {
 
             new QAFExtendedWebElement("settings").click();
             new QAFExtendedWebElement("settings.reset").isDisplayed();
             new QAFExtendedWebElement("information").click();
             new QAFExtendedWebElement("profile.back").click();
-            new QAFExtendedWebElement("home").click();
+
+            Map<String, Object> params4 = new HashMap<>();
+            params4.put("label","PUBLIC:monitoring/ipad_home.png");
+            params4.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
             validateHomePage();
-
-
         }
-
     }
 
     @Then("get support")
