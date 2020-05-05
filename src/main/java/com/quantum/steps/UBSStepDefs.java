@@ -145,7 +145,15 @@ public class UBSStepDefs {
 
         } else {
 
-            new QAFExtendedWebElement("main.ipad.milestone").click();
+
+            Map<String, Object> params4 = new HashMap<>();
+            params4.put("label","PUBLIC:monitoring/milestones_ipad.png");
+            params4.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
+
+
+
+
             new QAFExtendedWebElement("mile.scouts").click();
             new QAFExtendedWebElement("mile.bsa").isDisplayed();
             new QAFExtendedWebElement("mile.resources").isDisplayed();
