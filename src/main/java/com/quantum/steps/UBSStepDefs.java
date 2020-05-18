@@ -60,9 +60,9 @@ public class UBSStepDefs {
         }else {
 
 
-            try { DeviceUtils.closeApp("Wealth", "name");
+            try { DeviceUtils.closeApp("UBS", "name");
             }catch (Exception e){ System.out.println("app was not open"); }
-            DeviceUtils.startApp("Wealth", "name");
+            DeviceUtils.startApp("UBS", "name");
 
         }
 
@@ -113,10 +113,9 @@ public class UBSStepDefs {
 
 
         Map<String, Object> params4 = new HashMap<>();
-
-        params4.put("text", Secured_pw);
-        params4.put("by", "xpath");
-        params4.put("value", "//XCUIElementTypeSecureTextField");
+            params4.put("text", Secured_pw);
+            params4.put("by", "xpath");
+            params4.put("value", "//XCUIElementTypeSecureTextField");
         DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
 
 
