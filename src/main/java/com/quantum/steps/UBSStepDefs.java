@@ -177,7 +177,9 @@ public class UBSStepDefs {
 
             // transfer funds
             new QAFExtendedWebElement("banking.services").click();
+            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("transfer.funds").click();
+            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("funds.move").isPresent();
             new QAFExtendedWebElement("banking.services").click();
 
