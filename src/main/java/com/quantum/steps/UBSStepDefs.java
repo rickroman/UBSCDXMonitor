@@ -306,6 +306,9 @@ public class UBSStepDefs {
                 new QAFExtendedWebElement("iphone.ubs").click();
             }
 
+            String balance = new QAFExtendedWebElement("total.value").getAttribute("label");
+            System.out.println("Balance is: " + balance);
+
             new QAFExtendedWebElement("iphone.intraday").click();
             String value = new QAFExtendedWebElement("iphone.intraday").getAttribute("value");
             System.out.println("value is" + value);
