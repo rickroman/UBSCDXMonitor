@@ -373,6 +373,10 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("accounts.balances").isDisplayed();
             new QAFExtendedWebElement("accounts.currentBalance").isPresent();
+
+            String balance = new QAFExtendedWebElement("total.value").getAttribute("label");
+            System.out.println("yaron1: " + balance);
+
             // click on all, validate and return
             new QAFExtendedWebElement("balances.all").click();
             try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
