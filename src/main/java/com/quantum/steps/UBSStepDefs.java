@@ -299,6 +299,9 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("iphone.accounts.balances").click();
             try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
 
+            String balance = new QAFExtendedWebElement("total.value").getAttribute("label");
+            System.out.println("yaron1: " + balance);
+
             try{
                 new QAFExtendedWebElement("iphone.priorday").isDisplayed();
             }catch (Exception e) {
@@ -306,8 +309,8 @@ public class UBSStepDefs {
                 new QAFExtendedWebElement("iphone.ubs").click();
             }
 
-            String balance = new QAFExtendedWebElement("total.value").getAttribute("label");
-            System.out.println("Balance is: " + balance);
+             balance = new QAFExtendedWebElement("total.value").getAttribute("label");
+            System.out.println("yaron2: " + balance);
 
             new QAFExtendedWebElement("iphone.intraday").click();
             String value = new QAFExtendedWebElement("iphone.intraday").getAttribute("value");
