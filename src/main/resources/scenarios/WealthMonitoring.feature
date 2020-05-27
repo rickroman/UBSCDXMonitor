@@ -9,7 +9,7 @@ Feature: Monitor production App
     When I launch CDX
     And Login to CDX
   #  And view insights
-  #  Then validate accounts
+    Then validate accounts
     Then validate banking services
   #  Then check milestone
   #  And validate profile
