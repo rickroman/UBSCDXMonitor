@@ -374,7 +374,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("accounts.balances").isDisplayed();
             new QAFExtendedWebElement("accounts.currentBalance").isPresent();
 
-            String balance = new QAFExtendedWebElement("total.value").getText();
+            String balance = new QAFExtendedWebElement("total.value").getAttribute("name");
             System.out.println("yaron1: " + balance);
 
             // click on all, validate and return
