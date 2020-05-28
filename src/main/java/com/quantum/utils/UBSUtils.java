@@ -8,9 +8,6 @@ import java.util.Map;
 
 public class UBSUtils  {
 
-    public static final String Secured_uname = "secured./h2sxa3ub4PCwXhsgCxWJQ==";
-    public static final String Secured_pw = "secured.Xh05tx5pw3z3iyHVTztGsQ==";
-
     public static void validateHomePage() {
         new QAFExtendedWebElement("main.net.balance").isDisplayed();
         DeviceUtils.waitForPresentTextVisual("total Assets",60);
@@ -39,7 +36,7 @@ public class UBSUtils  {
         if(model.contains("iPhone")) {
             model = "iphone";
         }else { model="ipad";}
-        System.out.println("model is " + model);
+      //  System.out.println("model is " + model);
         return model;
 
 
