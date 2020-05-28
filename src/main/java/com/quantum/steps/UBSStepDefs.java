@@ -17,6 +17,7 @@ import net.bytebuddy.implementation.bytecode.Throw;
 import java.util.Map;
 import java.util.HashMap;
 import java.time.*;
+import com.quantum.utils.UBSUtils;
 
 
 @QAFTestStepProvider
@@ -122,7 +123,7 @@ public class UBSStepDefs {
        // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
         new QAFExtendedWebElement("login.signin.btn").click();
         // 2 validations of home page loading
-        validateHomePage();
+        UBSUtils.validateHomePage();
 
     }
 
@@ -140,7 +141,7 @@ public class UBSStepDefs {
             try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("home").isPresent();
             new QAFExtendedWebElement("home").click();
-            validateHomePage();
+            UBSUtils.validateHomePage();
 
         } else {
 
@@ -158,7 +159,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("retirement").isDisplayed();
             try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("home").click();
-            validateHomePage();
+            UBSUtils.validateHomePage();
 
         }
     }
@@ -197,7 +198,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("deposit.check").click();
             new QAFExtendedWebElement("noaccount").isDisplayed();
             new QAFExtendedWebElement("home").click();
-            validateHomePage();
+            UBSUtils.validateHomePage();
 
 
 
@@ -441,7 +442,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("back").click();
             new QAFExtendedWebElement("home").click();
         }
-       validateHomePage();
+       UBSUtils.validateHomePage();
     }
     @Then("create milestone")
     public void createMilestone() {
@@ -481,7 +482,7 @@ public class UBSStepDefs {
         new QAFExtendedWebElement("milestone.delete").click();
         new QAFExtendedWebElement("milestone.delete.confirm").click();
         new QAFExtendedWebElement("home").click();
-        validateHomePage();
+        UBSUtils.validateHomePage();
 
     }
 
@@ -645,7 +646,7 @@ public class UBSStepDefs {
             params4.put("label","PUBLIC:monitoring/ipad_home.png");
             params4.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
-            validateHomePage();
+            UBSUtils.validateHomePage();
 
 
         }
@@ -712,7 +713,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("contact").click();
             new QAFExtendedWebElement("tollfree").isDisplayed();
             new QAFExtendedWebElement("close").click();
-            validateHomePage();
+            UBSUtils.validateHomePage();
 
         }
 
@@ -739,7 +740,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("profile.iphone.team").click();
             new QAFExtendedWebElement("profile.iphone.advice").isDisplayed();
             new QAFExtendedWebElement("home").click();
-            validateHomePage();
+            UBSUtils.validateHomePage();
 
 
         }else {
@@ -766,12 +767,14 @@ public class UBSStepDefs {
 
 
     }
+
+    /*
     private void validateHomePage() {
         new QAFExtendedWebElement("main.net.balance").isDisplayed();
         DeviceUtils.waitForPresentTextVisual("total Assets",60);
 
     }
-
+*/
 
 
 
