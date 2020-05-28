@@ -54,11 +54,7 @@ public class UBSStepDefs {
     @When("Login to CDX")
     public void loginCDX() {
 
-
-
         if(UBSUtils.getModel().equals("iphone")) {
-
-
 
             //declare the Map for script parameters
             Map<String, Object> params = new HashMap<>();
@@ -67,10 +63,7 @@ public class UBSStepDefs {
                 params.put("value", "//*[@value=\"Username\"]");
             DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
 
-
             new QAFExtendedWebElement("login.next.iphone").click();
-
-
             new QAFExtendedWebElement("field.password.iphone").click();
 
         }else {
@@ -80,7 +73,6 @@ public class UBSStepDefs {
             params.put("content", "Username");
             DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
             try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
-
 
             Map<String, Object> params3 = new HashMap<>();
             params3.put("text", Secured_uname);
@@ -233,7 +225,6 @@ public class UBSStepDefs {
             params2.put("target","all");
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
-
             // check date
             String today = new QAFExtendedWebElement("home.asof").getAttribute("value");
             System.out.println("today is: " + today);
@@ -261,13 +252,9 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
 
 
-
         }else {
 
         }
-
-
-
 
 
     }
@@ -281,8 +268,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("iphone.accounts.balances").click();
             try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
 
-       //     String balance = new QAFExtendedWebElement("total.value").getAttribute("label");
-        //    System.out.println("yaron1: " + balance);
+
 
             try{
                 new QAFExtendedWebElement("iphone.priorday").isDisplayed();
@@ -291,9 +277,10 @@ public class UBSStepDefs {
                 new QAFExtendedWebElement("iphone.ubs").click();
             }
 
-   //          balance = new QAFExtendedWebElement("total.value").getAttribute("label");
-    //        System.out.println("yaron2: " + balance);
-
+            String balance = new QAFExtendedWebElement("total.value").getAttribute("name");
+            if(!UBSUtils.validateAmount(balance)) {
+                throw new RuntimeException("No dollar amount has loaded: " + balance);
+            }
             new QAFExtendedWebElement("iphone.intraday").click();
             String value = new QAFExtendedWebElement("iphone.intraday").getAttribute("value");
             System.out.println("value is" + value);
@@ -357,7 +344,6 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("accounts.currentBalance").isPresent();
 
             String balance = new QAFExtendedWebElement("total.value").getAttribute("name");
-            System.out.println("yaron1: " + balance);
             if(!UBSUtils.validateAmount(balance)) {
                 throw new RuntimeException("No dollar amount has loaded: " + balance);
             }
@@ -486,9 +472,6 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("relationship.advice").isDisplayed();
             new QAFExtendedWebElement("menu.iphone").click();
 
-            //
-
-
 
         }else{
 
@@ -504,7 +487,6 @@ public class UBSStepDefs {
 
             }
     }
-
 
     @Then("validate mindset")
     public void validateMindset() {
@@ -571,11 +553,6 @@ public class UBSStepDefs {
             params4.put("label","PUBLIC:monitoring/iphone11settings_x.png");
             params4.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
-
-
-
-
-
             new QAFExtendedWebElement("menu.iphone").click();
 
         } else {
@@ -585,9 +562,6 @@ public class UBSStepDefs {
             params3.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
             new QAFExtendedWebElement("support.done").click();
-
-
-
 
         }
 
@@ -603,7 +577,6 @@ public class UBSStepDefs {
             params2.put("label", "Feedback");
             params2.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-
 
             Map<String, Object> params3 = new HashMap<>();
             params3.put("content", "tell us what you think");
@@ -632,7 +605,6 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
             UBSUtils.validateHomePage();
 
-
         }
 
     }
@@ -655,12 +627,10 @@ public class UBSStepDefs {
             params3.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
-
             Map<String, Object> params4 = new HashMap<>();
             params4.put("label", "Cancel");
             params4.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
-
 
 
         } else {
@@ -692,18 +662,14 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
             try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
 
-
         } else {
             new QAFExtendedWebElement("contact").click();
             new QAFExtendedWebElement("tollfree").isDisplayed();
             new QAFExtendedWebElement("close").click();
             UBSUtils.validateHomePage();
-
         }
 
     }
-
-
 
             @Then("validate profile")
     public void validateProfile() {
