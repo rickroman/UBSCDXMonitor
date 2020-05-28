@@ -19,7 +19,8 @@ public class UBSUtils  {
         String d = str.substring(0,1);
         if(d.equalsIgnoreCase("$")){
             // check number is positive
-            int i=Integer.parseInt(str);
+            long i=Long.parseLong(str.substring(1,6));
+            System.out.println("long is: " + i);
             if(!(i>0)) { return false; }
             System.out.println("amount validated as positive: " + str);
             return  true;
