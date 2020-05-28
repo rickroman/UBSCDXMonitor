@@ -3,6 +3,9 @@ package com.quantum.utils;
 import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 import com.quantum.steps.UBSStepDefs;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class UBSUtils  {
 
     public static final String Secured_uname = "secured./h2sxa3ub4PCwXhsgCxWJQ==";
@@ -15,17 +18,29 @@ public class UBSUtils  {
     }
     public static boolean validateAmount(String str) {
 
+        // get 1st character and check it is a dollar symbol
         String d = str.substring(0,1);
-        System.out.println("yoyo:" + d);
         if(d.equalsIgnoreCase("$")){
+            // check number is positive
+            int i=Integer.parseInt(str);
+            if(!(i>0)) { return false; }
+            System.out.println("amount validated as positive: " + str);
             return  true;
-        }else {
+        }else { return false; }
 
-            return false;
+    }
 
+    public static String getModel() {
+        //  String device = "";
 
-        }
-
+        Map<String, Object> params = new HashMap<>();
+        params.put("property", "model");
+        String model =  DeviceUtils.getQAFDriver().executeScript("mobile:handset:info", params).toString();
+        if(model.contains("iPhone")) {
+            model = "iphone";
+        }else { model="ipad";}
+        System.out.println("model is " + model);
+        return model;
 
 
     }

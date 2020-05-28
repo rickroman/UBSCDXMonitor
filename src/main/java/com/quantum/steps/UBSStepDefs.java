@@ -27,26 +27,11 @@ public class UBSStepDefs {
 
     // public String os = new QAFExtendedWebElement().getDescription();
 
-    public String getModel() {
-      //  String device = "";
-
-        Map<String, Object> params = new HashMap<>();
-        params.put("property", "model");
-        String model =  DeviceUtils.getQAFDriver().executeScript("mobile:handset:info", params).toString();
-        if(model.contains("iPhone")) {
-            model = "iphone";
-        }else { model="ipad";}
-        System.out.println("model is " + model);
-        return model;
-
-
-    }
-
     @When("I launch CDX")
     public void launch_cdx() {
 
 
-        if(getModel().equals("iphone")) {
+        if(UBSUtils.getModel().equals("iphone")) {
 
 
             try { DeviceUtils.closeApp("UBS", "name");
@@ -71,7 +56,7 @@ public class UBSStepDefs {
 
 
 
-        if(getModel().equals("iphone")) {
+        if(UBSUtils.getModel().equals("iphone")) {
 
 
 
@@ -127,7 +112,7 @@ public class UBSStepDefs {
     public void checkMilestone() {
 
 
-        if (getModel().equalsIgnoreCase("iphone")) {
+        if (UBSUtils.getModel().equalsIgnoreCase("iphone")) {
 
             new QAFExtendedWebElement("main.milestones").click();
             new QAFExtendedWebElement("mile.scouts").click();
@@ -165,7 +150,7 @@ public class UBSStepDefs {
     public void bankingServices() {
 
 
-        if (getModel().equalsIgnoreCase("iphone")) {
+        if (UBSUtils.getModel().equalsIgnoreCase("iphone")) {
             new QAFExtendedWebElement("banking.services").click();
             // At a glance
             new QAFExtendedWebElement("glance").click();
@@ -206,7 +191,7 @@ public class UBSStepDefs {
     @Then("view insights")
     public void viewInsights() {
 
-        if(getModel().equalsIgnoreCase("iphone")) {
+        if(UBSUtils.getModel().equalsIgnoreCase("iphone")) {
 
             Map<String, Object> params2 = new HashMap<>();
             params2.put("content", "here are your periodically");
@@ -239,7 +224,7 @@ public class UBSStepDefs {
     @Then("view market insights")
     public void viewMarketInsights() {
 
-        if(getModel().equalsIgnoreCase("iphone")) {
+        if(UBSUtils.getModel().equalsIgnoreCase("iphone")) {
 
             Map<String, Object> params2 = new HashMap<>();
             params2.put("content","\"djia\" \"as of\"");
@@ -290,7 +275,7 @@ public class UBSStepDefs {
     public void validateAccounts() {
 
 
-        if(getModel().equalsIgnoreCase("iphone")) {
+        if(UBSUtils.getModel().equalsIgnoreCase("iphone")) {
             //click accounts and check balance of prior day
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("iphone.accounts.balances").click();
@@ -489,7 +474,7 @@ public class UBSStepDefs {
     public void validateRelationship() {
 
 
-        if(getModel().equals("iphone")) {
+        if(UBSUtils.getModel().equals("iphone")) {
             // Relationship
             new QAFExtendedWebElement("menu.iphone").click();
             Map<String, Object> params2 = new HashMap<>();
@@ -525,7 +510,7 @@ public class UBSStepDefs {
     public void validateMindset() {
 
 
-        if(getModel().equals("iphone")) {
+        if(UBSUtils.getModel().equals("iphone")) {
             // Relationship
             new QAFExtendedWebElement("menu.iphone").click();
             Map<String, Object> params2 = new HashMap<>();
@@ -546,7 +531,7 @@ public class UBSStepDefs {
     public void validateSettings() {
 
 
-        if(getModel().equals("iphone")) {
+        if(UBSUtils.getModel().equals("iphone")) {
             // Relationship
             new QAFExtendedWebElement("menu.iphone").click();
             Map<String, Object> params2 = new HashMap<>();
@@ -568,7 +553,7 @@ public class UBSStepDefs {
     public void getSupport() {
 
 
-        if(getModel().equals("iphone")) {
+        if(UBSUtils.getModel().equals("iphone")) {
             new QAFExtendedWebElement("menu.iphone").click();
             Map<String, Object> params2 = new HashMap<>();
             params2.put("label", "Support");
@@ -611,7 +596,7 @@ public class UBSStepDefs {
     public void checkFeedback() {
 
 
-        if (getModel().equals("iphone")) {
+        if (UBSUtils.getModel().equals("iphone")) {
 
             new QAFExtendedWebElement("menu.iphone").click();
             Map<String, Object> params2 = new HashMap<>();
@@ -656,7 +641,7 @@ public class UBSStepDefs {
     public void checkLegal() {
 
 
-        if (getModel().equals("iphone")) {
+        if (UBSUtils.getModel().equals("iphone")) {
 
             new QAFExtendedWebElement("menu.iphone").click();
             Map<String, Object> params2 = new HashMap<>();
@@ -687,7 +672,7 @@ public class UBSStepDefs {
     public void contactAdvisor() {
 
 
-        if (getModel().equals("iphone")) {
+        if (UBSUtils.getModel().equals("iphone")) {
 
             new QAFExtendedWebElement("menu.iphone").click();
             Map<String, Object> params2 = new HashMap<>();
@@ -723,7 +708,7 @@ public class UBSStepDefs {
             @Then("validate profile")
     public void validateProfile() {
 
-        if(getModel().equals("iphone")) {
+        if(UBSUtils.getModel().equals("iphone")) {
             new QAFExtendedWebElement("menu.iphone").click();
             Map<String, Object> params2 = new HashMap<>();
             params2.put("label", "My information");
@@ -741,18 +726,16 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("home").click();
             UBSUtils.validateHomePage();
 
-
         }else {
             new QAFExtendedWebElement("main.profile").click();
             new QAFExtendedWebElement("profile.primary").isDisplayed();
-
 
         }
 
     }
     @Then("logout of CDX")
     public void logoutCDX() {
-        if(getModel().equals("iphone")) {
+        if(UBSUtils.getModel().equals("iphone")) {
             new QAFExtendedWebElement("menu.iphone").click();
             Map<String, Object> params2 = new HashMap<>();
             params2.put("label", "Sign Out");
@@ -764,8 +747,6 @@ public class UBSStepDefs {
         }
         DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
 
-
     }
-
 
 }
