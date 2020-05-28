@@ -19,15 +19,11 @@ import java.util.HashMap;
 import java.time.*;
 import com.quantum.utils.UBSUtils;
 
-
 @QAFTestStepProvider
 public class UBSStepDefs {
 
     private static final String Secured_uname = "secured./h2sxa3ub4PCwXhsgCxWJQ==";
     private static final String Secured_pw = "secured.Xh05tx5pw3z3iyHVTztGsQ==";
-
-
-
 
     // public String os = new QAFExtendedWebElement().getDescription();
 
@@ -377,6 +373,9 @@ public class UBSStepDefs {
 
             String balance = new QAFExtendedWebElement("total.value").getAttribute("name");
             System.out.println("yaron1: " + balance);
+            if(!UBSUtils.validateAmount(balance)) {
+                throw new RuntimeException("No dollar amount has loaded: " + balance);
+            }
 
             // click on all, validate and return
             new QAFExtendedWebElement("balances.all").click();
@@ -767,15 +766,6 @@ public class UBSStepDefs {
 
 
     }
-
-    /*
-    private void validateHomePage() {
-        new QAFExtendedWebElement("main.net.balance").isDisplayed();
-        DeviceUtils.waitForPresentTextVisual("total Assets",60);
-
-    }
-*/
-
 
 
 }
