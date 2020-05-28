@@ -17,9 +17,12 @@ public class UBSUtils  {
 
         // get 1st character and check it is a dollar symbol
         String d = str.substring(0,1);
+        String n = str.substring(1,6);
+        n = n.replace(",","");
+        n = n.replace(".","");
         if(d.equalsIgnoreCase("$")){
             // check number is positive
-            long i=Long.parseLong(str.substring(1,6));
+            long i=Long.parseLong(n);
             System.out.println("long is: " + i);
             if(!(i>0)) { return false; }
             System.out.println("amount validated as positive: " + str);
