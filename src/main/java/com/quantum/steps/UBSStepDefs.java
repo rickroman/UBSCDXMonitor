@@ -51,6 +51,34 @@ public class UBSStepDefs {
 
         DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
     }
+    @When("I debug launch CDX")
+    public void debugLaunch_cdx() {
+
+
+        if(UBSUtils.getModel().equals("iphone")) {
+
+
+            try { DeviceUtils.closeApp("Wealth QA", "name");
+            }catch (Exception e){ System.out.println("app was not open"); }
+            DeviceUtils.startApp("Wealth QA", "name");
+
+
+        }else {
+
+
+            try { DeviceUtils.closeApp("Wealth QA", "name");
+            }catch (Exception e){ System.out.println("app was not open"); }
+            DeviceUtils.startApp("Wealth QA", "name");
+
+        }
+
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
+    }
     @When("Login to CDX")
     public void loginCDX() {
 
@@ -99,6 +127,86 @@ public class UBSStepDefs {
         UBSUtils.validateHomePage();
 
     }
+    @When("debug_Login to CDX")
+    public void debugLoginCDX() {
+
+
+        String Secured_duname = "secured.aDeg4J2QMoUXTt3/WHcjUg==";
+        String Secured_dpw = "secured.ihj+yodayavfCbHyJQTJBw==";
+
+
+            //declare the Map for script parameters
+
+        /*
+            Map<String, Object> params = new HashMap<>();
+            params.put("text", Secured_duname);
+            params.put("by", "xpath");
+            params.put("value", "//*[@value=\"Username\"]");
+            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
+*/
+        new QAFExtendedWebElement("field.username").sendKeys("cdx07");
+
+
+        try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+         //new QAFExtendedWebElement("debug.next").click();
+        try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+
+        new QAFExtendedWebElement("field.password").sendKeys("New@ols2");
+        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("label", "Sign in");
+        params.put("timeout", 15);
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
+
+        try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+
+
+
+/*
+
+        Map<String, Object> params4 = new HashMap<>();
+        params4.put("text", Secured_dpw);
+        params4.put("by", "xpath");
+        params4.put("value", "//XCUIElementTypeSecureTextField");
+        DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
+
+*/
+
+
+
+
+        // new QAFExtendedWebElement("debug.next").click();
+
+          //  new QAFExtendedWebElement("login.next.iphone").click();
+         //  new QAFExtendedWebElement("debug.pw").click();
+
+
+
+
+/*
+        Map<String, Object> params4 = new HashMap<>();
+        params4.put("text", "yaron");
+        params4.put("by", "xpath");
+        params4.put("value", "//*[@value=\"Password\"]");
+        DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
+
+
+        // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
+
+
+        */
+     //   new QAFExtendedWebElement("login.signin.btn").click();
+        // 2 validations of home page loading
+        UBSUtils.validateHomePage();
+
+    }
+
 
     @Then("check milestone")
     public void checkMilestone() {
@@ -114,7 +222,7 @@ public class UBSStepDefs {
             try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("home").isPresent();
             new QAFExtendedWebElement("home").click();
-            UBSUtils.validateHomePage();
+            UBSUtils.validateShortHomePage();
 
         } else {
 
@@ -132,7 +240,8 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("retirement").isDisplayed();
             try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("home").click();
-            UBSUtils.validateHomePage();
+            UBSUtils.validateShortHomePage();
+
 
         }
     }
@@ -171,7 +280,8 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("deposit.check").click();
             new QAFExtendedWebElement("noaccount").isDisplayed();
             new QAFExtendedWebElement("home").click();
-            UBSUtils.validateHomePage();
+            UBSUtils.validateShortHomePage();
+
 
 
 
@@ -412,7 +522,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("back").click();
             new QAFExtendedWebElement("home").click();
         }
-       UBSUtils.validateHomePage();
+        UBSUtils.validateShortHomePage();
     }
     @Then("create milestone")
     public void createMilestone() {
@@ -452,7 +562,8 @@ public class UBSStepDefs {
         new QAFExtendedWebElement("milestone.delete").click();
         new QAFExtendedWebElement("milestone.delete.confirm").click();
         new QAFExtendedWebElement("home").click();
-        UBSUtils.validateHomePage();
+        UBSUtils.validateShortHomePage();
+
 
     }
 
@@ -603,7 +714,8 @@ public class UBSStepDefs {
             params4.put("label","PUBLIC:monitoring/ipad_home.png");
             params4.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
-            UBSUtils.validateHomePage();
+            UBSUtils.validateShortHomePage();
+
 
         }
 
@@ -666,7 +778,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("contact").click();
             new QAFExtendedWebElement("tollfree").isDisplayed();
             new QAFExtendedWebElement("close").click();
-            UBSUtils.validateHomePage();
+            UBSUtils.validateShortHomePage();
         }
 
     }
@@ -690,7 +802,8 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("profile.iphone.team").click();
             new QAFExtendedWebElement("profile.iphone.advice").isDisplayed();
             new QAFExtendedWebElement("home").click();
-            UBSUtils.validateHomePage();
+            UBSUtils.validateShortHomePage();
+
 
         }else {
             new QAFExtendedWebElement("main.profile").click();

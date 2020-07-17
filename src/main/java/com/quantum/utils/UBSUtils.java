@@ -13,6 +13,10 @@ public class UBSUtils  {
         DeviceUtils.waitForPresentTextVisual("total Assets",60);
 
     }
+    public static void validateShortHomePage() {
+        new QAFExtendedWebElement("main.net.balance").isDisplayed();
+
+    }
     public static boolean validateAmount(String str) {
 
         // get 1st character and check it is a dollar symbol

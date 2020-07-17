@@ -8,23 +8,24 @@
     <!-- by driverClass property in env.resources dirs -->
     <!-- Set driver.name value to perfectoDriver       -->
     <parameter name="driver.name" value="perfectoDriver"/>
- <parameter name="driver.capabilities.securityToken" value="${securityToken}"></parameter>
+ <parameter name="driver.capabilities.securityToken" value="eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJVdmF2bzZqTXBicU9MUmF3UzRaVjVWaFY2WURUY2hYWGxSY2puUXNENTdzIn0.eyJqdGkiOiJhMTYyOWVlMC0wODI2LTRiNzMtOTNhYi0yNDNmODVmMjY3MmMiLCJleHAiOjAsIm5iZiI6MCwiaWF0IjoxNTY2Mzk1Njk2LCJpc3MiOiJodHRwczovL2F1dGgucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL3Vicy1wZXJmZWN0b21vYmlsZS1jb20iLCJhdWQiOiJvZmZsaW5lLXRva2VuLWdlbmVyYXRvciIsInN1YiI6ImRkZWE0Yjk0LWQ0NjgtNDUwNS1iZTg2LTc0OGE1MzRhNmRiNSIsInR5cCI6Ik9mZmxpbmUiLCJhenAiOiJvZmZsaW5lLXRva2VuLWdlbmVyYXRvciIsIm5vbmNlIjoiNzlkYWVlNWEtMGNhZS00YTZlLTg4ZDktZDYzZjNhYjFlOGJhIiwiYXV0aF90aW1lIjowLCJzZXNzaW9uX3N0YXRlIjoiNzNjNDgyMDAtZjIxNC00Y2QwLTkzMmUtMjJkMWRkNDM0NTdiIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19fQ.r2H2HhZoOoAaIFylSLnTj-a6GacKMJywdMPn5Dz9FiTpxLLoTNPwnweDa9MJwaZ_1hQ9tcw81Jizxy_1O_7oYbSe1r5Aiu4-5UxJQm60JlfUDVQM3s2132BSFOBDWKlQFJbQuISI6s24PtqLCsveUCOdXxsDOeoBjD3w3TeO0Uyckhf0mw4Q7YvnScUf32ORaVZAEs_1KfwXjEiEVeVAu5lpLKSkMohCjJGkl9UFs1YMzsEq4blVY6t0IqQIjAt8AaEumjQLThu24uDIvaj2RabPGK1O9LeJCD15I_Nb_M74l3GtqKz3UulA3p6O0BdYIRPIrVYQKuX8iO7KbF41rw"></parameter>
 
 
 
     <test name="iPhone CDX" enabled="true">
-        <parameter name="driver.capabilities.deviceName" value="00008030-000578803688802E"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="97B03AC56696A58D4B03C91F2291D7D8FF082B98"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
             <run>
-                <include name="@cdxiPhone"/>
+                <include name="@debug"/>
             </run>
         </groups>
         <classes>
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
+ <!--
     <test name="iPhone CDX 2" enabled="true">
         <parameter name="driver.capabilities.deviceName" value="00008030-001554A61450802E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
@@ -38,6 +39,7 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
+    -->
 
 
 </suite>
