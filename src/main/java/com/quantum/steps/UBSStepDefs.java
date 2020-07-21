@@ -288,7 +288,7 @@ public class UBSStepDefs {
         } else {
             new QAFExtendedWebElement("banking.services").click();
             // At a glance
-            new QAFExtendedWebElement("glance").click();
+         //   new QAFExtendedWebElement("glance").click();
             new QAFExtendedWebElement("glance.recent").isDisplayed();
             String a = new QAFExtendedWebElement("glance.value").getText();
             System.out.println("glance value is: " + a);
