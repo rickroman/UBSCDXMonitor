@@ -292,11 +292,14 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("glance.recent").isDisplayed();
             String a = new QAFExtendedWebElement("glance.value").getText();
             System.out.println("glance value is: " + a);
+            if(!UBSUtils.validateAmount(a)) {throw new RuntimeException("No dollar amount has loaded: " + a); }
 
 
 
             //  return home
             new QAFExtendedWebElement("profile.back").click();
+            new QAFExtendedWebElement("home").click();
+
             UBSUtils.validateShortHomePage();
 
 
