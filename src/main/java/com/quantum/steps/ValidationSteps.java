@@ -27,7 +27,7 @@ public class ValidationSteps {
         if (UBSUtils.getModel().equalsIgnoreCase("iphone")) {
 
 
-            String a = new QAFExtendedWebElement(" iphone.cash.glance").getText();
+            String a = new QAFExtendedWebElement("iphone.cash.glance").getText();
             System.out.println("cash at a glance: " + a);
             if (!UBSUtils.validateAmount(a)) {
                 throw new RuntimeException("No dollar amount has loaded: " + a);
