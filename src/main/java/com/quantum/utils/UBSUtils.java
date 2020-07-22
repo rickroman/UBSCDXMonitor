@@ -12,6 +12,30 @@ public class UBSUtils  {
         new QAFExtendedWebElement("main.net.balance").isDisplayed();
         DeviceUtils.waitForPresentTextVisual("total Assets",60);
 
+        Map<String, Object> params2 = new HashMap<>();
+        params2.put("content", "cash at a glance");
+        params2.put("scrolling", "scroll");
+        params2.put("next","SWIPE=(50%,85%),(50%,55%)");
+        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+
+
+
+        String a = new QAFExtendedWebElement("home.glance").getText();
+        System.out.println("cash at a glance: " + a);
+        if(!UBSUtils.validateAmount(a)) {throw new RuntimeException("No dollar amount has loaded: " + a); }
+
+
+
+        // scroll back up
+        Map<String, Object> params = new HashMap<>();
+        params.put("content","\"net balance\", \"includes ubs and external accounts\"");
+        params.put("scrolling","scroll");
+        params.put("target","any");
+        params.put("next","SWIPE=(50%,55%),(50%,85%)");
+        params.put("maxscroll",10);
+        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
+
+
     }
     public static void validateShortHomePage() {
         new QAFExtendedWebElement("main.net.balance").isDisplayed();
