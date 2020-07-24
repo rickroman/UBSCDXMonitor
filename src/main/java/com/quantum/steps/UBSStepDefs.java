@@ -508,6 +508,13 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("iphone.priorday").isPresent();
             new QAFExtendedWebElement("iphone.intraday").click();
             new QAFExtendedWebElement("iphone.holdings.cash").isPresent();
+
+            String holdingsCash = new QAFExtendedWebElement("iphone.holdings.cashTotal").getText();
+            System.out.println("hold cash:" + holdingsCash);
+            if(!UBSUtils.validateAmount(holdingsCash)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsCash); }
+
+
+
             new QAFExtendedWebElement("iphone.all").click();
             new QAFExtendedWebElement("iphone.total.value").isPresent();
             new QAFExtendedWebElement("iphone.ubs").click();
