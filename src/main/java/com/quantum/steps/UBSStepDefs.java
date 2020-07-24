@@ -301,6 +301,11 @@ public class UBSStepDefs {
             System.out.println("glance value is: " + a);
             if(!UBSUtils.validateAmount(a)) {throw new RuntimeException("No dollar amount has loaded: " + a); }
 
+            // transfer funds
+            new QAFExtendedWebElement("transfer.funds").click();
+            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
+            new QAFExtendedWebElement("funds.move").isPresent();
+            new QAFExtendedWebElement("banking.services").click();
 
 
             //  return home
