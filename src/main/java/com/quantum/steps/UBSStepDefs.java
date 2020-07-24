@@ -309,12 +309,21 @@ public class UBSStepDefs {
 
             // pay bills
             new QAFExtendedWebElement("Pay Bills").click();
-            new QAFExtendedWebElement("bills").isDisplayed();
-
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("content", "pay bills outside");
+            params2.put("timeout", 20);
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
             // pay credit card
-            new QAFExtendedWebElement("pay.ubs").click();
-            new QAFExtendedWebElement("pay.credit").isDisplayed();
+            new QAFExtendedWebElement("ipad.credit").click();
+            Map<String, Object> params = new HashMap<>();
+            params.put("content", "credit card payment");
+            params.put("timeout", 20);
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
+
+            // deposit check
+            new QAFExtendedWebElement("deposit.check").click();
+            new QAFExtendedWebElement("noaccount").isDisplayed();
 
 
             //  return home
