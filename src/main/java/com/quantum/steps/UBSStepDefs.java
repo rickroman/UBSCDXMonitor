@@ -619,7 +619,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("accounts.activity").click();
             new QAFExtendedWebElement("activity.type").isDisplayed();
             //check number of first activity
-           String a =  new QAFExtendedWebElement("activity.amounts").findElements("activity.amounts").get(1).toString();
+           String a =  new QAFExtendedWebElement("activity.amounts").findElements("activity.amounts").get(0).toString();
            System.out.println("activity amount: " + a);
 
             // Financial tools
