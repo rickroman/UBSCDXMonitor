@@ -601,6 +601,10 @@ public class UBSStepDefs {
             System.out.println("holding grand total:" + holdingsGrandTotal);
             if(!UBSUtils.validateNumber(holdingsGrandTotal)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsGrandTotal); }
 
+            String holdingsAmount =  new QAFExtendedWebElement("activity.amounts").findElements("activity.amounts").get(0).getText();
+            System.out.println("holdings amount: " + holdingsAmount);
+            if(!UBSUtils.validateNumber(holdingsAmount)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsAmount); }
+
 
 
             new QAFExtendedWebElement("ubs").click();
@@ -627,8 +631,10 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("accounts.activity").click();
             new QAFExtendedWebElement("activity.type").isDisplayed();
             //check number of first activity
-           String a =  new QAFExtendedWebElement("activity.amounts").findElements("activity.amounts").get(0).toString();
+           String a =  new QAFExtendedWebElement("activity.amounts").findElements("activity.amounts").get(0).getText();
            System.out.println("activity amount: " + a);
+            if(!UBSUtils.validateNumber(a)) {throw new RuntimeException("No dollar amount has loaded: " + a); }
+
 
             // Financial tools
             new QAFExtendedWebElement("accounts.financial.tools").click();
