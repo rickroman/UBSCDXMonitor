@@ -670,6 +670,8 @@ public class UBSStepDefs {
             params2.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
             new QAFExtendedWebElement("relationship.community").isDisplayed();
+
+
             new QAFExtendedWebElement("relationship.team").click();
             new QAFExtendedWebElement("relationship.advice").isDisplayed();
             new QAFExtendedWebElement("menu.iphone").click();
@@ -679,6 +681,12 @@ public class UBSStepDefs {
 
 
             new QAFExtendedWebElement("profile.relationship").click();
+            //close to me
+
+            // external professionals
+            new QAFExtendedWebElement("external.pro").click();
+            new QAFExtendedWebElement("relationship.community").click();
+            new QAFExtendedWebElement("community.bsa").isDisplayed();
             new QAFExtendedWebElement("profile.team").click();
 
             Map<String, Object> params2 = new HashMap<>();
