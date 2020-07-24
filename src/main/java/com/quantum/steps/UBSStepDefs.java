@@ -236,11 +236,13 @@ public class UBSStepDefs {
 
             //click on article
             Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "resources");
+            params2.put("label", "Resources");
+            params2.put("ignorecase","case");
             params2.put("timeout", 30);
             params2.put("label.direction","Below");
-            params2.put("label.offset","8%");
+            params2.put("label.offset","9%");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+            try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
 
             new QAFExtendedWebElement("xbutton").click();
             new QAFExtendedWebElement("milestones.page").isDisplayed();
