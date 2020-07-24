@@ -595,6 +595,14 @@ public class UBSStepDefs {
 
             // click on holdings & validate
             new QAFExtendedWebElement("accounts.holdings").click();
+
+            // check holdings values
+            String holdingsGrandTotal = new QAFExtendedWebElement("ipad.holdings.grandTotal").getText();
+            System.out.println("holding grand total:" + holdingsGrandTotal);
+            if(!UBSUtils.validateNumber(holdingsGrandTotal)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsGrandTotal); }
+
+
+
             new QAFExtendedWebElement("ubs").click();
             new QAFExtendedWebElement("holdings.ubs.change").isPresent();
             // check prior day
