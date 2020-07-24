@@ -307,6 +307,15 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("funds.move").isPresent();
             new QAFExtendedWebElement("banking.services").click();
 
+            // pay bills
+            new QAFExtendedWebElement("Pay Bills").click();
+            new QAFExtendedWebElement("bills").isDisplayed();
+
+
+            // pay credit card
+            new QAFExtendedWebElement("pay.ubs").click();
+            new QAFExtendedWebElement("pay.credit").isDisplayed();
+
 
             //  return home
             new QAFExtendedWebElement("profile.back").click();
