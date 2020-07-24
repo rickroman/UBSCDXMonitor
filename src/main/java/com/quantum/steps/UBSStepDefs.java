@@ -218,6 +218,32 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("mile.scouts").click();
             new QAFExtendedWebElement("mile.bsa").isDisplayed();
             new QAFExtendedWebElement("mile.resources").isDisplayed();
+
+
+
+            //click on article
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("label", "donation to the scouts");
+            params2.put("timeout", 30);
+            params2.put("label.direction","Above");
+            params2.put("label.offset","35%");
+
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+
+
+            Map<String, Object> params = new HashMap<>();
+            params.put("label", "done");
+            params.put("timeout", 30);
+            params.put("screen.top","0%");
+            params.put("screen.height","13%");
+            params.put("screen.width","100%");
+            params.put("screen.left","0%");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
+
+
+
             new QAFExtendedWebElement("mile.back").click();
             try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("home").isPresent();
@@ -242,7 +268,7 @@ public class UBSStepDefs {
             params2.put("label.direction","Above");
             params2.put("label.offset","9%");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-            try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
+            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
 
             new QAFExtendedWebElement("xbutton").click();
             new QAFExtendedWebElement("milestones.page").isDisplayed();
