@@ -518,8 +518,6 @@ public class UBSStepDefs {
             System.out.println("holding cash total:" + holdingsCashTotal);
             if(!UBSUtils.validateNumber(holdingsCashTotal)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsCashTotal); }
 
-            // scrolling to equity and validating
-
 
             new QAFExtendedWebElement("iphone.all").click();
             new QAFExtendedWebElement("iphone.total.value").isPresent();
@@ -535,6 +533,15 @@ public class UBSStepDefs {
             params2.put("content", "Filter");
             params2.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+
+
+            // validating first activity
+            new QAFExtendedWebElement("iphone.activity.first").click();
+            String activityAmount = new QAFExtendedWebElement("activity.amount").getText();
+            if(!UBSUtils.validateNumber(activityAmount)) {throw new RuntimeException("No activity amount has loaded: " + activityAmount); }
+            new QAFExtendedWebElement("activity.back").click();
+
+
 
 
             // Financial tools
