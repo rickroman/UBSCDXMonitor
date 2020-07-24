@@ -514,7 +514,7 @@ public class UBSStepDefs {
             if(!UBSUtils.validateNumber(holdingsGrandTotal)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsGrandTotal); }
 
 
-            String holdingsCashTotal = new QAFExtendedWebElement("iphone.holdings.grandTotal").getText();
+            String holdingsCashTotal = new QAFExtendedWebElement("iphone.holdings.cashTotal").getText();
             System.out.println("holding cash total:" + holdingsCashTotal);
             if(!UBSUtils.validateNumber(holdingsCashTotal)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsCashTotal); }
 
