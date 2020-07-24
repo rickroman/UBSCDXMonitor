@@ -233,12 +233,27 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("mile.scouts").click();
             new QAFExtendedWebElement("mile.bsa").isDisplayed();
 
-            Map<String, Object> params = new HashMap<>();
+
+            //click on article
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("label", "resources");
+            params2.put("timeout", 30);
+            params2.put("label.direction","Below");
+            params2.put("label.offset","8%");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+
+            new QAFExtendedWebElement("xbutton").click();
+            new QAFExtendedWebElement("milestones.page").isDisplayed();
+
+
+           /* Map<String, Object> params = new HashMap<>();
             params.put("label","PUBLIC:monitoring/milestones_ipad_back.png");
             params.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
             new QAFExtendedWebElement("retirement").isDisplayed();
             try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+            */
             new QAFExtendedWebElement("home").click();
             UBSUtils.validateShortHomePage();
 
