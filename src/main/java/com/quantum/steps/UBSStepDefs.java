@@ -222,6 +222,7 @@ public class UBSStepDefs {
 
 
             //click on article
+            System.out.println("milestone article");
             Map<String, Object> params2 = new HashMap<>();
             params2.put("label", "donation to the scouts");
             params2.put("timeout", 30);
