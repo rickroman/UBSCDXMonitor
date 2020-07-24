@@ -39,6 +39,39 @@ public class UBSUtils  {
 
     }
 
+    public static boolean validateNumber(String str) {
+
+        // get 1st character and check it is a dollar symbol
+        String d = str.substring(0,1);
+        String n = str.substring(1,6);
+        n = n.replace(",","");
+        n = n.replace(".","");
+        if(d.equalsIgnoreCase("$")){
+
+            if(isNumeric(n)) {
+               System.out.println("number validated: " + n);
+                return true;
+            }
+            // check number is positive
+        }
+
+        return false;
+    }
+
+
+
+    public static boolean isNumeric(String strNum) {
+        if (strNum == null) {
+            return false;
+        }
+        try {
+            double d = Double.parseDouble(strNum);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
+    }
+
     public static String getModel() {
         //  String device = "";
 

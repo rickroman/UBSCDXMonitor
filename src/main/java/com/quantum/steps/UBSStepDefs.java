@@ -508,11 +508,17 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("iphone.priorday").isPresent();
             new QAFExtendedWebElement("iphone.intraday").click();
             new QAFExtendedWebElement("iphone.holdings.cash").isPresent();
+            //validate cash & total values are numbers
+            String holdingsGrandTotal = new QAFExtendedWebElement("iphone.holdings.grandTotal").getText();
+            System.out.println("holding grand total:" + holdingsGrandTotal);
+            if(!UBSUtils.validateNumber(holdingsGrandTotal)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsGrandTotal); }
 
-            String holdingsCash = new QAFExtendedWebElement("iphone.holdings.cashTotal").getText();
-            System.out.println("hold cash:" + holdingsCash);
-            if(!UBSUtils.validateAmount(holdingsCash)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsCash); }
 
+            String holdingsCashTotal = new QAFExtendedWebElement("iphone.holdings.grandTotal").getText();
+            System.out.println("holding cash total:" + holdingsCashTotal);
+            if(!UBSUtils.validateNumber(holdingsCashTotal)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsCashTotal); }
+
+            // scrolling to equity and validating
 
 
             new QAFExtendedWebElement("iphone.all").click();
