@@ -41,6 +41,19 @@ public class UBSUtils  {
 
     public static boolean validateNumber(String str) {
 
+        // check if first character is a minus sign
+        String one = str.substring(0,1);
+        if(one.equalsIgnoreCase("-")){
+            System.out.println("negative number");
+            str = str.replace("-","");
+
+        }
+
+
+
+
+
+
         // get 1st character and check it is a dollar symbol
         String d = str.substring(0,1);
         String n = str.substring(1,3);
@@ -52,7 +65,6 @@ public class UBSUtils  {
                System.out.println("number validated: " + n);
                 return true;
             }
-            // check number is positive
         }
 
         return false;
