@@ -25,6 +25,19 @@ public class UBSStepDefs {
     private static final String Secured_uname = "secured./h2sxa3ub4PCwXhsgCxWJQ==";
     private static final String Secured_pw = "secured.Xh05tx5pw3z3iyHVTztGsQ==";
 
+
+    @Then("^I restart all devices$")
+    public void daily_restart(){
+
+        Map<String, Object> params = new HashMap<>();
+        DeviceUtils.getQAFDriver().executeScript("mobile:device:ready", params);
+        try {Thread.sleep(3000); } catch (InterruptedException e) {}
+        Map<String, Object> pars = new HashMap<>();
+        DeviceUtils.getQAFDriver().executeScript("mobile:handset:reboot", pars);
+        try {Thread.sleep(10000); } catch (InterruptedException e) {}
+    }
+
+
     // public String os = new QAFExtendedWebElement().getDescription();
 
     @When("I launch CDX")
