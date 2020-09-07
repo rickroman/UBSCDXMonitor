@@ -108,7 +108,7 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
 
             new QAFExtendedWebElement("login.next.iphone").click();
-            new QAFExtendedWebElement("field.password.iphone").click();
+         //   new QAFExtendedWebElement("field.password.iphone").click();
 
 
 
@@ -119,7 +119,6 @@ public class UBSStepDefs {
         DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
 
 
-        // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
         new QAFExtendedWebElement("login.signin.btn").click();
         // 2 validations of home page loading
         UBSUtils.validateHomePage();
