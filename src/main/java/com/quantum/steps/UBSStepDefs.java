@@ -24,8 +24,8 @@ public class UBSStepDefs {
 
     private static final String Secured_uname = "secured./h2sxa3ub4PCwXhsgCxWJQ==";
     private static final String Secured_pw = "secured.Xh05tx5pw3z3iyHVTztGsQ==";
-    private static final String Secured_adv_uname = "g6OxnA4oUX8nXWlKWJdBBw==";
-    private static final String Secured_adv_pw = "AsF9GOU366inlD9jtNAKig==";
+    private static final String Secured_adv_uname = "secured.g6OxnA4oUX8nXWlKWJdBBw==";
+    private static final String Secured_adv_pw = "secured.AsF9GOU366inlD9jtNAKig==";
 
 
 
@@ -102,7 +102,7 @@ public class UBSStepDefs {
 
             //declare the Map for script parameters
             Map<String, Object> params = new HashMap<>();
-            params.put("text", Secured_adv_uname);
+            params.put("text",Secured_adv_uname);
             params.put("by", "xpath");
             params.put("value", "//*[@value=\"Username\"]");
             DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
