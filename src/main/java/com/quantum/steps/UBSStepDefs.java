@@ -24,6 +24,9 @@ public class UBSStepDefs {
 
     private static final String Secured_uname = "secured./h2sxa3ub4PCwXhsgCxWJQ==";
     private static final String Secured_pw = "secured.Xh05tx5pw3z3iyHVTztGsQ==";
+    private static final String Secured_adv_uname = "g6OxnA4oUX8nXWlKWJdBBw==";
+    private static final String Secured_adv_pw = "AsF9GOU366inlD9jtNAKig==";
+
 
 
     @Then("^I restart all devices$")
@@ -92,6 +95,23 @@ public class UBSStepDefs {
         }
         DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
     }
+
+    @When("Advice Login to CDX")
+    public void adviceLoginCDX() {
+
+
+            //declare the Map for script parameters
+            Map<String, Object> params = new HashMap<>();
+            params.put("text", Secured_adv_uname);
+            params.put("by", "xpath");
+            params.put("value", "//*[@value=\"Username\"]");
+            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
+
+            new QAFExtendedWebElement("login.next.iphone").click();
+            new QAFExtendedWebElement("field.password.iphone").click();
+
+        }
+
     @When("Login to CDX")
     public void loginCDX() {
 
@@ -106,6 +126,18 @@ public class UBSStepDefs {
 
             new QAFExtendedWebElement("login.next.iphone").click();
             new QAFExtendedWebElement("field.password.iphone").click();
+
+
+            Map<String, Object> params4 = new HashMap<>();
+            params4.put("text", Secured_adv_pw);
+            params4.put("by", "xpath");
+            params4.put("value", "//XCUIElementTypeSecureTextField");
+            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
+
+
+            new QAFExtendedWebElement("login.signin.btn").click();
+            // 2 validations of home page loading
+            UBSUtils.validateHomePage();
 
         }else {
             // enter credentials
@@ -961,6 +993,12 @@ public class UBSStepDefs {
         }
 
     }
+
+    @Then("Check Advice Section")
+    public void checkAdvice() {
+
+    }
+
     @Then("logout of CDX")
     public void logoutCDX() {
         if(UBSUtils.getModel().equals("iphone")) {
