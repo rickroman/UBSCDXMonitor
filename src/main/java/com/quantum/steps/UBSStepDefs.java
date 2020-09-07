@@ -102,13 +102,27 @@ public class UBSStepDefs {
 
             //declare the Map for script parameters
             Map<String, Object> params = new HashMap<>();
-            params.put("text",Secured_adv_uname);
+            params.put("text", Secured_adv_uname);
             params.put("by", "xpath");
             params.put("value", "//*[@value=\"Username\"]");
             DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
 
             new QAFExtendedWebElement("login.next.iphone").click();
             new QAFExtendedWebElement("field.password.iphone").click();
+
+
+
+        Map<String, Object> params4 = new HashMap<>();
+        params4.put("text", Secured_adv_pw);
+        params4.put("by", "xpath");
+        params4.put("value", "//XCUIElementTypeSecureTextField");
+        DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
+
+
+        // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
+        new QAFExtendedWebElement("login.signin.btn").click();
+        // 2 validations of home page loading
+        UBSUtils.validateHomePage();
 
         }
 
@@ -129,7 +143,7 @@ public class UBSStepDefs {
 
 
             Map<String, Object> params4 = new HashMap<>();
-            params4.put("text", Secured_adv_pw);
+            params4.put("text", Secured_pw);
             params4.put("by", "xpath");
             params4.put("value", "//XCUIElementTypeSecureTextField");
             DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
