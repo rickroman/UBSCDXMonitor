@@ -1009,6 +1009,18 @@ public class UBSStepDefs {
 
     @Then("Check Advice Section")
     public void checkAdvice() {
+        new QAFExtendedWebElement("advice").click();
+        new QAFExtendedWebElement("explore.advice").isDisplayed();
+        new QAFExtendedWebElement("zero.accounts").click();
+        new QAFExtendedWebElement("select.accounts").isPresent();
+        new QAFExtendedWebElement("advice.cancel").click();
+        new QAFExtendedWebElement("explore.advice").isDisplayed();
+
+
+        // check fa
+
+
+
 
     }
 
