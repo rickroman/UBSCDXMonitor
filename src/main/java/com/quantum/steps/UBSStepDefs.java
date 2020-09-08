@@ -1027,10 +1027,10 @@ public class UBSStepDefs {
         params2.put("next","SWIPE=(50%,85%),(50%,55%)");
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
-        try {Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+        try {Thread.sleep(6000); } catch (InterruptedException e) { e.printStackTrace(); }
 
         Map<String, Object> params3 = new HashMap<>();
-        params3.put("label","Contact your financial advisor");
+        params3.put("label","Contact your financial");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
 
         Map<String, Object> params4 = new HashMap<>();
