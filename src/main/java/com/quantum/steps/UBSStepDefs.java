@@ -158,7 +158,11 @@ public class UBSStepDefs {
             Map<String, Object> params = new HashMap<>();
             params.put("content", "Username");
             DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
-            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
             Map<String, Object> params3 = new HashMap<>();
             params3.put("text", Secured_uname);
@@ -166,23 +170,22 @@ public class UBSStepDefs {
             params3.put("value", "//XCUIElementTypeTextField");
             DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params3);
 
-         //   new QAFExtendedWebElement("field.username").sendKeys("securetest66");
+            //   new QAFExtendedWebElement("field.username").sendKeys("securetest66");
             new QAFExtendedWebElement("login.next").click();
-        }
 
 
-
-        Map<String, Object> params4 = new HashMap<>();
+            Map<String, Object> params4 = new HashMap<>();
             params4.put("text", Secured_pw);
             params4.put("by", "xpath");
             params4.put("value", "//XCUIElementTypeSecureTextField");
-        DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
+            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
 
 
-       // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
-        new QAFExtendedWebElement("login.signin.btn").click();
-        // 2 validations of home page loading
-        UBSUtils.validateHomePage();
+            // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
+            new QAFExtendedWebElement("login.signin.btn").click();
+            // 2 validations of home page loading
+            UBSUtils.validateHomePage();
+        }
 
     }
     @When("debug_Login to CDX")
