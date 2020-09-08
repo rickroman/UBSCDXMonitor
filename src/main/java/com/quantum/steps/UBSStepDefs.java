@@ -1021,6 +1021,11 @@ public class UBSStepDefs {
 
 
 
+        new QAFExtendedWebElement("home").click();
+
+
+
+
 
     }
 
