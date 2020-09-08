@@ -1022,16 +1022,21 @@ public class UBSStepDefs {
 
         // check fa
         Map<String, Object> params2 = new HashMap<>();
-        params2.put("label","Contact your financial advisor");
+        params2.put("content","Contact your financial advisor");
         params2.put("scrolling", "scroll");
         params2.put("next","SWIPE=(50%,85%),(50%,55%)");
-        params2.put("target","all");
-        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+
+        try {Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
 
         Map<String, Object> params3 = new HashMap<>();
-        params3.put("content", "toll free");
-        params3.put("timeout", "30");
-        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+        params3.put("label","Contact your financial advisor");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
+
+        Map<String, Object> params4 = new HashMap<>();
+        params4.put("content", "toll free");
+        params4.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params4);
 
         new QAFExtendedWebElement("advisor.close").click();
         new QAFExtendedWebElement("home").click();
