@@ -11,12 +11,11 @@
     <parameter name="driver.capabilities.securityToken" value="${securityToken}"></parameter>
 
 
-    <test name="iPad CDX 1" enabled="true">
+    <test name="iPad CDX 1" enabled="false">
 
 
-        <parameter name="driver.capabilities.deviceName" value="00008027-001E79C636E3002E"></parameter>
 
-    <!--    <parameter name="driver.capabilities.deviceName" value="00008027-000120391E85002E"></parameter> -->
+        <parameter name="driver.capabilities.deviceName" value="00008027-000120391E85002E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
@@ -28,7 +27,7 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-    <!--
+
     <test name="iPad CDX 2" enabled="true">
         <parameter name="driver.capabilities.deviceName" value="00008027-000269683E85002E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
@@ -43,6 +42,7 @@
         </classes>
     </test>
 
--->
+
 
 </suite>
+
