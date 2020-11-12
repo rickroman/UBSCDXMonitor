@@ -38,6 +38,12 @@ public class UBSStepDefs {
         Map<String, Object> pars = new HashMap<>();
         DeviceUtils.getQAFDriver().executeScript("mobile:handset:reboot", pars);
         try {Thread.sleep(10000); } catch (InterruptedException e) {}
+
+        Map<String, Object> pars2 = new HashMap<>();
+        DeviceUtils.getQAFDriver().executeScript("mobile:handset:recover", pars2);
+        try {Thread.sleep(10000); } catch (InterruptedException e) {}
+
+
     }
 
 
