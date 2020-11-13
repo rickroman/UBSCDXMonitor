@@ -128,6 +128,8 @@ public class UBSStepDefs {
 
             new QAFExtendedWebElement("login.signin.btn").click();
             // 2 validations of home page loading
+
+           UBSUtils.declineFaceID();
             UBSUtils.validateHomePage();
 
         }else {

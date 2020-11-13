@@ -16,6 +16,23 @@ public class UBSUtils  {
 
     }
 
+    public static void declineFaceID() {
+
+
+        Map<String, Object> params3 = new HashMap<>();
+        params3.put("content", "Enable Face ID");
+        params3.put("timeout", "30");
+        String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+
+        if (result.equalsIgnoreCase("true")) {
+            //successful checkpoint code
+            Map<String, Object> params = new HashMap<>();
+            params.put("content", "Not Now");
+            DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+        }
+    }
+
+
 
     public static void validateShortHomePage() {
         new QAFExtendedWebElement("main.net.balance").isDisplayed();
