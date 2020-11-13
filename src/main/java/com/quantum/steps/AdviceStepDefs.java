@@ -67,10 +67,10 @@ public class AdviceStepDefs {
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
         try {Thread.sleep(6000); } catch (InterruptedException e) { e.printStackTrace(); }
-
+        // tap 562 2239
         Map<String, Object> params3 = new HashMap<>();
-        params3.put("label","Contact your financial");
-        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
+        params3.put("location","562,2239,562,2239");
+        DeviceUtils.getQAFDriver().executeScript("mobile:mobile:touch:tap", params3);
 
         Map<String, Object> params4 = new HashMap<>();
         params4.put("content", "toll free");
