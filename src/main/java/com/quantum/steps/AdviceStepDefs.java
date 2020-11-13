@@ -51,7 +51,9 @@ public class AdviceStepDefs {
     }
     @Then("Check Advice Section")
     public void checkAdvice() {
-        new QAFExtendedWebElement("advice").click();
+
+        randomlySelectAdvantage();
+
         new QAFExtendedWebElement("explore.advice").isDisplayed();
         new QAFExtendedWebElement("zero.accounts").click();
         new QAFExtendedWebElement("select.accounts").isPresent();
@@ -84,6 +86,41 @@ public class AdviceStepDefs {
 
 
 
+    }
+
+    private void randomlySelectAdvantage() {
+
+        int coin = coinToss();
+        System.out.println("coin came up:" + coin);
+
+        switch(coin) {
+            case 0:
+                new QAFExtendedWebElement("advice").click();
+
+                break;
+            case 1:
+                Map<String, Object> params2 = new HashMap<>();
+                params2.put("content","View your proposed portfolio");
+                params2.put("scrolling", "scroll");
+                params2.put("next","SWIPE=(50%,85%),(50%,55%)");
+                DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+
+                new QAFExtendedWebElement("advice").click();
+
+                break;
+            default:
+                // code block
+
+        }
+
+
+
+    }
+
+    private static int coinToss(){
+        double rAsFloat = 1 * (2 + Math.random( ) );
+        int r = (int)rAsFloat;
+        return r;
     }
 
 }
