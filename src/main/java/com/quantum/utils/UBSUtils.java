@@ -25,7 +25,7 @@ public class UBSUtils  {
 
         // get 1st character and check it is a dollar symbol
         String e = str.substring(0, 1);
-        String n = str.substring(1, 6);
+        String n = str.substring(1, 4);
         n = n.replace(",", "");
         n = n.replace(".", "");
         if (e.equalsIgnoreCase("$")) {
