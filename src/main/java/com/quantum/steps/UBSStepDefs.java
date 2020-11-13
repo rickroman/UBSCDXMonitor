@@ -24,8 +24,7 @@ public class UBSStepDefs {
 
     private static final String Secured_uname = "secured./h2sxa3ub4PCwXhsgCxWJQ==";
     private static final String Secured_pw = "secured.Xh05tx5pw3z3iyHVTztGsQ==";
-    private static final String Secured_adv_uname = "secured.bCJ359l8IQ5kJGkJP+BDyQ==";
-    private static final String Secured_adv_pw = "secured.AsF9GOU366inlD9jtNAKig==";
+
 
 
 
@@ -102,34 +101,7 @@ public class UBSStepDefs {
         DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
     }
 
-    @When("Advice Login to CDX")
-    public void adviceLoginCDX() {
 
-
-            //declare the Map for script parameters
-            Map<String, Object> params = new HashMap<>();
-            params.put("text", Secured_adv_uname);
-            params.put("by", "xpath");
-            params.put("value", "//*[@value=\"Username\"]");
-            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
-
-            new QAFExtendedWebElement("login.next.iphone").click();
-         //   new QAFExtendedWebElement("field.password.iphone").click();
-
-
-
-        Map<String, Object> params4 = new HashMap<>();
-        params4.put("text", Secured_adv_pw);
-        params4.put("by", "xpath");
-        params4.put("value", "//XCUIElementTypeSecureTextField");
-        DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
-
-
-        new QAFExtendedWebElement("login.signin.btn").click();
-        // 2 validations of home page loading
-        UBSUtils.validateHomePage();
-
-        }
 
     @When("Login to CDX")
     public void loginCDX() {
@@ -1016,42 +988,6 @@ public class UBSStepDefs {
 
     }
 
-    @Then("Check Advice Section")
-    public void checkAdvice() {
-        new QAFExtendedWebElement("advice").click();
-        new QAFExtendedWebElement("explore.advice").isDisplayed();
-        new QAFExtendedWebElement("zero.accounts").click();
-        new QAFExtendedWebElement("select.accounts").isPresent();
-        new QAFExtendedWebElement("advice.cancel").click();
-        new QAFExtendedWebElement("explore.advice").isDisplayed();
-
-
-        // check fa
-        Map<String, Object> params2 = new HashMap<>();
-        params2.put("content","Contact your financial advisor");
-        params2.put("scrolling", "scroll");
-        params2.put("next","SWIPE=(50%,85%),(50%,55%)");
-        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
-
-        try {Thread.sleep(6000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-        Map<String, Object> params3 = new HashMap<>();
-        params3.put("label","Contact your financial");
-        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
-
-        Map<String, Object> params4 = new HashMap<>();
-        params4.put("content", "toll free");
-        params4.put("timeout", "30");
-        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params4);
-
-        new QAFExtendedWebElement("advisor.close").click();
-        new QAFExtendedWebElement("home").click();
-
-
-
-
-
-    }
 
     @Then("logout of CDX")
     public void logoutCDX() {
