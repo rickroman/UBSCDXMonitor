@@ -1,19 +1,16 @@
 package com.quantum.steps;
 
 import com.qmetry.qaf.automation.step.QAFTestStepProvider;
-import com.qmetry.qaf.automation.ui.WebDriverTestBase;
 import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
-import com.qmetry.qaf.automation.util.StringUtil;
 import com.quantum.utils.*;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
 //import javafx.scene.web.WebView;
-import net.bytebuddy.implementation.bytecode.Throw;
 import java.util.Map;
 import java.util.HashMap;
-import java.time.*;
+import java.util.Random;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import com.quantum.utils.UBSUtils;
 
 @QAFTestStepProvider
@@ -93,6 +90,8 @@ public class AdviceStepDefs {
         int coin = coinToss();
         System.out.println("coin came up:" + coin);
 
+
+
         switch(coin) {
             case 0:
                 new QAFExtendedWebElement("advice").click();
@@ -117,10 +116,23 @@ public class AdviceStepDefs {
 
     }
 
-    private static int coinToss(){
-        double rAsFloat = 1 * (2 + Math.random( ) );
-        int r = (int)rAsFloat;
-        return r;
-    }
+
+
+
+        public static int coinToss() {
+            int min = 0;
+            int max = 1;
+            //Generate random double value from 50 to 100
+            System.out.println("Random value in double from "+min+" to "+max+ ":");
+            double random_double = Math.random() * (max - min + 1) + min;
+            System.out.println(random_double);
+
+            //Generate random int value from 50 to 100
+            System.out.println("Random value in int from "+min+" to "+max+ ":");
+            int random_int = (int)(Math.random() * (max - min + 1) + min);
+            System.out.println(random_int);
+            return random_int;
+        }
+
 
 }
