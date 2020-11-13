@@ -32,7 +32,7 @@ public class UBSUtils  {
             // check number is positive
             long i=Long.parseLong(n);
             System.out.println("long is: " + i);
-            if(!(i>0)) { return false; }
+            if(!(i>=0)) { return false; }
             System.out.println("amount validated as positive: " + str);
             return  true;
         }else { return false; }
