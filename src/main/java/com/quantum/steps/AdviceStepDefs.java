@@ -69,7 +69,7 @@ public class AdviceStepDefs {
         try {Thread.sleep(6000); } catch (InterruptedException e) { e.printStackTrace(); }
         // tap 562 2239
         Map<String, Object> params3 = new HashMap<>();
-        params3.put("location","562,2239,562,2239");
+        params3.put("location","663,2061,663,2061");
         DeviceUtils.getQAFDriver().executeScript("mobile:touch:tap", params3);
 
         Map<String, Object> params4 = new HashMap<>();
