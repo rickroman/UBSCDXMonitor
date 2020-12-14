@@ -164,6 +164,7 @@ public class UBSStepDefs {
             // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
             new QAFExtendedWebElement("login.signin.btn").click();
             // 2 validations of home page loading
+            UBSUtils.declineFaceID();
             UBSUtils.validateHomePage();
         }
 
