@@ -17,6 +17,8 @@ import net.bytebuddy.implementation.bytecode.Throw;
 import java.util.Map;
 import java.util.HashMap;
 import java.time.*;
+import java.util.concurrent.TimeUnit;
+
 import com.quantum.utils.UBSUtils;
 
 @QAFTestStepProvider
@@ -639,9 +641,13 @@ public class UBSStepDefs {
 
 
             // click on holdings & validate
+            // set long timeout for holdings page on iPad
+            DeviceUtils.getQAFDriver().manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+
             new QAFExtendedWebElement("accounts.holdings").click();
 
             // check holdings values
+
             String holdingsGrandTotal = new QAFExtendedWebElement("ipad.holdings.grandTotal").getText();
             System.out.println("holding grand total:" + holdingsGrandTotal);
             if(!UBSUtils.validateNumber(holdingsGrandTotal)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsGrandTotal); }
@@ -654,6 +660,9 @@ public class UBSStepDefs {
 
             new QAFExtendedWebElement("ubs").click();
             new QAFExtendedWebElement("holdings.ubs.change").isPresent();
+
+            DeviceUtils.getQAFDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
             // check prior day
 
             try{
