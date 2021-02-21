@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UBSUtils  {
-
+    public static String model = getModel();
     public static void validateHomePage() {
         new QAFExtendedWebElement("main.net.balance").isDisplayed();
         DeviceUtils.waitForPresentTextVisual("total Assets",60);
@@ -28,10 +28,18 @@ public class UBSUtils  {
             String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
             if (result.equalsIgnoreCase("true")) {
-                //successful checkpoint code
-                Map<String, Object> params = new HashMap<>();
-                params.put("content", "Not Now");
-                DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+
+
+
+                if(model.equalsIgnoreCase("iphone")) {
+                    //successful checkpoint code
+                    Map<String, Object> params = new HashMap<>();
+                    params.put("content", "Not Now");
+                    DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+                }else {
+                    new QAFExtendedWebElement("ipad.face.decline").click();
+
+                }
             }
         } catch (Exception e) {
             System.out.println("caught declinefaceID:");
