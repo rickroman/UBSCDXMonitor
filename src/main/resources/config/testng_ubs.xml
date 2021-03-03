@@ -15,7 +15,7 @@
 
 
 
-        <parameter name="driver.capabilities.deviceName" value="00008027-000120391E85002E"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008027-001831D83A6A402E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
@@ -29,7 +29,7 @@
     </test>
 
     <test name="iPad CDX 2" enabled="true">
-        <parameter name="driver.capabilities.deviceName" value="00008027-000269683E85002E"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008027-001831D83A6A402E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
