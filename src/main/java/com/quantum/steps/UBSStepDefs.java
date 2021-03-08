@@ -519,7 +519,11 @@ public class UBSStepDefs {
 
 
             try{
-                new QAFExtendedWebElement("iphone.priorday").isPresent();
+               String prior = String.valueOf(new QAFExtendedWebElement("iphone.priorday").isEnabled());
+               System.out.println("prior day checkbox:" + prior);
+
+
+
             }catch (Exception e) {
                 System.out.println("clicking on ubs");
                 new QAFExtendedWebElement("iphone.ubs").click();
