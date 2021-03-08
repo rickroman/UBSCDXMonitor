@@ -556,6 +556,20 @@ public class UBSStepDefs {
 
             //  new QAFExtendedWebElement("holdings.msg").isDisplayed();
              new QAFExtendedWebElement("holdings.cash").isPresent();
+
+            // switch to ubs if not the default
+
+            try {
+
+                String prior = String.valueOf(new QAFExtendedWebElement("iphone.priorday").isEnabled());
+                System.out.println("prior day balances checkbox:" + prior);
+            }catch (Exception e){
+
+                System.out.println("clicking on ubs at holdings page");
+                new QAFExtendedWebElement("iphone.ubs").click();
+
+            }
+
             new QAFExtendedWebElement("iphone.priorday").isPresent();
             new QAFExtendedWebElement("iphone.intraday").click();
             new QAFExtendedWebElement("iphone.holdings.cash").isPresent();
