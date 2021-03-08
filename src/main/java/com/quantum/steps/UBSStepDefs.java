@@ -519,7 +519,7 @@ public class UBSStepDefs {
 
 
             try{
-                new QAFExtendedWebElement("iphone.priorday").isDisplayed();
+                new QAFExtendedWebElement("iphone.priorday").isPresent();
             }catch (Exception e) {
                 System.out.println("clicking on ubs");
                 new QAFExtendedWebElement("iphone.ubs").click();
