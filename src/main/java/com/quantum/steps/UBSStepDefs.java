@@ -360,6 +360,13 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("transfer.funds").click();
             try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("funds.move").isPresent();
+
+            // check manage scheduled transfers
+            new QAFExtendedWebElement("schedule.transfers").click();
+            new QAFExtendedWebElement("transfering.out").isPresent();
+
+
+
             new QAFExtendedWebElement("banking.services").click();
 
             // pay bills
