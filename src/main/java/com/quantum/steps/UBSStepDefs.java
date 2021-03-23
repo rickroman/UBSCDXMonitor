@@ -1009,6 +1009,15 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
             new QAFExtendedWebElement("profile.iphone.primary").isDisplayed();
 
+
+            // validate meeting page
+            new QAFExtendedWebElement("menu.iphone").click();
+            new QAFExtendedWebElement("profile.meetings").click();
+            new QAFExtendedWebElement("profile.no.meeting").isDisplayed();
+
+
+
+
             new QAFExtendedWebElement("menu.iphone").click();
             Map<String, Object> params = new HashMap<>();
             params.put("label", "Relationships");
