@@ -1063,7 +1063,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("profile.settings").click();
             new QAFExtendedWebElement("ipad.card.security").click();
             new QAFExtendedWebElement("profile.nocard").isDisplayed();
-            new QAFExtendedWebElement("profile.card.back").click();
+            new QAFExtendedWebElement("close").click();
             new QAFExtendedWebElement("main.profile").click();
 
 
