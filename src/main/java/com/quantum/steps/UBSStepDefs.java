@@ -400,7 +400,19 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("transfer.funds").click();
             try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("funds.move").isPresent();
+
+
+            // scheduled transfers
+            new QAFExtendedWebElement("schedule.transfers").click();
+            Map<String, Object> params = new HashMap<>();
+            params.put("content", "does not have any scheduled transfers");
+            params.put("timeout", 20);
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
+            new QAFExtendedWebElement("profile.back").click();
+
+
             new QAFExtendedWebElement("banking.services").click();
+
 
             // pay bills
             new QAFExtendedWebElement("Pay Bills").click();
@@ -411,10 +423,10 @@ public class UBSStepDefs {
 
             // pay credit card
             new QAFExtendedWebElement("ipad.credit").click();
-            Map<String, Object> params = new HashMap<>();
-            params.put("content", "credit card payment");
-            params.put("timeout", 20);
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
+            Map<String, Object> params20 = new HashMap<>();
+            params20.put("content", "credit card payment");
+            params20.put("timeout", 20);
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params20);
 
             // deposit check
             new QAFExtendedWebElement("deposit.check").click();
@@ -1022,11 +1034,6 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("profile.card").click();
             new QAFExtendedWebElement("profile.nocard").isDisplayed();
             new QAFExtendedWebElement("profile.card.back").click();
-
-
-
-
-
 
 
 
