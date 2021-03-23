@@ -1055,7 +1055,8 @@ public class UBSStepDefs {
             // meeting window
             new QAFExtendedWebElement("profile.meetings").click();
             new QAFExtendedWebElement("profile.no.meeting").isDisplayed();
-            new QAFExtendedWebElement("profile.back").click();
+
+           // new QAFExtendedWebElement("profile.back").click();
             new QAFExtendedWebElement("main.profile").click();
 
             // card
