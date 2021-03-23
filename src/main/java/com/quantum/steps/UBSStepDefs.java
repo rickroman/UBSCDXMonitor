@@ -1016,6 +1016,18 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("profile.no.meeting").isDisplayed();
 
 
+            // validate card security in settings
+            new QAFExtendedWebElement("menu.iphone").click();
+            new QAFExtendedWebElement("profile.settings").click();
+            new QAFExtendedWebElement("profile.card").click();
+            new QAFExtendedWebElement("profile.nocard").isDisplayed();
+            new QAFExtendedWebElement("profile.card.back").click();
+
+
+
+
+
+
 
 
             new QAFExtendedWebElement("menu.iphone").click();
