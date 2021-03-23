@@ -1052,6 +1052,24 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("main.profile").click();
             new QAFExtendedWebElement("profile.primary").isDisplayed();
 
+            // meeting window
+            new QAFExtendedWebElement("profile.meetings").click();
+            new QAFExtendedWebElement("profile.no.meeting").isDisplayed();
+            new QAFExtendedWebElement("profile.back").click();
+            new QAFExtendedWebElement("main.profile").click();
+
+            // card
+            new QAFExtendedWebElement("profile.settings").click();
+            new QAFExtendedWebElement("profile.card").click();
+            new QAFExtendedWebElement("profile.nocard").isDisplayed();
+            new QAFExtendedWebElement("profile.card.back").click();
+            new QAFExtendedWebElement("main.profile").click();
+
+
+
+
+
+
         }
 
     }
