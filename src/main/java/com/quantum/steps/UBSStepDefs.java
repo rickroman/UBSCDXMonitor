@@ -293,7 +293,7 @@ public class UBSStepDefs {
 
 
 
-            new QAFExtendedWebElement("mile.back").click();
+            new QAFExtendedWebElement("iphone.activity.back").click();
             try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("home").isPresent();
             new QAFExtendedWebElement("home").click();
