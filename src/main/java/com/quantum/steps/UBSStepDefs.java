@@ -627,7 +627,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("iphone.activity.first").click();
             String activityAmount = new QAFExtendedWebElement("activity.amount").getText();
             if(!UBSUtils.validateNumber(activityAmount)) {throw new RuntimeException("No activity amount has loaded: " + activityAmount); }
-            new QAFExtendedWebElement("activity.back").click();
+            new QAFExtendedWebElement("iphone.activity.back").click();
 
 
 
