@@ -110,6 +110,10 @@ public class UBSStepDefs {
 
         if(UBSUtils.getModel().equals("iphone")) {
 
+            try {
+                new QAFExtendedWebElement("iphone.signin").click();
+            }catch (Exception e){}
+
             //declare the Map for script parameters
             Map<String, Object> params = new HashMap<>();
                 params.put("text", Secured_uname);
