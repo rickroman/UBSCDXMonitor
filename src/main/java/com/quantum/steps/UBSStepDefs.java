@@ -1037,7 +1037,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("profile.settings").click();
             new QAFExtendedWebElement("profile.card").click();
             new QAFExtendedWebElement("profile.nocard").isDisplayed();
-            new QAFExtendedWebElement("profile.card.back").click();
+            new QAFExtendedWebElement("iphone.activity.back").click();
 
 
 
