@@ -890,13 +890,16 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
 
+            new QAFExtendedWebElement("support.close").click();
 
+
+/*
             Map<String, Object> params4 = new HashMap<>();
             params4.put("label","PUBLIC:monitoring/iphone11settings_x.png");
             params4.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
             new QAFExtendedWebElement("menu.iphone").click();
-
+*/
         } else {
             new QAFExtendedWebElement("support").click();
             Map<String, Object> params3 = new HashMap<>();
