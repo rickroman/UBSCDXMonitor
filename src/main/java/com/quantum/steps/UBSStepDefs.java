@@ -929,6 +929,9 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
             new QAFExtendedWebElement("feedback.send").click();
+            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+
 
 
         } else {
