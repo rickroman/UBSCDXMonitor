@@ -973,12 +973,15 @@ public class UBSStepDefs {
             params3.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
-            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
+            try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+            new QAFExtendedWebElement("legal.cancel").click();
+            /*
             Map<String, Object> params4 = new HashMap<>();
             params4.put("label", "Cancel");
             params4.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
-
+            */
 
         } else {
 
