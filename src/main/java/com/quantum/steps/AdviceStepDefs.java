@@ -70,7 +70,7 @@ public class AdviceStepDefs {
         //RJR
 
         Map<String, Object> params22 = new HashMap<>();
-        params22.put("label","Contact your financial advisor");
+        params22.put("content","Contact your financial advisor");
         params22.put("timeout", "20");
 		params22.put("threshold", "80");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params22);
