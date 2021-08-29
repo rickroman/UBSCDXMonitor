@@ -68,6 +68,17 @@ public class AdviceStepDefs {
         params2.put("next","SWIPE=(50%,85%),(50%,55%)");
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
+
+        //RJR
+
+        Map<String, Object> params22 = new HashMap<>();
+        params22.put("label","Contact your financial advisor");
+        params22.put("timeout", "40");
+		params22.put("threshold", "80");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params22);
+
+        //RJR
+
         try {Thread.sleep(6000); } catch (InterruptedException e) { e.printStackTrace(); }
         // tap 562 2239
 
