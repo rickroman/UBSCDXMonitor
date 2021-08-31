@@ -661,7 +661,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("balances.all").click();
             try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("all.assets").isPresent();
-            new QAFExtendedWebElement("ubs").click();
+            new QAFExtendedWebElement("iphone.ubs").click();
             try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("accounts.currentBalance").isPresent();
 
@@ -670,7 +670,7 @@ public class UBSStepDefs {
                 new QAFExtendedWebElement("balances.priorday").click();
             }catch (Exception e) {
 
-                new QAFExtendedWebElement("ubs").click();
+                new QAFExtendedWebElement("iphone.ubs").click();
                 new QAFExtendedWebElement("balances.priorday").click();
 
             }
