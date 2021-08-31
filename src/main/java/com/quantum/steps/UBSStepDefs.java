@@ -699,7 +699,7 @@ public class UBSStepDefs {
 
 
 
-            new QAFExtendedWebElement("ubs").click();
+            new QAFExtendedWebElement("iphone.ubs").click();
             new QAFExtendedWebElement("holdings.ubs.change").isPresent();
 
             DeviceUtils.getQAFDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
@@ -710,7 +710,7 @@ public class UBSStepDefs {
                 new QAFExtendedWebElement("balances.priorday").isDisplayed();
             }catch (Exception e) {
                 System.out.println("clicking on ubs");
-                new QAFExtendedWebElement("ubs").click();
+                new QAFExtendedWebElement("iphone.ubs").click();
             }
 
 
