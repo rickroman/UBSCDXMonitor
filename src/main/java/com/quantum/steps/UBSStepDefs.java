@@ -731,6 +731,17 @@ public class UBSStepDefs {
             if(!UBSUtils.validateNumber(a)) {throw new RuntimeException("No dollar amount has loaded: " + a); }
 
 
+            // check activity filter
+            new QAFExtendedWebElement("accounts.activity").click();
+            new QAFExtendedWebElement("activity.account").isDisplayed();
+            new QAFExtendedWebElement("filter.btn").click();
+            new QAFExtendedWebElement("ytd").click();
+            new QAFExtendedWebElement("filter.apply").click();
+            new QAFExtendedWebElement("activity.account").isDisplayed();
+
+
+
+
             // Financial tools
             new QAFExtendedWebElement("accounts.financial.tools").click();
             new QAFExtendedWebElement("financial.tools.msg").isDisplayed();
