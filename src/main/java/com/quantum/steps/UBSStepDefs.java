@@ -734,7 +734,12 @@ public class UBSStepDefs {
             // check activity filter
             new QAFExtendedWebElement("accounts.activity").click();
             new QAFExtendedWebElement("activity.account").isDisplayed();
-            new QAFExtendedWebElement("filter.btn").click();
+
+            Map<String, Object> params = new HashMap<>();
+            params.put("content", "Filter");
+            DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+
+          //  new QAFExtendedWebElement("filter.btn").click();
             new QAFExtendedWebElement("ytd").click();
             new QAFExtendedWebElement("filter.apply").click();
             new QAFExtendedWebElement("activity.account").isDisplayed();
