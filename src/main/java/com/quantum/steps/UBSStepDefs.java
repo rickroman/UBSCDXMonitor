@@ -685,6 +685,8 @@ public class UBSStepDefs {
             // set long timeout for holdings page on iPad
             DeviceUtils.getQAFDriver().manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
 
+            /* suspended holdings checks
+
             new QAFExtendedWebElement("accounts.holdings").click();
 
             // check holdings values
@@ -721,7 +723,7 @@ public class UBSStepDefs {
 
             new QAFExtendedWebElement("balances.all").click();
             new QAFExtendedWebElement("holdings.cash").isPresent();
-
+*/
             // click on Activity & validate
             new QAFExtendedWebElement("accounts.activity").click();
             new QAFExtendedWebElement("activity.type").isDisplayed();
