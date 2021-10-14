@@ -41,9 +41,7 @@ public class UBSUtils  {
 
                 }
             }
-            else {
-                ReportUtils.logAssert("no face ID prompt",true);
-            }
+
 
         } catch (Exception e) {
             System.out.println("caught declinefaceID:");
@@ -83,34 +81,34 @@ public class UBSUtils  {
     }
 
     public static boolean validateNumber(String str) {
-
+    try {
         // check if first character is a minus sign
-        String one = str.substring(0,1);
-        if(one.equalsIgnoreCase("-")){
+        String one = str.substring(0, 1);
+        if (one.equalsIgnoreCase("-")) {
             System.out.println("negative number");
-            str = str.replace("-","");
+            str = str.replace("-", "");
 
         }
 
 
-
-
-
-
         // get 1st character and check it is a dollar symbol
-        String d = str.substring(0,1);
-        String n = str.substring(1,3);
-        n = n.replace(",","");
-        n = n.replace(".","");
-        if(d.equalsIgnoreCase("$")){
+        String d = str.substring(0, 1);
+        String n = str.substring(1, 3);
+        n = n.replace(",", "");
+        n = n.replace(".", "");
+        if (d.equalsIgnoreCase("$")) {
 
-            if(isNumeric(n)) {
-               System.out.println("number validated: " + n);
+            if (isNumeric(n)) {
+                System.out.println("number validated: " + n);
                 return true;
             }
         }
 
         return false;
+
+    }catch (Exception e) {
+        return false;
+    }
     }
 
 
