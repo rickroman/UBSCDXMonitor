@@ -41,6 +41,10 @@ public class UBSUtils  {
 
                 }
             }
+            else {
+                ReportUtils.logAssert("no face ID prompt",true);
+            }
+
         } catch (Exception e) {
             System.out.println("caught declinefaceID:");
         }
