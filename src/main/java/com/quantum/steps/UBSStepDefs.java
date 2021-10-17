@@ -680,7 +680,7 @@ public class UBSStepDefs {
             try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("accounts.balances").isDisplayed();
 
-/*
+
             // click on holdings & validate
             // set long timeout for holdings page on iPad
             DeviceUtils.getQAFDriver().manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
@@ -719,7 +719,6 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("holdings.quantity").isPresent();
             new QAFExtendedWebElement("balances.intraday").click();
 
-*/
             new QAFExtendedWebElement("balances.all").click();
             new QAFExtendedWebElement("holdings.cash").isPresent();
 
