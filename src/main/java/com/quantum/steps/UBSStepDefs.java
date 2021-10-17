@@ -639,7 +639,7 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
 
             //  new QAFExtendedWebElement("filter.btn").click();
-            new QAFExtendedWebElement("ytd").click();
+            new QAFExtendedWebElement("ytd.iphone").click();
             new QAFExtendedWebElement("filter.apply").click();
             new QAFExtendedWebElement("activity.account").isDisplayed();
 
