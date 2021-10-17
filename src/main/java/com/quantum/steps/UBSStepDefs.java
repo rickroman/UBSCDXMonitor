@@ -617,17 +617,32 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("main.accounts").click();
             new QAFExtendedWebElement("accounts.activity").click();
             // checking filter button as it is only unique element on page
+
+            /*
             Map<String, Object> params2 = new HashMap<>();
             params2.put("content", "Filter");
             params2.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
-
+*/
 
             // validating first activity
             new QAFExtendedWebElement("iphone.activity.first").click();
             String activityAmount = new QAFExtendedWebElement("activity.amount").getText();
             if(!UBSUtils.validateNumber(activityAmount)) {throw new RuntimeException("No activity amount has loaded: " + activityAmount); }
             new QAFExtendedWebElement("iphone.activity.back").click();
+
+
+
+            // check activity filter
+            Map<String, Object> params = new HashMap<>();
+            params.put("content", "Filter");
+            DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+
+            //  new QAFExtendedWebElement("filter.btn").click();
+            new QAFExtendedWebElement("ytd").click();
+            new QAFExtendedWebElement("filter.apply").click();
+            new QAFExtendedWebElement("activity.account").isDisplayed();
+
 
 
 
