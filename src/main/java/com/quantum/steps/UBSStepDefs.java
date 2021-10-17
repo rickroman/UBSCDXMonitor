@@ -619,10 +619,7 @@ public class UBSStepDefs {
             // checking filter button as it is only unique element on page
 
             /*
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("content", "Filter");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+
 */
 
             // validating first activity
@@ -641,7 +638,11 @@ public class UBSStepDefs {
             //  new QAFExtendedWebElement("filter.btn").click();
             new QAFExtendedWebElement("ytd.iphone").click();
             new QAFExtendedWebElement("filter.apply").click();
-            new QAFExtendedWebElement("activity.account").isDisplayed();
+
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("content", "updated");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
 
 
