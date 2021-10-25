@@ -623,16 +623,18 @@ public class UBSStepDefs {
 */
 
             // validating first activity
-            new QAFExtendedWebElement("iphone.activity.first").click();
-            String activityAmount = new QAFExtendedWebElement("activity.amount").getText();
-            if(!UBSUtils.validateNumber(activityAmount)) {throw new RuntimeException("No activity amount has loaded: " + activityAmount); }
-            new QAFExtendedWebElement("iphone.activity.back").click();
+           // new QAFExtendedWebElement("iphone.activity.first").click();
+           // String activityAmount = new QAFExtendedWebElement("activity.amount").getText();
+          //  if(!UBSUtils.validateNumber(activityAmount)) {throw new RuntimeException("No activity amount has loaded: " + activityAmount); }
+           // new QAFExtendedWebElement("iphone.activity.back").click();
 
 
 
             // check activity filter
             Map<String, Object> params = new HashMap<>();
-            params.put("content", "Filter");
+                params.put("content", "Filter");
+                params.put("language", "English");
+                params.put("timeout",30);
             DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
 
             //  new QAFExtendedWebElement("filter.btn").click();
