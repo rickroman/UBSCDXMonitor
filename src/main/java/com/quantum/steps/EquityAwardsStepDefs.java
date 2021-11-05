@@ -7,6 +7,7 @@ import com.qmetry.qaf.automation.util.StringUtil;
 import com.quantum.utils.*;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.api.java.gl.E;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import net.bytebuddy.implementation.bytecode.Throw;
@@ -46,7 +47,16 @@ public class EquityAwardsStepDefs {
         new QAFExtendedWebElement("login.signin.btn").click();
         // 2 validations of home page loading
         UBSUtils.declineFaceID();
-        UBSUtils.validateHomePage();
+        validateEquityAwardsHP();
+
+    }
+
+    private void validateEquityAwardsHP() {
+
+        try { new QAFExtendedWebElement("closeHPNotification").click(); } catch (Exception e){ System.out.println("no notification popup"); }
+        new QAFExtendedWebElement("holdingsSummary").isDisplayed();
+        String todayValue = new QAFExtendedWebElement("todaysValue").getText();
+        System.out.println("today value is: " + todayValue);
 
     }
 }
