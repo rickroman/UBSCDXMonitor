@@ -21,8 +21,8 @@ import com.quantum.utils.UBSUtils;
 @QAFTestStepProvider
 public class EquityAwardsStepDefs {
 
-    private static final String Secured_equity_uname = "BzOYecc1Y/h1KI04dhivkg==";
-    private static final String Secured_equity_pw = "C68G7Vqodlvt8un3EM7Tiw==";
+    private static final String Secured_equity_uname = "secured.BzOYecc1Y/h1KI04dhivkg==";
+    private static final String Secured_equity_pw = "secured.C68G7Vqodlvt8un3EM7Tiw==";
 
     @When("CDX Equity Awards login")
     public void equityAwardsLogin() {
