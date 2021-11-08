@@ -112,6 +112,37 @@ public class EquityAwardsStepDefs {
 
 
     }
+    @When("check MW balances")
+    public void checkMWBalances(){
+        new QAFExtendedWebElement("hp.mywealth").click();
+        new QAFExtendedWebElement("mw.balances").click();
+        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+
+    }
+    @When("check MW Holdings")
+    public void checkMWHoldings() {
+
+        new QAFExtendedWebElement("hp.mywealth").click();
+        new QAFExtendedWebElement("mw.holdings").click();
+        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+    }
+    @When("check MW Activity")
+    public void checkMWActivity() {
+
+        new QAFExtendedWebElement("hp.mywealth").click();
+        new QAFExtendedWebElement("mw.activity").click();
+        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+    }
+    @When("check MW Financial Tools")
+    public void checkMWTools() {
+        new QAFExtendedWebElement("hp.mywealth").click();
+        new QAFExtendedWebElement("mw.tools").click();
+        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+    }
 
 
 
