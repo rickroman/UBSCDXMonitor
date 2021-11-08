@@ -9,6 +9,7 @@ Feature: Monitor production App
     And CDX Equity Awards login
     Then validate activity
     And validate holdings
+    Then check transactions
     Then validate awards education
     Then check notifications
     Then logout of CDX

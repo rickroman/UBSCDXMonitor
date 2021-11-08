@@ -56,7 +56,9 @@ public class EquityAwardsStepDefs {
     public void validateActivity() {
         new QAFExtendedWebElement("equityAwards").click();
         new QAFExtendedWebElement("equityActivity").click();
-        try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace();}
+        new QAFExtendedWebElement("orders.completed").isDisplayed();
+        new QAFExtendedWebElement("orders.disclosures").isDisplayed();
+
 
     }
 
@@ -64,7 +66,18 @@ public class EquityAwardsStepDefs {
     public void validateHoldings() {
         new QAFExtendedWebElement("equityAwards").click();
         new QAFExtendedWebElement("equityHoldings").click();
-        try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace();}
+        new QAFExtendedWebElement("holdings.awards").isDisplayed();
+        new QAFExtendedWebElement("holdings.shares").isPresent();
+
+
+
+
+    }
+    @When("check transactions")
+    public void checkTransactions() {
+        new QAFExtendedWebElement("equityAwards").click();
+        new QAFExtendedWebElement("EquityTransactions").click();
+        new QAFExtendedWebElement("transactionsWelcome").isPresent();
 
 
     }
@@ -72,7 +85,7 @@ public class EquityAwardsStepDefs {
     public void validateEducation() {
         new QAFExtendedWebElement("equityAwards").click();
         new QAFExtendedWebElement("EquityAwardsEducation").click();
-        try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace();}
+        new QAFExtendedWebElement("education.progress").isPresent();
 
 
     }
@@ -81,7 +94,9 @@ public class EquityAwardsStepDefs {
     public void checkNotificatiobs() {
         new QAFExtendedWebElement("equityAwards").click();
         new QAFExtendedWebElement("EquityNotify").click();
-        try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace();}
+        new QAFExtendedWebElement("  notifications,actionable").isPresent();
+
+
 
         new QAFExtendedWebElement("Home").click();
         validateEquityAwardsHP();
