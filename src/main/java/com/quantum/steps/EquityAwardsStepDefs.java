@@ -51,6 +51,39 @@ public class EquityAwardsStepDefs {
 
     }
 
+
+    @When("validate activity")
+    public void validateActivity() {
+        new QAFExtendedWebElement("equityAwards").click();
+        new QAFExtendedWebElement("equityActivity").click();
+
+    }
+
+    @When("validate holdings")
+    public void validateHoldings() {
+        new QAFExtendedWebElement("equityAwards").click();
+        new QAFExtendedWebElement("equityHoldings").click();
+
+    }
+    @When("validate awards education")
+    public void validateEducation() {
+        new QAFExtendedWebElement("equityAwards").click();
+        new QAFExtendedWebElement("EquityAwardsEducation").click();
+
+    }
+
+    @When("check notifications")
+    public void checkNotificatiobs() {
+        new QAFExtendedWebElement("equityAwards").click();
+        new QAFExtendedWebElement("EquityNotify").click();
+        new QAFExtendedWebElement("Home").click();
+        validateEquityAwardsHP();
+
+
+    }
+
+
+
     private void validateEquityAwardsHP() {
 
         try { new QAFExtendedWebElement("closeHPNotification").click(); } catch (Exception e){ System.out.println("no notification popup"); }
