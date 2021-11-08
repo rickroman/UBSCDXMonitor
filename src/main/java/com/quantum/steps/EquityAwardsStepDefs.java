@@ -56,6 +56,7 @@ public class EquityAwardsStepDefs {
     public void validateActivity() {
         new QAFExtendedWebElement("equityAwards").click();
         new QAFExtendedWebElement("equityActivity").click();
+        try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace();}
 
     }
 
@@ -63,12 +64,16 @@ public class EquityAwardsStepDefs {
     public void validateHoldings() {
         new QAFExtendedWebElement("equityAwards").click();
         new QAFExtendedWebElement("equityHoldings").click();
+        try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace();}
+
 
     }
     @When("validate awards education")
     public void validateEducation() {
         new QAFExtendedWebElement("equityAwards").click();
         new QAFExtendedWebElement("EquityAwardsEducation").click();
+        try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace();}
+
 
     }
 
@@ -76,6 +81,8 @@ public class EquityAwardsStepDefs {
     public void checkNotificatiobs() {
         new QAFExtendedWebElement("equityAwards").click();
         new QAFExtendedWebElement("EquityNotify").click();
+        try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace();}
+
         new QAFExtendedWebElement("Home").click();
         validateEquityAwardsHP();
 
