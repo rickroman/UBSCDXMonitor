@@ -150,15 +150,43 @@ public class EquityAwardsStepDefs {
         new QAFExtendedWebElement("expense.analysis").isDisplayed();
         new QAFExtendedWebElement("Home").click();
         validateEquityAwardsHP();
+    }
+    @When("check my information")
+    public void checkMyInfo(){
+        new QAFExtendedWebElement("menu.iphone").click();
+        new QAFExtendedWebElement("my.info").click();
+        new QAFExtendedWebElement("username").isDisplayed();
+
+    }
+    @When("EW check settings")
+    public void checkSettings(){
+        new QAFExtendedWebElement("menu.iphone").click();
+        new QAFExtendedWebElement("settings").click();
+        new QAFExtendedWebElement("ew.settings").isDisplayed();
+
+    }
+    @When("EW check support")
+    public void checkSupport(){
+        new QAFExtendedWebElement("menu.iphone").click();
+        new QAFExtendedWebElement("support").click();
+        new QAFExtendedWebElement("market.hours").isDisplayed();
+
+    }
+    @When("EW check legal")
+    public void checkLegal(){
+        new QAFExtendedWebElement("menu.iphone").click();
+        new QAFExtendedWebElement("legal").click();
+        new QAFExtendedWebElement("valuation").isDisplayed();
+        new QAFExtendedWebElement("legal.cancel").click();
 
 
-
-
-
-
-
-
-
+    }
+    @When("EW get in touch")
+    public void getInTouch(){
+        new QAFExtendedWebElement("menu.iphone").click();
+        new QAFExtendedWebElement("get.in.touch").click();
+        new QAFExtendedWebElement("toll.free").isDisplayed();
+        new QAFExtendedWebElement("touch.close").click();
     }
 
 

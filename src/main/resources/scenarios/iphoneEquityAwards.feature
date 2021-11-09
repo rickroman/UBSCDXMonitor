@@ -16,4 +16,9 @@ Feature: Monitor production App
     Then check MW Holdings
     And check MW Activity
     Then check MW Financial Tools
+    And check my information
+    Then EW check settings
+    And EW check support
+    Then EW check legal
+    And EW get in touch
     Then logout of CDX
