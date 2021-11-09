@@ -135,7 +135,7 @@ public class EquityAwardsStepDefs {
 
         new QAFExtendedWebElement("hp.mywealth").click();
         new QAFExtendedWebElement("mw.activity").click();
-        new QAFExtendedWebElement(" mw.activity.none").isPresent();
+        new QAFExtendedWebElement("mw.activity.none").isDisplayed();
 
 
     }
