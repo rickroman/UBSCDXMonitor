@@ -116,7 +116,8 @@ public class EquityAwardsStepDefs {
     public void checkMWBalances(){
         new QAFExtendedWebElement("hp.mywealth").click();
         new QAFExtendedWebElement("mw.balances").click();
-        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+        new QAFExtendedWebElement("mw.balances.assets").isPresent();
+        new QAFExtendedWebElement("mw.mw.blances.investmentAssets").isDisplayed();
 
 
     }
@@ -125,7 +126,8 @@ public class EquityAwardsStepDefs {
 
         new QAFExtendedWebElement("hp.mywealth").click();
         new QAFExtendedWebElement("mw.holdings").click();
-        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+        new QAFExtendedWebElement("mw.holdings.none").isDisplayed();
+
 
     }
     @When("check MW Activity")
@@ -133,14 +135,29 @@ public class EquityAwardsStepDefs {
 
         new QAFExtendedWebElement("hp.mywealth").click();
         new QAFExtendedWebElement("mw.activity").click();
-        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+        new QAFExtendedWebElement(" mw.activity.none").isPresent();
+
 
     }
     @When("check MW Financial Tools")
     public void checkMWTools() {
         new QAFExtendedWebElement("hp.mywealth").click();
         new QAFExtendedWebElement("mw.tools").click();
-        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+        new QAFExtendedWebElement("mw.tools.netWorth").isDisplayed();
+        new QAFExtendedWebElement("cashFlow").click();
+        new QAFExtendedWebElement("know.moves").isDisplayed();
+        new QAFExtendedWebElement("spending").click();
+        new QAFExtendedWebElement("expense.analysis").isDisplayed();
+        new QAFExtendedWebElement("Home").click();
+        validateEquityAwardsHP();
+
+
+
+
+
+
+
+
 
     }
 
