@@ -993,10 +993,8 @@ public class UBSStepDefs {
 
     }
 
-    @Then("check Legal")
-    public void checkLegal() {
-
-
+    @Then("check Legal services")
+    public void checkLegalServices() {
         if (UBSUtils.getModel().equals("iphone")) {
 
             new QAFExtendedWebElement("menu.iphone").click();
