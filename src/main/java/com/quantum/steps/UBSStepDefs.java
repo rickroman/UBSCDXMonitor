@@ -993,7 +993,7 @@ public class UBSStepDefs {
 
     }
 
-    @Then("check legal")
+    @Then("check Legal")
     public void checkLegal() {
 
 

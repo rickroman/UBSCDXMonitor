@@ -19,6 +19,6 @@ Feature: Monitor production App
     And check settings
     Then get support
     And check feedback
-    And check legal
+    And check Legal
     Then contact financial advisor
     Then logout of CDX
