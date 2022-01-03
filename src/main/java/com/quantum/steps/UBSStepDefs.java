@@ -508,8 +508,6 @@ public class UBSStepDefs {
                 String msg = "the string DOES NOT include" + thisYear;
                 System.out.println(msg);
                ReportUtils.logAssert(msg,false);
-                // temporary fix for 2021
-                ReportUtils.logAssert(msg,true);
 
 
             }
