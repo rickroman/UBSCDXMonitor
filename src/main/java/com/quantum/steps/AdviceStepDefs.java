@@ -137,6 +137,10 @@ public class AdviceStepDefs {
     @Then("Navigate advice advantage")
     public void navigateAdvice() {
 
+        Map<String, Object> params2 = new HashMap<>();
+        params2.put("label","retake Questionnaire");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+
 
 
 
