@@ -90,22 +90,33 @@ public class AdviceStepDefs {
         new QAFExtendedWebElement("explore.advice").isDisplayed();
 
 
-        // check fa
 
+
+
+
+
+    }
+    @Then("Navigate advice advantage")
+    public void navigateAdvice() {
 
         Map<String, Object> params2 = new HashMap<>();
+            params2.put("label","retake Questionnaire");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+        new QAFExtendedWebElement("close.Questionnaire").click();
+
+
+
+        Map<String, Object> params3 = new HashMap<>();
         params2.put("content","Contact your financial advisor");
         params2.put("scrolling", "scroll");
         params2.put("next","SWIPE=(50%,85%),(50%,55%)");
-        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
-
-        //RJR
 
         Map<String, Object> params22 = new HashMap<>();
         params22.put("label","Contact your financial advisor");
         params22.put("timeout", "40");
-		params22.put("threshold", "80");
+        params22.put("threshold", "80");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params22);
 
         //RJR
@@ -127,26 +138,6 @@ public class AdviceStepDefs {
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params4);
 
         new QAFExtendedWebElement("advisor.close").click();
-       // new QAFExtendedWebElement("home").click();
-
-
-
-
-
-    }
-    @Then("Navigate advice advantage")
-    public void navigateAdvice() {
-
-        Map<String, Object> params2 = new HashMap<>();
-        params2.put("label","retake Questionnaire");
-        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-
-
-
-
-        new QAFExtendedWebElement("close.Questionnaire").click();
-        new QAFExtendedWebElement("accounts.analyzed").click();
-        new QAFExtendedWebElement("analyze.cancel").click();
 
         new QAFExtendedWebElement("home").click();
 
