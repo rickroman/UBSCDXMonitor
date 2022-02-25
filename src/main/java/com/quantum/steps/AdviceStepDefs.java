@@ -137,7 +137,9 @@ public class AdviceStepDefs {
     @Then("Navigate advice advantage")
     public void navigateAdvice() {
 
-        new QAFExtendedWebElement("retake.Questionnaire").click();
+
+
+
         new QAFExtendedWebElement("close.Questionnaire").click();
         new QAFExtendedWebElement("accounts.analyzed").click();
         new QAFExtendedWebElement("analyze.cancel").click();
