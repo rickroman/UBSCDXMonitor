@@ -127,10 +127,22 @@ public class AdviceStepDefs {
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params4);
 
         new QAFExtendedWebElement("advisor.close").click();
+       // new QAFExtendedWebElement("home").click();
+
+
+
+
+
+    }
+    @Then("Navigate advice advantage")
+    public void navigateAdvice() {
+
+        new QAFExtendedWebElement("retake.Questionnaire").click();
+        new QAFExtendedWebElement("close.Questionnaire").click();
+        new QAFExtendedWebElement("accounts.analyzed").click();
+        new QAFExtendedWebElement("analyze.cancel").click();
+
         new QAFExtendedWebElement("home").click();
-
-
-
 
 
     }
