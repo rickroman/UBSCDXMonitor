@@ -100,8 +100,10 @@ public class AdviceStepDefs {
     public void navigateAdvice() {
 
         Map<String, Object> params2 = new HashMap<>();
-            params2.put("label","retake Questionnaire");
+            params2.put("label","Questionnaire");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+        try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
+
         new QAFExtendedWebElement("close.Questionnaire").click();
 
 
