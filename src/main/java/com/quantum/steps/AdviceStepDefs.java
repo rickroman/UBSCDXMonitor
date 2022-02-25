@@ -109,9 +109,9 @@ public class AdviceStepDefs {
 
 
         Map<String, Object> params3 = new HashMap<>();
-        params2.put("content","Contact your financial advisor");
-        params2.put("scrolling", "scroll");
-        params2.put("next","SWIPE=(50%,85%),(50%,55%)");
+        params3.put("content","Contact your financial advisor");
+        params3.put("scrolling", "scroll");
+        params3.put("next","SWIPE=(50%,85%),(50%,55%)");
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
 
