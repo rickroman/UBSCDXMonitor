@@ -22,30 +22,60 @@ public class AdviceStepDefs {
     @When("Advice Login to CDX")
     public void adviceLoginCDX() {
 
+        if(UBSUtils.getModel().equals("iphone")) {
+            //declare the Map for script parameters
+            Map<String, Object> params = new HashMap<>();
+            params.put("text", Secured_adv_uname);
+            params.put("by", "xpath");
+            params.put("value", "//*[@value=\"Username\"]");
+            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
 
-        //declare the Map for script parameters
-        Map<String, Object> params = new HashMap<>();
-        params.put("text", Secured_adv_uname);
-        params.put("by", "xpath");
-        params.put("value", "//*[@value=\"Username\"]");
-        DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
-
-        new QAFExtendedWebElement("login.next.iphone").click();
-        //   new QAFExtendedWebElement("field.password.iphone").click();
-
-
-
-        Map<String, Object> params4 = new HashMap<>();
-        params4.put("text", Secured_adv_pw);
-        params4.put("by", "xpath");
-        params4.put("value", "//XCUIElementTypeSecureTextField");
-        DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
+            new QAFExtendedWebElement("login.next.iphone").click();
+            //   new QAFExtendedWebElement("field.password.iphone").click();
 
 
-        new QAFExtendedWebElement("login.signin.btn").click();
-        // 2 validations of home page loading
-        UBSUtils.declineFaceID();
-        UBSUtils.validateHomePage();
+            Map<String, Object> params4 = new HashMap<>();
+            params4.put("text", Secured_adv_pw);
+            params4.put("by", "xpath");
+            params4.put("value", "//XCUIElementTypeSecureTextField");
+            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
+
+
+            new QAFExtendedWebElement("login.signin.btn").click();
+            // 2 validations of home page loading
+            UBSUtils.declineFaceID();
+            UBSUtils.validateHomePage();
+
+        }else {
+            Map<String, Object> params = new HashMap<>();
+            params.put("content", "Username");
+            DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+            Map<String, Object> params3 = new HashMap<>();
+            params3.put("text", Secured_adv_uname);
+            params3.put("by", "xpath");
+            params3.put("value", "//XCUIElementTypeTextField");
+            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params3);
+
+            //   new QAFExtendedWebElement("field.username").sendKeys("securetest66");
+            new QAFExtendedWebElement("login.next").click();
+
+
+            Map<String, Object> params4 = new HashMap<>();
+            params4.put("text", Secured_adv_pw);
+            params4.put("by", "xpath");
+            params4.put("value", "//XCUIElementTypeSecureTextField");
+            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
+
+
+            // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
+            new QAFExtendedWebElement("login.signin.btn").click();
+            // 2 validations of home page loading
+            UBSUtils.declineFaceID();
+            UBSUtils.validateHomePage();
+        }
+
 
     }
     @Then("Check Advice Section")
