@@ -18,6 +18,7 @@ public class AdviceStepDefs {
 
     private static final String Secured_adv_uname = "secured.bCJ359l8IQ5kJGkJP+BDyQ==";
     private static final String Secured_adv_pw = "secured.AsF9GOU366inlD9jtNAKig==";
+
     @When("Advice Login to CDX")
     public void adviceLoginCDX() {
 

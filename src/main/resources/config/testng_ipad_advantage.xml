@@ -1,0 +1,48 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="iPad Advice Advantage" verbose="0" parallel="tests">
+    <listeners>
+        <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
+    </listeners>
+
+    <!-- To use actual AppiumDriver classes defined    -->
+    <!-- by driverClass property in env.resources dirs -->
+    <!-- Set driver.name value to perfectoDriver       -->
+    <parameter name="driver.name" value="perfectoDriver"/>
+    <parameter name="driver.capabilities.securityToken" value="${securityToken}"></parameter>
+
+
+    <test name="iPad Advantage 1" enabled="true">
+
+
+
+        <parameter name="driver.capabilities.deviceName" value="00008027-001831D83A6A402E"></parameter>
+        <parameter name="env.resources" value="src/main/resources/ios"/>
+
+        <groups>
+            <run>
+                <include name="@iPadAdvantage"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
+        </classes>
+    </test>
+
+    <test name="iPad Advantage 2" enabled="true">
+        <parameter name="driver.capabilities.deviceName" value="00008027-001E79E41E6A402E"></parameter>
+        <parameter name="env.resources" value="src/main/resources/ios"/>
+
+        <groups>
+            <run>
+                <include name="@iPadAdvantage"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
+        </classes>
+    </test>
+
+
+
+</suite>
+
