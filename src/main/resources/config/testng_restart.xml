@@ -13,7 +13,7 @@
 
 
     <test name="iPhone restart 1" enabled="true">
-        <parameter name="driver.capabilities.deviceName" value="00008101-001238312246001E"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008110-001844A0119B801E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
@@ -26,7 +26,7 @@
         </classes>
     </test>
     <test name="iPhone restart  2" enabled="true">
-        <parameter name="driver.capabilities.deviceName" value="00008101-000621600241001E"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008110-000A5DDA1E00401E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
