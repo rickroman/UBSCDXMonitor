@@ -133,7 +133,7 @@ public class AdviceStepDefs {
         DeviceUtils.getQAFDriver().executeScript("mobile:touch:tap", params3);
 */
 
-        new QAFExtendedWebElement("adv.advisor").click();
+     //   new QAFExtendedWebElement("adv.advisor").click();
         Map<String, Object> params4 = new HashMap<>();
         params4.put("content", "toll free");
         params4.put("timeout", "30");
