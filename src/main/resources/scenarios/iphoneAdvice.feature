@@ -3,7 +3,7 @@ Feature: Monitor production App
 
 
   @cdxAdvice
-  Scenario: Login to CDX
+  Scenario: Advice Advantage
     When I switch to native context
     When I launch CDX
     And Advice Login to CDX
