@@ -114,7 +114,7 @@ public class AdviceStepDefs {
         params3.put("next","SWIPE=(50%,85%),(50%,55%)");
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
-        try {Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
+        try {Thread.sleep(7000); } catch (InterruptedException e) { e.printStackTrace(); }
 
         Map<String, Object> params22 = new HashMap<>();
         params22.put("label","Contact your financial advisor");
