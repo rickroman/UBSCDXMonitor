@@ -116,12 +116,15 @@ public class AdviceStepDefs {
 
         try {Thread.sleep(7000); } catch (InterruptedException e) { e.printStackTrace(); }
 
+        new QAFExtendedWebElement("adv.advisor").click();
+
+
+        /*
         Map<String, Object> params22 = new HashMap<>();
         params22.put("label","Contact your financial advisor");
         params22.put("timeout", "40");
-        params22.put("threshold", "80");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params22);
-
+*/
         //RJR
 
         try {Thread.sleep(6000); } catch (InterruptedException e) { e.printStackTrace(); }
@@ -137,7 +140,7 @@ public class AdviceStepDefs {
      //   new QAFExtendedWebElement("adv.advisor").click();
         Map<String, Object> params4 = new HashMap<>();
         params4.put("content", "toll free");
-        params4.put("timeout", "30");
+        params4.put("timeout", "35");
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params4);
 
         new QAFExtendedWebElement("advisor.close").click();
