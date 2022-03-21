@@ -695,11 +695,13 @@ public class UBSStepDefs {
             // click on holdings & validate
             // set long timeout for holdings page on iPad
             DeviceUtils.getQAFDriver().manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
+            DeviceUtils.getQAFDriver().manage().timeouts().setScriptTimeout(300, TimeUnit.SECONDS);
 
 
             new QAFExtendedWebElement("accounts.holdings").click();
 
             // check holdings values
+            try { Thread.sleep(10000); } catch (InterruptedException e) { e.printStackTrace(); }
 
             String holdingsGrandTotal = new QAFExtendedWebElement("ipad.holdings.grandTotal").getText();
             System.out.println("holding grand total:" + holdingsGrandTotal);
