@@ -708,11 +708,27 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("accounts.holdings").click();
 
             // check holdings values
-            try { Thread.sleep(10000); } catch (InterruptedException e) { e.printStackTrace(); }
+            try { Thread.sleep(20000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+
+
 
             String holdingsGrandTotal = new QAFExtendedWebElement("ipad.holdings.grandTotal").getText();
             System.out.println("holding grand total:" + holdingsGrandTotal);
-            if(!UBSUtils.validateNumber(holdingsGrandTotal)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsGrandTotal); }
+            if(!UBSUtils.validateNumber(holdingsGrandTotal)) {
+
+                Map<String, Object> params12 = new HashMap<>();
+                params12.put("label", "Accounts");
+                params12.put("timeout", "30");
+                DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params12);
+
+
+                 holdingsGrandTotal = new QAFExtendedWebElement("ipad.holdings.grandTotal").getText();
+                System.out.println("holding grand total:" + holdingsGrandTotal);
+
+
+
+                throw new RuntimeException("No dollar amount has loaded: " + holdingsGrandTotal); }
 
             String holdingsAmount =  new QAFExtendedWebElement("activity.amounts").findElements("activity.amounts").get(0).getText();
             System.out.println("holdings amount: " + holdingsAmount);
