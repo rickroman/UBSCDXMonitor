@@ -659,7 +659,14 @@ public class UBSStepDefs {
 
         }else {
             // click on accounts and validate table loads
-            new QAFExtendedWebElement("main.accounts").click();
+           // new QAFExtendedWebElement("main.accounts").click();
+
+
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("label", "Accounts");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+
             new QAFExtendedWebElement("accounts.balances").isDisplayed();
             new QAFExtendedWebElement("accounts.currentBalance").isPresent();
 
