@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Appium Demo Suite" verbose="0" parallel="tests" thread-count="2">
+<suite name="Equity Awards" verbose="0" parallel="tests" thread-count="2">
     <listeners>
         <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
     </listeners>
@@ -12,7 +12,7 @@
 
 
 
-    <test name="iPhone CDX" enabled="true">
+    <test name="iPhone Equity Awards 1" enabled="true">
         <parameter name="driver.capabilities.deviceName" value="00008110-001844A0119B801E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
@@ -25,7 +25,7 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-    <test name="iPhone CDX 2" enabled="true">
+    <test name="iPhone Equity Awards 2" enabled="true">
         <parameter name="driver.capabilities.deviceName" value="00008110-000A5DDA1E00401E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 

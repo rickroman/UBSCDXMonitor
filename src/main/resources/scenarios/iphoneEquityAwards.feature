@@ -3,7 +3,7 @@ Feature: Monitor production App
 
 
   @iPhoneEquity
-  Scenario: Login to Equity Awards
+  Scenario: Equity Awards
     When I switch to native context
     When I launch CDX
     And CDX Equity Awards login
