@@ -528,7 +528,7 @@ public class UBSStepDefs {
 
         if(UBSUtils.getModel().equalsIgnoreCase("iphone")) {
             //click accounts and check balance of prior day
-            new QAFExtendedWebElement("iphone.main.accounts=").click();
+            new QAFExtendedWebElement("iphone.main.accounts").click();
             new QAFExtendedWebElement("iphone.accounts.balances").click();
             try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
 
