@@ -718,7 +718,7 @@ public class UBSStepDefs {
             if(!UBSUtils.validateNumber(holdingsGrandTotal)) {
 
                 Map<String, Object> params12 = new HashMap<>();
-                params12.put("label", "Accounts");
+                params12.put("label", "Holdings");
                 params12.put("timeout", "30");
                 DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params12);
 
