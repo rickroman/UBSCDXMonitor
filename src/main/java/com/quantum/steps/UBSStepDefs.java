@@ -564,7 +564,7 @@ public class UBSStepDefs {
             try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
 
             // click on holdings & validate
-            new QAFExtendedWebElement("main.accounts").click();
+            new QAFExtendedWebElement("iphone.main.accounts").click();
 
             try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
              new QAFExtendedWebElement("accounts.holdings").click();
@@ -607,7 +607,7 @@ public class UBSStepDefs {
 
 
             // click on Activity & validate
-            new QAFExtendedWebElement("main.accounts").click();
+            new QAFExtendedWebElement("iphone.main.accounts").click();
             new QAFExtendedWebElement("accounts.activity").click();
             // checking filter button as it is only unique element on page
 
@@ -644,7 +644,7 @@ public class UBSStepDefs {
 
 
             // Financial tools
-            new QAFExtendedWebElement("main.accounts").click();
+            new QAFExtendedWebElement("iphone.main.accounts").click();
             new QAFExtendedWebElement("accounts.financial.tools").click();
             new QAFExtendedWebElement("iphone.financialtools.msg").isDisplayed();
 
