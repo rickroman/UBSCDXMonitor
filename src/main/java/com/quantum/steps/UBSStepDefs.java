@@ -764,7 +764,12 @@ public class UBSStepDefs {
 
 
             // click on Activity & validate
-            new QAFExtendedWebElement("accounts.activity").click();
+
+            Map<String, Object> params3 = new HashMap<>();
+            params3.put("label", "Activity");
+            params3.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
+           // new QAFExtendedWebElement("accounts.activity").click();
             new QAFExtendedWebElement("activity.type").isDisplayed();
             //check number of first activity
            String a =  new QAFExtendedWebElement("activity.amounts").findElements("activity.amounts").get(0).getText();
