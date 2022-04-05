@@ -445,6 +445,11 @@ public class UBSStepDefs {
 
             // deposit check
             new QAFExtendedWebElement("deposit.check").click();
+            Map<String, Object> params11= new HashMap<>();
+            params11.put("label", "deposit checks");
+            params11.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params11);
+            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("noaccount").isDisplayed();
 
 
