@@ -408,7 +408,11 @@ public class UBSStepDefs {
             if(!UBSUtils.validateAmount(a)) {throw new RuntimeException("No dollar amount has loaded: " + a); }
 
             // transfer funds
-            new QAFExtendedWebElement("transfer.funds").click();
+            //new QAFExtendedWebElement("transfer.funds").click();
+            Map<String, Object> params10= new HashMap<>();
+             params10.put("label", "Transfer Funds");
+             params10.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params10);
             try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
             new QAFExtendedWebElement("funds.move").isPresent();
 
