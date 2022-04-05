@@ -339,7 +339,18 @@ public class UBSStepDefs {
 
 
         if (UBSUtils.getModel().equalsIgnoreCase("iphone")) {
-            new QAFExtendedWebElement("banking.services").click();
+
+
+           // new QAFExtendedWebElement("banking.services").click();
+
+            Map<String, Object> params5= new HashMap<>();
+            params5.put("label", "Banking Services");
+            params5.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
+            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+
+
             // At a glance
             new QAFExtendedWebElement("glance").click();
             new QAFExtendedWebElement("glance.recent").isDisplayed();
