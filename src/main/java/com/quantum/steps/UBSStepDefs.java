@@ -454,7 +454,7 @@ public class UBSStepDefs {
 
 
             //  return home
-            new QAFExtendedWebElement("profile.back").click();
+            new QAFExtendedWebElement("back").click();
             new QAFExtendedWebElement("home").click();
 
             UBSUtils.validateShortHomePage();
