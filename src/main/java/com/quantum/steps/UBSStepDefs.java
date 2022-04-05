@@ -819,14 +819,14 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("net.balanc").isPresent();
 
            new QAFExtendedWebElement("cash.flow").click();
-/*
+
             Map<String, Object> params6= new HashMap<>();
             params6.put("label", "Cash flow");
             params6.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params6);
 
-            */
-            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+
+            try { Thread.sleep(6000); } catch (InterruptedException e) { e.printStackTrace(); }
 
 
 
