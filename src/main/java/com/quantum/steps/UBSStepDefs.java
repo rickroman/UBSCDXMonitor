@@ -807,9 +807,18 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("financial.tools.msg").isDisplayed();
             new QAFExtendedWebElement("net.balanc").isPresent();
 
-            new QAFExtendedWebElement("cash.flow").click();
+         //   new QAFExtendedWebElement("cash.flow").click();
+
+            Map<String, Object> params6= new HashMap<>();
+            params6.put("label", "Cash flow");
+            params6.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params6);
             new QAFExtendedWebElement("cash.flow.msg").isDisplayed();
-            new QAFExtendedWebElement("cash.flow.spending").click();
+            //new QAFExtendedWebElement("cash.flow.spending").click();
+            Map<String, Object> params7= new HashMap<>();
+            params7.put("label", "Spending");
+            params7.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params7);
             new QAFExtendedWebElement("cash.flow.expenses").isDisplayed();
 
             // go back to home page
