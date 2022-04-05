@@ -813,6 +813,8 @@ public class UBSStepDefs {
             params6.put("label", "Cash flow");
             params6.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params6);
+            try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
+
             new QAFExtendedWebElement("cash.flow.msg").isDisplayed();
             //new QAFExtendedWebElement("cash.flow.spending").click();
             Map<String, Object> params7= new HashMap<>();
