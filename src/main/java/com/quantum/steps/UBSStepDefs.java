@@ -825,7 +825,11 @@ public class UBSStepDefs {
 
             // go back to home page
             new QAFExtendedWebElement("back").click();
-            new QAFExtendedWebElement("home").click();
+          //  new QAFExtendedWebElement("home").click();
+            Map<String, Object> params8= new HashMap<>();
+            params8.put("label", "Home");
+            params8.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params8);
         }
         UBSUtils.validateShortHomePage();
 
