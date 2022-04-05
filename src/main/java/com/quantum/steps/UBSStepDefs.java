@@ -787,14 +787,23 @@ public class UBSStepDefs {
 
           //  new QAFExtendedWebElement("filter.btn").click();
             new QAFExtendedWebElement("ytd").click();
-            new QAFExtendedWebElement("filter.apply").click();
+           // new QAFExtendedWebElement("filter.apply").click();
+            Map<String, Object> params4= new HashMap<>();
+            params4.put("label", "Apply");
+            params4.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
             new QAFExtendedWebElement("activity.account").isDisplayed();
 
 
 
 
             // Financial tools
-            new QAFExtendedWebElement("accounts.financial.tools").click();
+           // new QAFExtendedWebElement("accounts.financial.tools").click();
+
+            Map<String, Object> params5= new HashMap<>();
+            params5.put("label", "Financial tools");
+            params5.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
             new QAFExtendedWebElement("financial.tools.msg").isDisplayed();
             new QAFExtendedWebElement("net.balanc").isPresent();
 
