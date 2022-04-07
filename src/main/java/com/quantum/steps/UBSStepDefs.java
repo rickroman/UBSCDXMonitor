@@ -1010,6 +1010,10 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
             new QAFExtendedWebElement("settings.reset").isDisplayed();
             new QAFExtendedWebElement("information").click();
+            Map<String, Object> params3 = new HashMap<>();
+            params3.put("label", "information");
+            params3.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
 
         }
     }
