@@ -979,6 +979,10 @@ public class UBSStepDefs {
 
         } else {
             new QAFExtendedWebElement("mindset").click();
+            Map<String, Object> params2 = new HashMap<>();
+            params2.put("label", "Mindset and Interests");
+            params2.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
             new QAFExtendedWebElement("mindset.msg").isDisplayed();
         }
 
