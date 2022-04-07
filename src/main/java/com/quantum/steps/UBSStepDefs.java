@@ -1181,6 +1181,10 @@ public class UBSStepDefs {
 
         }else {
             new QAFExtendedWebElement("main.profile").click();
+            Map<String, Object> params5= new HashMap<>();
+            params5.put("label", "Profile");
+            params5.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
             new QAFExtendedWebElement("profile.primary").isDisplayed();
 /*
             // meeting window
@@ -1196,6 +1200,8 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("profile.nocard").isDisplayed();
             new QAFExtendedWebElement("ipad.setttings.close").click();
             new QAFExtendedWebElement("main.profile").click();
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
+
 
 
 
