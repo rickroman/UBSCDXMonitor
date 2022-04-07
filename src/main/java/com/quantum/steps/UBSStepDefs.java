@@ -935,6 +935,10 @@ public class UBSStepDefs {
 
 
             new QAFExtendedWebElement("profile.relationship").click();
+            Map<String, Object> params8= new HashMap<>();
+            params8.put("label", "relationships");
+            params8.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params8);
             //close to me
 
             // external professionals
