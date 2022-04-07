@@ -1196,6 +1196,10 @@ public class UBSStepDefs {
 */
             // card
             new QAFExtendedWebElement("profile.settings").click();
+            Map<String, Object> params1= new HashMap<>();
+            params1.put("label", "Settings");
+            params1.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params1);
             new QAFExtendedWebElement("ipad.card.security").click();
             new QAFExtendedWebElement("profile.nocard").isDisplayed();
             new QAFExtendedWebElement("ipad.setttings.close").click();
