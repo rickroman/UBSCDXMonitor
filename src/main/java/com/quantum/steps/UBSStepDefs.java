@@ -329,6 +329,10 @@ public class UBSStepDefs {
 
             */
             new QAFExtendedWebElement("home").click();
+            Map<String, Object> params5= new HashMap<>();
+            params5.put("label", "Financial tools");
+            params5.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
             UBSUtils.validateShortHomePage();
 
 
