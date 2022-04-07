@@ -301,6 +301,8 @@ public class UBSStepDefs {
             params4.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
             new QAFExtendedWebElement("mile.scouts").click();
+            try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
+
             new QAFExtendedWebElement("mile.bsa").isDisplayed();
 
 
