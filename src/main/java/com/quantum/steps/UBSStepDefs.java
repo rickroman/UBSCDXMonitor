@@ -945,7 +945,14 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("external.pro").click();
             new QAFExtendedWebElement("relationship.community").click();
             new QAFExtendedWebElement("community.bsa").isDisplayed();
-            new QAFExtendedWebElement("profile.team").click();
+         //   new QAFExtendedWebElement("profile.team").click();
+
+
+
+            Map<String, Object> params3 = new HashMap<>();
+            params3.put("label", "UBS Team");
+            params3.put("timeout", "30");
+            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
 
             Map<String, Object> params2 = new HashMap<>();
             params2.put("content", "UBS Wealth Advice");
