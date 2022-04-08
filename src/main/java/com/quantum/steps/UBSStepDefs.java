@@ -1048,7 +1048,7 @@ public class UBSStepDefs {
         } else {
             new QAFExtendedWebElement("support").click();
             Map<String, Object> params3 = new HashMap<>();
-            params3.put("content", "need assistance");
+            params3.put("content", "support");
             params3.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
             new QAFExtendedWebElement("support.done").click();
