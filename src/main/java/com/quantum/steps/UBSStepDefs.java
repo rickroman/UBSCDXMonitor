@@ -1087,7 +1087,7 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
             new QAFExtendedWebElement("feedback.cancel").click();
 
-            new QAFExtendedWebElement("profile.back").click();
+            new QAFExtendedWebElement("profile.return").click();
 
             Map<String, Object> params4 = new HashMap<>();
             params4.put("label","PUBLIC:monitoring/ipad_home.png");
