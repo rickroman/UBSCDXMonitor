@@ -595,6 +595,8 @@ public class UBSStepDefs {
             try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
 
             // click on holdings & validate
+
+            /*
             new QAFExtendedWebElement("iphone.main.accounts").click();
 
             try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
@@ -635,7 +637,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("iphone.total.value").isPresent();
             new QAFExtendedWebElement("iphone.ubs").click();
 
-
+*/
 
             // click on Activity & validate
             new QAFExtendedWebElement("iphone.main.accounts").click();
