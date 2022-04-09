@@ -681,7 +681,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("accounts.financial.tools").click();
             new QAFExtendedWebElement("iphone.financialtools.msg").isDisplayed();
 
-            new QAFExtendedWebElement("cash.flow").click();
+            new QAFExtendedWebElement("cash.flow.iphone").click();
             new QAFExtendedWebElement("cash.flow.msg").isDisplayed();
 
 
