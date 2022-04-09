@@ -925,7 +925,7 @@ public class UBSStepDefs {
             params2.put("label", "Relationship");
             params2.put("timeout", "30");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-            new QAFExtendedWebElement("relationship.community").isDisplayed();
+           //  new QAFExtendedWebElement("relationship.community").isDisplayed();
 
 
             new QAFExtendedWebElement("relationship.team").click();
