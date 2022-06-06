@@ -647,7 +647,7 @@ public class UBSStepDefs {
             /*
 
 */
-
+/*
             // validating first activity
             new QAFExtendedWebElement("iphone.activity.first").click();
             String activityAmount = new QAFExtendedWebElement("activity.amount").getText();
@@ -673,7 +673,7 @@ public class UBSStepDefs {
             DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
 
-
+*/
 
 
             // Financial tools
