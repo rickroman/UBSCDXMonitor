@@ -7,6 +7,7 @@ Feature: Monitor production App
     When I switch to native context
     When I launch CDX
     And Login to CDX
+    Then check account activity
    Then validate cash at a glance
     And view insights
     Then view market insights
