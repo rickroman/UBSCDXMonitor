@@ -584,6 +584,9 @@ public class UBSStepDefs {
         params2.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
+        new QAFExtendedWebElement("home").click();
+        UBSUtils.validateShortHomePage();
+
 
 
 
