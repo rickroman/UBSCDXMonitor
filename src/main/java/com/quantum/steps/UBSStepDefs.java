@@ -588,8 +588,6 @@ public class UBSStepDefs {
         UBSUtils.validateShortHomePage();
 
 
-
-
     }
     @Then("validate accounts")
     public void validateAccounts() {
