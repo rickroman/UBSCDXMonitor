@@ -382,7 +382,8 @@ public class UBSStepDefs {
 
             // pay bills
             new QAFExtendedWebElement("Pay Bills").click();
-            new QAFExtendedWebElement("bills").isDisplayed();
+            new QAFExtendedWebElement("bills.payment").isDisplayed();
+
             new QAFExtendedWebElement("home").click();
             new QAFExtendedWebElement("banking.services").click();
             // pay credit card
