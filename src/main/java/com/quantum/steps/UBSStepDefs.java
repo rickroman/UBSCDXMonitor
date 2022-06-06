@@ -640,14 +640,16 @@ public class UBSStepDefs {
 
 
             // click on Activity & validate
-            new QAFExtendedWebElement("iphone.main.accounts").click();
-            new QAFExtendedWebElement("accounts.activity").click();
+
             // checking filter button as it is only unique element on page
 
             /*
 
 */
 /*
+
+         new QAFExtendedWebElement("iphone.main.accounts").click();
+            new QAFExtendedWebElement("accounts.activity").click();
             // validating first activity
             new QAFExtendedWebElement("iphone.activity.first").click();
             String activityAmount = new QAFExtendedWebElement("activity.amount").getText();
