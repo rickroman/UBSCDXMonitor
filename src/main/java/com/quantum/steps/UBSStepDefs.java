@@ -1222,18 +1222,18 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("profile.no.meeting").isDisplayed();
 
 
-
+*/
             new QAFExtendedWebElement("menu.iphone").click();
             Map<String, Object> params = new HashMap<>();
             params.put("label", "Relationships");
-            params.put("timeout", "30");
+            params.put("timeout", "40");
             DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
             new QAFExtendedWebElement("profile.iphone.team").click();
             new QAFExtendedWebElement("profile.iphone.advice").isDisplayed();
             new QAFExtendedWebElement("home").click();
             UBSUtils.validateShortHomePage();
 
-*/
+
         }else {
             new QAFExtendedWebElement("main.profile").click();
             Map<String, Object> params5= new HashMap<>();
