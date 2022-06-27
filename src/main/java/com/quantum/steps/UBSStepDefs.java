@@ -1221,14 +1221,6 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("profile.meetings").click();
             new QAFExtendedWebElement("profile.no.meeting").isDisplayed();
 
-*/
-            // validate card security in settings
-            new QAFExtendedWebElement("menu.iphone").click();
-            new QAFExtendedWebElement("profile.settings").click();
-            new QAFExtendedWebElement("profile.card").click();
-            new QAFExtendedWebElement("profile.nocard").isDisplayed();
-            new QAFExtendedWebElement("iphone.activity.back").click();
-
 
 
             new QAFExtendedWebElement("menu.iphone").click();
@@ -1241,7 +1233,7 @@ public class UBSStepDefs {
             new QAFExtendedWebElement("home").click();
             UBSUtils.validateShortHomePage();
 
-
+*/
         }else {
             new QAFExtendedWebElement("main.profile").click();
             Map<String, Object> params5= new HashMap<>();
