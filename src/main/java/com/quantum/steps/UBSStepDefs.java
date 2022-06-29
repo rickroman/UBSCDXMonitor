@@ -59,7 +59,7 @@ public class UBSStepDefs {
 
             try { DeviceUtils.closeApp("UBS", "name");
             }catch (Exception e){ System.out.println("app was not open"); }
-            DeviceUtils.startApp("UBSasaasa", "name");
+            DeviceUtils.startApp("UBS", "name");
 
 
         }else {
