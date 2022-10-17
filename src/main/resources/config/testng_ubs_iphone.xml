@@ -26,7 +26,7 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-    <test name="iPhone CDX 2" enabled="false">
+    <test name="iPhone CDX 2" enabled="true">
         <parameter name="driver.capabilities.deviceName" value="00008110-000A5DDA1E00401E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
