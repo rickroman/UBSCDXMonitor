@@ -59,9 +59,14 @@ public class Relationship extends UBSScreen {
         // close to me
 
         // external professionals
-        new QAFExtendedWebElement("external.pro").click();
-        new QAFExtendedWebElement("relationship.community").click();
-        new QAFExtendedWebElement("community.bsa").isDisplayed();
+        click("external.pro");
+//        new QAFExtendedWebElement("external.pro").click();
+        
+        click("relationship.community");
+//        new QAFExtendedWebElement("relationship.community").click();
+        
+        click("community.bsa");
+//        new QAFExtendedWebElement("community.bsa").isDisplayed();
         // new QAFExtendedWebElement("profile.team").click();
 
         Map<String, Object> params3 = new HashMap<>();

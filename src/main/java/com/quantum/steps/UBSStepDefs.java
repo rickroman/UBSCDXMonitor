@@ -179,7 +179,7 @@ public class UBSStepDefs {
 //            // 2 validations of home page loading
 //
 //           UBSUtils.declineFaceID();
-            UBSUtils.validateHomePage();
+//            UBSUtils.validateHomePage();
 
         }else {
             // enter credentials
