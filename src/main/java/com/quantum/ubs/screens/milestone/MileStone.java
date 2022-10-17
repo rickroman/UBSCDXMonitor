@@ -56,12 +56,12 @@ public class MileStone extends UBSScreen {
 		 */
 		
 		
-		CommonStep.click("home");
+//		CommonStep.click("home");
 		
-//		Map<String, Object> params5 = new HashMap<>();
-//		params5.put("label", "home");
-//		params5.put("timeout", "30");
-//		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
+		Map<String, Object> params5 = new HashMap<>();
+		params5.put("label", "home");
+		params5.put("timeout", "30");
+		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
 		
 		
 		UBSUtils.validateShortHomePage();
