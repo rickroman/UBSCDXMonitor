@@ -8,7 +8,7 @@
     <!-- by driverClass property in env.resources dirs -->
     <!-- Set driver.name value to perfectoDriver       -->
     <parameter name="driver.name" value="perfectoDriver"/>
-    <parameter name="driver.capabilities.securityToken" value="${securityToken}"></parameter>
+    <parameter name="driver.capabilities.perfecto:securityToken" value="${securityToken}"></parameter>
 
 
     <test name="iPad Advantage 1" enabled="true">
