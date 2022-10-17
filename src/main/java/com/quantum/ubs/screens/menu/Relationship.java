@@ -1,18 +1,16 @@
 package com.quantum.ubs.screens.menu;
 
+import static com.quantum.utils.QAFDriverUtils.click;
+import static org.testng.Assert.assertTrue;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import com.qmetry.qaf.automation.step.CommonStep;
 import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 import com.quantum.ubs.screens.UBSScreen;
 import com.quantum.utils.DeviceUtils;
 import com.quantum.utils.UBSCommonSteps;
-import com.quantum.utils.UBSUtils;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.quantum.utils.QAFDriverUtils.*;
-import static com.quantum.utils.QAFDriverUtils.click;
-import static org.testng.Assert.assertTrue;
 
 public class Relationship extends UBSScreen {
 
@@ -59,14 +57,24 @@ public class Relationship extends UBSScreen {
         // close to me
 
         // external professionals
-        click("external.pro");
+//        click("external.pro");
 //        new QAFExtendedWebElement("external.pro").click();
+        Map<String, Object> params = new HashMap<>();
+        params.put("label", "External Professionals");
+        params.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
         
-        click("relationship.community");
+        Map<String, Object> params1 = new HashMap<>();
+        params1.put("label", "Community");
+        params1.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params1);
+        
+//        click("relationship.community");
 //        new QAFExtendedWebElement("relationship.community").click();
         
-        click("community.bsa");
-//        new QAFExtendedWebElement("community.bsa").isDisplayed();
+        
+//        click("community.bsa");
+        new QAFExtendedWebElement("community.bsa").isDisplayed();
         // new QAFExtendedWebElement("profile.team").click();
 
         Map<String, Object> params3 = new HashMap<>();
