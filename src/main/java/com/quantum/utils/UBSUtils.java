@@ -1,12 +1,11 @@
 package com.quantum.utils;
 
-import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
-import com.quantum.steps.*;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 
 public class UBSUtils  {
     

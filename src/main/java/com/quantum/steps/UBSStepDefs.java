@@ -3,7 +3,12 @@
  */
 package com.quantum.steps;
 
-import static com.quantum.utils.QAFDriverUtils.*;
+import static com.quantum.utils.QAFDriverUtils.checkPointTextVisual;
+import static com.quantum.utils.QAFDriverUtils.click;
+import static com.quantum.utils.QAFDriverUtils.getAttribute;
+import static com.quantum.utils.QAFDriverUtils.getText;
+import static com.quantum.utils.QAFDriverUtils.launchApp;
+import static com.quantum.utils.QAFDriverUtils.scrollUp;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -26,10 +31,17 @@ import com.quantum.ubs.screens.accounts.Balance;
 import com.quantum.ubs.screens.accounts.FinancialTools;
 import com.quantum.ubs.screens.accounts.Holdings;
 import com.quantum.ubs.screens.bankingservice.BankingServices;
-import com.quantum.ubs.screens.menu.*;
+import com.quantum.ubs.screens.menu.ContactAdvisor;
+import com.quantum.ubs.screens.menu.Feedback;
+import com.quantum.ubs.screens.menu.LegalServices;
+import com.quantum.ubs.screens.menu.Logout;
+import com.quantum.ubs.screens.menu.Mindset;
+import com.quantum.ubs.screens.menu.Profile;
+import com.quantum.ubs.screens.menu.Relationship;
+import com.quantum.ubs.screens.menu.Settings;
+import com.quantum.ubs.screens.menu.Support;
 import com.quantum.ubs.screens.milestone.MileStone;
 import com.quantum.utils.DeviceUtils;
-import com.quantum.utils.QAFDriverUtils;
 import com.quantum.utils.UBSCommonSteps;
 import com.quantum.utils.UBSUtils;
 
@@ -138,7 +150,8 @@ public class UBSStepDefs {
         	
         	UBSCommonSteps.login(securedUsername, securedPassword);
         	
-        	
+        	// Assert Home Screen is displayed
+        	CommonStep.assertPresent("main.net.balance");
 
 //            try {
 //                new QAFExtendedWebElement("iphone.signin").click();
@@ -166,7 +179,7 @@ public class UBSStepDefs {
 //            // 2 validations of home page loading
 //
 //           UBSUtils.declineFaceID();
-//            UBSUtils.validateHomePage();
+            UBSUtils.validateHomePage();
 
         }else {
             // enter credentials

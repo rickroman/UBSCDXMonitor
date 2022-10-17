@@ -38,7 +38,7 @@ public class EquityAwardsStepDefs {
 //        new QAFExtendedWebElement("login.signin.btn").click();
 //        // 2 validations of home page loading
 //        UBSUtils.declineFaceID();
-//        validateEquityAwardsHP();
+        validateEquityAwardsHP();
 
     }
 

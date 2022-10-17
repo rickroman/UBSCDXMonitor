@@ -34,13 +34,6 @@ public class UBSCommonSteps {
 //				QAFDriverUtils.click("login.OK.got.it");
 //			}
 //    	}
-
-		String locator = ConfigurationManager.getBundle().getString("login.Not.Now");
-
-		System.out.println(locator);
-
-    	// Assert Home Screen is displayed
-    	CommonStep.assertPresent("main.net.balance");
 		
 	}
 	
