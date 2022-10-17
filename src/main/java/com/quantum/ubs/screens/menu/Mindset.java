@@ -8,6 +8,8 @@ import com.quantum.utils.UBSCommonSteps;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.openqa.selenium.By;
+
 public class Mindset extends UBSScreen {
 
     @Override
@@ -15,11 +17,17 @@ public class Mindset extends UBSScreen {
         if(!isIPhone()) return;
 
         UBSCommonSteps.openMenu();
+        
+        
+        new QAFExtendedWebElement("mindset").click();
 
-        Map<String, Object> params2 = new HashMap<>();
-        params2.put("label", "Mindset and Interests");
-        params2.put("timeout", "30");
-        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+//        Map<String, Object> params2 = new HashMap<>();
+//        params2.put("label", "Mindset and Interests");
+//        params2.put("timeout", "30");
+//        
+//        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+        
+        
         new QAFExtendedWebElement("interest").isDisplayed();
 
         UBSCommonSteps.openMenu();

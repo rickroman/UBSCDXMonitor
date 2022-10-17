@@ -1,14 +1,10 @@
 package com.quantum.utils;
 
 
-import static com.quantum.utils.QAFDriverUtils.*;
+import static com.quantum.utils.QAFDriverUtils.click;
+import static com.quantum.utils.QAFDriverUtils.setValue;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import com.qmetry.qaf.automation.core.ConfigurationManager;
 import com.qmetry.qaf.automation.step.CommonStep;
-import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 
 public class UBSCommonSteps {
 	
@@ -43,6 +39,8 @@ public class UBSCommonSteps {
 	
 	public static void openMenu() {
 		click("menu.iphone");
+		
+		CommonStep.waitForVisible("main.sign.out");
 	}
 
 	public static void navigateToHome() {
