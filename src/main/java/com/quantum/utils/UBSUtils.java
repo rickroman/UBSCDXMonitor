@@ -5,10 +5,15 @@ import com.quantum.steps.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class UBSUtils  {
-    public static String model = getModel();
+    
+	public static String model = getModel();
+    
     public static void validateHomePage() {
+    	
         new QAFExtendedWebElement("main.net.balance").isDisplayed();
         DeviceUtils.waitForPresentTextVisual("total Assets",60);
         try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
@@ -56,28 +61,36 @@ public class UBSUtils  {
         new QAFExtendedWebElement("main.net.balance").isDisplayed();
 
     }
-    public static boolean validateAmount(String str) {
+    public static boolean validateAmount(String amountStr) {
+    	
+    	String amountPattern = "^\\$([\\d,])+(\\.(\\d)+)?";
+    	
+    	Pattern pattern = Pattern.compile(amountPattern);
+    	
+    	Matcher matcher = pattern.matcher(amountStr);
+    	
+    	return matcher.find();
 
-        // get 1st character and check it is a dollar symbol
-        String e = str.substring(0, 1);
-        String n = str.substring(1, 4);
-        n = n.replace(",", "");
-        n = n.replace(".", "");
-        if (e.equalsIgnoreCase("$")) {
-
-            System.out.println("n is: " + n);
-            if (n == null) {
-                return false;
-            }
-            try {
-                double d = Double.parseDouble(n);
-            } catch (NumberFormatException nfe) {
-                return false;
-            }
-            return true;
-
-
-        }else { return false;}
+//        // get 1st character and check it is a dollar symbol
+//        String e = str.substring(0, 1);
+//        String n = str.substring(1, 4);
+//        n = n.replace(",", "");
+//        n = n.replace(".", "");
+//        if (e.equalsIgnoreCase("$")) {
+//
+//            System.out.println("n is: " + n);
+//            if (n == null) {
+//                return false;
+//            }
+//            try {
+//                double d = Double.parseDouble(n);
+//            } catch (NumberFormatException nfe) {
+//                return false;
+//            }
+//            return true;
+//
+//
+//        }else { return false;}
     }
 
     public static boolean validateNumber(String str) {

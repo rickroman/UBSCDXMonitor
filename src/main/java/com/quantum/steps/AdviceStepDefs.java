@@ -1,17 +1,16 @@
 package com.quantum.steps;
 
-import com.qmetry.qaf.automation.step.QAFTestStepProvider;
-import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
-import com.quantum.utils.*;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import java.util.HashMap;
 //import javafx.scene.web.WebView;
 import java.util.Map;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.concurrent.atomic.AtomicInteger;
 
+import com.qmetry.qaf.automation.step.QAFTestStepProvider;
+import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
+import com.quantum.utils.DeviceUtils;
 import com.quantum.utils.UBSUtils;
+
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 @QAFTestStepProvider
 public class AdviceStepDefs {
@@ -71,6 +70,7 @@ public class AdviceStepDefs {
 
             // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
             new QAFExtendedWebElement("login.signin.btn").click();
+            
             // 2 validations of home page loading
             UBSUtils.declineFaceID();
             UBSUtils.validateHomePage();
@@ -88,14 +88,9 @@ public class AdviceStepDefs {
         new QAFExtendedWebElement("select.accounts").isPresent();
         new QAFExtendedWebElement("advice.cancel").click();
         new QAFExtendedWebElement("explore.advice").isDisplayed();
-
-
-
-
-
-
-
     }
+    
+    
     @Then("Navigate advice advantage")
     public void navigateAdvice() {
 

@@ -8,12 +8,13 @@
     <!-- by driverClass property in env.resources dirs -->
     <!-- Set driver.name value to perfectoDriver       -->
     <parameter name="driver.name" value="perfectoDriver"/>
- <parameter name="driver.capabilities.securityToken" value="${securityToken}"></parameter>
-
-
+    <parameter name="perfecto.capabilities.securityToken" value="eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyODhhNDIyNS1jOTE1LTQwZDctOTc2YS04MDhiMWE3YTFmODYifQ.eyJpYXQiOjE2NjA4MDk3MzcsImp0aSI6IjRhYThkMjRjLWNlNGYtNDgxMy1hNGE2LTU4MmY0NGVhZGExMyIsImlzcyI6Imh0dHBzOi8vYXV0aC5wZXJmZWN0b21vYmlsZS5jb20vYXV0aC9yZWFsbXMvcHMtcGVyZmVjdG9tb2JpbGUtY29tIiwiYXVkIjoiaHR0cHM6Ly9hdXRoLnBlcmZlY3RvbW9iaWxlLmNvbS9hdXRoL3JlYWxtcy9wcy1wZXJmZWN0b21vYmlsZS1jb20iLCJzdWIiOiI2OWJmOGEwYS05NTZkLTQyYjYtYjZhOC02ODIyMjM3NWU0MGQiLCJ0eXAiOiJPZmZsaW5lIiwiYXpwIjoib2ZmbGluZS10b2tlbi1nZW5lcmF0b3IiLCJub25jZSI6IjZlYzZhOTI4LTg2NDUtNDMwZC04YjZkLTRlNzJhM2E1OGFiYiIsInNlc3Npb25fc3RhdGUiOiI5NzY5YTNiNC00NmVlLTRkMGYtYTRlNi00NzFhMzc2NDY1YTkiLCJzY29wZSI6Im9wZW5pZCBvZmZsaW5lX2FjY2VzcyJ9.CBd_84Ll9vmcE2U7ZTlJBlbHddq9PX-r7gqXXZo-5f4"/>
+<!--    <parameter name="driver.capabilities.takesScreenshot" value="false"></parameter>-->
+<!--    <parameter name="driver.capabilities.screenshotOnError" value="true"></parameter>-->
+<!--    <parameter name="driver.capabilities.bundleId" value="com.ubs.clientMobile"></parameter>-->
 
     <test name="iPhone CDX" enabled="true">
-        <parameter name="driver.capabilities.deviceName" value="00008110-001844A0119B801E"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="0C2210C8EBD9A1FB421A8D0A692E6C72F85E4C9E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
@@ -25,7 +26,7 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-    <test name="iPhone CDX 2" enabled="true">
+    <test name="iPhone CDX 2" enabled="false">
         <parameter name="driver.capabilities.deviceName" value="00008110-000A5DDA1E00401E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 

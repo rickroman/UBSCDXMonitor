@@ -3,1289 +3,724 @@
  */
 package com.quantum.steps;
 
+import static com.quantum.utils.QAFDriverUtils.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.Year;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import com.qmetry.qaf.automation.step.CommonStep;
 import com.qmetry.qaf.automation.step.QAFTestStepProvider;
-import com.qmetry.qaf.automation.ui.WebDriverTestBase;
 import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
-import com.qmetry.qaf.automation.util.StringUtil;
-import com.quantum.utils.*;
+import com.quantum.ubs.screens.accounts.Balance;
+import com.quantum.ubs.screens.accounts.FinancialTools;
+import com.quantum.ubs.screens.accounts.Holdings;
+import com.quantum.ubs.screens.bankingservice.BankingServices;
+import com.quantum.ubs.screens.menu.*;
+import com.quantum.ubs.screens.milestone.MileStone;
+import com.quantum.utils.DeviceUtils;
+import com.quantum.utils.QAFDriverUtils;
+import com.quantum.utils.UBSCommonSteps;
+import com.quantum.utils.UBSUtils;
+
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
-//import javafx.scene.web.WebView;
-import net.bytebuddy.implementation.bytecode.Throw;
-import java.util.Map;
-import java.util.HashMap;
-import java.time.*;
-import java.util.concurrent.TimeUnit;
-
-import com.quantum.utils.UBSUtils;
 
 @QAFTestStepProvider
 public class UBSStepDefs {
 
-    private static final String Secured_uname = "secured./h2sxa3ub4PCwXhsgCxWJQ==";
-    private static final String Secured_pw = "secured.Xh05tx5pw3z3iyHVTztGsQ==";
-
-
-
-
-    @Then("^I restart all devices$")
-    public void daily_restart(){
-
-        Map<String, Object> params = new HashMap<>();
-        DeviceUtils.getQAFDriver().executeScript("mobile:device:ready", params);
-        try {Thread.sleep(3000); } catch (InterruptedException e) {}
-        Map<String, Object> pars = new HashMap<>();
-        DeviceUtils.getQAFDriver().executeScript("mobile:handset:reboot", pars);
-        try {Thread.sleep(10000); } catch (InterruptedException e) {}
-
-        Map<String, Object> pars2 = new HashMap<>();
-        DeviceUtils.getQAFDriver().executeScript("mobile:handset:recover", pars2);
-        try {Thread.sleep(90000); } catch (InterruptedException e) {}
-
-
-    }
-
-
-    // public String os = new QAFExtendedWebElement().getDescription();
-
-    @When("I launch CDX")
-    public void launch_cdx() {
-
-
-        if(UBSUtils.getModel().equals("iphone")) {
-
-
-            try { DeviceUtils.closeApp("UBS", "name");
-            }catch (Exception e){ System.out.println("app was not open"); }
-            DeviceUtils.startApp("UBS", "name");
-
-
-        }else {
-
-
-            try { DeviceUtils.closeApp("UBS", "name");
-            }catch (Exception e){ System.out.println("app was not open"); }
-            DeviceUtils.startApp("UBS", "name");
-
-        }
-
-
-        DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
-    }
-    @When("I debug launch CDX")
-    public void debugLaunch_cdx() {
-
-
-        if(UBSUtils.getModel().equals("iphone")) {
-
-
-            try { DeviceUtils.closeApp("Wealth QA", "name");
-            }catch (Exception e){ System.out.println("app was not open"); }
-            DeviceUtils.startApp("Wealth QA", "name");
-
-
-        }else {
-
-
-            try { DeviceUtils.closeApp("Wealth QA", "name");
-            }catch (Exception e){ System.out.println("app was not open"); }
-            DeviceUtils.startApp("Wealth QA", "name");
-
-        }
-
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
-    }
-
-
-
-    @When("Login to CDX")
-    public void loginCDX() {
-
-        if(UBSUtils.getModel().equals("iphone")) {
-
-            try {
-                new QAFExtendedWebElement("iphone.signin").click();
-            }catch (Exception e){}
-
-            //declare the Map for script parameters
-            Map<String, Object> params = new HashMap<>();
-                params.put("text", Secured_uname);
-                params.put("by", "xpath");
-                params.put("value", "//*[@value=\"Username\"]");
-            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
-
-            new QAFExtendedWebElement("login.next.iphone").click();
-            new QAFExtendedWebElement("field.password.iphone").click();
-
-
-            Map<String, Object> params4 = new HashMap<>();
-            params4.put("text", Secured_pw);
-            params4.put("by", "xpath");
-            params4.put("value", "//XCUIElementTypeSecureTextField");
-            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
-
-
-            new QAFExtendedWebElement("login.signin.btn").click();
-            // 2 validations of home page loading
-
-           UBSUtils.declineFaceID();
-            UBSUtils.validateHomePage();
-
-        }else {
-            // enter credentials
-            Map<String, Object> params = new HashMap<>();
-            params.put("content", "Username");
-            DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
-            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-            Map<String, Object> params3 = new HashMap<>();
-            params3.put("text", Secured_uname);
-            params3.put("by", "xpath");
-            params3.put("value", "//XCUIElementTypeTextField");
-            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params3);
-
-            //   new QAFExtendedWebElement("field.username").sendKeys("securetest66");
-            new QAFExtendedWebElement("login.next").click();
-
-
-            Map<String, Object> params4 = new HashMap<>();
-            params4.put("text", Secured_pw);
-            params4.put("by", "xpath");
-            params4.put("value", "//XCUIElementTypeSecureTextField");
-            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
-
-
-            // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
-            new QAFExtendedWebElement("login.signin.btn").click();
-            // 2 validations of home page loading
-            UBSUtils.declineFaceID();
-            UBSUtils.validateHomePage();
-        }
-
-    }
-    @When("debug_Login to CDX")
-    public void debugLoginCDX() {
-
-
-        String Secured_duname = "secured.aDeg4J2QMoUXTt3/WHcjUg==";
-        String Secured_dpw = "secured.ihj+yodayavfCbHyJQTJBw==";
-
-
-            //declare the Map for script parameters
-
-        /*
-            Map<String, Object> params = new HashMap<>();
-            params.put("text", Secured_duname);
-            params.put("by", "xpath");
-            params.put("value", "//*[@value=\"Username\"]");
-            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
-*/
-        new QAFExtendedWebElement("field.username").sendKeys("cdx07");
-
-
-        try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-         //new QAFExtendedWebElement("debug.next").click();
-        try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-
-        new QAFExtendedWebElement("field.password").sendKeys("New@ols2");
-        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-
-
-        Map<String, Object> params = new HashMap<>();
-        params.put("label", "Sign in");
-        params.put("timeout", 15);
-        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
-
-        try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-
-
-
-/*
-
-        Map<String, Object> params4 = new HashMap<>();
-        params4.put("text", Secured_dpw);
-        params4.put("by", "xpath");
-        params4.put("value", "//XCUIElementTypeSecureTextField");
-        DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
-
-*/
-
-
-
-
-        // new QAFExtendedWebElement("debug.next").click();
-
-          //  new QAFExtendedWebElement("login.next.iphone").click();
-         //  new QAFExtendedWebElement("debug.pw").click();
-
-
-
-
-/*
-        Map<String, Object> params4 = new HashMap<>();
-        params4.put("text", "yaron");
-        params4.put("by", "xpath");
-        params4.put("value", "//*[@value=\"Password\"]");
-        DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
-
-
-        // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
-
-
-        */
-     //   new QAFExtendedWebElement("login.signin.btn").click();
-        // 2 validations of home page loading
-        UBSUtils.validateHomePage();
-
-    }
-
-
-    @Then("check milestone")
-    public void checkMilestone() {
-
-
-        if (UBSUtils.getModel().equalsIgnoreCase("iphone")) {
-
-            new QAFExtendedWebElement("main.milestones").click();
-            new QAFExtendedWebElement("mile.scouts").click();
-            new QAFExtendedWebElement("mile.bsa").isDisplayed();
-            new QAFExtendedWebElement("mile.resources").isDisplayed();
-
-
-
-            //click on article
-            System.out.println("milestone article");
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "donation to the scouts");
-            params2.put("timeout", 30);
-            params2.put("label.direction","Above");
-            params2.put("label.offset","35%");
-
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-
-
-            Map<String, Object> params = new HashMap<>();
-            params.put("label", "done");
-            params.put("timeout", 30);
-            params.put("screen.top","0%");
-            params.put("screen.height","13%");
-            params.put("screen.width","100%");
-            params.put("screen.left","0%");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
-
-
-
-            new QAFExtendedWebElement("iphone.activity.back").click();
-            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
-            new QAFExtendedWebElement("home").isPresent();
-            new QAFExtendedWebElement("home").click();
-            UBSUtils.validateShortHomePage();
-
-        } else {
-
-            Map<String, Object> params4 = new HashMap<>();
-            params4.put("label","PUBLIC:monitoring/milestones_ipad.png");
-            params4.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
-            new QAFExtendedWebElement("mile.scouts").click();
-            try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-            new QAFExtendedWebElement("mile.bsa").isDisplayed();
-
-
-            //click on article
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "Resources");
-            params2.put("ignorecase","case");
-            params2.put("timeout", 30);
-            params2.put("label.direction","Above");
-            params2.put("label.offset","9%");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-            new QAFExtendedWebElement("xbutton").click();
-            new QAFExtendedWebElement("milestones.page").isDisplayed();
-
-
-           /* Map<String, Object> params = new HashMap<>();
-            params.put("label","PUBLIC:monitoring/milestones_ipad_back.png");
-            params.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
-            new QAFExtendedWebElement("retirement").isDisplayed();
-            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-            */
-            new QAFExtendedWebElement("home").click();
-            Map<String, Object> params5= new HashMap<>();
-            params5.put("label", "home");
-            params5.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
-            UBSUtils.validateShortHomePage();
-
-
-        }
-    }
-
-
-    @Then("validate banking services")
-    public void bankingServices() {
-
-
-        if (UBSUtils.getModel().equalsIgnoreCase("iphone")) {
-
-
-            new QAFExtendedWebElement("banking.services").click();
-
-
-
-
-            // At a glance
-            new QAFExtendedWebElement("glance").click();
-            new QAFExtendedWebElement("glance.recent").isDisplayed();
-
-
-            String a = new QAFExtendedWebElement("glance.value").getText();
-            System.out.println("glance value is: " + a);
-            if(!UBSUtils.validateAmount(a)) {throw new RuntimeException("No dollar amount has loaded: " + a); }
-
-
-
-            new QAFExtendedWebElement("home").click();
-
-            // transfer funds
-            new QAFExtendedWebElement("banking.services").click();
-            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
-            new QAFExtendedWebElement("transfer.funds").click();
-            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
-            new QAFExtendedWebElement("funds.move").isPresent();
-
-            // check manage scheduled transfers
-            new QAFExtendedWebElement("schedule.transfers").click();
-            new QAFExtendedWebElement("transfering.out").isPresent();
-
-
-
-            new QAFExtendedWebElement("banking.services").click();
-
-            // pay bills
-            new QAFExtendedWebElement("Pay Bills").click();
-            new QAFExtendedWebElement("bills.payment").isDisplayed();
-
-            new QAFExtendedWebElement("home").click();
-            new QAFExtendedWebElement("banking.services").click();
-            // pay credit card
-            new QAFExtendedWebElement("pay.ubs").click();
-            new QAFExtendedWebElement("bills.payment").isDisplayed();
-
-            // new QAFExtendedWebElement("pay.credit").isDisplayed();
-            new QAFExtendedWebElement("home").click();
-            new QAFExtendedWebElement("banking.services").click();
-            // deposit check
-            new QAFExtendedWebElement("deposit.check").click();
-            new QAFExtendedWebElement("noaccount").isDisplayed();
-            new QAFExtendedWebElement("home").click();
-            UBSUtils.validateShortHomePage();
-
-
-
-
-        } else {
-          //  new QAFExtendedWebElement("banking.services").click();
-            Map<String, Object> params5= new HashMap<>();
-            params5.put("label", "Banking Services");
-            params5.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
-            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-            // At a glance
-            new QAFExtendedWebElement("glance.recent").isDisplayed();
-            String a = new QAFExtendedWebElement("glance.value").getText();
-            System.out.println("glance value is: " + a);
-            if(!UBSUtils.validateAmount(a)) {throw new RuntimeException("No dollar amount has loaded: " + a); }
-
-            // transfer funds
-            //new QAFExtendedWebElement("transfer.funds").click();
-            Map<String, Object> params10= new HashMap<>();
-             params10.put("label", "Transfer Funds");
-             params10.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params10);
-            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
-            new QAFExtendedWebElement("funds.move").isPresent();
-
-
-            // scheduled transfers
-            new QAFExtendedWebElement("schedule.transfers").click();
-            Map<String, Object> params = new HashMap<>();
-            params.put("content", "does not have any scheduled transfers");
-            params.put("timeout", 20);
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
-            new QAFExtendedWebElement("profile.back").click();
-
-
-            new QAFExtendedWebElement("banking.services").click();
-
-
-            // pay bills
-            new QAFExtendedWebElement("Pay Bills").click();
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("content", "pay bills outside");
-            params2.put("timeout", 20);
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
-
-            // pay credit card
-            new QAFExtendedWebElement("ipad.credit").click();
-            Map<String, Object> params20 = new HashMap<>();
-            params20.put("content", "credit card payment");
-            params20.put("timeout", 20);
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params20);
-
-            // deposit check
-            new QAFExtendedWebElement("deposit.check").click();
-            Map<String, Object> params11= new HashMap<>();
-            params11.put("label", "deposit checks");
-            params11.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params11);
-            try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
-            new QAFExtendedWebElement("noaccount").isDisplayed();
-
-
-            //  return home
-            new QAFExtendedWebElement("back").click();
-            new QAFExtendedWebElement("home").click();
-            Map<String, Object> params13= new HashMap<>();
-            params13.put("label", "Home");
-            params13.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params13);
-
-            UBSUtils.validateShortHomePage();
-
-
-
-        }
-    }
-
-    @Then("view insights")
-    public void viewInsights() {
-
-        if(UBSUtils.getModel().equalsIgnoreCase("iphone")) {
-
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("content", "here are your periodically");
-            params2.put("scrolling", "scroll");
-            params2.put("next","SWIPE=(50%,85%),(50%,55%)");
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
-
-        }else {
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("content", "news and insights");
-            params2.put("scrolling", "scroll");
-            params2.put("next","SWIPE=(50%,85%),(50%,55%)");
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
-
-            // scroll back up
-            Map<String, Object> params = new HashMap<>();
-            params.put("content","\"net balance\", \"includes ubs and external accounts\"");
-            params.put("scrolling", "scroll");
-            params.put("target","any");
-            params.put("next","SWIPE=(50%,55%),(50%,85%)");
-            params.put("maxscroll",10);
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
-        }
-
-
-
-    }
-
-
-    @Then("view market insights")
-    public void viewMarketInsights() {
-
-        if(UBSUtils.getModel().equalsIgnoreCase("iphone")) {
-
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("content","\"djia\" \"as of\"");
-            params2.put("scrolling", "scroll");
-            params2.put("next","SWIPE=(50%,85%),(50%,55%)");
-            params2.put("target","all");
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
-
-            // check date
-            String today = new QAFExtendedWebElement("home.asof").getAttribute("value");
-            System.out.println("today is: " + today);
-            String thisYear = Year.now().toString();
-            System.out.println("this year: " + thisYear);
-
-            if(today.contains(thisYear)) {
-
-                String msg = "the string contains" + thisYear;
-                System.out.println(msg);
-                ReportUtils.logAssert(msg,true);
-            }else {
-                String msg = "the string DOES NOT include" + thisYear;
-                System.out.println(msg);
-               ReportUtils.logAssert(msg,false);
-
-
-            }
-            // return to top
-            try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
-            Map<String, Object> params = new HashMap<>();
-            params.put("content","\"learn more about your accounts\", \"includes ubs and external accounts\"");
-            params.put("scrolling", "scroll");
-            params.put("target","any");
-            params.put("next","SWIPE_DOWN");
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
-
-
-        }else {
-
-        }
-
-
-    }
-    @Then("check account activity")
-    public void accountActivity(){
-        new QAFExtendedWebElement("iphone.main.accounts").click();
-        new QAFExtendedWebElement("accounts.activity").click();
-        // validating first activity
-        new QAFExtendedWebElement("iphone.activity.first").click();
-        String activityAmount = new QAFExtendedWebElement("activity.amount").getText();
-        if(!UBSUtils.validateNumber(activityAmount)) {throw new RuntimeException("No activity amount has loaded: " + activityAmount); }
-        new QAFExtendedWebElement("iphone.activity.back").click();
-
-
-
-        // check activity filter
-        Map<String, Object> params = new HashMap<>();
-        params.put("content", "Filter");
-        params.put("language", "English");
-        params.put("timeout",30);
-        DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
-
-        //  new QAFExtendedWebElement("filter.btn").click();
-        new QAFExtendedWebElement("ytd.iphone").click();
-        new QAFExtendedWebElement("filter.apply").click();
-
-        Map<String, Object> params2 = new HashMap<>();
-        params2.put("content", "updated");
-        params2.put("timeout", "30");
-        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
-
-        new QAFExtendedWebElement("home").click();
-        UBSUtils.validateShortHomePage();
-
-
-    }
-    @Then("validate accounts")
-    public void validateAccounts() {
-
-
-        if(UBSUtils.getModel().equalsIgnoreCase("iphone")) {
-            //click accounts and check balance of prior day
-            new QAFExtendedWebElement("iphone.main.accounts").click();
-            new QAFExtendedWebElement("iphone.accounts.balances").click();
-            try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
-
-
-
-            try{
-               String prior = String.valueOf(new QAFExtendedWebElement("iphone.priorday").isEnabled());
-               System.out.println("prior day checkbox:" + prior);
-
-
-
-            }catch (Exception e) {
-                System.out.println("clicking on ubs");
-                new QAFExtendedWebElement("iphone.ubs").click();
-            }
-
-            String balance = new QAFExtendedWebElement("total.value").getAttribute("name");
-            if(!UBSUtils.validateAmount(balance)) {
-                throw new RuntimeException("No dollar amount has loaded: " + balance);
-            }
-            new QAFExtendedWebElement("iphone.intraday").click();
-            String value = new QAFExtendedWebElement("iphone.intraday").getAttribute("value");
-            System.out.println("value is" + value);
-            new QAFExtendedWebElement("iphone.change.value").isDisplayed();
-
-            new QAFExtendedWebElement("iphone.priorday").click();
-            new QAFExtendedWebElement("iphone.change.value").isDisplayed();
-
-
-            new QAFExtendedWebElement("iphone.all").click();
-            new QAFExtendedWebElement("iphone.investment.assets").isDisplayed();
-            new QAFExtendedWebElement("iphone.ubs").click();
-            try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
-
-            // click on holdings & validate
-
-
-            new QAFExtendedWebElement("iphone.main.accounts").click();
-
-            try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
-             new QAFExtendedWebElement("accounts.holdings").click();
-            try { Thread.sleep(3000); } catch (InterruptedException e) {e.printStackTrace(); }
-
-            //  new QAFExtendedWebElement("holdings.msg").isDisplayed();
-             new QAFExtendedWebElement("holdings.cash").isPresent();
-
-            // switch to ubs if not the default
-
-            try {
-
-                String prior = String.valueOf(new QAFExtendedWebElement("iphone.priorday").isEnabled());
-                System.out.println("prior day balances checkbox:" + prior);
-            }catch (Exception e){
-
-                System.out.println("clicking on ubs at holdings page");
-                new QAFExtendedWebElement("iphone.ubs").click();
-
-            }
-
-            new QAFExtendedWebElement("iphone.priorday").isPresent();
-            new QAFExtendedWebElement("iphone.intraday").click();
-            new QAFExtendedWebElement("iphone.holdings.cash").isPresent();
-            //validate cash & total values are numbers
-            String holdingsGrandTotal = new QAFExtendedWebElement("iphone.holdings.grandTotal").getText();
-            System.out.println("holding grand total:" + holdingsGrandTotal);
-            if(!UBSUtils.validateNumber(holdingsGrandTotal)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsGrandTotal); }
-
-/*
-            String holdingsCashTotal = new QAFExtendedWebElement("iphone.holdings.cashTotal").getText();
-            System.out.println("holding cash total:" + holdingsCashTotal);
-            if(!UBSUtils.validateNumber(holdingsCashTotal)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsCashTotal); }
-*/
-
-            new QAFExtendedWebElement("iphone.all").click();
-            new QAFExtendedWebElement("iphone.total.value").isPresent();
-            new QAFExtendedWebElement("iphone.ubs").click();
-
-
-
-            // click on Activity & validate
-
-            // checking filter button as it is only unique element on page
-
-            /*
-
-*/
-/*
-
-         new QAFExtendedWebElement("iphone.main.accounts").click();
-            new QAFExtendedWebElement("accounts.activity").click();
-            // validating first activity
-            new QAFExtendedWebElement("iphone.activity.first").click();
-            String activityAmount = new QAFExtendedWebElement("activity.amount").getText();
-           if(!UBSUtils.validateNumber(activityAmount)) {throw new RuntimeException("No activity amount has loaded: " + activityAmount); }
-            new QAFExtendedWebElement("iphone.activity.back").click();
-
-
-
-            // check activity filter
-            Map<String, Object> params = new HashMap<>();
-                params.put("content", "Filter");
-                params.put("language", "English");
-                params.put("timeout",30);
-            DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
-
-            //  new QAFExtendedWebElement("filter.btn").click();
-            new QAFExtendedWebElement("ytd.iphone").click();
-            new QAFExtendedWebElement("filter.apply").click();
-
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("content", "updated");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
-
-
-*/
-
-
-            // Financial tools
-            new QAFExtendedWebElement("iphone.main.accounts").click();
-            new QAFExtendedWebElement("accounts.financial.tools").click();
-            new QAFExtendedWebElement("iphone.financialtools.msg").isDisplayed();
-
-            new QAFExtendedWebElement("cash.flow.iphone").click();
-            new QAFExtendedWebElement("cash.flow.msg").isDisplayed();
-
-
-            new QAFExtendedWebElement("cash.flow.spending").click();
-            //new QAFExtendedWebElement("cash.flow.expenses").isDisplayed();
-
-            new QAFExtendedWebElement("home").click();
-
-        }else {
-            // click on accounts and validate table loads
-           // new QAFExtendedWebElement("main.accounts").click();
-
-
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "Accounts");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-
-            new QAFExtendedWebElement("accounts.balances").isDisplayed();
-            new QAFExtendedWebElement("accounts.currentBalance").isPresent();
-
-            String balance = new QAFExtendedWebElement("total.value").getAttribute("name");
-            if(!UBSUtils.validateAmount(balance)) {
-                throw new RuntimeException("No dollar amount has loaded: " + balance);
-            }
-
-            // click on all, validate and return
-            new QAFExtendedWebElement("balances.all").click();
-            try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
-            new QAFExtendedWebElement("all.assets").isPresent();
-            new QAFExtendedWebElement("iphone.ubs").click();
-            try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
-            new QAFExtendedWebElement("accounts.currentBalance").isPresent();
-
-            // check prior day
-            try {
-                new QAFExtendedWebElement("balances.priorday").click();
-            }catch (Exception e) {
-
-                new QAFExtendedWebElement("iphone.ubs").click();
-                new QAFExtendedWebElement("balances.priorday").click();
-
-            }
-            try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
-            new QAFExtendedWebElement("prior.day.investments").isDisplayed();
-            new QAFExtendedWebElement("balances.intraday").click();
-            try { Thread.sleep(5000); } catch (InterruptedException e) { e.printStackTrace(); }
-            new QAFExtendedWebElement("accounts.balances").isDisplayed();
-
-
-         /*
-            // click on holdings & validate
-            // set long timeout for holdings page on iPad
-            DeviceUtils.getQAFDriver().manage().timeouts().implicitlyWait(300, TimeUnit.SECONDS);
-            DeviceUtils.getQAFDriver().manage().timeouts().setScriptTimeout(300, TimeUnit.SECONDS);
-
-
-            new QAFExtendedWebElement("accounts.holdings").click();
-
-            // check holdings values
-            try { Thread.sleep(20000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-
-
-
-            String holdingsGrandTotal = new QAFExtendedWebElement("ipad.holdings.grandTotal").getText();
-            System.out.println("holding grand total:" + holdingsGrandTotal);
-            if(!UBSUtils.validateNumber(holdingsGrandTotal)) {
-
-                Map<String, Object> params12 = new HashMap<>();
-                params12.put("label", "Holdings");
-                params12.put("timeout", "30");
-                DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params12);
-
-
-                 holdingsGrandTotal = new QAFExtendedWebElement("ipad.holdings.grandTotal").getText();
-                System.out.println("holding grand total:" + holdingsGrandTotal);
-
-
-
-                throw new RuntimeException("No dollar amount has loaded: " + holdingsGrandTotal); }
-
-            String holdingsAmount =  new QAFExtendedWebElement("activity.amounts").findElements("activity.amounts").get(0).getText();
-            System.out.println("holdings amount: " + holdingsAmount);
-            if(!UBSUtils.validateNumber(holdingsAmount)) {throw new RuntimeException("No dollar amount has loaded: " + holdingsAmount); }
-
-
-
-            new QAFExtendedWebElement("iphone.ubs").click();
-            new QAFExtendedWebElement("holdings.ubs.change").isPresent();
-
-            DeviceUtils.getQAFDriver().manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-
-            // check prior day
-
-            try{
-                new QAFExtendedWebElement("balances.priorday").isDisplayed();
-            }catch (Exception e) {
-                System.out.println("clicking on ubs");
-                new QAFExtendedWebElement("iphone.ubs").click();
-            }
-
-
-            new QAFExtendedWebElement("balances.priorday").click();
-            new QAFExtendedWebElement("holdings.quantity").isPresent();
-            new QAFExtendedWebElement("balances.intraday").click();
-
-            new QAFExtendedWebElement("balances.all").click();
-            new QAFExtendedWebElement("holdings.cash").isPresent();
-
-
-*/
-
-
-            // click on Activity & validate
-
-            Map<String, Object> params3 = new HashMap<>();
-            params3.put("label", "Activity");
-            params3.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
-           // new QAFExtendedWebElement("accounts.activity").click();
-            new QAFExtendedWebElement("activity.type").isDisplayed();
-            //check number of first activity
-           String a =  new QAFExtendedWebElement("activity.amounts").findElements("activity.amounts").get(0).getText();
-           System.out.println("activity amount: " + a);
-            if(!UBSUtils.validateNumber(a)) {throw new RuntimeException("No dollar amount has loaded: " + a); }
-
-
-            // check activity filter
-            new QAFExtendedWebElement("accounts.activity").click();
-            new QAFExtendedWebElement("activity.account").isDisplayed();
-
-            Map<String, Object> params = new HashMap<>();
-            params.put("content", "Filter");
-            DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
-
-          //  new QAFExtendedWebElement("filter.btn").click();
-            new QAFExtendedWebElement("ytd").click();
-           // new QAFExtendedWebElement("filter.apply").click();
-            Map<String, Object> params4= new HashMap<>();
-            params4.put("label", "Apply");
-            params4.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
-            new QAFExtendedWebElement("activity.account").isDisplayed();
-
-
-
-
-            // Financial tools
-           // new QAFExtendedWebElement("accounts.financial.tools").click();
-
-            Map<String, Object> params5= new HashMap<>();
-            params5.put("label", "Financial tools");
-            params5.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
-            new QAFExtendedWebElement("financial.tools.msg").isDisplayed();
-            new QAFExtendedWebElement("net.balanc").isPresent();
-
-           new QAFExtendedWebElement("cash.flow").click();
-
-            Map<String, Object> params6= new HashMap<>();
-            params6.put("label", "Cash flow");
-            params6.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params6);
-
-
-            try { Thread.sleep(6000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-
-
-            new QAFExtendedWebElement("cash.flow.msg").isDisplayed();
-            //new QAFExtendedWebElement("cash.flow.spending").click();
-            Map<String, Object> params7= new HashMap<>();
-            params7.put("label", "Spending");
-            params7.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params7);
-            new QAFExtendedWebElement("cash.flow.expenses").isDisplayed();
-
-            // go back to home page
-            new QAFExtendedWebElement("back").click();
-          //  new QAFExtendedWebElement("home").click();
-            Map<String, Object> params8= new HashMap<>();
-            params8.put("label", "Home");
-            params8.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params8);
-        }
-        UBSUtils.validateShortHomePage();
-
-    }
-    @Then("create milestone")
-    public void createMilestone() {
-        new QAFExtendedWebElement("main.milestones").click();
-        new QAFExtendedWebElement("mile.add").click();
-        new QAFExtendedWebElement("mile.travel").click();
-        new QAFExtendedWebElement("MilestoneNameComponentViewCell").click();
-        new QAFExtendedWebElement("MilestoneNameComponentViewCell").sendKeys("London");
-        new QAFExtendedWebElement("mile.next").click();
-
-
-        // Add details to Milestone
-        new QAFExtendedWebElement("mile.start").click();
-        new QAFExtendedWebElement("mile.year").click();
-        new QAFExtendedWebElement("mile.amount").sendKeys("5000");
-
-        Map<String, Object> params = new HashMap<>();
-        params.put("content", "Add Milestone");
-        DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
-        // validate milestone created
-        new QAFExtendedWebElement("milestones.page").isDisplayed();
-        new QAFExtendedWebElement("milestone.created").isDisplayed();
-    }
-
-    @Then("delete milestone")
-    public void deleteMilestone() {
-        new QAFExtendedWebElement("milestone.created").click();
-        Map<String, Object> params = new HashMap<>();
-        params.put("content", "Edit");
-        DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
-
-        Map<String, Object> params2 = new HashMap<>();
-        params2.put("content", "remove this milestone");
-        params2.put("next", "SWIPE_UP");
-        params2.put("scrolling", "scroll");
-        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
-        new QAFExtendedWebElement("milestone.delete").click();
-        new QAFExtendedWebElement("milestone.delete.confirm").click();
-        new QAFExtendedWebElement("home").click();
-        UBSUtils.validateShortHomePage();
-
-
-    }
-
-    @Then("validate relationship")
-    public void validateRelationship() {
-
-
-        if(UBSUtils.getModel().equals("iphone")) {
-            // Relationship
-            new QAFExtendedWebElement("menu.iphone").click();
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "Relationship");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-           //  new QAFExtendedWebElement("relationship.community").isDisplayed();
-
-
-            new QAFExtendedWebElement("relationship.team").click();
-            new QAFExtendedWebElement("relationship.advice").isDisplayed();
-            new QAFExtendedWebElement("menu.iphone").click();
-
-
-        }else{
-
-
-            new QAFExtendedWebElement("profile.relationship").click();
-            Map<String, Object> params8= new HashMap<>();
-            params8.put("label", "relationships");
-            params8.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params8);
-            //close to me
-
-            // external professionals
-            new QAFExtendedWebElement("external.pro").click();
-            new QAFExtendedWebElement("relationship.community").click();
-            new QAFExtendedWebElement("community.bsa").isDisplayed();
-         //   new QAFExtendedWebElement("profile.team").click();
-
-
-
-            Map<String, Object> params3 = new HashMap<>();
-            params3.put("label", "UBS Team");
-            params3.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
-
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("content", "UBS Wealth Advice");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
-            new QAFExtendedWebElement("close.tome").click();
-
-            }
-    }
-
-    @Then("validate mindset")
-    public void validateMindset() {
-
-
-        if(UBSUtils.getModel().equals("iphone")) {
-            // Relationship
-            new QAFExtendedWebElement("menu.iphone").click();
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "Mindset and Interests");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-            new QAFExtendedWebElement("interest").isDisplayed();
-            new QAFExtendedWebElement("menu.iphone").click();
-
-        } else {
-            new QAFExtendedWebElement("mindset").click();
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "Mindset and Interests");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-            new QAFExtendedWebElement("mindset.msg").isDisplayed();
-        }
-
-    }
-
-    @Then("check settings")
-    public void validateSettings() {
-
-
-        if(UBSUtils.getModel().equals("iphone")) {
-            // Relationship
-            new QAFExtendedWebElement("menu.iphone").click();
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "Settings");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-            new QAFExtendedWebElement("settings.reset").isDisplayed();
-            new QAFExtendedWebElement("menu.iphone").click();
-        } else {
-
-            new QAFExtendedWebElement("settings").click();
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "Settings");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-            new QAFExtendedWebElement("settings.reset").isDisplayed();
-            new QAFExtendedWebElement("information").click();
-            Map<String, Object> params3 = new HashMap<>();
-            params3.put("label", "information");
-            params3.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
-
-        }
-    }
-
-    @Then("get support")
-    public void getSupport() {
-
-
-        if(UBSUtils.getModel().equals("iphone")) {
-            new QAFExtendedWebElement("menu.iphone").click();
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "Support");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-
-            Map<String, Object> params3 = new HashMap<>();
-            params3.put("content", "need assistance");
-            params3.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
-
-
-            new QAFExtendedWebElement("support.close").click();
-
-
-/*
-            Map<String, Object> params4 = new HashMap<>();
-            params4.put("label","PUBLIC:monitoring/iphone11settings_x.png");
-            params4.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
-            new QAFExtendedWebElement("menu.iphone").click();
-*/
-        } else {
-            new QAFExtendedWebElement("support").click();
-            Map<String, Object> params3 = new HashMap<>();
-            params3.put("label", "support");
-            params3.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
-            new QAFExtendedWebElement("support.done").click();
-
-        }
-
-    }
-    @Then("check feedback")
-    public void checkFeedback() {
-
-
-        if (UBSUtils.getModel().equals("iphone")) {
-
-            new QAFExtendedWebElement("menu.iphone").click();
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "Feedback");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-
-            Map<String, Object> params3 = new HashMap<>();
-            params3.put("content", "tell us what you think");
-            params3.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
-
-            new QAFExtendedWebElement("feedback.send").click();
-            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-
-
-
-        } else {
-            new QAFExtendedWebElement("feedback").click();
-            Map<String, Object> params3 = new HashMap<>();
-            params3.put("content", "tell us what you think");
-            params3.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
-            new QAFExtendedWebElement("feedback.cancel").click();
-
-            new QAFExtendedWebElement("profile.return").click();
-
-            Map<String, Object> params4 = new HashMap<>();
-            params4.put("label","PUBLIC:monitoring/ipad_home.png");
-            params4.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
-            UBSUtils.validateShortHomePage();
-
-
-        }
-
-    }
-
-    @Then("check Legal services")
-    public void checkLegalServices() {
-        if (UBSUtils.getModel().equals("iphone")) {
-
-            new QAFExtendedWebElement("menu.iphone").click();
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "Legal and disclosures");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-
-
-            Map<String, Object> params3 = new HashMap<>();
-            params3.put("content", "products and services described");
-            params3.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
-
-            try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-            new QAFExtendedWebElement("legal.cancel").click();
-            /*
-            Map<String, Object> params4 = new HashMap<>();
-            params4.put("label", "Cancel");
-            params4.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
-            */
-
-        } else {
-
-        }
-    }
-
-    @Then("contact financial advisor")
-    public void contactAdvisor() {
-
-
-        if (UBSUtils.getModel().equals("iphone")) {
-
-            new QAFExtendedWebElement("menu.iphone").click();
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "contact financial advisor");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-
-
-            Map<String, Object> params3 = new HashMap<>();
-            params3.put("content", "toll free");
-            params3.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
-
-            Map<String, Object> params4 = new HashMap<>();
-            params4.put("label", "Close");
-            params4.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
-            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
-
-        } else {
-            new QAFExtendedWebElement("contact").click();
-            new QAFExtendedWebElement("tollfree").isDisplayed();
-            new QAFExtendedWebElement("close").click();
-            UBSUtils.validateShortHomePage();
-        }
-
-    }
-
-            @Then("validate profile")
-    public void validateProfile() {
-
-        if(UBSUtils.getModel().equals("iphone")) {
-            new QAFExtendedWebElement("menu.iphone").click();
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "My information");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-            new QAFExtendedWebElement("profile.iphone.primary").isDisplayed();
-
-/*
-            // validate meeting page
-            new QAFExtendedWebElement("menu.iphone").click();
-            new QAFExtendedWebElement("profile.meetings").click();
-            new QAFExtendedWebElement("profile.no.meeting").isDisplayed();
-
-
-*/
-            new QAFExtendedWebElement("menu.iphone").click();
-            Map<String, Object> params = new HashMap<>();
-            params.put("label", "Relationships");
-            params.put("timeout", "40");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
-            new QAFExtendedWebElement("profile.iphone.team").click();
-            new QAFExtendedWebElement("profile.iphone.advice").isDisplayed();
-            new QAFExtendedWebElement("home").click();
-            UBSUtils.validateShortHomePage();
-
-
-        }else {
-            new QAFExtendedWebElement("main.profile").click();
-            Map<String, Object> params5= new HashMap<>();
-            params5.put("label", "Profile");
-            params5.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
-            new QAFExtendedWebElement("profile.primary").isDisplayed();
-/*
-            // meeting window
-            new QAFExtendedWebElement("profile.meetings").click();
-            new QAFExtendedWebElement("profile.no.meeting").isDisplayed();
-
-           // new QAFExtendedWebElement("profile.back").click();
-            new QAFExtendedWebElement("main.profile").click();
-*/
-            // card
-            new QAFExtendedWebElement("profile.settings").click();
-            Map<String, Object> params1= new HashMap<>();
-            params1.put("label", "Settings");
-            params1.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params1);
-            new QAFExtendedWebElement("ipad.card.security").click();
-            new QAFExtendedWebElement("profile.nocard").isDisplayed();
-            new QAFExtendedWebElement("ipad.setttings.close").click();
-            new QAFExtendedWebElement("main.profile").click();
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
-
-
-
-
-
-
-
-        }
-
-    }
-
-
-    @Then("logout of CDX")
-    public void logoutCDX() {
-        if(UBSUtils.getModel().equals("iphone")) {
-            new QAFExtendedWebElement("menu.iphone").click();
-            Map<String, Object> params2 = new HashMap<>();
-            params2.put("label", "Sign Out");
-            params2.put("timeout", "30");
-            DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-        }
-        else {
-            new QAFExtendedWebElement("main.sign.out").click();
-        }
-        DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
-
-    }
+	private static final String securedUsername = "secured./h2sxa3ub4PCwXhsgCxWJQ==";
+	private static final String securedPassword = "secured.Xh05tx5pw3z3iyHVTztGsQ==";
+
+	@Then("^I restart all devices$")
+	public void daily_restart() {
+
+		Map<String, Object> params = new HashMap<>();
+		DeviceUtils.getQAFDriver().executeScript("mobile:device:ready", params);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+		}
+
+		Map<String, Object> pars = new HashMap<>();
+		DeviceUtils.getQAFDriver().executeScript("mobile:handset:reboot", pars);
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+		}
+
+		Map<String, Object> pars2 = new HashMap<>();
+		DeviceUtils.getQAFDriver().executeScript("mobile:handset:recover", pars2);
+		try {
+			Thread.sleep(90000);
+		} catch (InterruptedException e) {
+		}
+
+	}
+
+	// public String os = new QAFExtendedWebElement().getDescription();
+
+	@When("I launch CDX")
+	public void launch_cdx() {
+
+		// Launch the UBS App
+		launchApp("name", "UBS");
+
+		// Assert that Login Message is displayed
+		CommonStep.assertPresent("login.signin.btn");
+
+//        if(UBSUtils.getModel().equals("iphone")) {
+//
+//
+//            try { DeviceUtils.closeApp("UBS", "name");
+//            }catch (Exception e){ System.out.println("app was not open"); }
+//            DeviceUtils.startApp("UBS", "name");
+//
+//
+//        }else {
+//
+//
+//            try { DeviceUtils.closeApp("UBS", "name");
+//            }catch (Exception e){ System.out.println("app was not open"); }
+//            DeviceUtils.startApp("UBS", "name");
+//
+//        }
+//        DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
+	}
+
+	@When("I debug launch CDX")
+	public void debugLaunch_cdx() {
+
+		if (UBSUtils.getModel().equals("iphone")) {
+
+			try {
+				DeviceUtils.closeApp("Wealth QA", "name");
+			} catch (Exception e) {
+				System.out.println("app was not open");
+			}
+			DeviceUtils.startApp("Wealth QA", "name");
+
+		} else {
+
+			try {
+				DeviceUtils.closeApp("Wealth QA", "name");
+			} catch (Exception e) {
+				System.out.println("app was not open");
+			}
+			DeviceUtils.startApp("Wealth QA", "name");
+
+		}
+
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
+	}
+
+	@When("Login to CDX")
+	public void loginCDX() {
+
+		UBSCommonSteps.login(securedUsername, securedPassword);
+
+//        if(UBSUtils.getModel().equals("iphone")) {
+//        	
+//        	
+//        	
+//        	
+//
+//            try {
+//                new QAFExtendedWebElement("iphone.signin").click();
+//            }catch (Exception e){}
+//
+//            //declare the Map for script parameters
+//            Map<String, Object> params = new HashMap<>();
+//                params.put("text", Secured_uname);
+//                params.put("by", "xpath");
+//                params.put("value", "//*[@value=\"Username\"]");
+//            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
+//
+//            new QAFExtendedWebElement("login.next.iphone").click();
+//            new QAFExtendedWebElement("field.password.iphone").click();
+//
+//
+//            Map<String, Object> params4 = new HashMap<>();
+//            params4.put("text", Secured_pw);
+//            params4.put("by", "xpath");
+//            params4.put("value", "//XCUIElementTypeSecureTextField");
+//            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
+//
+//
+//            new QAFExtendedWebElement("login.signin.btn").click();
+//            // 2 validations of home page loading
+//
+//           UBSUtils.declineFaceID();
+//            UBSUtils.validateHomePage();
+//
+//        }else {
+//            // enter credentials
+//            Map<String, Object> params = new HashMap<>();
+//            params.put("content", "Username");
+//            DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+//            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
+//
+//            Map<String, Object> params3 = new HashMap<>();
+//            params3.put("text", Secured_uname);
+//            params3.put("by", "xpath");
+//            params3.put("value", "//XCUIElementTypeTextField");
+//            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params3);
+//
+//            //   new QAFExtendedWebElement("field.username").sendKeys("securetest66");
+//            new QAFExtendedWebElement("login.next").click();
+//
+//
+//            Map<String, Object> params4 = new HashMap<>();
+//            params4.put("text", Secured_pw);
+//            params4.put("by", "xpath");
+//            params4.put("value", "//XCUIElementTypeSecureTextField");
+//            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
+//
+//
+//            // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
+//            new QAFExtendedWebElement("login.signin.btn").click();
+//            // 2 validations of home page loading
+//            UBSUtils.declineFaceID();
+//            UBSUtils.validateHomePage();
+//        }
+
+	}
+
+	@When("debug_Login to CDX")
+	public void debugLoginCDX() {
+
+//		String Secured_duname = "secured.aDeg4J2QMoUXTt3/WHcjUg==";
+//		String Secured_dpw = "secured.ihj+yodayavfCbHyJQTJBw==";
+
+		// declare the Map for script parameters
+
+		/*
+		 * Map<String, Object> params = new HashMap<>(); params.put("text",
+		 * Secured_duname); params.put("by", "xpath"); params.put("value",
+		 * "//*[@value=\"Username\"]");
+		 * DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set",
+		 * params);
+		 */
+		new QAFExtendedWebElement("field.username").sendKeys("cdx07");
+
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		// new QAFExtendedWebElement("debug.next").click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		new QAFExtendedWebElement("field.password").sendKeys("New@ols2");
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("label", "Sign in");
+		params.put("timeout", 15);
+		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
+
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		/*
+		 * 
+		 * Map<String, Object> params4 = new HashMap<>(); params4.put("text",
+		 * Secured_dpw); params4.put("by", "xpath"); params4.put("value",
+		 * "//XCUIElementTypeSecureTextField");
+		 * DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set",
+		 * params4);
+		 * 
+		 */
+
+		// new QAFExtendedWebElement("debug.next").click();
+
+		// new QAFExtendedWebElement("login.next.iphone").click();
+		// new QAFExtendedWebElement("debug.pw").click();
+
+		/*
+		 * Map<String, Object> params4 = new HashMap<>(); params4.put("text", "yaron");
+		 * params4.put("by", "xpath"); params4.put("value", "//*[@value=\"Password\"]");
+		 * DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set",
+		 * params4);
+		 * 
+		 * 
+		 * // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
+		 * 
+		 * 
+		 */
+		// new QAFExtendedWebElement("login.signin.btn").click();
+		// 2 validations of home page loading
+		UBSUtils.validateHomePage();
+
+	}
+
+	@Then("check milestone")
+	public void checkMilestone() {
+		
+		MileStone mileStoneScreens = new MileStone();
+		
+		mileStoneScreens.validate();
+
+//		if (UBSUtils.getModel().equalsIgnoreCase("iphone")) {
+//
+////			new QAFExtendedWebElement("main.milestones").click();
+////			new QAFExtendedWebElement("mile.scouts").click();
+////			new QAFExtendedWebElement("mile.bsa").isDisplayed();
+////			new QAFExtendedWebElement("mile.resources").isDisplayed();
+////
+////			// click on article
+////			System.out.println("milestone article");
+////			Map<String, Object> params2 = new HashMap<>();
+////			params2.put("label", "donation to the scouts");
+////			params2.put("timeout", 30);
+////			params2.put("label.direction", "Above");
+////			params2.put("label.offset", "35%");
+////
+////			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+////			try {
+////				Thread.sleep(3000);
+////			} catch (InterruptedException e) {
+////				e.printStackTrace();
+////			}
+////
+////			Map<String, Object> params = new HashMap<>();
+////			params.put("label", "done");
+////			params.put("timeout", 30);
+////			params.put("screen.top", "0%");
+////			params.put("screen.height", "13%");
+////			params.put("screen.width", "100%");
+////			params.put("screen.left", "0%");
+////			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
+////
+////			new QAFExtendedWebElement("iphone.activity.back").click();
+////			try {
+////				Thread.sleep(3000);
+////			} catch (InterruptedException e) {
+////				e.printStackTrace();
+////			}
+////			new QAFExtendedWebElement("home").isPresent();
+////			new QAFExtendedWebElement("home").click();
+////			UBSUtils.validateShortHomePage();
+//
+//		} else {
+//
+////			Map<String, Object> params4 = new HashMap<>();
+////			params4.put("label", "PUBLIC:monitoring/milestones_ipad.png");
+////			params4.put("timeout", "30");
+////			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
+////			new QAFExtendedWebElement("mile.scouts").click();
+////			try {
+////				Thread.sleep(5000);
+////			} catch (InterruptedException e) {
+////				e.printStackTrace();
+////			}
+////
+////			new QAFExtendedWebElement("mile.bsa").isDisplayed();
+////
+////			// click on article
+////			Map<String, Object> params2 = new HashMap<>();
+////			params2.put("label", "Resources");
+////			params2.put("ignorecase", "case");
+////			params2.put("timeout", 30);
+////			params2.put("label.direction", "Above");
+////			params2.put("label.offset", "9%");
+////			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+////			try {
+////				Thread.sleep(3000);
+////			} catch (InterruptedException e) {
+////				e.printStackTrace();
+////			}
+////
+////			new QAFExtendedWebElement("xbutton").click();
+////			new QAFExtendedWebElement("milestones.page").isDisplayed();
+////
+////			/*
+////			 * Map<String, Object> params = new HashMap<>();
+////			 * params.put("label","PUBLIC:monitoring/milestones_ipad_back.png");
+////			 * params.put("timeout", "30");
+////			 * DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click",
+////			 * params); new QAFExtendedWebElement("retirement").isDisplayed(); try {
+////			 * Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+////			 * 
+////			 */
+////			new QAFExtendedWebElement("home").click();
+////			Map<String, Object> params5 = new HashMap<>();
+////			params5.put("label", "home");
+////			params5.put("timeout", "30");
+////			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
+////			UBSUtils.validateShortHomePage();
+//
+//		}
+	}
+
+	@Then("validate banking services")
+	public void bankingServices() {
+
+		BankingServices bankingServicesScreen = new BankingServices();
+		bankingServicesScreen.validate();
+	}
+
+	@Then("view insights")
+	public void viewInsights() {
+
+		if (UBSUtils.getModel().equalsIgnoreCase("iphone")) {
+
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "here are your periodically");
+			params2.put("scrolling", "scroll");
+			params2.put("next", "SWIPE=(50%,85%),(50%,55%)");
+
+			boolean checkPointResult = checkPointTextVisual(params2);
+
+			System.out.println(checkPointResult);
+
+			assertTrue(checkPointResult, "Scroll to 'here are your periodically' failed");
+
+//            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+
+		} else {
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "news and insights");
+			params2.put("scrolling", "scroll");
+			params2.put("next", "SWIPE=(50%,85%),(50%,55%)");
+
+			boolean checkPointResult = checkPointTextVisual(params2);
+
+			assertTrue(checkPointResult, "Scroll to 'news and insights' failed");
+
+//            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+
+			// scroll back up
+			scrollUp("\"net balance\", \"includes ubs and external accounts\"");
+
+//            Map<String, Object> params = new HashMap<>();
+//            params.put("content","\"net balance\", \"includes ubs and external accounts\"");
+//            params.put("scrolling", "scroll");
+//            params.put("target","any");
+//            params.put("next","SWIPE=(50%,55%),(50%,85%)");
+//            params.put("maxscroll",10);
+//            
+//            checkPointResult = checkPointTextVisual(params);
+
+//            assertTrue(checkPointResult, "Scroll to 'Net balance' failed");
+
+//            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
+		}
+
+	}
+
+	@Then("view market insights")
+	public void viewMarketInsights() throws ParseException {
+
+		if (UBSUtils.getModel().equalsIgnoreCase("iphone")) {
+
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "DJIA");
+			params2.put("scrolling", "scroll");
+			params2.put("next", "SWIPE=(50%,90%),(50%,45%)");
+			params2.put("target", "all");
+			params2.put("maxscroll",10);
+
+			Pattern pattern = Pattern.compile("((\\d){1,2}/){2}(\\d){4}");
+
+			boolean checkPointResult = checkPointTextVisual(params2);
+
+			assertTrue(checkPointResult, "DJIA not displayed");
+
+			String djiaAsOf = getText("iphone.djia.asof");
+
+			Matcher matcher = pattern.matcher(djiaAsOf);
+
+			assertTrue(matcher.find(),"DJIA As Of Date is not in expected format - " + djiaAsOf);
+
+			String updatedOn = getAttribute("home.asof", "value");
+
+			matcher = pattern.matcher(updatedOn);
+			
+			assertTrue(matcher.find(),"Updated Date is not in expected format - " + updatedOn);
+
+			String updatedOnStr = matcher.group();
+
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+
+			Date updatedOnDate = sdf.parse(updatedOnStr);
+
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(updatedOnDate);
+
+			int actualYear = calendar.get(Calendar.YEAR);
+
+			Year currentYear = Year.now(ZoneId.of("America/New_York"));
+			
+			assertEquals(actualYear, currentYear.getValue()
+					, "Updated On Years not matching - actual : " + actualYear
+					+ " Expected Year - " + currentYear);
+			
+			scrollUp("learn more about your accounts");
+
+//            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+
+			// check date
+//            String today = new QAFExtendedWebElement("home.asof").getAttribute("value");
+//            
+//            System.out.println("today is: " + today);
+//            String thisYear = Year.now().toString();
+//            System.out.println("this year: " + thisYear);
+//
+//            if(today.contains(thisYear)) {
+//
+//                String msg = "the string contains" + thisYear;
+//                System.out.println(msg);
+//                ReportUtils.logAssert(msg,true);
+//            }else {
+//                String msg = "the string DOES NOT include" + thisYear;
+//                System.out.println(msg);
+//               ReportUtils.logAssert(msg,false);
+//
+//
+//            }
+//            // return to top
+//            try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
+//            Map<String, Object> params = new HashMap<>();
+//            params.put("content","\"learn more about your accounts\", \"includes ubs and external accounts\"");
+//            params.put("scrolling", "scroll");
+//            params.put("target","any");
+//            params.put("next","SWIPE_DOWN");
+//            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
+
+		} else {
+
+		}
+
+	}
+
+	@Then("check account activity")
+	public void accountActivity() {
+
+		// Click on Account Tab in bottom Navigation Bar
+		click("iphone.main.accounts");
+
+		// Click on Activity option from popup
+		click("accounts.activity");
+
+		// Click on First Activity Displayed
+		click("iphone.activity.first");
+
+		// Get Activity Amount text
+		String activityAmount = getText("activity.amount");
+
+		// Validate the amount is well formatted.
+		boolean isAmountFormated = UBSUtils.validateAmount(activityAmount);
+
+		// Assert the isAmountFormatted is well formatted.
+		assertTrue(isAmountFormated,
+				"Activity amount is not in correct format $x,xxx.xx. Amount displayed : " + activityAmount);
+
+		// Navigate back to home screen
+		click("iphone.activity.back");
+
+		// Click on Filter button
+		click("filter.btn");
+
+		// Click On Year to Date option
+		click("ytd.iphone");
+
+		// Click on Apply Button
+		click("filter.apply");
+
+		// Assert Activity screen is displayed
+		CommonStep.assertPresent("filter.btn");
+
+		// Click on Home tab in the bottom navigationbar
+		click("home");
+
+		// Assert HOme Page is displayed
+		CommonStep.assertPresent("main.net.balance");
+
+//        new QAFExtendedWebElement("iphone.main.accounts").click();
+//        new QAFExtendedWebElement("accounts.activity").click();
+//        
+//        // validating first activity
+//        new QAFExtendedWebElement("iphone.activity.first").click();
+//        String activityAmount = new QAFExtendedWebElement("activity.amount").getText();
+//        
+//        if(!UBSUtils.validateNumber(activityAmount)) {throw new RuntimeException("No activity amount has loaded: " + activityAmount); }
+//        new QAFExtendedWebElement("iphone.activity.back").click();
+//
+//
+//
+//        // check activity filter
+//        Map<String, Object> params = new HashMap<>();
+//        params.put("content", "Filter");
+//        params.put("language", "English");
+//        params.put("timeout",30);
+//        DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+//
+//        //  new QAFExtendedWebElement("filter.btn").click();
+//        new QAFExtendedWebElement("ytd.iphone").click();
+//        new QAFExtendedWebElement("filter.apply").click();
+//
+//        Map<String, Object> params2 = new HashMap<>();
+//        params2.put("content", "updated");
+//        params2.put("timeout", "30");
+//        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+//
+//        new QAFExtendedWebElement("home").click();
+//        UBSUtils.validateShortHomePage();
+
+	}
+
+
+
+	private void validateAccountsIPhone(){
+
+
+		/*==== Holding Account validation ====*/
+
+
+
+		// ==== Financial Tools ====
+
+
+	}
+
+	@Then("validate accounts")
+	public void validateAccounts() {
+
+		Balance balanceScreen = new Balance();
+		balanceScreen.validate();
+
+		Holdings holdingsScreen = new Holdings();
+		holdingsScreen.validate();
+
+		FinancialTools financialToolsScreen = new FinancialTools();
+		financialToolsScreen.validate();
+
+		UBSUtils.validateShortHomePage();
+
+	}
+
+	@Then("create milestone")
+	public void createMilestone() {
+		new QAFExtendedWebElement("main.milestones").click();
+		new QAFExtendedWebElement("mile.add").click();
+		new QAFExtendedWebElement("mile.travel").click();
+		new QAFExtendedWebElement("MilestoneNameComponentViewCell").click();
+		new QAFExtendedWebElement("MilestoneNameComponentViewCell").sendKeys("London");
+		new QAFExtendedWebElement("mile.next").click();
+
+		// Add details to Milestone
+		new QAFExtendedWebElement("mile.start").click();
+		new QAFExtendedWebElement("mile.year").click();
+		new QAFExtendedWebElement("mile.amount").sendKeys("5000");
+
+		Map<String, Object> params = new HashMap<>();
+		params.put("content", "Add Milestone");
+		DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+		// validate milestone created
+		new QAFExtendedWebElement("milestones.page").isDisplayed();
+		new QAFExtendedWebElement("milestone.created").isDisplayed();
+	}
+
+	@Then("delete milestone")
+	public void deleteMilestone() {
+		new QAFExtendedWebElement("milestone.created").click();
+		Map<String, Object> params = new HashMap<>();
+		params.put("content", "Edit");
+		DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+
+		Map<String, Object> params2 = new HashMap<>();
+		params2.put("content", "remove this milestone");
+		params2.put("next", "SWIPE_UP");
+		params2.put("scrolling", "scroll");
+		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+		new QAFExtendedWebElement("milestone.delete").click();
+		new QAFExtendedWebElement("milestone.delete.confirm").click();
+		new QAFExtendedWebElement("home").click();
+		UBSUtils.validateShortHomePage();
+
+	}
+
+	@Then("validate relationship")
+	public void validateRelationship() {
+		Relationship relationshipScreen = new Relationship();
+		relationshipScreen.validate();
+	}
+
+	@Then("validate mindset")
+	public void validateMindset() {
+		Mindset mindsetScreen = new Mindset();
+		mindsetScreen.validate();
+	}
+
+	@Then("check settings")
+	public void validateSettings() {
+		Settings settingsScreen = new Settings();
+		settingsScreen.validate();
+	}
+
+	@Then("get support")
+	public void getSupport() {
+		Support supportScreen = new Support();
+		supportScreen.validate();
+	}
+
+	@Then("check feedback")
+	public void checkFeedback() {
+		Feedback feedbackScreen = new Feedback();
+		feedbackScreen.validate();
+	}
+
+	@Then("check Legal services")
+	public void checkLegalServices() {
+		LegalServices legalServicesScreen = new LegalServices();
+		legalServicesScreen.validate();
+	}
+
+	@Then("contact financial advisor")
+	public void contactAdvisor() {
+		ContactAdvisor contactAdvisorScreen = new ContactAdvisor();
+		contactAdvisorScreen.validate();
+	}
+
+	@Then("validate profile")
+	public void validateProfile() {
+		Profile profileScreen = new Profile();
+		profileScreen.validate();
+	}
+
+	@Then("logout of CDX")
+	public void logoutCDX() {
+
+		Logout logoutScreen = new Logout();
+		logoutScreen.perform();
+	}
 
 }

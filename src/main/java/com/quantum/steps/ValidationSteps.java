@@ -3,19 +3,18 @@
  */
 package com.quantum.steps;
 
-import com.qmetry.qaf.automation.step.QAFTestStepProvider;
-import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
-import com.quantum.utils.DeviceUtils;
-import com.quantum.utils.ReportUtils;
-import com.quantum.utils.UBSUtils;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import static com.quantum.utils.QAFDriverUtils.checkPointTextVisual;
+import static com.quantum.utils.QAFDriverUtils.getText;
+import static org.testng.Assert.assertTrue;
 
-import java.time.Year;
 import java.util.HashMap;
 import java.util.Map;
 
-//import javafx.scene.web.WebView;
+import com.qmetry.qaf.automation.step.QAFTestStepProvider;
+import com.quantum.utils.QAFDriverUtils;
+import com.quantum.utils.UBSUtils;
+
+import cucumber.api.java.en.Then;
 
 @QAFTestStepProvider
 public class ValidationSteps {
@@ -24,14 +23,27 @@ public class ValidationSteps {
     @Then("validate cash at a glance")
     public void cashAtGlance() {
 
+   
         if (UBSUtils.getModel().equalsIgnoreCase("iphone")) {
+        	
+        	
+        	String glanceAmount = QAFDriverUtils.getText("iphone.cash.glance");
+        	boolean isAmountFormatted = UBSUtils.validateAmount(glanceAmount);
+        	
+        	assertTrue(isAmountFormatted, 
+        			"Amount in a Glance is not in correct format $x,xxx.xx. Amount displayed : " + glanceAmount);
+        	
+        	
 
 
-            String a = new QAFExtendedWebElement("iphone.cash.glance").getText();
-            System.out.println("cash at a glance: " + a);
-            if (!UBSUtils.validateAmount(a)) {
-                throw new RuntimeException("No dollar amount has loaded: " + a);
-            }
+//            String a = new QAFExtendedWebElement("iphone.cash.glance").getText();
+//            System.out.println("cash at a glance: " + a);
+//            
+//            
+//            
+//            if (!UBSUtils.validateAmount(a)) {
+//                throw new RuntimeException("No dollar amount has loaded: " + a);
+//            }
 
 
 
@@ -44,15 +56,24 @@ public class ValidationSteps {
             params2.put("content", "cash at a glance");
             params2.put("scrolling", "scroll");
             params2.put("next", "SWIPE=(50%,85%),(50%,55%)");
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+            
+            boolean checkPointResult = checkPointTextVisual(params2);
+            assertTrue(checkPointResult,"Scroll to Glance Amount failed");
+            
+            
+            String amountAtGlance = getText("home.glance");
+            assertTrue(UBSUtils.validateAmount(amountAtGlance),
+            		"Amount in a Glance is not in correct format $x,xxx.xx. Amount displayed : " + amountAtGlance);
 
 
-            String a = new QAFExtendedWebElement("home.glance").getText();
-            System.out.println("cash at a glance: " + a);
-            if (!UBSUtils.validateAmount(a)) {
-                throw new RuntimeException("No dollar amount has loaded: " + a);
-            }
+//            String a = new QAFExtendedWebElement("home.glance").getText();
+//            System.out.println("cash at a glance: " + a);
+//            if (!UBSUtils.validateAmount(a)) {
+//                throw new RuntimeException("No dollar amount has loaded: " + a);
+//            }
 
+            
+            
 
             // scroll back up
             Map<String, Object> params = new HashMap<>();
@@ -61,7 +82,10 @@ public class ValidationSteps {
             params.put("target", "any");
             params.put("next", "SWIPE=(50%,55%),(50%,85%)");
             params.put("maxscroll", 10);
-            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
+            
+            checkPointResult = checkPointTextVisual(params);
+            
+            assertTrue(checkPointResult,"Scroll Back up failed");
         }
     }
 
