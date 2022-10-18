@@ -8,14 +8,11 @@
     <!-- by driverClass property in env.resources dirs -->
     <!-- Set driver.name value to perfectoDriver       -->
     <parameter name="driver.name" value="perfectoDriver"/>
-    <parameter name="driver.capabilities.perfecto:securityToken" value="eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIzMTY4MzY0Yy1iYjI4LTQyNzYtODExNi1hMDdjNWE5YzEyNTcifQ.eyJpYXQiOjE2NjEzNDU2NDEsImp0aSI6IjU3NWFmOWVjLWE5YTUtNGVjZi1hMmQ3LWExNmFhZmI0MzVjNiIsImlzcyI6Imh0dHBzOi8vYXV0aC5wZXJmZWN0b21vYmlsZS5jb20vYXV0aC9yZWFsbXMvdWJzLXBlcmZlY3RvbW9iaWxlLWNvbSIsImF1ZCI6Imh0dHBzOi8vYXV0aC5wZXJmZWN0b21vYmlsZS5jb20vYXV0aC9yZWFsbXMvdWJzLXBlcmZlY3RvbW9iaWxlLWNvbSIsInN1YiI6IjU1NjQ1NDNhLTFkMzMtNGQwMi1iMzIwLWRkM2U4Y2JhYzI3MiIsInR5cCI6Ik9mZmxpbmUiLCJhenAiOiJvZmZsaW5lLXRva2VuLWdlbmVyYXRvciIsIm5vbmNlIjoiYjZiMzMzOTctNTFkZC00NmM2LWIxZmMtZjAwNzZlZjE2ZDkxIiwic2Vzc2lvbl9zdGF0ZSI6IjQyZjhmMDI4LWU2NGYtNGRmOS1iNzA3LTUwNWFmM2E1NmVjOSIsInNjb3BlIjoib3BlbmlkIG9mZmxpbmVfYWNjZXNzIn0.v0arLVJ2NxdkAvPQ5UwOt-XuUZX97QkLSIXFNn2W-IU"></parameter>
-	<parameter name="perfecto.capabilities.automationVersion" value="3.59.0"/>
+    <parameter name="driver.capabilities.perfecto:securityToken" value="${securityToken}"/>
 	
-	<parameter name="perfecto.capabilities.appiumVersion" value="1.22.3"/>
-
     <test name="iPad CDX 1" enabled="true">
 
-        <parameter name="driver.capabilities.deviceName" value="00008027-001831D83A6A402E"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008027-001831D83A6A402E"/>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
@@ -28,8 +25,8 @@
         </classes>
     </test>
 
-    <test name="iPad CDX 2" enabled="false">
-        <parameter name="driver.capabilities.deviceName" value="00008027-001E79E41E6A402E"></parameter>
+    <test name="iPad CDX 2" enabled="true">
+        <parameter name="driver.capabilities.deviceName" value="00008027-001E79E41E6A402E"/>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
