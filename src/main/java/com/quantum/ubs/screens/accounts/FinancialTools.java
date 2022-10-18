@@ -249,6 +249,8 @@ public class FinancialTools extends UBSScreen {
         params3.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
         
+        try {Thread.sleep(5000);}catch(Exception e) {}
+        
         // new QAFExtendedWebElement("accounts.activity").click();
         
         CommonStep.waitForVisible("ipad.activity.type");
