@@ -1,17 +1,36 @@
 package com.quantum.ubs.screens.accounts;
 
+import static com.quantum.utils.QAFDriverUtils.click;
+import static org.testng.Assert.assertTrue;
+
+import java.time.Duration;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Function;
+
+import org.openqa.selenium.Point;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.PointerInput.Kind;
+import org.openqa.selenium.interactions.PointerInput.MouseButton;
+import org.openqa.selenium.interactions.PointerInput.Origin;
+import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.interactions.touch.TouchActions;
+import org.openqa.selenium.support.ui.FluentWait;
+
 import com.qmetry.qaf.automation.step.CommonStep;
 import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 import com.quantum.ubs.screens.UBSScreen;
 import com.quantum.utils.DeviceUtils;
+import com.quantum.utils.DriverUtils;
 import com.quantum.utils.UBSCommonSteps;
 import com.quantum.utils.UBSUtils;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.quantum.utils.QAFDriverUtils.*;
-import static org.testng.Assert.assertTrue;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.TapOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 
 public class FinancialTools extends UBSScreen {
 
@@ -59,45 +78,103 @@ public class FinancialTools extends UBSScreen {
             throw new RuntimeException("No dollar amount has loaded: " + balance);
         }
 
-        // click on all, validate and return
-        new QAFExtendedWebElement("balances.all").click();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        String selectedAccounts = new QAFExtendedWebElement("ipad.balances.selected.accounts").getAttribute("name");
+        
+        
+        if(!"All".equals(selectedAccounts)) {
+        	
+        	// click on all, validate and return
+            new QAFExtendedWebElement("ipad.balances.all").click();
+            
         }
-        new QAFExtendedWebElement("all.assets").isPresent();
-        new QAFExtendedWebElement("iphone.ubs").click();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        new QAFExtendedWebElement("accounts.currentBalance").isPresent();
+        
+        
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+        
+        
+        CommonStep.waitForVisible("ipad.all.assets");
+        
+//        new QAFExtendedWebElement("all.assets").isPresent();
+        
+        new QAFExtendedWebElement("ipad.ubs").click();
+        
+        
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+        
+        CommonStep.waitForVisible("accounts.currentBalance");
+//        new QAFExtendedWebElement("accounts.currentBalance").isPresent();
 
+        FluentWait<WebDriver> wait = new FluentWait<WebDriver>(DeviceUtils.getQAFDriver().getUnderLayingDriver());
+        wait.withTimeout(Duration.ofSeconds(30));
+        wait.pollingEvery(Duration.ofSeconds(10));
+        wait.withMessage("Not able to Switch to Prior Day Balance");
+        
+        wait.until(new Function<WebDriver, Boolean>() {
+
+			@Override
+			public Boolean apply(WebDriver driver) {
+		        String selectedBalanceType =  new QAFExtendedWebElement("ipad.balances.selected.type").getAttribute("name");
+		        boolean isSelected = !"Prior day".equals(selectedBalanceType);
+		        if(isSelected) {
+		        	new QAFExtendedWebElement("ipad.balances.priorday").click();
+		        }
+		        
+				return !isSelected;
+			}
+		});
+        
+        CommonStep.waitForVisible("ipad.prior.day.investments");
+        
         // check prior day
-        try {
-            new QAFExtendedWebElement("balances.priorday").click();
-        } catch (Exception e) {
+//        try {
+//            new QAFExtendedWebElement("ipad.balances.priorday").click();
+//        } catch (Exception e) {
+//
+//            new QAFExtendedWebElement("iphone.ubs").click();
+//            new QAFExtendedWebElement("ipad.balances.priorday").click();
+//
+//        }
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        new QAFExtendedWebElement("prior.day.investments").isDisplayed();
+        
+        
+        
+//        new QAFExtendedWebElement("balances.intraday").click();
+        
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        new QAFExtendedWebElement("accounts.balances").isDisplayed();
+        
+        wait.until(new Function<WebDriver, Boolean>() {
 
-            new QAFExtendedWebElement("iphone.ubs").click();
-            new QAFExtendedWebElement("balances.priorday").click();
+			@Override
+			public Boolean apply(WebDriver driver) {
+		        String selectedBalanceType =  new QAFExtendedWebElement("ipad.balances.selected.type").getAttribute("name");
+		        boolean isSelected = !"Intraday".equals(selectedBalanceType);
+		        if(isSelected) {
+		        	new QAFExtendedWebElement("ipad.balances.priorday").click();
+		        }
+		        
+				return !isSelected;
+			}
+		});
 
-        }
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        new QAFExtendedWebElement("prior.day.investments").isDisplayed();
-        new QAFExtendedWebElement("balances.intraday").click();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        new QAFExtendedWebElement("accounts.balances").isDisplayed();
-
+        CommonStep.waitForVisible("accounts.balances");
         /*
          * // click on holdings & validate // set long timeout for holdings page on iPad
          * DeviceUtils.getQAFDriver().manage().timeouts().implicitlyWait(300,
@@ -171,10 +248,15 @@ public class FinancialTools extends UBSScreen {
         params3.put("label", "Activity");
         params3.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
+        
         // new QAFExtendedWebElement("accounts.activity").click();
-        new QAFExtendedWebElement("activity.type").isDisplayed();
+        
+        CommonStep.waitForVisible("ipad.activity.type");
+//        new QAFExtendedWebElement("activity.type").isDisplayed();
+        
         // check number of first activity
         String a = new QAFExtendedWebElement("activity.amounts").findElements("activity.amounts").get(0).getText();
+        
         System.out.println("activity amount: " + a);
         if (!UBSUtils.validateNumber(a)) {
             throw new RuntimeException("No dollar amount has loaded: " + a);
@@ -182,11 +264,40 @@ public class FinancialTools extends UBSScreen {
 
         // check activity filter
         new QAFExtendedWebElement("accounts.activity").click();
-        new QAFExtendedWebElement("activity.account").isDisplayed();
+        
+        
+        CommonStep.waitForVisible("ipad.activity.account");
+        
+//        new QAFExtendedWebElement("activity.account").isDisplayed();
+        
+        
+        new QAFExtendedWebElement("ipad.filter").click();
+        
+//        Point point = filter.getLocation();
+//        
+//        @SuppressWarnings("deprecation")
+//		TouchAction touchActions = new TouchAction<>(DriverUtils.getIOSDriver());
+//        touchActions.tap(TapOptions.tapOptions().withElement(ElementOption.element(filter))).perform();
+        
+        
+//        
+//        PointerInput finger = new PointerInput(Kind.TOUCH, "finger");
+//        
+//        Sequence sequence = new Sequence(finger, 0);
+//        sequence.addAction(finger.createPointerMove(Duration.ZERO, Origin.viewport(), point.x, point.y));
+//        sequence.addAction(finger.createPointerDown(MouseButton.LEFT.asArg()));
+//        sequence.addAction(finger.createPointerUp(MouseButton.LEFT.asArg()));
+//        
+//        DriverUtils.getIOSDriver().perform(Arrays.asList(sequence));
+        
+        
+//        Actions actions = new Actions(DriverUtils.getIOSDriver());
+//        actions.click(filter).build().perform();
+        
 
-        Map<String, Object> params = new HashMap<>();
-        params.put("content", "Filter");
-        DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+//        Map<String, Object> params = new HashMap<>();
+//        params.put("content", "Filter");
+//        DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
 
         // new QAFExtendedWebElement("filter.btn").click();
         new QAFExtendedWebElement("ytd").click();

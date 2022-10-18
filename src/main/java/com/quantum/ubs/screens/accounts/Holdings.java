@@ -67,7 +67,7 @@ public class Holdings extends UBSScreen {
 		}
 
 		new QAFExtendedWebElement("iphone.account.apply.button").click();
-		
+
 		// Verify the Total value is present
 		isPresent = CommonStep.verifyVisible("iphone.total.value");
 		assertTrue(isPresent, "Total Value is not present upon switch to All accounts option.");

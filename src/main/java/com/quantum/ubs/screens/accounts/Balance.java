@@ -23,9 +23,14 @@ public class Balance extends UBSScreen {
 
         // Click on Account tab in bottom navigation bar
         click("iphone.main.accounts");
+        
+        CommonStep.waitForVisible("iphone.accounts.balances");
 
         // Click on Balance option
         click("iphone.accounts.balances");
+        
+        CommonStep.waitForVisible("total.value");
+        
         String balance = getAttribute("total.value", "name");
         
         boolean isBalanceFormatted = UBSUtils.validateAmount(balance);
