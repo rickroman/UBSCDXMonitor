@@ -1,5 +1,6 @@
 package com.quantum.ubs.screens.menu;
 
+import com.qmetry.qaf.automation.step.CommonStep;
 import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 import com.quantum.ubs.screens.UBSScreen;
 import com.quantum.utils.DeviceUtils;
@@ -12,19 +13,27 @@ public class Support extends UBSScreen {
 
     @Override
     public void iphone() {
+    	
         if(!isIPhone()) return;
 
         UBSCommonSteps.openMenu();
+        
+        CommonStep.click("iphone.menu.support");
 
-        Map<String, Object> params2 = new HashMap<>();
-        params2.put("label", "Support");
-        params2.put("timeout", "30");
-        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+//        Map<String, Object> params2 = new HashMap<>();
+//        params2.put("label", "Support");
+//        params2.put("timeout", "30");
+//        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+        
+        // Wait for the Animated transformation to complete.
+        try {Thread.sleep(2000);} catch (Exception e) {}
 
-        Map<String, Object> params3 = new HashMap<>();
-        params3.put("content", "need assistance");
-        params3.put("timeout", "30");
-        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+        
+        CommonStep.verifyVisible("iphone.support.need.assistance");
+//        Map<String, Object> params3 = new HashMap<>();
+//        params3.put("content", "need assistance");
+//        params3.put("timeout", "30");
+//        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
         new QAFExtendedWebElement("support.close").click();
 
@@ -42,10 +51,15 @@ public class Support extends UBSScreen {
         if(!isIPad()) return;
 
         new QAFExtendedWebElement("support").click();
+        
+        
         Map<String, Object> params3 = new HashMap<>();
         params3.put("label", "support");
         params3.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
+        
+        // Waiting for Animation to complete
+        try {Thread.sleep(2000);} catch (Exception e) {}
         new QAFExtendedWebElement("support.done").click();
     }
 }

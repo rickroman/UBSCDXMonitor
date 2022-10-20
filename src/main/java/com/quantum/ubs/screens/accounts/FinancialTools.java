@@ -4,37 +4,24 @@ import static com.quantum.utils.QAFDriverUtils.click;
 import static org.testng.Assert.assertTrue;
 
 import java.time.Duration;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.PointerInput;
-import org.openqa.selenium.interactions.PointerInput.Kind;
-import org.openqa.selenium.interactions.PointerInput.MouseButton;
-import org.openqa.selenium.interactions.PointerInput.Origin;
-import org.openqa.selenium.interactions.Sequence;
-import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.support.ui.FluentWait;
 
 import com.qmetry.qaf.automation.step.CommonStep;
 import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 import com.quantum.ubs.screens.UBSScreen;
 import com.quantum.utils.DeviceUtils;
-import com.quantum.utils.DriverUtils;
 import com.quantum.utils.UBSCommonSteps;
 import com.quantum.utils.UBSUtils;
-
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.touch.TapOptions;
-import io.appium.java_client.touch.offset.ElementOption;
 
 public class FinancialTools extends UBSScreen {
 
     public void iphone(){
+    	
         if (!isIPhone()) return;
 
         // Navigate to Financial tools
@@ -63,6 +50,7 @@ public class FinancialTools extends UBSScreen {
     }
 
     public void ipad(){
+    	
         if (!isIPad()) return;
 
         Map<String, Object> params2 = new HashMap<>();
@@ -71,9 +59,11 @@ public class FinancialTools extends UBSScreen {
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
 
         new QAFExtendedWebElement("accounts.balances").isDisplayed();
+        
         new QAFExtendedWebElement("accounts.currentBalance").isPresent();
 
         String balance = new QAFExtendedWebElement("total.value").getAttribute("name");
+        
         if (!UBSUtils.validateAmount(balance)) {
             throw new RuntimeException("No dollar amount has loaded: " + balance);
         }
@@ -334,16 +324,20 @@ public class FinancialTools extends UBSScreen {
         }
 
         new QAFExtendedWebElement("cash.flow.msg").isDisplayed();
+        
         // new QAFExtendedWebElement("cash.flow.spending").click();
+        
         Map<String, Object> params7 = new HashMap<>();
         params7.put("label", "Spending");
         params7.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params7);
+        
         new QAFExtendedWebElement("cash.flow.expenses").isDisplayed();
 
         // go back to home page
         new QAFExtendedWebElement("back").click();
         // new QAFExtendedWebElement("home").click();
+        
         Map<String, Object> params8 = new HashMap<>();
         params8.put("label", "Home");
         params8.put("timeout", "30");
