@@ -62,7 +62,7 @@ public class UBSUtils  {
     }
     public static boolean validateAmount(String amountStr) {
     	
-    	String amountPattern = "^\\$([\\d,])+(\\.(\\d)+)?";
+    	String amountPattern = "^(-?)(\\$)([\\d,])+(\\.(\\d)+)?";
     	
     	Pattern pattern = Pattern.compile(amountPattern);
     	
