@@ -4,6 +4,8 @@ import java.util.HashMap;
 //import javafx.scene.web.WebView;
 import java.util.Map;
 
+import org.openqa.selenium.By;
+
 import com.qmetry.qaf.automation.step.QAFTestStepProvider;
 import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 import com.quantum.utils.DeviceUtils;
@@ -93,10 +95,22 @@ public class AdviceStepDefs {
     
     @Then("Navigate advice advantage")
     public void navigateAdvice() {
+    	
+    	System.out.println(DeviceUtils.getCurrentContextHandles());
 
-        Map<String, Object> params2 = new HashMap<>();
-            params2.put("label","Questionnaire");
-        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+//        Map<String, Object> params2 = new HashMap<>();
+//            params2.put("label","Edit Risk Tolerance");
+//        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+    	
+    	new QAFExtendedWebElement(By.name("Edit Risk Tolerance has popup, link"));
+    	
+    	Map<String, Object> editRisk = new HashMap<>();
+    	editRisk.put("label", "Edit Risk");
+    	editRisk.put("threshold", "80");
+    	editRisk.put("ignorecase", "nocase");
+    	editRisk.put("words", "words");
+    	DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", editRisk);
+    	    	    	
         try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
 
         new QAFExtendedWebElement("close.Questionnaire").click();
