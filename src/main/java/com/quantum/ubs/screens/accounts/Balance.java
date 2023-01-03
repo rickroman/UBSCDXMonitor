@@ -31,6 +31,7 @@ public class Balance extends UBSScreen {
         
         CommonStep.waitForVisible("total.value");
         
+        
         String balance = getAttribute("total.value", "name");
         
         boolean isBalanceFormatted = UBSUtils.validateAmount(balance);
