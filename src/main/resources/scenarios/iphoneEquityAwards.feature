@@ -1,5 +1,5 @@
  Feature: Monitor production App
-  #Sample Test Scenario Description
+  #Sample Test Scenario 
 
 
   @iPhoneEquity
