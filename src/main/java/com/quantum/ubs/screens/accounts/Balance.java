@@ -30,7 +30,7 @@ public class Balance extends UBSScreen {
         click("iphone.accounts.balances");
         
        // CommonStep.waitForVisible("investment.header", 90);
-        CommonStep.waitForVisible("investment.header");
+        CommonStep.waitForVisible("investment.title");
         
         String balance = getAttribute("total.value", "name");
         
