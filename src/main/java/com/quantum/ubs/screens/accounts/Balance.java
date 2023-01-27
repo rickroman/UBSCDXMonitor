@@ -2,6 +2,7 @@ package com.quantum.ubs.screens.accounts;
 
 import com.qmetry.qaf.automation.step.CommonStep;
 import com.quantum.ubs.screens.UBSScreen;
+import com.quantum.utils.DeviceUtils;
 import com.quantum.utils.QAFDriverUtils;
 import com.quantum.utils.UBSUtils;
 
@@ -9,6 +10,9 @@ import static com.quantum.utils.QAFDriverUtils.*;
 import static com.quantum.utils.QAFDriverUtils.click;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Balance extends UBSScreen {
 
@@ -30,7 +34,15 @@ public class Balance extends UBSScreen {
         click("iphone.accounts.balances");
         
        // CommonStep.waitForVisible("investment.header", 90);
-        CommonStep.waitForVisible("investment.title");
+        //CommonStep.waitForVisible("investment.title");
+        
+        Map<String, Object> params1 = new HashMap<>();
+		params1.put("content", "Investment");
+		params1.put("source", "camera");
+		params1.put("timeout", "20");
+		params1.put("threshold", "90");
+		Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
+        
         
         String balance = getAttribute("total.value", "name");
         
