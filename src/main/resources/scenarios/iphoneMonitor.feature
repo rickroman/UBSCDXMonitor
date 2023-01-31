@@ -14,10 +14,10 @@ Feature: Monitor production App
     Then validate accounts
     Then check milestone
     And validate profile
-    Then validate banking services
+   Then validate banking services
     And validate relationship
     Then validate mindset
-   # And check settings
+    #And check settings
     Then get support
     And check feedback
     And check Legal services
