@@ -321,7 +321,7 @@ public class FinancialTools extends UBSScreen {
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params6);
 
         try {
-            Thread.sleep(6000);
+            Thread.sleep(60000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
