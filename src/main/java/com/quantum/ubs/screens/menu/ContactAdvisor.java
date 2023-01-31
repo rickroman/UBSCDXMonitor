@@ -28,6 +28,10 @@ public class ContactAdvisor extends UBSScreen {
         Map<String, Object> params4 = new HashMap<>();
         params4.put("label", "Close");
         params4.put("timeout", "50");
+        params4.put("screen.top", "0%");
+		params4.put("screen.height", "15%");
+		params4.put("screen.left", "68%");
+		params4.put("screen.width", "32%");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
         try {
             Thread.sleep(4000);
