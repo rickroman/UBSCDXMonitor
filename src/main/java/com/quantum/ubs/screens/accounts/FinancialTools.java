@@ -35,12 +35,15 @@ public class FinancialTools extends UBSScreen {
         // Click on Cash flow
         click("cash.flow.iphone");
 
+        try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
+        
         //Validate the Cash Flow message is displayed
         isPresent = CommonStep.verifyVisible("cash.flow.msg");
         assertTrue(isPresent,"Cash Flow Message is not present upon navigating to Financial tools screen.");
 
         // Navigate to Cash Flow spending
         click("cash.flow.spending");
+        
 
         //Validate the Cash Flow message is displayed
         isPresent = CommonStep.verifyVisible("cash.flow.expenses");

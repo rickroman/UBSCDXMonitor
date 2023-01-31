@@ -25,14 +25,14 @@ public class MileStone extends UBSScreen {
 		CommonStep.verifyVisible("mile.bsa");
 		
 
-		// click on article
+		// click on article - Currently no articles so I am excluding this RR-1-31-23
 		Map<String, Object> params2 = new HashMap<>();
 		params2.put("label", "Resources");
 		params2.put("ignorecase", "case");
 		params2.put("timeout", 30);
 		params2.put("label.direction", "Above");
 		params2.put("label.offset", "9%");
-		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+		//DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
 		
 		try {
 			Thread.sleep(3000);
@@ -40,8 +40,8 @@ public class MileStone extends UBSScreen {
 			e.printStackTrace();
 		}
 
-		
-		CommonStep.click("xbutton");
+		//Currently no articles so I am excluding this RR-1-31-23
+		//CommonStep.click("xbutton");
 		
 		CommonStep.assertVisible("milestones.page");
 		
