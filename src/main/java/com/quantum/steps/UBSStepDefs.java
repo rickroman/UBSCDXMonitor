@@ -183,26 +183,40 @@ public class UBSStepDefs {
 
         }else {
             // enter credentials
-            Map<String, Object> params = new HashMap<>();
-            params.put("content", "Username");
-            DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+            Map<String, Object> params1 = new HashMap<>();
+            params1.put("content", "Username");
+            DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params1);
             try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
+            
+            Map<String, Object> params = new HashMap<>();
+			params.put("label", "Username");
+			params.put("text", securedUsername);
+			params.put("timeout", "20");
+			params.put("threshold", "90");
+			params.put("label.direction", "above");
+			params.put("label.offset", "3%");
+			Object result = DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params);
 
-            Map<String, Object> params3 = new HashMap<>();
-            params3.put("text", securedUsername);
-            params3.put("by", "xpath");
-            params3.put("value", "//XCUIElementTypeTextField");
-            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params3);
-
+			/*
+			 * Map<String, Object> params3 = new HashMap<>(); params3.put("text",
+			 * securedUsername); //params3.put("by", "xpath"); params3.put("by", "xpath");
+			 * //params3.put("value", "//XCUIElementTypeTextField");
+			 * params3.put("value","");
+			 * DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set",
+			 * params3);
+			 */
             //   new QAFExtendedWebElement("field.username").sendKeys("securetest66");
             new QAFExtendedWebElement("login.next").click();
 
 
             Map<String, Object> params4 = new HashMap<>();
+            params4.put("label", "Password");
             params4.put("text", securedPassword);
-            params4.put("by", "xpath");
-            params4.put("value", "//XCUIElementTypeSecureTextField");
-            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
+            params4.put("timeout", "20");
+			params4.put("threshold", "90");
+			params4.put("label.direction", "above");
+			params4.put("label.offset", "3%");
+            DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params4);
 
 
             // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
