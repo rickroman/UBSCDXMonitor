@@ -27,7 +27,7 @@ public class ContactAdvisor extends UBSScreen {
 
         Map<String, Object> params4 = new HashMap<>();
         params4.put("label", "Close");
-        params4.put("timeout", "30");
+        params4.put("timeout", "50");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
         try {
             Thread.sleep(4000);
