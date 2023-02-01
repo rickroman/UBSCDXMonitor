@@ -7,8 +7,8 @@
     When I switch to native context
     When I launch CDX
     And CDX Equity Awards login
-    #Then validate activity
-    And validate holdings
+    Then validate activity
+    #And validate holdings
     Then check transactions
     Then validate awards education
     Then check notifications
