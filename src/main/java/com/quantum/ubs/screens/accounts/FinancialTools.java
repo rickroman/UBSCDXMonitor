@@ -315,10 +315,23 @@ public class FinancialTools extends UBSScreen {
 
         new QAFExtendedWebElement("cash.flow").click();
 
+       
+
+        
         Map<String, Object> params6 = new HashMap<>();
         params6.put("label", "Cash flow");
         params6.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params6);
+        
+        Map<String, Object> params7 = new HashMap<>();
+        params7.put("label", "Spending");
+        params7.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params7);
+        
+        Map<String, Object> params8 = new HashMap<>();
+        params8.put("label", "Cash flow");
+        params8.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params8);
 
         try {
             Thread.sleep(60000);
@@ -330,10 +343,10 @@ public class FinancialTools extends UBSScreen {
         
         // new QAFExtendedWebElement("cash.flow.spending").click();
         
-        Map<String, Object> params7 = new HashMap<>();
-        params7.put("label", "Spending");
-        params7.put("timeout", "30");
-        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params7);
+        Map<String, Object> params9 = new HashMap<>();
+        params9.put("label", "Spending");
+        params9.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params9);
         
         new QAFExtendedWebElement("cash.flow.expenses").isDisplayed();
 
@@ -341,10 +354,10 @@ public class FinancialTools extends UBSScreen {
         new QAFExtendedWebElement("back").click();
         // new QAFExtendedWebElement("home").click();
         
-        Map<String, Object> params8 = new HashMap<>();
-        params8.put("label", "Home");
-        params8.put("timeout", "30");
-        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params8);
+        Map<String, Object> params11 = new HashMap<>();
+        params11.put("label", "Home");
+        params11.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params11);
     }
 
 
