@@ -185,7 +185,13 @@ public class EquityAwardsStepDefs {
     private void validateEquityAwardsHP() {
 
         try { new QAFExtendedWebElement("closeHPNotification").click(); } catch (Exception e){ System.out.println("no notification popup"); }
-        new QAFExtendedWebElement("holdingsSummary").isDisplayed();
+        
+        //temp checkpoint
+        new QAFExtendedWebElement("home.getintouch").isDisplayed();
+        //new QAFExtendedWebElement("holdingsSummary").isDisplayed();
+        
+        
+        
        // String todayValue = new QAFExtendedWebElement("todaysValue").getText();
         //System.out.println("today value is: " + todayValue);
 
