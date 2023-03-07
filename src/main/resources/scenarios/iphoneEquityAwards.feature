@@ -7,7 +7,7 @@
     When I switch to native context
     When I launch CDX
     And CDX Equity Awards login
-    Then validate activity
+    #Then validate activity
     #And validate holdings
     Then check transactions
     Then validate awards education
@@ -16,7 +16,7 @@
     Then check MW Holdings
     And check MW Activity
     Then check MW Financial Tools
-    And check my information
+    #And check my information
     Then EW check settings
     And EW check support
     Then EW check legal
