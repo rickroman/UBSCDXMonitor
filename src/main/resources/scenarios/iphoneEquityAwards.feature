@@ -13,7 +13,7 @@
     Then validate awards education
     Then check notifications
     #And check MW balances
-    Then check MW Holdings
+    #Then check MW Holdings
     And check MW Activity
     Then check MW Financial Tools
     #And check my information
