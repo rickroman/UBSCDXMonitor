@@ -537,7 +537,7 @@ String model = DeviceUtils.getDeviceProperty("model");
 			params3.put("content", "DJIA");
 			params3.put("scrolling", "scroll");
 			//params2.put("threshold", "100");
-			params3.put("next", "SWIPE=(40%,70%),(40%,40%)");
+			params3.put("next", "SWIPE=(50%,80%),(50%,40%)");
 			//params2.put("target", "all");
 			params3.put("maxscroll", 12);
 			Object result3 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
