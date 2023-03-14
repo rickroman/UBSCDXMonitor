@@ -1,5 +1,6 @@
 package com.quantum.ubs.screens.accounts;
 
+import static com.quantum.utils.QAFDriverUtils.checkPointTextVisual;
 import static com.quantum.utils.QAFDriverUtils.click;
 import static org.testng.Assert.assertTrue;
 
@@ -19,6 +20,55 @@ import com.quantum.utils.UBSCommonSteps;
 import com.quantum.utils.UBSUtils;
 
 public class FinancialTools extends UBSScreen {
+	
+	 public void android(){
+	    	
+	        if (!isAndroid()) return;
+
+	        // Navigate to Financial tools
+	        click("android.main.accounts");
+	        click("accounts.financial.tools");
+
+	        // Validate the Financial tools message is displayed
+	        boolean isPresent = CommonStep.verifyVisible("android.financialtools.msg");
+	        assertTrue(isPresent,"Financial Tools Message is not present upon navigating to Financial tools screen.");
+
+	        // Click on Cash flow
+	        Map<String, Object> params2 = new HashMap<>();
+	        params2.put("label", "Cash Flow");
+	        params2.put("timeout", "30");
+	        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+
+	        //click("cash.flow.android");
+	        
+
+	        try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
+	        
+	        //Validate the Cash Flow message is displayed
+	        Map<String, Object> params7 = new HashMap<>();
+			params7.put("content", "Know how your money moves");
+			params7.put("source", "camera");
+			params7.put("timeout", "30");
+			params7.put("threshold", "90");
+			isPresent = checkPointTextVisual(params7);
+	        assertTrue(isPresent,"Cash Flow Message is not present upon navigating to Financial tools screen.");
+
+	        // Navigate to Cash Flow spending
+	        click("cash.flow.spending");
+	        
+
+	        //Validate the Cash Flow message is displayed
+	        Map<String, Object> params3 = new HashMap<>();
+			params3.put("content", "Expense Analysis");
+			params3.put("source", "camera");
+			params3.put("timeout", "30");
+			params3.put("threshold", "90");
+			isPresent = checkPointTextVisual(params3);
+	       // isPresent = CommonStep.verifyVisible("cash.flow.expenses");
+	        assertTrue(isPresent,"Cash Flow expenses is not present upon navigating to Financial tools screen.");
+
+	        UBSCommonSteps.navigateToHome();
+	    }
 
     public void iphone(){
     	
@@ -310,14 +360,18 @@ public class FinancialTools extends UBSScreen {
         params5.put("label", "Financial tools");
         params5.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
+        
+        
+        
         new QAFExtendedWebElement("financial.tools.msg").isDisplayed();
+        
+        
         new QAFExtendedWebElement("net.balanc").isPresent();
 
-        new QAFExtendedWebElement("cash.flow").click();
+       // new QAFExtendedWebElement("cash.flow").click();
 
+        CommonStep.waitForVisible("Net Worth", 20);
        
-
-        
         Map<String, Object> params6 = new HashMap<>();
         params6.put("label", "Cash flow");
         params6.put("timeout", "30");

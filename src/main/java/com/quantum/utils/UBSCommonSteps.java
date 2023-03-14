@@ -38,7 +38,14 @@ public class UBSCommonSteps {
 	}
 	
 	public static void openMenu() {
-		click("menu.iphone");
+		
+		String model = DeviceUtils.getDeviceProperty("model");
+		if (model.equalsIgnoreCase("iPhone-14 Pro Max")) {
+			click("menu.iphone");
+		} else if(model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			click("menu.android");
+		}
+		
 		
 		CommonStep.waitForVisible("main.sign.out");
 	}

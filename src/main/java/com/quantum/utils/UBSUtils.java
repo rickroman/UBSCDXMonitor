@@ -1,5 +1,8 @@
 package com.quantum.utils;
 
+import static com.quantum.utils.QAFDriverUtils.checkPointTextVisual;
+import static com.quantum.utils.QAFDriverUtils.click;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -57,7 +60,24 @@ public class UBSUtils  {
 
 
     public static void validateShortHomePage() {
-        new QAFExtendedWebElement("main.net.balance").isDisplayed();
+    	
+    	String model = DeviceUtils.getDeviceProperty("model");
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			
+			
+			
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "Net Balance");
+			params2.put("scrolling", "scroll");
+			params2.put("next", "SWIPE=(50%,55%),(50%,85%)");
+
+			boolean checkPointResult = checkPointTextVisual(params2);
+		} else {
+			 new QAFExtendedWebElement("main.net.balance").isDisplayed();
+		}
+       
+        
+       
 
     }
     public static boolean validateAmount(String amountStr) {
@@ -145,6 +165,8 @@ public class UBSUtils  {
         String model =  DeviceUtils.getQAFDriver().executeScript("mobile:handset:info", params).toString();
         if(model.contains("iPhone")) {
             model = "iphone";
+        } else if(model.contains("Galaxy")) {
+        	 model = "android";
         }else { model="ipad";}
       //  System.out.println("model is " + model);
         return model;

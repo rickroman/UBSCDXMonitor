@@ -16,6 +16,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Year;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -42,6 +43,7 @@ import com.quantum.ubs.screens.menu.Settings;
 import com.quantum.ubs.screens.menu.Support;
 import com.quantum.ubs.screens.milestone.MileStone;
 import com.quantum.utils.DeviceUtils;
+import com.quantum.utils.QAFDriverUtils;
 import com.quantum.utils.UBSCommonSteps;
 import com.quantum.utils.UBSUtils;
 
@@ -144,14 +146,15 @@ public class UBSStepDefs {
 	@When("Login to CDX")
 	public void loginCDX() {
 
-		
+		String model = DeviceUtils.getDeviceProperty("model");
 
-        if(UBSUtils.getModel().equals("iphone")) {
-        	
-        	UBSCommonSteps.login(securedUsername, securedPassword);
-        	
-        	// Assert Home Screen is displayed
-        	CommonStep.assertPresent("main.net.balance");
+		// if(UBSUtils.getModel().equals("iphone")) {
+		if (model.equalsIgnoreCase("iPhone-14 Pro Max")) {
+
+			UBSCommonSteps.login(securedUsername, securedPassword);
+
+			// Assert Home Screen is displayed
+			CommonStep.assertPresent("main.net.balance");
 
 //            try {
 //                new QAFExtendedWebElement("iphone.signin").click();
@@ -180,15 +183,59 @@ public class UBSStepDefs {
 //
 //           UBSUtils.declineFaceID();
 //            UBSUtils.validateHomePage();
+		} else if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
 
-        }else {
-            // enter credentials
-            Map<String, Object> params1 = new HashMap<>();
-            params1.put("content", "Username");
-            DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params1);
-            try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
-            
-            Map<String, Object> params = new HashMap<>();
+			// enter credentials
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("content", "Username");
+			DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params1);
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			Map<String, Object> params = new HashMap<>();
+			params.put("label", "Username");
+			params.put("text", securedUsername);
+			params.put("timeout", "20");
+			params.put("threshold", "90");
+			params.put("label.direction", "above");
+			params.put("label.offset", "3%");
+			Object result = DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params);
+
+			new QAFExtendedWebElement("field.password").click();
+			
+			  Map<String, Object> params4 = new HashMap<>(); 
+			  params4.put("label", "Password"); params4.put("text", securedPassword); 
+			  params4.put("timeout", "20"); params4.put("threshold", "90"); 
+			  //params4.put("label.direction","above"); //params4.put("label.offset", "3%");
+			  //DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params4);
+			  DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params4);
+			
+
+			//new QAFExtendedWebElement("field.password").sendKeys(securedPassword);
+			
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+			}
+
+			new QAFExtendedWebElement("login.signin.btn").click();
+			UBSUtils.validateHomePage();
+
+		} else {
+			// enter credentials
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("content", "Username");
+			DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params1);
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			Map<String, Object> params = new HashMap<>();
 			params.put("label", "Username");
 			params.put("text", securedUsername);
 			params.put("timeout", "20");
@@ -205,26 +252,24 @@ public class UBSStepDefs {
 			 * DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set",
 			 * params3);
 			 */
-            //   new QAFExtendedWebElement("field.username").sendKeys("securetest66");
-            new QAFExtendedWebElement("login.next").click();
+			// new QAFExtendedWebElement("field.username").sendKeys("securetest66");
+			new QAFExtendedWebElement("login.next").click();
 
-
-            Map<String, Object> params4 = new HashMap<>();
-            params4.put("label", "Password");
-            params4.put("text", securedPassword);
-            params4.put("timeout", "20");
+			Map<String, Object> params4 = new HashMap<>();
+			params4.put("label", "Password");
+			params4.put("text", securedPassword);
+			params4.put("timeout", "20");
 			params4.put("threshold", "90");
 			params4.put("label.direction", "above");
 			params4.put("label.offset", "3%");
-            DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params4);
+			DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params4);
 
-
-            // new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
-            new QAFExtendedWebElement("login.signin.btn").click();
-            // 2 validations of home page loading
-            UBSUtils.declineFaceID();
-            UBSUtils.validateHomePage();
-        }
+			// new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
+			new QAFExtendedWebElement("login.signin.btn").click();
+			// 2 validations of home page loading
+			UBSUtils.declineFaceID();
+			UBSUtils.validateHomePage();
+		}
 
 	}
 
@@ -310,9 +355,9 @@ public class UBSStepDefs {
 
 	@Then("check milestone")
 	public void checkMilestone() {
-		
+
 		MileStone mileStoneScreens = new MileStone();
-		
+
 		mileStoneScreens.validate();
 
 //		if (UBSUtils.getModel().equalsIgnoreCase("iphone")) {
@@ -417,7 +462,9 @@ public class UBSStepDefs {
 	@Then("view insights")
 	public void viewInsights() {
 
-		if (UBSUtils.getModel().equalsIgnoreCase("iphone")) {
+		String model = DeviceUtils.getDeviceProperty("model");
+		
+		if (model.equalsIgnoreCase("iPhone-14 Pro Max")) {
 
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "here are your periodically");
@@ -432,6 +479,22 @@ public class UBSStepDefs {
 
 //            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
+		} else if(model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "here are your periodically");
+			params2.put("scrolling", "scroll");
+			params2.put("next", "SWIPE=(50%,85%),(50%,55%)");
+
+			Object result2 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+	        
+			boolean checkPointResult = checkPointTextVisual(params2);
+
+			System.out.println(checkPointResult);
+
+			assertTrue(checkPointResult, "Scroll to 'here are your periodically' failed");
+
+			
 		} else {
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "news and insights");
@@ -466,32 +529,36 @@ public class UBSStepDefs {
 	@Then("view market insights")
 	public void viewMarketInsights() throws ParseException {
 
-		if (UBSUtils.getModel().equalsIgnoreCase("iphone")) {
-
-			Map<String, Object> params2 = new HashMap<>();
-			params2.put("content", "DJIA");
-			params2.put("scrolling", "scroll");
-			params2.put("next", "SWIPE=(50%,90%),(50%,45%)");
-			params2.put("target", "all");
-			params2.put("maxscroll",10);
-
+String model = DeviceUtils.getDeviceProperty("model");
+		
+		
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			Map<String, Object> params3 = new HashMap<>();
+			params3.put("content", "DJIA");
+			params3.put("scrolling", "scroll");
+			//params2.put("threshold", "100");
+			params3.put("next", "SWIPE=(40%,70%),(40%,40%)");
+			//params2.put("target", "all");
+			params3.put("maxscroll", 12);
+			Object result3 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+			
 			Pattern pattern = Pattern.compile("((\\d){1,2}/){2}(\\d){4}");
 
-			boolean checkPointResult = checkPointTextVisual(params2);
+			//boolean checkPointResult = checkPointTextVisual(params2);
 
-			assertTrue(checkPointResult, "DJIA not displayed");
+			//assertTrue(checkPointResult, "DJIA not displayed");
 
-			String djiaAsOf = getText("iphone.djia.asof");
+			String djiaAsOf = getText("android.djia.asof");
 
 			Matcher matcher = pattern.matcher(djiaAsOf);
 
-			assertTrue(matcher.find(),"DJIA As Of Date is not in expected format - " + djiaAsOf);
+			assertTrue(matcher.find(), "DJIA As Of Date is not in expected format - " + djiaAsOf);
 
-			String updatedOn = getAttribute("home.asof", "value");
+			String updatedOn = getAttribute("home.asof", "text");
 
 			matcher = pattern.matcher(updatedOn);
-			
-			assertTrue(matcher.find(),"Updated Date is not in expected format - " + updatedOn);
+
+			assertTrue(matcher.find(), "Updated Date is not in expected format - " + updatedOn);
 
 			String updatedOnStr = matcher.group();
 
@@ -505,11 +572,58 @@ public class UBSStepDefs {
 			int actualYear = calendar.get(Calendar.YEAR);
 
 			Year currentYear = Year.now(ZoneId.of("America/New_York"));
+
+			assertEquals(actualYear, currentYear.getValue(),
+					"Updated On Years not matching - actual : " + actualYear + " Expected Year - " + currentYear);
+
+			scrollUp("learn more about your accounts");
+
+		
+
 			
-			assertEquals(actualYear, currentYear.getValue()
-					, "Updated On Years not matching - actual : " + actualYear
-					+ " Expected Year - " + currentYear);
-			
+		} else if(model.equalsIgnoreCase("iPhone-14 Pro Max")) {
+
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "DJIA");
+			params2.put("scrolling", "scroll");
+			params2.put("next", "SWIPE=(50%,90%),(50%,45%)");
+			params2.put("target", "all");
+			params2.put("maxscroll", 10);
+
+			Pattern pattern = Pattern.compile("((\\d){1,2}/){2}(\\d){4}");
+
+			boolean checkPointResult = checkPointTextVisual(params2);
+
+			assertTrue(checkPointResult, "DJIA not displayed");
+
+			String djiaAsOf = getText("iphone.djia.asof");
+
+			Matcher matcher = pattern.matcher(djiaAsOf);
+
+			assertTrue(matcher.find(), "DJIA As Of Date is not in expected format - " + djiaAsOf);
+
+			String updatedOn = getAttribute("home.asof", "value");
+
+			matcher = pattern.matcher(updatedOn);
+
+			assertTrue(matcher.find(), "Updated Date is not in expected format - " + updatedOn);
+
+			String updatedOnStr = matcher.group();
+
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+
+			Date updatedOnDate = sdf.parse(updatedOnStr);
+
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(updatedOnDate);
+
+			int actualYear = calendar.get(Calendar.YEAR);
+
+			Year currentYear = Year.now(ZoneId.of("America/New_York"));
+
+			assertEquals(actualYear, currentYear.getValue(),
+					"Updated On Years not matching - actual : " + actualYear + " Expected Year - " + currentYear);
+
 			scrollUp("learn more about your accounts");
 
 //            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
@@ -550,6 +664,71 @@ public class UBSStepDefs {
 
 	@Then("check account activity")
 	public void accountActivity() {
+		
+		String model = DeviceUtils.getDeviceProperty("model");
+
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			
+			// Click on Account Tab in bottom Navigation Bar
+			click("android.main.accounts");
+			
+			// Click on Activity option from popup
+			click("accounts.activity");
+			
+			// Click on First Activity Displayed
+			click("android.activity.first");
+			
+			// Get Activity Amount text
+			String activityAmount = getText("activity.amount");
+			
+			// Validate the amount is well formatted.
+			boolean isAmountFormated = UBSUtils.validateAmount(activityAmount);
+			
+			// Assert the isAmountFormatted is well formatted.
+			assertTrue(isAmountFormated,
+					"Activity amount is not in correct format $x,xxx.xx. Amount displayed : " + activityAmount);
+
+			// Navigate back to home screen
+			click("android.activity.back");
+			
+			// Click on Filter button
+			click("filter.btn");
+
+			// Click On Year to Date option
+			click("ytd.android");
+			
+			// Click on Apply Button
+			click("filter.apply");
+
+			// Assert Activity screen is displayed
+			CommonStep.assertPresent("filter.btn");
+			
+			Map<String, Object> params4 = new HashMap<>();
+			params4.put("label", "Home");
+			params4.put("source", "camera");
+			params4.put("timeout", "20");
+			params4.put("threshold", "90");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
+			
+			
+			// Click on Home tab in the bottom navigationbar
+			//click("home");
+			
+			Map<String, Object> params6 = new HashMap<>();
+			params6.put("content", "Net Balance");
+			params6.put("source", "camera");
+			params6.put("timeout", "30");
+			params6.put("threshold", "90");
+			ArrayList genericOptions1 = new ArrayList();
+			genericOptions1.add("natural-language=true");
+			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params6);
+			
+			
+			// Assert HOme Page is displayed
+			//CommonStep.assertPresent("main.net.balance");
+
+			
+		} else {
 
 		// Click on Account Tab in bottom Navigation Bar
 		click("iphone.main.accounts");
@@ -621,20 +800,15 @@ public class UBSStepDefs {
 //
 //        new QAFExtendedWebElement("home").click();
 //        UBSUtils.validateShortHomePage();
+		}
 
 	}
 
+	private void validateAccountsIPhone() {
 
-
-	private void validateAccountsIPhone(){
-
-
-		/*==== Holding Account validation ====*/
-
-
+		/* ==== Holding Account validation ==== */
 
 		// ==== Financial Tools ====
-
 
 	}
 

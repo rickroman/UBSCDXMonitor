@@ -14,6 +14,10 @@ public class UBSScreen {
         return "iphone".equalsIgnoreCase(targetModel);
     }
 
+    public boolean isAndroid(){
+        return "android".equalsIgnoreCase(targetModel);
+    }
+    
     public boolean isIPad(){
         return "ipad".equalsIgnoreCase(targetModel);
     }
@@ -21,12 +25,17 @@ public class UBSScreen {
     public void validate(){
         iphone();
         ipad();
+        android();
     }
 
     public void ipad() {
     }
 
     public void iphone() {
+
+    }
+    
+    public void android() {
 
     }
 
