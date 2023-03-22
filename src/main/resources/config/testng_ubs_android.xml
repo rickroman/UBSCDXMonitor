@@ -10,7 +10,7 @@
     <parameter name="driver.name" value="perfectoDriver"/>
     <parameter name="driver.capabilities.perfecto:securityToken" value="${securityToken}"></parameter>
    
-    <test name="Android CDX" enabled="false">
+    <test name="Android CDX" enabled="true">
     	 <parameter name="driver.capabilities.platformName" value="android"></parameter>
         <parameter name="driver.capabilities.deviceName" value="RFCTB0R9TZY"></parameter>
        
