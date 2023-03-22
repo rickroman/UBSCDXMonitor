@@ -536,7 +536,7 @@ String model = DeviceUtils.getDeviceProperty("model");
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "DJIA");
 			params2.put("scrolling", "scroll");
-			//params3.put("threshold", "100");
+			params2.put("threshold", "100");
 			params2.put("next", "SWIPE=(50%,80%),(50%,35%)");
 			//params3.put("target", "all");
 			//params3.put("maxscroll", 10);
