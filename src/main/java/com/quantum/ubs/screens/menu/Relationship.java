@@ -24,6 +24,17 @@ public class Relationship extends UBSScreen {
         // Open Relationship
         click("profile.relationship");
     }
+    
+    public void navigateToRelationshipAndroid(){
+
+        if (!isAndroid()) return;
+
+        // Open the menu
+        UBSCommonSteps.openMenu();
+
+        // Open Relationship
+        click("profile.relationship");
+    }
 
     public void iphone(){
         if (!isIPhone()) return;

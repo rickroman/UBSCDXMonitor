@@ -533,18 +533,22 @@ String model = DeviceUtils.getDeviceProperty("model");
 		
 		
 		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
-			Map<String, Object> params3 = new HashMap<>();
-			params3.put("content", "DJIA");
-			params3.put("scrolling", "scroll");
-			//params2.put("threshold", "100");
-			params3.put("next", "SWIPE=(50%,80%),(50%,50%)");
-			//params2.put("target", "all");
-			params3.put("maxscroll", 12);
-			Object result3 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "DJIA");
+			params2.put("scrolling", "scroll");
+			//params3.put("threshold", "100");
+			params2.put("next", "SWIPE=(50%,80%),(50%,35%)");
+			//params3.put("target", "all");
+			//params3.put("maxscroll", 10);
+			//Object result3 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+			
+
+			Object result2 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+	     
 			
 			Pattern pattern = Pattern.compile("((\\d){1,2}/){2}(\\d){4}");
 
-			//boolean checkPointResult = checkPointTextVisual(params2);
+			boolean checkPointResult = checkPointTextVisual(params2);
 
 			//assertTrue(checkPointResult, "DJIA not displayed");
 

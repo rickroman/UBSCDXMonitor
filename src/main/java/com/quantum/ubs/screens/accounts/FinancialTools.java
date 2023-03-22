@@ -114,6 +114,8 @@ public class FinancialTools extends UBSScreen {
         new QAFExtendedWebElement("accounts.balances").isDisplayed();
         
         new QAFExtendedWebElement("accounts.currentBalance").isPresent();
+        try { Thread.sleep(11000); } catch (InterruptedException e) { e.printStackTrace(); }
+        
 
         String balance = new QAFExtendedWebElement("total.value").getAttribute("name");
         

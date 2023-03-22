@@ -32,7 +32,7 @@ public class ValidationSteps {
 			params2.put("content", "cash available");
 			params2.put("scrolling", "scroll");
 			params2.put("next", "SWIPE=(50%,85%),(50%,55%)");
-			params2.put("maxscroll", 10);
+			//params2.put("maxscroll", 10);
 			Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 	        
 			

@@ -40,6 +40,36 @@ public class ContactAdvisor extends UBSScreen {
         }
     }
 
+    public void android(){
+
+        if(!isIPhone()) return;
+        UBSCommonSteps.openMenu();
+        Map<String, Object> params2 = new HashMap<>();
+        params2.put("label", "contact financial advisor");
+        params2.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+
+        Map<String, Object> params3 = new HashMap<>();
+        params3.put("content", "toll free");
+        params3.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+
+        Map<String, Object> params4 = new HashMap<>();
+        params4.put("label", "Close");
+        params4.put("timeout", "50");
+        params4.put("screen.top", "0%");
+		params4.put("screen.height", "15%");
+		params4.put("screen.left", "68%");
+		params4.put("screen.width", "32%");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    
     public void ipad(){
         if(!isIPad()) return;
         new QAFExtendedWebElement("contact").click();

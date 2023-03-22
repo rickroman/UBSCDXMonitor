@@ -19,6 +19,7 @@ public class Profile extends UBSScreen {
     public void validate(){
         iphone();
         ipad();
+        android();
     }
 
     public void iphone(){
@@ -50,6 +51,44 @@ public class Profile extends UBSScreen {
         UBSUtils.validateShortHomePage();
 
     }
+
+    public void android(){
+        if (!isAndroid()) return;
+
+        // Open the menu
+        UBSCommonSteps.openMenu();
+
+        // Navigate to My Information
+        click("profile.my.information");
+
+        // Check whether Primary Email is Displayed
+        boolean isPresent = CommonStep.verifyVisible("profile.android.primary");
+        assertTrue(isPresent,"Primary Email is not present upon navigating to Menu > My Information.");
+
+        // Navigate to Relationship screen
+        
+        new Relationship().navigateToRelationshipAndroid();
+
+        // Open Team
+        click("profile.android.team");
+
+        // Verify Advice is displayed
+        Map<String, Object> params7 = new HashMap<>();
+		params7.put("content", "UBS Wealth Advice Center");
+		params7.put("source", "camera");
+		params7.put("timeout", "30");
+		params7.put("threshold", "90");
+		isPresent = checkPointTextVisual(params7);
+        //isPresent = CommonStep.verifyVisible("profile.android.advice");
+        assertTrue(isPresent,"UBS Advisory team is not present upon navigating to Menu > Relationship > UBS Teams.");
+
+        // Navigate to Home
+        UBSCommonSteps.navigateToHome();
+
+        UBSUtils.validateShortHomePage();
+
+    }
+
 
     public void ipad(){
         if (!isIPad()) return;
