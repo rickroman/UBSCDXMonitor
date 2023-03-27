@@ -116,6 +116,15 @@ public class FinancialTools extends UBSScreen {
         new QAFExtendedWebElement("accounts.currentBalance").isPresent();
         try { Thread.sleep(11000); } catch (InterruptedException e) { e.printStackTrace(); }
         
+        Map<String, Object> params22 = new HashMap<>();
+        params22.put("content", "Total Value");
+        params22.put("timeout", "30");
+        
+        boolean isPresent = checkPointTextVisual(params22);
+        
+        if (!isPresent) {
+        	 new QAFExtendedWebElement("ipad.accounts.ubsorAll").click();
+        }
 
         String balance = new QAFExtendedWebElement("total.value").getAttribute("name");
         
