@@ -121,12 +121,17 @@ public class Balance extends UBSScreen {
         //CommonStep.waitForVisible("investment.title");
         
         Map<String, Object> params1 = new HashMap<>();
-		params1.put("content", "Investment");
+		params1.put("content", "Assets");
 		params1.put("source", "camera");
 		params1.put("timeout", "20");
 		params1.put("threshold", "90");
 		Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
         
+		boolean isALLScreen = checkPointTextVisual(params1);
+		
+		if (isALLScreen) {
+			switchToUBSTab();
+		}
         
         String balance = getAttribute("total.value", "name");
         

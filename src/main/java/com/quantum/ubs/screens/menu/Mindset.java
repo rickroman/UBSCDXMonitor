@@ -54,7 +54,7 @@ public class Mindset extends UBSScreen {
         
         //new QAFExtendedWebElement("interest").isDisplayed();
         Map<String, Object> params2 = new HashMap<>();
-        params2.put("content", "Has your perspective changed?");
+        params2.put("content", "Has your perspective");
         params2.put("timeout", "30");
         params2.put("threshold", "90");
         boolean isPresent = checkPointTextVisual(params2);

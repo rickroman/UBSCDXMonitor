@@ -88,6 +88,7 @@ public class UBSStepDefs {
 	public void launch_cdx() {
 
 		// Launch the UBS App
+		
 		launchApp("name", "UBS");
 
 		// Assert that Login Message is displayed
