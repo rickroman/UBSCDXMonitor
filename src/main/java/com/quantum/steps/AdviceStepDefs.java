@@ -84,14 +84,22 @@ public class AdviceStepDefs {
     public void checkAdvice() {
 
         randomlySelectAdvantage();
-
+        //new QAFExtendedWebElement("advice.portfolio.guidance").isDisplayed();
+        //new QAFExtendedWebElement("advice.portfolio.guidance").click();
         new QAFExtendedWebElement("explore.advice").isDisplayed();
         new QAFExtendedWebElement("zero.accounts").click();
         new QAFExtendedWebElement("select.accounts").isPresent();
+        
+        Map<String, Object> params3 = new HashMap<>();
+        params3.put("content","Cancel");
+        params3.put("scrolling", "scroll");
+        params3.put("next","SWIPE=(50%,85%),(50%,25%)");
+        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+        
         new QAFExtendedWebElement("advice.cancel").click();
         new QAFExtendedWebElement("explore.advice").isDisplayed();
     }
-    
+   
     
     @Then("Navigate advice advantage")
     public void navigateAdvice() {
@@ -169,17 +177,21 @@ public class AdviceStepDefs {
         switch(coin) {
             case 0:
                 new QAFExtendedWebElement("advice").click();
+                new QAFExtendedWebElement("adviceMenuChoice").click();
+              //*[@name="SelectionItem_1"]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]
 
                 break;
             case 1:
                 Map<String, Object> params2 = new HashMap<>();
-                params2.put("content","View your proposed portfolio");
+                params2.put("content","View and manage account(s)");
                 params2.put("scrolling", "scroll");
                 params2.put("next","SWIPE=(50%,85%),(50%,55%)");
                 DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
                 new QAFExtendedWebElement("advice").click();
 
+                new QAFExtendedWebElement("adviceMenuChoice").click();
+                
                 break;
             default:
                 // code block
