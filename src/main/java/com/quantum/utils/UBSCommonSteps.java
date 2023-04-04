@@ -58,15 +58,6 @@ public class UBSCommonSteps {
 			
 		
 
-		click("login.signin.btn");
-				
-		// Set User Name
-		setValue("xpath", "//*[@value='Username']", userName);
-		
-    	click("login.next.iphone");
-    	
-    	// Set Password
-		setValue("xpath", "//XCUIElementTypeSecureTextField", password);
 		
 		}
 
