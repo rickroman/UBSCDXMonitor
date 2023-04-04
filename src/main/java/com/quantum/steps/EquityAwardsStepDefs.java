@@ -1,24 +1,25 @@
 package com.quantum.steps;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.qmetry.qaf.automation.step.QAFTestStepProvider;
 import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
+import com.quantum.utils.DeviceUtils;
 import com.quantum.utils.UBSCommonSteps;
 
 import cucumber.api.java.en.When;
 
-
 @QAFTestStepProvider
 public class EquityAwardsStepDefs {
 
-    private static final String Secured_equity_uname = "secured.BzOYecc1Y/h1KI04dhivkg==";
-    private static final String Secured_equity_pw = "secured.C68G7Vqodlvt8un3EM7Tiw==";
+	private static final String Secured_equity_uname = "secured.BzOYecc1Y/h1KI04dhivkg==";
+	private static final String Secured_equity_pw = "secured.C68G7Vqodlvt8un3EM7Tiw==";
 
-    @When("CDX Equity Awards login")
-    public void equityAwardsLogin() {
-    	
-    	
-    	UBSCommonSteps.login(Secured_equity_uname, Secured_equity_pw);
+	@When("CDX Equity Awards login")
+	public void equityAwardsLogin() {
 
+		UBSCommonSteps.login(Secured_equity_uname, Secured_equity_pw);
 
 //        //declare the Map for script parameters
 //        Map<String, Object> params = new HashMap<>();
@@ -38,162 +39,209 @@ public class EquityAwardsStepDefs {
 //        new QAFExtendedWebElement("login.signin.btn").click();
 //        // 2 validations of home page loading
 //        UBSUtils.declineFaceID();
-        validateEquityAwardsHP();
+		validateEquityAwardsHP();
 
-    }
+	}
 
+	@When("validate activity")
+	public void validateActivity() {
+		new QAFExtendedWebElement("equityAwards").click();
+		new QAFExtendedWebElement("equityActivity").click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
-    @When("validate activity")
-    public void validateActivity() {
-        new QAFExtendedWebElement("equityAwards").click();
-        new QAFExtendedWebElement("equityActivity").click();
-        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+		new QAFExtendedWebElement("orders.completed").isDisplayed();
+		
+		new QAFExtendedWebElement("orders.disclosures").isDisplayed();
 
-        new QAFExtendedWebElement("orders.completed").isDisplayed();
-        new QAFExtendedWebElement("orders.disclosures").isDisplayed();
+	}
 
+	@When("validate holdings")
+	public void validateHoldings() {
+		new QAFExtendedWebElement("equityAwards").click();
+		new QAFExtendedWebElement("equityHoldings").click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		new QAFExtendedWebElement("holdings.awards").isDisplayed();
+		new QAFExtendedWebElement("holdings.shares").isPresent();
 
-    }
+	}
 
-    @When("validate holdings")
-    public void validateHoldings() {
-        new QAFExtendedWebElement("equityAwards").click();
-        new QAFExtendedWebElement("equityHoldings").click();
-        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
-        new QAFExtendedWebElement("holdings.awards").isDisplayed();
-        new QAFExtendedWebElement("holdings.shares").isPresent();
+	@When("check transactions")
+	public void checkTransactions() {
+		new QAFExtendedWebElement("equityAwards").click();
+		new QAFExtendedWebElement("EquityTransactions").click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
+		new QAFExtendedWebElement("transactionsWelcome").isPresent();
 
+	}
 
+	@When("validate awards education")
+	public void validateEducation() {
+		new QAFExtendedWebElement("equityAwards").click();
+		new QAFExtendedWebElement("EquityAwardsEducation").click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
-    }
-    @When("check transactions")
-    public void checkTransactions() {
-        new QAFExtendedWebElement("equityAwards").click();
-        new QAFExtendedWebElement("EquityTransactions").click();
-        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+		new QAFExtendedWebElement("education.progress").isPresent();
 
-        new QAFExtendedWebElement("transactionsWelcome").isPresent();
+	}
 
+	@When("check notifications")
+	public void checkNotificatiobs() {
+		new QAFExtendedWebElement("equityAwards").click();
+		new QAFExtendedWebElement("EquityNotify").click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
-    }
-    @When("validate awards education")
-    public void validateEducation() {
-        new QAFExtendedWebElement("equityAwards").click();
-        new QAFExtendedWebElement("EquityAwardsEducation").click();
-        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+		new QAFExtendedWebElement("  notifications,actionable").isPresent();
 
-        new QAFExtendedWebElement("education.progress").isPresent();
+		new QAFExtendedWebElement("Home").click();
+		validateEquityAwardsHP();
 
+	}
 
-    }
+	@When("check MW balances")
+	public void checkMWBalances() {
+		new QAFExtendedWebElement("hp.mywealth").click();
+		new QAFExtendedWebElement("mw.balances").click();
+		new QAFExtendedWebElement("mw.balances.assets").isPresent();
+		new QAFExtendedWebElement("mw.balances.investmentAssets").isDisplayed();
 
-    @When("check notifications")
-    public void checkNotificatiobs() {
-        new QAFExtendedWebElement("equityAwards").click();
-        new QAFExtendedWebElement("EquityNotify").click();
-        try { Thread.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
+	}
 
-        new QAFExtendedWebElement("  notifications,actionable").isPresent();
+	@When("check MW Holdings")
+	public void checkMWHoldings() {
 
+		new QAFExtendedWebElement("hp.mywealth").click();
+		new QAFExtendedWebElement("mw.holdings").click();
+		new QAFExtendedWebElement("mw.holdings.none").isDisplayed();
 
+	}
 
-        new QAFExtendedWebElement("Home").click();
-        validateEquityAwardsHP();
+	@When("check MW Activity")
+	public void checkMWActivity() {
 
+		new QAFExtendedWebElement("hp.mywealth").click();
+		new QAFExtendedWebElement("mw.activity").click();
+		new QAFExtendedWebElement("mw.activity.none").isDisplayed();
 
-    }
-    @When("check MW balances")
-    public void checkMWBalances(){
-        new QAFExtendedWebElement("hp.mywealth").click();
-        new QAFExtendedWebElement("mw.balances").click();
-        new QAFExtendedWebElement("mw.balances.assets").isPresent();
-        new QAFExtendedWebElement("mw.balances.investmentAssets").isDisplayed();
+	}
 
+	@When("check MW Financial Tools")
+	public void checkMWTools() {
+		new QAFExtendedWebElement("hp.mywealth").click();
+		new QAFExtendedWebElement("mw.tools").click();
+		new QAFExtendedWebElement("mw.tools.netWorth").isDisplayed();
+		new QAFExtendedWebElement("cashFlow").click();
+		new QAFExtendedWebElement("know.moves").isDisplayed();
+		new QAFExtendedWebElement("spending").click();
+		new QAFExtendedWebElement("expense.analysis").isDisplayed();
+		new QAFExtendedWebElement("Home").click();
+		validateEquityAwardsHP();
+	}
 
-    }
-    @When("check MW Holdings")
-    public void checkMWHoldings() {
+	@When("check my information")
+	public void checkMyInfo() {
+		new QAFExtendedWebElement("menu.iphone").click();
+		new QAFExtendedWebElement("my.info").click();
+		new QAFExtendedWebElement("username").isDisplayed();
 
-        new QAFExtendedWebElement("hp.mywealth").click();
-        new QAFExtendedWebElement("mw.holdings").click();
-        new QAFExtendedWebElement("mw.holdings.none").isDisplayed();
+	}
 
+	@When("EW check settings")
+	public void checkSettings() {
+		new QAFExtendedWebElement("menu.iphone").click();
+		new QAFExtendedWebElement("settings").click();
+		new QAFExtendedWebElement("ew.settings").isDisplayed();
 
-    }
-    @When("check MW Activity")
-    public void checkMWActivity() {
+	}
 
-        new QAFExtendedWebElement("hp.mywealth").click();
-        new QAFExtendedWebElement("mw.activity").click();
-        new QAFExtendedWebElement("mw.activity.none").isDisplayed();
+	@When("EW check support")
+	public void checkSupport() {
+		new QAFExtendedWebElement("menu.iphone").click();
+		new QAFExtendedWebElement("support").click();
+		new QAFExtendedWebElement("market.hours").isDisplayed();
 
+	}
 
-    }
-    @When("check MW Financial Tools")
-    public void checkMWTools() {
-        new QAFExtendedWebElement("hp.mywealth").click();
-        new QAFExtendedWebElement("mw.tools").click();
-        new QAFExtendedWebElement("mw.tools.netWorth").isDisplayed();
-        new QAFExtendedWebElement("cashFlow").click();
-        new QAFExtendedWebElement("know.moves").isDisplayed();
-        new QAFExtendedWebElement("spending").click();
-        new QAFExtendedWebElement("expense.analysis").isDisplayed();
-        new QAFExtendedWebElement("Home").click();
-        validateEquityAwardsHP();
-    }
-    @When("check my information")
-    public void checkMyInfo(){
-        new QAFExtendedWebElement("menu.iphone").click();
-        new QAFExtendedWebElement("my.info").click();
-        new QAFExtendedWebElement("username").isDisplayed();
+	@When("EW check legal")
+	public void checkLegal() {
+		new QAFExtendedWebElement("menu.iphone").click();
+		new QAFExtendedWebElement("legal").click();
+		new QAFExtendedWebElement("valuation").isDisplayed();
+		new QAFExtendedWebElement("legal.cancel").click();
 
-    }
-    @When("EW check settings")
-    public void checkSettings(){
-        new QAFExtendedWebElement("menu.iphone").click();
-        new QAFExtendedWebElement("settings").click();
-        new QAFExtendedWebElement("ew.settings").isDisplayed();
+	}
 
-    }
-    @When("EW check support")
-    public void checkSupport(){
-        new QAFExtendedWebElement("menu.iphone").click();
-        new QAFExtendedWebElement("support").click();
-        new QAFExtendedWebElement("market.hours").isDisplayed();
+	@When("EW get in touch")
+	public void getInTouch() {
+		new QAFExtendedWebElement("menu.iphone").click();
+		new QAFExtendedWebElement("get.in.touch").click();
+		new QAFExtendedWebElement("toll.free").isDisplayed();
+		new QAFExtendedWebElement("touch.close").click();
+	}
 
-    }
-    @When("EW check legal")
-    public void checkLegal(){
-        new QAFExtendedWebElement("menu.iphone").click();
-        new QAFExtendedWebElement("legal").click();
-        new QAFExtendedWebElement("valuation").isDisplayed();
-        new QAFExtendedWebElement("legal.cancel").click();
+	private void validateEquityAwardsHP() {
 
+		
 
-    }
-    @When("EW get in touch")
-    public void getInTouch(){
-        new QAFExtendedWebElement("menu.iphone").click();
-        new QAFExtendedWebElement("get.in.touch").click();
-        new QAFExtendedWebElement("toll.free").isDisplayed();
-        new QAFExtendedWebElement("touch.close").click();
-    }
+		// temp checkpoint
+		String model = DeviceUtils.getDeviceProperty("model");
 
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			
+			try {
+				 Map<String, Object> params2 = new HashMap<>();
+			        params2.put("label", "Go to Notifications");
+			        params2.put("timeout", "30");
+			        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
 
+			        new QAFExtendedWebElement("home").click();
+			        
+			} catch (Exception e) {
+				System.out.println("no notification popup");
+			}
+			
+			 Map<String, Object> params1 = new HashMap<>();
+				params1.put("content", "Today's Value");
+				params1.put("source", "camera");
+				params1.put("timeout", "20");
+				params1.put("threshold", "90");
+				Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
+		        
 
-    private void validateEquityAwardsHP() {
+		} else {
+			
+			try {
+				new QAFExtendedWebElement("closeHPNotification").click();
+			} catch (Exception e) {
+				System.out.println("no notification popup");
+			}
+			new QAFExtendedWebElement("home.getintouch").isDisplayed();
+			// new QAFExtendedWebElement("holdingsSummary").isDisplayed();
 
-        try { new QAFExtendedWebElement("closeHPNotification").click(); } catch (Exception e){ System.out.println("no notification popup"); }
-        
-        //temp checkpoint
-        new QAFExtendedWebElement("home.getintouch").isDisplayed();
-        //new QAFExtendedWebElement("holdingsSummary").isDisplayed();
-        
-        
-        
-       // String todayValue = new QAFExtendedWebElement("todaysValue").getText();
-        //System.out.println("today value is: " + todayValue);
+		}
 
-    }
+		// String todayValue = new QAFExtendedWebElement("todaysValue").getText();
+		// System.out.println("today value is: " + todayValue);
+
+	}
 }
