@@ -16,6 +16,8 @@ public class EquityAwardsStepDefs {
 	private static final String Secured_equity_uname = "secured.BzOYecc1Y/h1KI04dhivkg==";
 	private static final String Secured_equity_pw = "secured.C68G7Vqodlvt8un3EM7Tiw==";
 
+	String model = DeviceUtils.getDeviceProperty("model");
+
 	@When("CDX Equity Awards login")
 	public void equityAwardsLogin() {
 
@@ -54,7 +56,7 @@ public class EquityAwardsStepDefs {
 		}
 
 		new QAFExtendedWebElement("orders.completed").isDisplayed();
-		
+
 		new QAFExtendedWebElement("orders.disclosures").isDisplayed();
 
 	}
@@ -111,7 +113,7 @@ public class EquityAwardsStepDefs {
 			e.printStackTrace();
 		}
 
-		new QAFExtendedWebElement("  notifications,actionable").isPresent();
+		new QAFExtendedWebElement("notifications,actionable").isPresent();
 
 		new QAFExtendedWebElement("Home").click();
 		validateEquityAwardsHP();
@@ -122,9 +124,20 @@ public class EquityAwardsStepDefs {
 	public void checkMWBalances() {
 		new QAFExtendedWebElement("hp.mywealth").click();
 		new QAFExtendedWebElement("mw.balances").click();
-		new QAFExtendedWebElement("mw.balances.assets").isPresent();
-		new QAFExtendedWebElement("mw.balances.investmentAssets").isDisplayed();
 
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			// temporary checkpoint for android
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("content", "Add your external accounts");
+			params1.put("source", "camera");
+			params1.put("timeout", "20");
+			params1.put("threshold", "90");
+			Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
+
+		} else {
+			new QAFExtendedWebElement("mw.balances.assets").isPresent();
+			new QAFExtendedWebElement("mw.balances.investmentAssets").isDisplayed();
+		}
 	}
 
 	@When("check MW Holdings")
@@ -132,7 +145,17 @@ public class EquityAwardsStepDefs {
 
 		new QAFExtendedWebElement("hp.mywealth").click();
 		new QAFExtendedWebElement("mw.holdings").click();
-		new QAFExtendedWebElement("mw.holdings.none").isDisplayed();
+
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("content", "Add your external accounts");
+			params1.put("source", "camera");
+			params1.put("timeout", "20");
+			params1.put("threshold", "90");
+			Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
+		} else {
+			new QAFExtendedWebElement("mw.holdings.none").isDisplayed();
+		}
 
 	}
 
@@ -141,34 +164,70 @@ public class EquityAwardsStepDefs {
 
 		new QAFExtendedWebElement("hp.mywealth").click();
 		new QAFExtendedWebElement("mw.activity").click();
-		new QAFExtendedWebElement("mw.activity.none").isDisplayed();
 
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("content", "No activities match");
+			params1.put("source", "camera");
+			params1.put("timeout", "20");
+			params1.put("threshold", "90");
+			Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
+
+		} else {
+			new QAFExtendedWebElement("mw.activity.none").isDisplayed();
+		}
 	}
 
 	@When("check MW Financial Tools")
 	public void checkMWTools() {
 		new QAFExtendedWebElement("hp.mywealth").click();
 		new QAFExtendedWebElement("mw.tools").click();
-		new QAFExtendedWebElement("mw.tools.netWorth").isDisplayed();
-		new QAFExtendedWebElement("cashFlow").click();
-		new QAFExtendedWebElement("know.moves").isDisplayed();
-		new QAFExtendedWebElement("spending").click();
-		new QAFExtendedWebElement("expense.analysis").isDisplayed();
+
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("content", "You are currently not enrolled");
+			params1.put("source", "camera");
+			params1.put("timeout", "20");
+			params1.put("threshold", "90");
+			Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
+
+		} else {
+
+			new QAFExtendedWebElement("mw.tools.netWorth").isDisplayed();
+			new QAFExtendedWebElement("cashFlow").click();
+			new QAFExtendedWebElement("know.moves").isDisplayed();
+			new QAFExtendedWebElement("spending").click();
+			new QAFExtendedWebElement("expense.analysis").isDisplayed();
+
+		}
 		new QAFExtendedWebElement("Home").click();
 		validateEquityAwardsHP();
 	}
 
 	@When("check my information")
 	public void checkMyInfo() {
-		new QAFExtendedWebElement("menu.iphone").click();
-		new QAFExtendedWebElement("my.info").click();
-		new QAFExtendedWebElement("username").isDisplayed();
+
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			new QAFExtendedWebElement("menu.android").click();
+			new QAFExtendedWebElement("my.info").click();
+			new QAFExtendedWebElement("username").isDisplayed();
+		} else {
+			new QAFExtendedWebElement("menu.iphone").click();
+			new QAFExtendedWebElement("my.info").click();
+			new QAFExtendedWebElement("username").isDisplayed();
+		}
 
 	}
 
 	@When("EW check settings")
 	public void checkSettings() {
-		new QAFExtendedWebElement("menu.iphone").click();
+
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			new QAFExtendedWebElement("menu.android").click();
+		} else {
+			new QAFExtendedWebElement("menu.iphone").click();
+		}
 		new QAFExtendedWebElement("settings").click();
 		new QAFExtendedWebElement("ew.settings").isDisplayed();
 
@@ -176,15 +235,27 @@ public class EquityAwardsStepDefs {
 
 	@When("EW check support")
 	public void checkSupport() {
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			new QAFExtendedWebElement("menu.android").click();
+		} else {
+			
 		new QAFExtendedWebElement("menu.iphone").click();
+		
+		}
+
 		new QAFExtendedWebElement("support").click();
 		new QAFExtendedWebElement("market.hours").isDisplayed();
-
 	}
 
 	@When("EW check legal")
 	public void checkLegal() {
-		new QAFExtendedWebElement("menu.iphone").click();
+		
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			new QAFExtendedWebElement("menu.android").click();
+		} else {
+			new QAFExtendedWebElement("menu.iphone").click();
+		}
+		
 		new QAFExtendedWebElement("legal").click();
 		new QAFExtendedWebElement("valuation").isDisplayed();
 		new QAFExtendedWebElement("legal.cancel").click();
@@ -193,7 +264,12 @@ public class EquityAwardsStepDefs {
 
 	@When("EW get in touch")
 	public void getInTouch() {
-		new QAFExtendedWebElement("menu.iphone").click();
+		
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			new QAFExtendedWebElement("menu.android").click();
+		} else {
+			new QAFExtendedWebElement("menu.iphone").click();
+		}
 		new QAFExtendedWebElement("get.in.touch").click();
 		new QAFExtendedWebElement("toll.free").isDisplayed();
 		new QAFExtendedWebElement("touch.close").click();
@@ -201,35 +277,32 @@ public class EquityAwardsStepDefs {
 
 	private void validateEquityAwardsHP() {
 
-		
-
 		// temp checkpoint
 		String model = DeviceUtils.getDeviceProperty("model");
 
 		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
-			
-			try {
-				 Map<String, Object> params2 = new HashMap<>();
-			        params2.put("label", "Go to Notifications");
-			        params2.put("timeout", "30");
-			        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
 
-			        new QAFExtendedWebElement("home").click();
-			        
+			try {
+				Map<String, Object> params2 = new HashMap<>();
+				params2.put("label", "Go to Notifications");
+				params2.put("timeout", "30");
+				DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
+
+				new QAFExtendedWebElement("home").click();
+
 			} catch (Exception e) {
 				System.out.println("no notification popup");
 			}
-			
-			 Map<String, Object> params1 = new HashMap<>();
-				params1.put("content", "Today's Value");
-				params1.put("source", "camera");
-				params1.put("timeout", "20");
-				params1.put("threshold", "90");
-				Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
-		        
+
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("content", "Today's Value");
+			params1.put("source", "camera");
+			params1.put("timeout", "20");
+			params1.put("threshold", "90");
+			Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
 
 		} else {
-			
+
 			try {
 				new QAFExtendedWebElement("closeHPNotification").click();
 			} catch (Exception e) {
