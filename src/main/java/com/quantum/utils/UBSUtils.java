@@ -17,7 +17,7 @@ public class UBSUtils  {
     public static void validateHomePage() {
     	
         new QAFExtendedWebElement("main.net.balance").isDisplayed();
-        DeviceUtils.waitForPresentTextVisual("total Assets",60);
+        DeviceUtils.waitForPresentTextVisual("Total assets",60);
         try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
 
 
