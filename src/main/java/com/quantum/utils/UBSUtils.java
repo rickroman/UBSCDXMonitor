@@ -30,7 +30,7 @@ public class UBSUtils  {
 
 
             Map<String, Object> params3 = new HashMap<>();
-            params3.put("content", "Enable Face ID");
+            params3.put("content", "Biometric authentication");
             params3.put("timeout", "30");
             String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
@@ -43,6 +43,13 @@ public class UBSUtils  {
                     Map<String, Object> params = new HashMap<>();
                     params.put("content", "Not Now");
                     DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+                    
+                } else if (model.equalsIgnoreCase("android")) {
+                	
+                	  Map<String, Object> params = new HashMap<>();
+                      params.put("label", "Not Now");
+                      DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+                      
                 }else {
                     new QAFExtendedWebElement("ipad.face.decline").click();
 
@@ -64,13 +71,19 @@ public class UBSUtils  {
     	String model = DeviceUtils.getDeviceProperty("model");
 		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
 			
-			
+			for(int i = 0; i< 7; i++) {
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("start", ",50%,15%");
+			params1.put("end", "50%,85%");
+			params1.put("duration", "0");
+			Object result1 =   DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params1);
+			}
 			
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "Net Balance");
-			params2.put("scrolling", "scroll");
-			params2.put("next", "SWIPE=(50%,55%),(50%,85%)");
-
+			 params2.put("timeout", "30");
+			 params2.put("threshold", "90");
+			
 			boolean checkPointResult = checkPointTextVisual(params2);
 		} else {
 			 new QAFExtendedWebElement("main.net.balance").isDisplayed();
