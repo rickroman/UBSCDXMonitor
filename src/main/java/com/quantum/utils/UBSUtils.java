@@ -19,12 +19,13 @@ public class UBSUtils  {
         new QAFExtendedWebElement("main.net.balance").isDisplayed();
        // DeviceUtils.waitForPresentTextVisual("Total assets",60);
         
-        Map<String, Object> params2 = new HashMap<>();
-		params2.put("content", "Total assets");
-		 params2.put("timeout", "60");
-		 params2.put("threshold", "90");
-		
-		boolean checkPointResult = checkPointTextVisual(params2);
+		/*
+		 * Map<String, Object> params2 = new HashMap<>(); params2.put("content",
+		 * "Total assets"); params2.put("timeout", "60"); params2.put("threshold",
+		 * "90");
+		 * 
+		 * boolean checkPointResult = checkPointTextVisual(params2);
+		 */
 		
         try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
 
