@@ -91,7 +91,7 @@ public class UBSUtils  {
 			
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "Net Balance");
-			 params2.put("timeout", "30");
+			 params2.put("timeout", "60");
 			 params2.put("threshold", "90");
 			
 			boolean checkPointResult = checkPointTextVisual(params2);
