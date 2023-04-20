@@ -281,6 +281,14 @@ public class EquityAwardsStepDefs {
 		String model = DeviceUtils.getDeviceProperty("model");
 
 		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			
+			try {
+
+				new QAFExtendedWebElement("login.Not.Now").click();
+
+			} catch (Exception e) {
+				System.out.println("no biometric popup");
+			}
 
 			try {
 				Map<String, Object> params2 = new HashMap<>();
