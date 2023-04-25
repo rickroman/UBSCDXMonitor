@@ -141,17 +141,17 @@ public class AdviceStepDefs {
 			
 			
 
-			/*
-			 * for (int i = 0; i < 5; i++) { Map<String, Object> params1 = new HashMap<>();
-			 * params1.put("start", "50%,75%"); params1.put("end", "50%,35%");
-			 * params1.put("duration", "0"); Object result1 =
-			 * DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params1); }
-			 */
+			
+			  for (int i = 0; i < 5; i++) { Map<String, Object> params1 = new HashMap<>();
+			  params1.put("start", "50%,75%"); params1.put("end", "50%,35%");
+			  params1.put("duration", "0"); Object result1 =
+			  DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params1); }
+			 
 
 			Map<String, Object> params7 = new HashMap<>();
 			params7.put("content", "Cancel");
-			params7.put("scrolling", "scroll");
-			params7.put("next", "SWIPE=(50%,85%),(50%,55%)");
+			params7.put("timeout", "30");
+			params7.put("threshold", "90");
 			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params7);
 
 			Map<String, Object> params6 = new HashMap<>();
