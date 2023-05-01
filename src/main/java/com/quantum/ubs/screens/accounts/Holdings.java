@@ -120,8 +120,21 @@ public class Holdings extends UBSScreen {
 		assertTrue(isPresent, "Holding cash is not present upon switch to Accounts > Holdings option.");
 
 		// Switch to UBS tab
-		if (!QAFDriverUtils.isOptionalElementPresent("android.intraday")) {
+		
+		try {
+		Map<String, Object> params3 = new HashMap<>();	
+		params3.put("content", "Intraday");
+		params3.put("source", "camera");
+		params3.put("timeout", "30");
+		params3.put("threshold", "90");
+		isPresent = checkPointTextVisual(params3);
+		} catch (Exception e) {
+			
+		}
+		
+		if (!isPresent) {
 			click("android.ubs");
+			
 		}
 
 		// Verify Prior Day is Displayed
