@@ -150,8 +150,8 @@ public class AdviceStepDefs {
 
 			Map<String, Object> params7 = new HashMap<>();
 			params7.put("content", "Cancel");
-			params7.put("timeout", "30");
-			params7.put("threshold", "90");
+			params7.put("scrolling", "scroll");
+			params7.put("next", "SWIPE=(50%,85%),(50%,55%)");
 			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params7);
 
 			Map<String, Object> params6 = new HashMap<>();
