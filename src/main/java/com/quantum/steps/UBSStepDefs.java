@@ -188,7 +188,7 @@ public class UBSStepDefs {
 
 			// enter credentials
 			Map<String, Object> params1 = new HashMap<>();
-			params1.put("content", "Username");
+			params1.put("content", "zzzzzzzzzzz");
 			DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params1);
 			try {
 				Thread.sleep(4000);
