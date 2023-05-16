@@ -1,5 +1,6 @@
 package com.quantum.steps;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 //import javafx.scene.web.WebView;
 import java.util.Map;
@@ -131,6 +132,9 @@ public class AdviceStepDefs {
 			params4.put("label", "1 of 7 Accounts Analyzed");
 			params4.put("timeout", "30");
 			params4.put("threshold", "90");
+			ArrayList genericOptions1 = new ArrayList();
+			genericOptions1.add("natural-language=true");
+			params4.put("ocr", genericOptions1);
 			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
 
 			Map<String, Object> params5 = new HashMap<>();
