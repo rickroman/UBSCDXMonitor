@@ -10,108 +10,101 @@ import java.util.regex.Pattern;
 
 import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 
-public class UBSUtils  {
-    
+public class UBSUtils {
+
 	public static String model = getModel();
-    
-    public static void validateHomePage() {
-    	
-       // new QAFExtendedWebElement("main.net.balance").isDisplayed();
-       // DeviceUtils.waitForPresentTextVisual("Total assets",60);
-        
-		
-		  Map<String, Object> params2 = new HashMap<>(); 
-		  params2.put("content", "Net Balance"); 
-		  params2.put("timeout", "60"); 
-		  params2.put("threshold", "90");
-		  
-		  boolean checkPointResult = checkPointTextVisual(params2);
-		 
-		
-        try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
 
+	public static void validateHomePage() {
 
-    }
+		// new QAFExtendedWebElement("main.net.balance").isDisplayed();
+		// DeviceUtils.waitForPresentTextVisual("Total assets",60);
 
-    public static void declineFaceID() {
+		Map<String, Object> params2 = new HashMap<>();
+		params2.put("content", "Net Balance");
+		params2.put("timeout", "60");
+		params2.put("threshold", "90");
 
+		boolean checkPointResult = checkPointTextVisual(params2);
 
-        try {
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
+	}
 
-            Map<String, Object> params3 = new HashMap<>();
-            params3.put("content", "Biometric authentication");
-            params3.put("timeout", "30");
-            String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+	public static void declineFaceID() {
 
-            if (result.equalsIgnoreCase("true")) {
+		try {
 
+			Map<String, Object> params3 = new HashMap<>();
+			params3.put("content", "Biometric authentication");
+			params3.put("timeout", "30");
+			String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
+			if (result.equalsIgnoreCase("true")) {
 
-                if(model.equalsIgnoreCase("iphone")) {
-                    //successful checkpoint code
-                    Map<String, Object> params = new HashMap<>();
-                    params.put("content", "Not Now");
-                    DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
-                    
-                } else if (model.equalsIgnoreCase("android")) {
-                	
-                	  Map<String, Object> params = new HashMap<>();
-                      params.put("label", "Not Now");
-                      DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
-                      
-                }else {
-                    new QAFExtendedWebElement("ipad.face.decline").click();
+				if (model.equalsIgnoreCase("iphone")) {
+					// successful checkpoint code
+					Map<String, Object> params = new HashMap<>();
+					params.put("content", "Not Now");
+					DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
 
-                }
-            }
+				} else if (model.equalsIgnoreCase("android")) {
 
+					Map<String, Object> params = new HashMap<>();
+					params.put("label", "Not Now");
+					params.put("timeout", "30");
+					params.put("threshold", "90");
+					DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
 
-        } catch (Exception e) {
-            System.out.println("caught declinefaceID:");
-        }
+				} else {
+					new QAFExtendedWebElement("ipad.face.decline").click();
 
-    }
-
-
-
-
-    public static void validateShortHomePage() {
-    	
-    	String model = DeviceUtils.getDeviceProperty("model");
-		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
-			
-			for(int i = 0; i< 7; i++) {
-			Map<String, Object> params1 = new HashMap<>();
-			params1.put("start", ",50%,15%");
-			params1.put("end", "50%,85%");
-			params1.put("duration", "0");
-			Object result1 =   DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params1);
+				}
 			}
-			
+
+		} catch (Exception e) {
+			System.out.println("caught declinefaceID:");
+		}
+
+	}
+
+	public static void validateShortHomePage() {
+
+		String model = DeviceUtils.getDeviceProperty("model");
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+
+			for (int i = 0; i < 7; i++) {
+				Map<String, Object> params1 = new HashMap<>();
+				params1.put("start", ",50%,15%");
+				params1.put("end", "50%,85%");
+				params1.put("duration", "0");
+				Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params1);
+			}
+
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "Net Balance");
-			 params2.put("timeout", "60");
-			 params2.put("threshold", "90");
-			
+			params2.put("timeout", "60");
+			params2.put("threshold", "90");
+
 			boolean checkPointResult = checkPointTextVisual(params2);
 		} else {
-			 new QAFExtendedWebElement("main.net.balance").isDisplayed();
+			new QAFExtendedWebElement("main.net.balance").isDisplayed();
 		}
-       
-        
-       
 
-    }
-    public static boolean validateAmount(String amountStr) {
-    	
-    	String amountPattern = "^(-?)(\\$)([\\d,])+(\\.(\\d)+)?";
-    	
-    	Pattern pattern = Pattern.compile(amountPattern);
-    	
-    	Matcher matcher = pattern.matcher(amountStr);
-    	
-    	return matcher.find();
+	}
+
+	public static boolean validateAmount(String amountStr) {
+
+		String amountPattern = "^(-?)(\\$)([\\d,])+(\\.(\\d)+)?";
+
+		Pattern pattern = Pattern.compile(amountPattern);
+
+		Matcher matcher = pattern.matcher(amountStr);
+
+		return matcher.find();
 
 //        // get 1st character and check it is a dollar symbol
 //        String e = str.substring(0, 1);
@@ -133,68 +126,66 @@ public class UBSUtils  {
 //
 //
 //        }else { return false;}
-    }
+	}
 
-    public static boolean validateNumber(String str) {
-    try {
-        // check if first character is a minus sign
-        String one = str.substring(0, 1);
-        if (one.equalsIgnoreCase("-")) {
-            System.out.println("negative number");
-            str = str.replace("-", "");
+	public static boolean validateNumber(String str) {
+		try {
+			// check if first character is a minus sign
+			String one = str.substring(0, 1);
+			if (one.equalsIgnoreCase("-")) {
+				System.out.println("negative number");
+				str = str.replace("-", "");
 
-        }
+			}
 
+			// get 1st character and check it is a dollar symbol
+			String d = str.substring(0, 1);
+			String n = str.substring(1, 3);
+			n = n.replace(",", "");
+			n = n.replace(".", "");
+			if (d.equalsIgnoreCase("$")) {
 
-        // get 1st character and check it is a dollar symbol
-        String d = str.substring(0, 1);
-        String n = str.substring(1, 3);
-        n = n.replace(",", "");
-        n = n.replace(".", "");
-        if (d.equalsIgnoreCase("$")) {
+				if (isNumeric(n)) {
+					System.out.println("number validated: " + n);
+					return true;
+				}
+			}
 
-            if (isNumeric(n)) {
-                System.out.println("number validated: " + n);
-                return true;
-            }
-        }
+			return false;
 
-        return false;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 
-    }catch (Exception e) {
-        return false;
-    }
-    }
+	public static boolean isNumeric(String strNum) {
+		if (strNum == null) {
+			return false;
+		}
+		try {
+			double d = Double.parseDouble(strNum);
+		} catch (NumberFormatException nfe) {
+			return false;
+		}
+		return true;
+	}
 
+	public static String getModel() {
+		// String device = "";
 
+		Map<String, Object> params = new HashMap<>();
+		params.put("property", "model");
+		String model = DeviceUtils.getQAFDriver().executeScript("mobile:handset:info", params).toString();
+		if (model.contains("iPhone")) {
+			model = "iphone";
+		} else if (model.contains("Galaxy")) {
+			model = "android";
+		} else {
+			model = "ipad";
+		}
+		// System.out.println("model is " + model);
+		return model;
 
-    public static boolean isNumeric(String strNum) {
-        if (strNum == null) {
-            return false;
-        }
-        try {
-            double d = Double.parseDouble(strNum);
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-        return true;
-    }
-
-    public static String getModel() {
-        //  String device = "";
-
-        Map<String, Object> params = new HashMap<>();
-        params.put("property", "model");
-        String model =  DeviceUtils.getQAFDriver().executeScript("mobile:handset:info", params).toString();
-        if(model.contains("iPhone")) {
-            model = "iphone";
-        } else if(model.contains("Galaxy")) {
-        	 model = "android";
-        }else { model="ipad";}
-      //  System.out.println("model is " + model);
-        return model;
-
-
-    }
+	}
 
 }
