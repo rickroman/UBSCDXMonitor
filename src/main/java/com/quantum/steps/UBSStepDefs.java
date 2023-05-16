@@ -540,7 +540,7 @@ String model = DeviceUtils.getDeviceProperty("model");
 			params2.put("threshold", "100");
 			params2.put("next", "SWIPE=(50%,85%),(50%,45%)");
 			params2.put("screen.top", "0%");
-			params2.put("screen.height", "100%");
+			params2.put("screen.height", "85%");
 			params2.put("screen.left", "0%");
 			params2.put("screen.width", "20%");
 			//params3.put("target", "all");
