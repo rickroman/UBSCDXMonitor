@@ -223,6 +223,7 @@ public class UBSStepDefs {
 			}
 
 			new QAFExtendedWebElement("login.signin.btn").click();
+			UBSUtils.declineFaceID();
 			UBSUtils.validateHomePage();
 
 		} else {
