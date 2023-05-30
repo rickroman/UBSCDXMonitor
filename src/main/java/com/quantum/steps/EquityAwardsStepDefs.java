@@ -56,7 +56,18 @@ public class EquityAwardsStepDefs {
 		}
 
 		new QAFExtendedWebElement("orders.completed").isDisplayed();
+		
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
 
+			for (int i = 0; i < 7; i++) {
+				Map<String, Object> params1 = new HashMap<>();
+				params1.put("start", ",50%,85%");
+				params1.put("end", "50%,15%");
+				params1.put("duration", "0");
+				Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params1);
+			}
+
+		}
 		new QAFExtendedWebElement("orders.disclosures").isDisplayed();
 
 	}
