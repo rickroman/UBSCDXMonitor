@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Restart Devices" verbose="0" parallel="tests" thread-count="4">
+<suite name="Restart Devices" verbose="0" parallel="tests" thread-count="2">
     <listeners>
         <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
     </listeners>
@@ -64,7 +64,7 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-     <test name="Galaxy restart 1" enabled="false">
+     <test name="Galaxy restart 1" enabled="true">
         <parameter name="driver.capabilities.deviceName" value="RFCTB0R9STA"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
@@ -77,7 +77,7 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-     <test name="Galaxy restart 2" enabled="false">
+     <test name="Galaxy restart 2" enabled="true">
         <parameter name="driver.capabilities.deviceName" value="RFCTB0R9TZY"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
