@@ -9,8 +9,8 @@ Feature: Monitor production App
     And Login to CDX
     Then check account activity
     Then validate cash at a glance
-    #And view insights
-    Then view market insights
+    And view insights
+    #Then view market insights
     Then validate accounts
     Then check milestone
     And validate profile
