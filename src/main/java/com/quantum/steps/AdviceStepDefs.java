@@ -129,7 +129,7 @@ public class AdviceStepDefs {
 			// new QAFExtendedWebElement("zero.accounts").click();
 
 			Map<String, Object> params4 = new HashMap<>();
-			params4.put("label", "1 of 7 Accounts Analyzed");
+			params4.put("label", "1 of 8 Accounts Analyzed");
 			params4.put("timeout", "30");
 			params4.put("threshold", "90");
 			ArrayList genericOptions1 = new ArrayList();
