@@ -192,7 +192,8 @@ public class AdviceStepDefs {
 			System.out.println(DeviceUtils.getCurrentContextHandles());
 
 			Map<String, Object> editRisk = new HashMap<>();
-			editRisk.put("label", "Edit Risk");
+			//editRisk.put("label", "Edit Risk");
+			editRisk.put("label", "Test Failure");
 			editRisk.put("threshold", "80");
 			editRisk.put("ignorecase", "nocase");
 			editRisk.put("words", "words");
