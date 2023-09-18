@@ -29,7 +29,7 @@ public class Settings extends UBSScreen {
     @Override
     public void ipad() {
 
-        new QAFExtendedWebElement("settings").click();
+        new QAFExtendedWebElement("iPadSettings").click();
         Map<String, Object> params2 = new HashMap<>();
         params2.put("label", "Settings");
         params2.put("timeout", "30");
