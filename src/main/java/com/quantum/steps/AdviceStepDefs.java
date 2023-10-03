@@ -169,7 +169,18 @@ public class AdviceStepDefs {
 
 		} else {
 			new QAFExtendedWebElement("explore.advice").isDisplayed();
-			new QAFExtendedWebElement("zero.accounts").click();
+			//new QAFExtendedWebElement("zero.accounts").click();
+			
+			Map<String, Object> params4 = new HashMap<>();
+			params4.put("label", "1 of 1 Accounts Analyzed");
+			params4.put("timeout", "30");
+			params4.put("threshold", "80");
+			ArrayList genericOptions1 = new ArrayList();
+			genericOptions1.add("natural-language=true");
+			params4.put("ocr", genericOptions1);
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
+
+			
 			new QAFExtendedWebElement("select.accounts").isPresent();
 
 			Map<String, Object> params3 = new HashMap<>();
