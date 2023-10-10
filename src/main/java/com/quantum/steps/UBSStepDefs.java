@@ -28,6 +28,7 @@ import java.util.regex.Pattern;
 import com.qmetry.qaf.automation.step.CommonStep;
 import com.qmetry.qaf.automation.step.QAFTestStepProvider;
 import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
+import com.quantum.ubs.screens.StatementTax.StatementTax;
 import com.quantum.ubs.screens.accounts.Balance;
 import com.quantum.ubs.screens.accounts.FinancialTools;
 import com.quantum.ubs.screens.accounts.Holdings;
@@ -890,6 +891,13 @@ String model = DeviceUtils.getDeviceProperty("model");
 		Mindset mindsetScreen = new Mindset();
 		mindsetScreen.validate();
 	}
+	
+	@Then("Validate Statement and Tax Forms")
+	public void statementAndTaxForms() {
+		StatementTax statementAndTaxFormsScreen = new StatementTax();
+		statementAndTaxFormsScreen.validate();
+	}
+	//Validate Statement and Tax Forms
 
 	@Then("check settings")
 	public void validateSettings() {
