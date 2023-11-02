@@ -25,8 +25,8 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-    <test name="iPhone Equity Awards 2" enabled="false">
-        <parameter name="driver.capabilities.deviceName" value="00008120-001135960C68C01E"></parameter>
+    <test name="iPhone Equity Awards 2" enabled="true">
+        <parameter name="driver.capabilities.deviceName" value="00008130-001C59CE3891401C"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
