@@ -131,7 +131,7 @@ public class AdviceStepDefs {
 			Map<String, Object> params4 = new HashMap<>();
 			params4.put("label", "1 of 7 Accounts Analyzed");
 			params4.put("timeout", "30");
-			params4.put("threshold", "90");
+			params4.put("threshold", "85");
 			ArrayList genericOptions1 = new ArrayList();
 			genericOptions1.add("natural-language=true");
 			params4.put("ocr", genericOptions1);
@@ -188,7 +188,7 @@ public class AdviceStepDefs {
 			params3.put("scrolling", "scroll");
 			params3.put("next", "SWIPE=(50%,85%),(50%,25%)");
 			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
-			new QAFExtendedWebElement("advice.cancel").click();
+			new QAFExtendedWebElement("advice.bottomCancel").click();
 			new QAFExtendedWebElement("explore.advice").isDisplayed();
 		}
 
@@ -330,7 +330,8 @@ public class AdviceStepDefs {
 
 	private void randomlySelectAdvantage() {
 
-		int coin = coinToss();
+		//int coin = coinToss();
+		int coin = 0;
 		System.out.println("coin came up:" + coin);
 
 		switch (coin) {

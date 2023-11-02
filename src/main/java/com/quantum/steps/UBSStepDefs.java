@@ -151,7 +151,7 @@ public class UBSStepDefs {
 		String model = DeviceUtils.getDeviceProperty("model");
 
 		// if(UBSUtils.getModel().equals("iphone")) {
-		if (model.equalsIgnoreCase("iPhone-14 Pro Max")) {
+		if (model.equalsIgnoreCase("iPhone-15 Pro Max")) {
 
 			UBSCommonSteps.login(securedUsername, securedPassword);
 
@@ -467,7 +467,7 @@ public class UBSStepDefs {
 
 		String model = DeviceUtils.getDeviceProperty("model");
 		
-		if (model.equalsIgnoreCase("iPhone-14 Pro Max")) {
+		if (model.equalsIgnoreCase("iPhone-15 Pro Max")) {
 
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "here are your periodically");
@@ -592,7 +592,7 @@ String model = DeviceUtils.getDeviceProperty("model");
 		
 
 			
-		} else if(model.equalsIgnoreCase("iPhone-14 Pro Max")) {
+		} else if(model.equalsIgnoreCase("iPhone-15 Pro Max")) {
 
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "DJIA");

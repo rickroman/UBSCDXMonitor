@@ -15,7 +15,7 @@
     #And check MW balances
     #Then check MW Holdings
     #And check MW Activity
-    #Then check MW Financial Tools
+    Then check MW Financial Tools
     #And check my information
     Then EW check settings
     And EW check support

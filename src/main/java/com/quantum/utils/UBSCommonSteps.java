@@ -81,7 +81,7 @@ public class UBSCommonSteps {
 	public static void openMenu() {
 		
 		String model = DeviceUtils.getDeviceProperty("model");
-		if (model.equalsIgnoreCase("iPhone-14 Pro Max")) {
+		if (model.equalsIgnoreCase("iPhone-15 Pro Max")) {
 			click("menu.iphone");
 		} else if(model.equalsIgnoreCase("Galaxy S22 Ultra")) {
 			click("menu.android");
