@@ -90,9 +90,14 @@ public class UBSStepDefs {
 
 		// Launch the UBS App
 		
-		launchApp("identifier", "com.ubs.clientMobile");
+		if (UBSUtils.getModel().equals("iphone")) {
+			launchApp("identifier", "com.ubs.clientMobile");
+		} else {
+			launchApp("name", "UBS");
+		}
 
 		// Assert that Login Message is displayed
+		
 		CommonStep.assertPresent("login.signin.btn");
 
 //        if(UBSUtils.getModel().equals("iphone")) {
