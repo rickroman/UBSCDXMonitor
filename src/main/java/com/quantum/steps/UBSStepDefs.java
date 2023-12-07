@@ -90,7 +90,7 @@ public class UBSStepDefs {
 
 		// Launch the UBS App
 		
-		launchApp("name", "UBS");
+		launchApp("identifier", "com.ubs.clientMobile");
 
 		// Assert that Login Message is displayed
 		CommonStep.assertPresent("login.signin.btn");
