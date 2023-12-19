@@ -39,7 +39,7 @@ public class UBSUtils {
 		try {
 
 			Map<String, Object> params3 = new HashMap<>();
-			params3.put("content", "Biometric authentication");
+			params3.put("content", "Enable Face ID");
 			params3.put("timeout", "30");
 			String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
@@ -47,6 +47,14 @@ public class UBSUtils {
 
 				if (model.equalsIgnoreCase("iphone")) {
 					// successful checkpoint code
+					Thread.sleep(4000);
+					click("field.bioPassword");
+					
+					Map<String, Object> params33 = new HashMap<>();
+					params33.put("location", "232,1705");
+					Object res = DeviceUtils.getQAFDriver().executeScript("mobile:touch:tap", params33);
+					
+					Thread.sleep(4000);
 					Map<String, Object> params = new HashMap<>();
 					params.put("content", "Not Now");
 					DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);

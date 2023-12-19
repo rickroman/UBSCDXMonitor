@@ -90,7 +90,14 @@ public class UBSStepDefs {
 
 		// Launch the UBS App
 		
-		if (UBSUtils.getModel().equals("iphone")) {
+	if (UBSUtils.getModel().equals("iphone")) {
+			
+			try {
+				DeviceUtils.closeApp("identifier", "com.ubs.clientMobile");
+			} catch (Exception e) {
+				System.out.println("app was not open");
+			}
+			
 			launchApp("identifier", "com.ubs.clientMobile");
 		} else {
 			launchApp("name", "UBS");
@@ -160,6 +167,8 @@ public class UBSStepDefs {
 
 			UBSCommonSteps.login(securedUsername, securedPassword);
 
+			
+			 UBSUtils.declineFaceID();
 			// Assert Home Screen is displayed
 			CommonStep.assertPresent("main.net.balance");
 
@@ -188,8 +197,8 @@ public class UBSStepDefs {
 //            new QAFExtendedWebElement("login.signin.btn").click();
 //            // 2 validations of home page loading
 //
-//           UBSUtils.declineFaceID();
-//            UBSUtils.validateHomePage();
+           UBSUtils.declineFaceID();
+            UBSUtils.validateHomePage();
 		} else if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
 
 			// enter credentials
