@@ -124,6 +124,7 @@ public class UBSStepDefs {
 //
 //        }
 //        DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
+		click("filter.btn");
 	}
 
 	@When("I debug launch CDX")
