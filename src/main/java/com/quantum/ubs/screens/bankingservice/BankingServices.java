@@ -248,7 +248,7 @@ public class BankingServices extends UBSScreen {
 		new QAFExtendedWebElement("funds.move").isPresent();
 
 		// scheduled transfers
-		new QAFExtendedWebElement("schedule.transfers").click();
+		new QAFExtendedWebElement("ipad.schedule.transfers").click();
 		Map<String, Object> params = new HashMap<>();
 		params.put("content", "does not have any scheduled transfers");
 		params.put("timeout", 20);
