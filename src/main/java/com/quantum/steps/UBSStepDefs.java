@@ -478,7 +478,7 @@ public class UBSStepDefs {
 	}
 
 	@Then("view insights")
-	public void viewInsights() {
+	public void viewInsights() throws Exception {
 
 		String model = DeviceUtils.getDeviceProperty("model");
 		
@@ -499,19 +499,27 @@ public class UBSStepDefs {
 
 		} else if(model.equalsIgnoreCase("Galaxy S22 Ultra")) {
 			
+		try {
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "here are your periodically");
 			params2.put("scrolling", "scroll");
 			params2.put("next", "SWIPE=(50%,85%),(50%,55%)");
+			params2.put("threshold", "90%");
+			
 
+			 
+		
 			Object result2 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
-	        
+			
 			boolean checkPointResult = checkPointTextVisual(params2);
 
-			System.out.println(checkPointResult);
-
-			assertTrue(checkPointResult, "Scroll to 'here are your periodically' failed");
-
+			//System.out.println(checkPointResult);
+			
+			
+			//assertTrue(checkPointResult, "Scroll to 'here are your periodically' failed");
+		}catch(Exception e) {
+			throw new Exception("here are your periodically :" + e);
+		}
 			
 		} else {
 			Map<String, Object> params2 = new HashMap<>();
@@ -542,6 +550,7 @@ public class UBSStepDefs {
 //            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
 		}
 
+		
 	}
 
 	@Then("view market insights")

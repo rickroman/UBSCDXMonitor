@@ -13,10 +13,9 @@
       "Tags" : ["Sanity", "Nightly"]
    },
    { 
-      "CustomError": "Element not found",
+      "CustomError": "Scroll to periodically",
       "StackTraceErrors":[ 
-         "<<Exception Message 1>",
-         "<<Exception Message 2>"
-      ]
+         "here are your periodically"
+        ]
    }
 ]
