@@ -28,15 +28,17 @@ public class FinancialTools extends UBSScreen {
 	        // Navigate to Financial tools
 	        click("android.main.accounts");
 	        
-	        //click("accounts.financial.tools");
+	        click("accounts.financial.tools");
 	        
-	        Map<String, Object> params29 = new HashMap<>();
-	        params29.put("label", "Financial tools");
-	        params29.put("timeout", "30");
-	        params29.put("threshold", "90");
-	        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params29);
-
-	        
+			
+			/*
+			 * Map<String, Object> params29 = new HashMap<>(); params29.put("label",
+			 * "Financial tools"); params29.put("timeout", "30"); params29.put("threshold",
+			 * "90"); DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click",
+			 * params29);
+			 */
+			  
+			 
 
 	        // Validate the Financial tools message is displayed
 	        boolean isPresent = CommonStep.verifyVisible("android.financialtools.msg");
