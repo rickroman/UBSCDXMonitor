@@ -199,6 +199,7 @@ public class UBSStepDefs {
 //            // 2 validations of home page loading
 //
            UBSUtils.declineFaceID();
+           UBSUtils.declineTaxDocs();
             UBSUtils.validateHomePage();
 		} else if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
 
@@ -240,8 +241,51 @@ public class UBSStepDefs {
 
 			new QAFExtendedWebElement("login.signin.btn").click();
 			UBSUtils.declineFaceID();
+			UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
+			
+		} else if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 
+			// enter credentials
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("content", "Username");
+			DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params1);
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
+			Map<String, Object> params = new HashMap<>();
+			params.put("label", "Username");
+			params.put("text", securedUsername);
+			params.put("timeout", "20");
+			params.put("threshold", "90");
+			params.put("label.direction", "above");
+			params.put("label.offset", "3%");
+			Object result = DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params);
+
+			new QAFExtendedWebElement("field.password").click();
+			
+			  Map<String, Object> params4 = new HashMap<>(); 
+			  params4.put("label", "Password"); params4.put("text", securedPassword); 
+			  params4.put("timeout", "20"); params4.put("threshold", "90"); 
+			  //params4.put("label.direction","above"); //params4.put("label.offset", "3%");
+			  //DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params4);
+			  DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params4);
+			
+
+			//new QAFExtendedWebElement("field.password").sendKeys(securedPassword);
+			
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+			}
+
+			new QAFExtendedWebElement("login.signin.btn").click();
+			UBSUtils.declineFaceID();
+			UBSUtils.declineTaxDocs();
+			UBSUtils.validateHomePage();
 		} else {
 			// enter credentials
 			Map<String, Object> params1 = new HashMap<>();
@@ -286,6 +330,7 @@ public class UBSStepDefs {
 			new QAFExtendedWebElement("login.signin.btn").click();
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
+			UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		}
 
@@ -761,8 +806,60 @@ String model = DeviceUtils.getDeviceProperty("model");
 			
 			// Assert HOme Page is displayed
 			//CommonStep.assertPresent("main.net.balance");
-
+		} else if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+			// Click on Account Tab in bottom Navigation Bar
+			click("android.main.accounts");
 			
+			// Click on Activity option from popup
+			click("accounts.activity");
+			
+			// Click on First Activity Displayed
+			click("android.activity.first");
+			
+			// Get Activity Amount text
+			String activityAmount = getText("activity.amount");
+			
+			// Validate the amount is well formatted.
+			boolean isAmountFormated = UBSUtils.validateAmount(activityAmount);
+			
+			// Assert the isAmountFormatted is well formatted.
+			assertTrue(isAmountFormated,
+					"Activity amount is not in correct format $x,xxx.xx. Amount displayed : " + activityAmount);
+
+			// Navigate back to home screen
+			click("android.activity.back");
+			
+			// Click on Filter button
+			click("filter.btn");
+
+			// Click On Year to Date option
+			click("ytd.android");
+			
+			// Click on Apply Button
+			click("filter.apply");
+
+			// Assert Activity screen is displayed
+			CommonStep.assertPresent("filter.btn");
+			
+			Map<String, Object> params4 = new HashMap<>();
+			params4.put("label", "Home");
+			params4.put("source", "camera");
+			params4.put("timeout", "20");
+			params4.put("threshold", "90");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
+			
+			
+			// Click on Home tab in the bottom navigationbar
+			//click("home");
+			
+			Map<String, Object> params6 = new HashMap<>();
+			params6.put("content", "Net Balance");
+			params6.put("source", "camera");
+			params6.put("timeout", "30");
+			params6.put("threshold", "90");
+			ArrayList genericOptions1 = new ArrayList();
+			genericOptions1.add("natural-language=true");
+			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params6);
 		} else {
 
 		// Click on Account Tab in bottom Navigation Bar

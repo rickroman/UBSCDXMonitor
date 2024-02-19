@@ -34,6 +34,41 @@ public class UBSUtils {
 
 	}
 
+	public static void declineTaxDocs() {
+		Map<String, Object> params11 = new HashMap<>();
+		params11.put("content", "Looking for tax documents?");
+		params11.put("timeout", "30");
+		String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params11);
+
+		if (result.equalsIgnoreCase("true")) {
+			if (model.equalsIgnoreCase("iphone")) {
+
+				Map<String, Object> params = new HashMap<>();
+				params.put("label", "PUBLIC:TaxDocsCloseiPhone.png");
+				params.put("timeout", "30");
+				DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
+				
+				//PUBLIC:TaxDocsCloseiPhone.png
+			} else if (model.equalsIgnoreCase("android")) {
+
+				Map<String, Object> params = new HashMap<>();
+				params.put("label", "PUBLIC:TaxDocsCloseS24.png");
+				params.put("timeout", "30");
+				DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
+				// PUBLIC:TaxDocsCloseS24.png
+			} else {
+
+				Map<String, Object> params = new HashMap<>();
+				params.put("label", "PUBLIC:TaxDocsCloseS24.png");
+				params.put("timeout", "30");
+				DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
+				
+			}
+
+		}
+
+	}
+
 	public static void declineFaceID() {
 
 		try {
@@ -49,22 +84,21 @@ public class UBSUtils {
 					// successful checkpoint code
 					Thread.sleep(4000);
 					click("field.bioPassword");
-					
+
 					Map<String, Object> params33 = new HashMap<>();
 					params33.put("location", "232,1705");
 					Object res = DeviceUtils.getQAFDriver().executeScript("mobile:touch:tap", params33);
-					
+
 					Thread.sleep(4000);
 					Map<String, Object> params = new HashMap<>();
 					params.put("content", "Not Now");
 					DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
 
 				} else if (model.equalsIgnoreCase("android")) {
-					
+
 					Thread.sleep(4000);
 					click("field.bioPassword");
 					Thread.sleep(4000);
-					
 
 					Map<String, Object> params = new HashMap<>();
 					params.put("label", "Not Now");
