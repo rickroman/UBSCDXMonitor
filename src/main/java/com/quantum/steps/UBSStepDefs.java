@@ -536,7 +536,7 @@ public class UBSStepDefs {
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "here are your periodically");
 			params2.put("scrolling", "scroll");
-			params2.put("next", "SWIPE=(50%,85%),(50%,55%)");
+			params2.put("next", "SWIPE=(50%,50%),(50%,30%)");
 
 			boolean checkPointResult = checkPointTextVisual(params2);
 
