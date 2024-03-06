@@ -74,7 +74,7 @@ public class UBSUtils {
 		try {
 
 			Map<String, Object> params3 = new HashMap<>();
-			params3.put("content", "Enable Face ID");
+			params3.put("content", "Biometric Authentication");
 			params3.put("timeout", "30");
 			String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
