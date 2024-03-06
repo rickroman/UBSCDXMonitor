@@ -537,6 +537,7 @@ public class UBSStepDefs {
 			params2.put("content", "here are your periodically");
 			params2.put("scrolling", "scroll");
 			params2.put("next", "SWIPE=(50%,50%),(50%,30%)");
+			params2.put("maxscroll", "18");
 
 			boolean checkPointResult = checkPointTextVisual(params2);
 
