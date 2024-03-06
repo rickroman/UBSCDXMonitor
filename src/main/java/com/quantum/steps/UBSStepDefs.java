@@ -54,8 +54,12 @@ import cucumber.api.java.en.When;
 @QAFTestStepProvider
 public class UBSStepDefs {
 
-	private static final String securedUsername = "secured./h2sxa3ub4PCwXhsgCxWJQ==";
-	private static final String securedPassword = "secured.Xh05tx5pw3z3iyHVTztGsQ==";
+	// old name
+	//private static final String securedUsername = "secured./h2sxa3ub4PCwXhsgCxWJQ==";
+	//new name
+	private static final String securedUsername = "secured.KynB3uCmThTJX618aF5yBA==";
+	
+	private static final String securedPassword = "secured.PVOjXGpIv4MTtvrOEvYUiw==";
 
 	@Then("^I restart all devices$")
 	public void daily_restart() {
