@@ -554,7 +554,7 @@ public class UBSStepDefs {
 			params2.put("content", "here are your periodically");
 			params2.put("scrolling", "scroll");
 			params2.put("next", "SWIPE=(50%,85%),(50%,55%)");
-			params2.put("threshold", "90%");
+			params2.put("threshold", "90");
 			
 
 			 

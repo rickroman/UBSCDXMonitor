@@ -62,7 +62,7 @@ public class StatementTax extends UBSScreen {
 			e.printStackTrace();
 		}
 
-		CommonStep.click("statementtax.ccstatements");
+		//CommonStep.click("statementtax.ccstatements");
 
 		CommonStep.assertVisible("statementtax.account");
 
@@ -128,7 +128,7 @@ public class StatementTax extends UBSScreen {
 		CommonStep.click("statementtax.taxforms");
 
 		Map<String, Object> params1 = new HashMap<>();
-		params1.put("content", "VG 91734");
+		params1.put("content", "UN 91973");
 		params1.put("source", "camera");
 		params1.put("timeout", "20");
 		params1.put("threshold", "90");
@@ -156,11 +156,11 @@ public class StatementTax extends UBSScreen {
 			e.printStackTrace();
 		}
 
-		CommonStep.click("statementtax.ccstatements");
+		//CommonStep.click("statementtax.ccstatements");
 
-		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
+		//DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
 
-		CommonStep.click("statementtax.back");
+		//CommonStep.click("statementtax.back");
 
 		try {
 			Thread.sleep(3000);
