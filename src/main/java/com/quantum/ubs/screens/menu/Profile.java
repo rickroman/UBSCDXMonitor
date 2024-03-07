@@ -62,7 +62,17 @@ public class Profile extends UBSScreen {
         click("profile.my.information");
 
         // Check whether Primary Email is Displayed
-        boolean isPresent = CommonStep.verifyVisible("profile.android.primary");
+        //boolean isPresent = CommonStep.verifyVisible("profile.android.primary");
+        
+        Map<String, Object> params2 = new HashMap<>();
+		params2.put("content", "ubs.com");
+		params2.put("scrolling", "scroll");
+		params2.put("next", "SWIPE=(50%,50%),(50%,30%)");
+		params2.put("maxscroll", "11");
+
+		boolean isPresent = checkPointTextVisual(params2);
+
+        
         assertTrue(isPresent,"Primary Email is not present upon navigating to Menu > My Information.");
 
         // Navigate to Relationship screen
@@ -74,7 +84,7 @@ public class Profile extends UBSScreen {
 
         // Verify Advice is displayed
         Map<String, Object> params7 = new HashMap<>();
-		params7.put("content", "UBS Wealth Advice Center");
+		params7.put("content", "Chris");
 		params7.put("source", "camera");
 		params7.put("timeout", "30");
 		params7.put("threshold", "90");

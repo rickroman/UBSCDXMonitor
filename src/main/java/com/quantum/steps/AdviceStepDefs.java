@@ -47,6 +47,7 @@ public class AdviceStepDefs {
 			new QAFExtendedWebElement("login.signin.btn").click();
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
+			UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 
 		} else if (model.equalsIgnoreCase("android")) {
@@ -74,6 +75,7 @@ public class AdviceStepDefs {
 			// 2 validations of home page loading
 
 			UBSUtils.declineFaceID();
+			UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		} else {
 			Map<String, Object> params = new HashMap<>();
@@ -105,6 +107,7 @@ public class AdviceStepDefs {
 
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
+			UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		}
 

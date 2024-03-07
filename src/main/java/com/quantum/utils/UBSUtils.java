@@ -85,9 +85,9 @@ public class UBSUtils {
 					Thread.sleep(4000);
 					click("field.bioPassword");
 
-					Map<String, Object> params33 = new HashMap<>();
-					params33.put("location", "232,1705");
-					Object res = DeviceUtils.getQAFDriver().executeScript("mobile:touch:tap", params33);
+					//Map<String, Object> params33 = new HashMap<>();
+					//params33.put("location", "232,1705");
+					//Object res = DeviceUtils.getQAFDriver().executeScript("mobile:touch:tap", params33);
 
 					Thread.sleep(4000);
 					Map<String, Object> params = new HashMap<>();
@@ -96,9 +96,7 @@ public class UBSUtils {
 
 				} else if (model.equalsIgnoreCase("android")) {
 
-					Thread.sleep(4000);
-					click("field.bioPassword");
-					Thread.sleep(4000);
+					
 
 					Map<String, Object> params = new HashMap<>();
 					params.put("label", "Not Now");

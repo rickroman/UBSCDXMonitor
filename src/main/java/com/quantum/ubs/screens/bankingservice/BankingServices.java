@@ -80,7 +80,7 @@ public class BankingServices extends UBSScreen {
 			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
 
 			Map<String, Object> params2 = new HashMap<>();
-			params2.put("content", "Make a Payment");
+			params2.put("content", "Choose a UBS withdrawl account");
 			params2.put("timeout", "30");
 			params2.put("threshold", "90");
 			boolean isPresent = checkPointTextVisual(params2);
@@ -197,7 +197,16 @@ public class BankingServices extends UBSScreen {
 
 		// pay credit card
 		click("pay.ubs");
-		isPresent = CommonStep.verifyVisible("bills.payment");
+		
+		
+		Map<String, Object> params22 = new HashMap<>();
+		params22.put("content", "Take care of UBS credit card payments");
+		params22.put("timeout", "30");
+		params22.put("threshold", "90");
+
+		isPresent = checkPointTextVisual(params22);
+		
+		
 		assertTrue(isPresent, "Credit Cards Bills Payment is not present upon move to Banking Service > Pay Bills.");
 
 		// new QAFExtendedWebElement("pay.credit").isDisplayed();
