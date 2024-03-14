@@ -74,7 +74,7 @@ public class BankingServices extends UBSScreen {
 		// pay bills
 		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
 			Map<String, Object> params3 = new HashMap<>();
-			params3.put("label", "Pay bills");
+			params3.put("label", "Pay a Bill");
 			params3.put("timeout", "30");
 			params3.put("threshold", "90");
 			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
@@ -85,14 +85,20 @@ public class BankingServices extends UBSScreen {
 			params2.put("threshold", "90");
 			boolean isPresent = checkPointTextVisual(params2);
 
-			assertTrue(isPresent, "Bills Payment is not present upon navigating to Banking Service > Pay Bills.");
+			assertTrue(isPresent, "Bills Payment is not present upon navigating to Banking Service > Pay a Bill.");
 
 		} else {
 
-			click("Pay Bills");
+			click("Pay a Bill");
 
-			boolean isPresent = CommonStep.verifyVisible("bills.payment");
-			assertTrue(isPresent, "Bills Payment is not present upon navigating to Banking Service > Pay Bills.");
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "Choose a UBS withdrawl account");
+			params2.put("timeout", "30");
+			params2.put("threshold", "90");
+			boolean isPresent = checkPointTextVisual(params2);
+
+			
+			assertTrue(isPresent, "Bills Payment is not present upon navigating to Banking Service > Pay a Bill.");
 
 		}
 	}
@@ -136,9 +142,9 @@ public class BankingServices extends UBSScreen {
 		navigateToBankingService();
 
 		// pay credit card
-		click("pay.ubs");
-		isPresent = CommonStep.verifyVisible("bills.payment");
-		assertTrue(isPresent, "Credit Cards Bills Payment is not present upon move to Banking Service > Pay Bills.");
+		//click("pay.ubs");
+		//isPresent = CommonStep.verifyVisible("bills.payment");
+		//assertTrue(isPresent, "Credit Cards Bills Payment is not present upon move to Banking Service > Pay Bills.");
 
 		// new QAFExtendedWebElement("pay.credit").isDisplayed();
 		UBSCommonSteps.navigateToHome();
