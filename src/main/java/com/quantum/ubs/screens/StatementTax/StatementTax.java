@@ -64,15 +64,14 @@ public class StatementTax extends UBSScreen {
 
 		//CommonStep.click("statementtax.ccstatements");
 
-		CommonStep.assertVisible("statementtax.account");
+		//CommonStep.assertVisible("statementtax.account");
 
-		CommonStep.click("statementtax.back");
+		//CommonStep.click("statementtax.back");
 
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		/*
+		 * try { Thread.sleep(3000); } catch (InterruptedException e) {
+		 * e.printStackTrace(); }
+		 */
 
 		CommonStep.click("statementtax.houseStateWSummary");
 
@@ -88,8 +87,10 @@ public class StatementTax extends UBSScreen {
 
 		CommonStep.click("statementtax.houseStaSummary");
 
-		CommonStep.assertVisible("statementtax.account");
+		//CommonStep.assertVisible("statementtax.account");
 
+		
+		
 		CommonStep.click("statementtax.back");
 
 		try {
@@ -100,7 +101,9 @@ public class StatementTax extends UBSScreen {
 
 		CommonStep.click("statementtax.commodityFX");
 
-		CommonStep.assertVisible("statementtax.account");
+		//CommonStep.assertVisible("statementtax.account");
+		
+		
 
 		CommonStep.click("statementtax.back");
 

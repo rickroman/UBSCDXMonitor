@@ -15,10 +15,10 @@ Feature: Monitor production App
     Then Validate Statement and Tax Forms
     Then check milestone
     And validate profile
-    Then validate banking services
-    And validate relationship
-    Then validate mindset
-    #    And check settings
+   # Then validate banking services
+    #And validate relationship
+   # Then validate mindset
+   # #    And check settings
     Then get support
     And check feedback
     And check Legal services

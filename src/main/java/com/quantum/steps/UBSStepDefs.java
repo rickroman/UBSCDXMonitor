@@ -534,7 +534,7 @@ public class UBSStepDefs {
 		if (model.equalsIgnoreCase("iPhone-15 Pro Max")) {
 
 			Map<String, Object> params2 = new HashMap<>();
-			params2.put("content", "here are your periodically");
+			params2.put("content", "AS OF");
 			params2.put("scrolling", "scroll");
 			params2.put("next", "SWIPE=(50%,50%),(50%,30%)");
 			params2.put("maxscroll", "18");
@@ -543,7 +543,7 @@ public class UBSStepDefs {
 
 			System.out.println(checkPointResult);
 
-			assertTrue(checkPointResult, "Scroll to 'here are your periodically' failed");
+			assertTrue(checkPointResult, "Scroll to 'Market Insights failed");
 
 //            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 

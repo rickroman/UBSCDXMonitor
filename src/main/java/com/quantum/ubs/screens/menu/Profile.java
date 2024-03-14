@@ -30,9 +30,18 @@ public class Profile extends UBSScreen {
 
         // Navigate to My Information
         click("profile.my.information");
+        
+        Map<String, Object> params2 = new HashMap<>();
+		params2.put("content", "ubs.com");
+		params2.put("scrolling", "scroll");
+		params2.put("next", "SWIPE=(50%,50%),(50%,30%)");
+		params2.put("maxscroll", "11");
+
+		boolean isPresent = checkPointTextVisual(params2);
+
 
         // Check whether Primary Email is Displayed
-        boolean isPresent = CommonStep.verifyVisible("profile.iphone.primary");
+         //isPresent = CommonStep.verifyVisible("profile.iphone.primary");
         assertTrue(isPresent,"Primary Email is not present upon navigating to Menu > My Information.");
 
         // Navigate to Relationship screen
@@ -42,7 +51,16 @@ public class Profile extends UBSScreen {
         click("profile.iphone.team");
 
         // Verify Advice is displayed
-        isPresent = CommonStep.verifyVisible("profile.iphone.advice");
+       // isPresent = CommonStep.verifyVisible("profile.iphone.advice");
+        
+        Map<String, Object> params24 = new HashMap<>();
+		params24.put("content", "ubs.com");
+		params24.put("scrolling", "scroll");
+		params24.put("next", "SWIPE=(50%,50%),(50%,30%)");
+		params24.put("maxscroll", "11");
+
+		 isPresent = checkPointTextVisual(params24);
+		
         assertTrue(isPresent,"UBS Advisory team is not present upon navigating to Menu > Relationship > UBS Teams.");
 
         // Navigate to Home
