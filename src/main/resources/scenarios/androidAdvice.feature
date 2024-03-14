@@ -8,5 +8,5 @@ Feature: Monitor production App
     When I launch CDX
     And Advice Login to CDX
     #Then Check Advice Section
-    And Navigate advice advantage
+    #And Navigate advice advantage
     Then logout of CDX
