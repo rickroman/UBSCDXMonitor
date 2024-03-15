@@ -34,7 +34,7 @@ public class StatementTax extends UBSScreen {
 
 		//Error 3-15-24 CommonStep.assertVisible("statementtax.account");
 
-		CommonStep.click("statementtax.back");
+		//CommonStep.click("statementtax.back");
 
 		try {
 			Thread.sleep(3000);
