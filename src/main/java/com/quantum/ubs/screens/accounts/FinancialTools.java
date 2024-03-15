@@ -174,7 +174,7 @@ public class FinancialTools extends UBSScreen {
 //            e.printStackTrace();
 //        }
         
-        CommonStep.waitForVisible("accounts.currentBalance");
+       ////////////// CommonStep.waitForVisible("accounts.currentBalance");
 //        new QAFExtendedWebElement("accounts.currentBalance").isPresent();
 
         FluentWait<WebDriver> wait = new FluentWait<WebDriver>(DeviceUtils.getQAFDriver().getUnderLayingDriver());

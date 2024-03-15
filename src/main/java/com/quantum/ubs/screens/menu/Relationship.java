@@ -85,7 +85,7 @@ public class Relationship extends UBSScreen {
         
         
 //        click("community.bsa");
-        new QAFExtendedWebElement("community.bsa").isDisplayed();
+       ////////// new QAFExtendedWebElement("community.bsa").isDisplayed();
         // new QAFExtendedWebElement("profile.team").click();
 
         Map<String, Object> params3 = new HashMap<>();
