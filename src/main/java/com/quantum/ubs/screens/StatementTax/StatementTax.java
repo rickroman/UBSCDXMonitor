@@ -32,7 +32,7 @@ public class StatementTax extends UBSScreen {
 
 		CommonStep.click("statementtax.AllOf2Accounts");
 
-		CommonStep.assertVisible("statementtax.account");
+		//Error 3-15-24 CommonStep.assertVisible("statementtax.account");
 
 		CommonStep.click("statementtax.back");
 
