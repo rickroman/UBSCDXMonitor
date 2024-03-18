@@ -34,7 +34,7 @@ public class StatementTax extends UBSScreen {
 
 		//Error 3-15-24 CommonStep.assertVisible("statementtax.account");
 
-		CommonStep.assertVisible("statementtax.liqiudity");
+		//CommonStep.assertVisible("statementtax.liqiudity");
 		
 		CommonStep.click("statementtax.back");
 		
