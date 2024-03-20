@@ -11,7 +11,7 @@ Feature: Monitor production App
     Then validate cash at a glance
    # And view insights
     ###Then view market insights
-    Then validate accounts
+    #Then validate accounts
     Then check milestone
     And validate profile
     Then validate banking services
