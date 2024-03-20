@@ -4,6 +4,9 @@ import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 import com.quantum.ubs.screens.UBSScreen;
 import com.quantum.utils.DeviceUtils;
 import com.quantum.utils.UBSCommonSteps;
+import com.quantum.utils.UBSUtils;
+
+import static com.quantum.utils.QAFDriverUtils.click;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +30,29 @@ public class Settings extends UBSScreen {
     }
 
     @Override
+    public void android() {
+
+        if(!isAndroid()) return;
+
+        // Relationship
+        UBSCommonSteps.openMenu();
+
+        click("menu.settings");
+      
+        
+        Map<String, Object> params22 = new HashMap<>();
+        params22.put("content", "Reset Username");
+        params22.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params22);
+        
+       
+        UBSCommonSteps.navigateToHome();
+		UBSUtils.validateShortHomePage();
+    }
+
+    @Override
     public void ipad() {
+    	if(!isIPad()) return;
 
         new QAFExtendedWebElement("iPadSettings").click();
         Map<String, Object> params2 = new HashMap<>();

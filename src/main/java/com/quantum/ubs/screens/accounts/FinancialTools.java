@@ -79,6 +79,8 @@ public class FinancialTools extends UBSScreen {
 	        assertTrue(isPresent,"Cash Flow expenses is not present upon navigating to Financial tools screen.");
 
 	        UBSCommonSteps.navigateToHome();
+	      
+	        UBSUtils.validateShortHomePage();
 	    }
 
     public void iphone(){
@@ -111,6 +113,7 @@ public class FinancialTools extends UBSScreen {
         assertTrue(isPresent,"Cash Flow expenses is not present upon navigating to Financial tools screen.");
 
         UBSCommonSteps.navigateToHome();
+        
     }
 
     public void ipad(){

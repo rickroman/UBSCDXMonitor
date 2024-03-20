@@ -547,7 +547,7 @@ public class UBSStepDefs {
 
 //            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
-		} else if(model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+		} else if(model.equalsIgnoreCase("Galaxy S22 Ultra")|| model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 			
 		try {
 			Map<String, Object> params2 = new HashMap<>();
@@ -811,7 +811,7 @@ String model = DeviceUtils.getDeviceProperty("model");
 			
 			// Assert HOme Page is displayed
 			//CommonStep.assertPresent("main.net.balance");
-		} else if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+		} else if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 			// Click on Account Tab in bottom Navigation Bar
 			click("android.main.accounts");
 			
@@ -872,6 +872,15 @@ String model = DeviceUtils.getDeviceProperty("model");
 
 		// Click on Activity option from popup
 		click("accounts.activity");
+		
+		//Open Select Activities
+		click("activity.filterAccounts");
+		
+		//Select accounts
+		click("activity.selectAll");
+		
+		click("activity.apply");
+		
 
 		// Click on First Activity Displayed
 		click("iphone.activity.first");

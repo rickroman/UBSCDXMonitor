@@ -119,7 +119,7 @@ public class UBSUtils {
 	public static void validateShortHomePage() {
 
 		String model = DeviceUtils.getDeviceProperty("model");
-		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")||model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 
 			for (int i = 0; i < 7; i++) {
 				Map<String, Object> params1 = new HashMap<>();

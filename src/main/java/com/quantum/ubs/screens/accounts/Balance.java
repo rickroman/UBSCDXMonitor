@@ -18,7 +18,7 @@ public class Balance extends UBSScreen {
     public static void switchToUBSTab(){
     	String model = DeviceUtils.getDeviceProperty("model");
 
-		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra")|| model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 			//android
     	try {
     		CommonStep.waitForPresent("android.intraday", 10);

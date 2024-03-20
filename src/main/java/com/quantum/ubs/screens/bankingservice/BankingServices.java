@@ -51,7 +51,7 @@ public class BankingServices extends UBSScreen {
 		// deposit check
 
 		click("deposit.check");
-		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra") || model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "No eligible accounts");
@@ -72,7 +72,7 @@ public class BankingServices extends UBSScreen {
 		navigateToBankingService();
 
 		// pay bills
-		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
+		if (model.equalsIgnoreCase("Galaxy S22 Ultra") || model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 			Map<String, Object> params3 = new HashMap<>();
 			params3.put("label", "Pay Bills");
 			params3.put("timeout", "30");
