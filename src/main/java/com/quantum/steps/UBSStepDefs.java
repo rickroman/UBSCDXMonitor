@@ -763,12 +763,13 @@ String model = DeviceUtils.getDeviceProperty("model");
 			//Open Select Activities
 			click("activity.filterAccounts");
 			
+			if(!CommonStep.verifyNotVisible("activity.selectAll")) {
 			//Select accounts
 			click("activity.selectAll");
 			
 			click("activity.apply");
 			
-			
+			}
 			// Click on First Activity Displayed
 			click("android.activity.first");
 			
@@ -830,12 +831,14 @@ String model = DeviceUtils.getDeviceProperty("model");
 			//Open Select Activities
 			click("activity.filterAccounts");
 			
+			if(!CommonStep.verifyNotVisible("activity.selectAll")) {
+			
 			//Select accounts
 			click("activity.selectAll");
 			
 			click("activity.apply");
 			
-			
+			}
 			// Click on First Activity Displayed
 			click("android.activity.first");
 			
