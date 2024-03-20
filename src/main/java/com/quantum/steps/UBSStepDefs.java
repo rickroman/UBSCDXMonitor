@@ -770,13 +770,15 @@ public class UBSStepDefs {
 					// Select accounts
 					click("activity.selectAll");
 
-					click("activity.apply");
+				
 
 				}
 
 			} catch (Exception e) {
 
 			}
+			
+			click("activity.apply");
 			// Click on First Activity Displayed
 			click("android.activity.first");
 
@@ -851,12 +853,14 @@ public class UBSStepDefs {
 					// Select accounts
 					click("activity.selectAll");
 
-					click("activity.apply");
+				
 
 				}
 			} catch (Exception e) {
 
 			}
+			
+			click("activity.apply");
 			// Click on First Activity Displayed
 			click("android.activity.first");
 
@@ -929,10 +933,11 @@ public class UBSStepDefs {
 					// Select accounts
 					click("activity.selectAll");
 
-					click("activity.apply");
+					
 
 				}
 
+				click("activity.apply");
 			} catch (Exception e) {
 
 			}
