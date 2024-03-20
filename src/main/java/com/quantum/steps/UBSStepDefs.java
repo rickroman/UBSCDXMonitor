@@ -760,6 +760,15 @@ String model = DeviceUtils.getDeviceProperty("model");
 			// Click on Activity option from popup
 			click("accounts.activity");
 			
+			//Open Select Activities
+			click("activity.filterAccounts");
+			
+			//Select accounts
+			click("activity.selectAll");
+			
+			click("activity.apply");
+			
+			
 			// Click on First Activity Displayed
 			click("android.activity.first");
 			
