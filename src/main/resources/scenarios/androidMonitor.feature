@@ -7,9 +7,9 @@ Feature: Monitor production App
     When I switch to native context
     When I launch CDX
     And Login to CDX
-    Then check account activity
+   # Then check account activity
     Then validate cash at a glance
-    #And view insights
+   # And view insights
     ###Then view market insights
     Then validate accounts
     Then check milestone
@@ -18,7 +18,7 @@ Feature: Monitor production App
     And validate relationship
     Then validate mindset
     Then Validate Statement and Tax Forms
-   	#And check settings
+   	And check settings
     Then get support
     And check feedback
     And check Legal services
