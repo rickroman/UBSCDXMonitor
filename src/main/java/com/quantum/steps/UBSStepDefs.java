@@ -758,7 +758,15 @@ public class UBSStepDefs {
 
 			try {
 
-				if (!CommonStep.verifyNotVisible("activity.selectAll")) {
+				Map<String, Object> params2 = new HashMap<>();
+				params2.put("content", "Select all");
+				params2.put("source", "camera");
+				params2.put("timeout", "30");
+				params2.put("threshold", "100");
+				boolean isPresent = checkPointTextVisual(params2);
+				
+				
+				if (isPresent) {
 					// Select accounts
 					click("activity.selectAll");
 
@@ -829,7 +837,16 @@ public class UBSStepDefs {
 			click("activity.filterAccounts");
 
 			try {
-				if (!CommonStep.verifyNotVisible("activity.selectAll")) {
+				
+				Map<String, Object> params2 = new HashMap<>();
+				params2.put("content", "Select all");
+				params2.put("source", "camera");
+				params2.put("timeout", "30");
+				params2.put("threshold", "100");
+				boolean isPresent = checkPointTextVisual(params2);
+				
+				
+				if (isPresent) {
 
 					// Select accounts
 					click("activity.selectAll");
@@ -898,7 +915,16 @@ public class UBSStepDefs {
 			click("activity.filterAccounts");
 
 			try {
-				if (!CommonStep.verifyNotVisible("activity.selectAll")) {
+				
+				Map<String, Object> params2 = new HashMap<>();
+				params2.put("content", "Select all");
+				params2.put("source", "camera");
+				params2.put("timeout", "30");
+				params2.put("threshold", "100");
+				boolean isPresent = checkPointTextVisual(params2);
+				
+				
+				if (isPresent) {
 
 					// Select accounts
 					click("activity.selectAll");
