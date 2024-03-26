@@ -940,10 +940,10 @@ public class UBSStepDefs {
 
 			}
 			// Click on First Activity Displayed
-			// click("ipad.activity.first");
+			 click("ipad.activity.first");
 
 			// Get Activity Amount text
-			String activityAmount = getText("ipad.activity.first");
+			String activityAmount = getText("activity.amount");
 
 			// Validate the amount is well formatted.
 			boolean isAmountFormated = UBSUtils.validateAmount(activityAmount);
