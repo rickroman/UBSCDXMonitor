@@ -933,8 +933,6 @@ public class UBSStepDefs {
 					// Select accounts
 					click("activity.selectAll");
 
-					
-
 				}
 
 				click("activity.apply");
@@ -942,10 +940,10 @@ public class UBSStepDefs {
 
 			}
 			// Click on First Activity Displayed
-			click("iphone.activity.first");
+			// click("ipad.activity.first");
 
 			// Get Activity Amount text
-			String activityAmount = getText("activity.amount");
+			String activityAmount = getText("ipad.activity.first");
 
 			// Validate the amount is well formatted.
 			boolean isAmountFormated = UBSUtils.validateAmount(activityAmount);

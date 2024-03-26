@@ -324,6 +324,34 @@ public class FinancialTools extends UBSScreen {
         CommonStep.waitForVisible("ipad.activity.type");
 //        new QAFExtendedWebElement("activity.type").isDisplayed();
         
+        click("ipad.activity.filterAccounts");
+        
+        
+        
+        try {
+			
+			Map<String, Object> params23 = new HashMap<>();
+			params23.put("content", "Select all");
+			params23.put("source", "camera");
+			params23.put("timeout", "30");
+			params23.put("threshold", "100");
+			boolean isPresentSelectAll = checkPointTextVisual(params23);
+			
+			
+			if (isPresent) {
+
+				// Select accounts
+				click("ipad.activity.selectAll");
+
+			}
+
+			click("activity.apply");
+		} catch (Exception e) {
+
+		}
+        
+        
+        
         // check number of first activity
         String a = new QAFExtendedWebElement("activity.amounts").findElements("activity.amounts").get(0).getText();
         
