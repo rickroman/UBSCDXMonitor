@@ -72,9 +72,14 @@ public class UBSUtils {
 	public static void declineFaceID() {
 
 		try {
-
+			
 			Map<String, Object> params3 = new HashMap<>();
-			params3.put("content", "Biometric Authentication");
+			if (model.equalsIgnoreCase("ipad")) {
+				params3.put("content", "Enable Face ID");
+			}else {
+				params3.put("content", "Biometric Authentication");
+			}
+			
 			params3.put("timeout", "10");
 			String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
