@@ -74,10 +74,11 @@ public class UBSUtils {
 		try {
 			
 			Map<String, Object> params3 = new HashMap<>();
-			if (model.equalsIgnoreCase("ipad")) {
-				params3.put("content", "Enable Face ID");
-			}else {
+			if (model.equalsIgnoreCase("android")) {
 				params3.put("content", "Biometric Authentication");
+			}else {
+				params3.put("content", "Enable Face ID");
+				
 			}
 			
 			params3.put("timeout", "10");
