@@ -555,10 +555,11 @@ public class UBSStepDefs {
 
 			try {
 				Map<String, Object> params2 = new HashMap<>();
-				params2.put("content", "here are your periodically");
+				params2.put("content", "AS OF");
 				params2.put("scrolling", "scroll");
 				params2.put("next", "SWIPE=(50%,85%),(50%,55%)");
 				params2.put("threshold", "90");
+				params2.put("timeout", "30");
 
 				Object result2 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
