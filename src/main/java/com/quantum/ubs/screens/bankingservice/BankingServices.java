@@ -211,7 +211,7 @@ public class BankingServices extends UBSScreen {
 		
 		
 		Map<String, Object> params23 = new HashMap<>();
-		params23.put("content", "Pay UBS Credit Card and Credit Line");
+		params23.put("label", "Pay UBS Credit Card and Credit Line");
 		params23.put("timeout", "30");
 		params23.put("threshold", "90");
 		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params23);
