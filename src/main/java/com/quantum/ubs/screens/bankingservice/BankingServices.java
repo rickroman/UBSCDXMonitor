@@ -202,13 +202,20 @@ public class BankingServices extends UBSScreen {
 		navigateToBankingService();
 
 		// pay credit card
-		click("pay.ubs");
-		
-		
 		Map<String, Object> params22 = new HashMap<>();
 		params22.put("content", "Take care of UBS credit card payments");
 		params22.put("timeout", "30");
 		params22.put("threshold", "90");
+
+		//click("pay.ubs");
+		
+		
+		Map<String, Object> params23 = new HashMap<>();
+		params23.put("content", "Pay UBS Credit Card and Credit Line");
+		params23.put("timeout", "30");
+		params23.put("threshold", "90");
+		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params23);
+		
 
 		isPresent = checkPointTextVisual(params22);
 		
