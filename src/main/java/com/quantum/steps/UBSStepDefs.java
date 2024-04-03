@@ -559,7 +559,7 @@ public class UBSStepDefs {
 				params2.put("scrolling", "scroll");
 				params2.put("next", "SWIPE=(50%,85%),(50%,55%)");
 				params2.put("threshold", "90");
-				params2.put("timeout", "30");
+				
 
 				Object result2 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
