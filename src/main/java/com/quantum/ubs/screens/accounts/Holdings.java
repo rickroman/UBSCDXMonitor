@@ -115,7 +115,7 @@ public class Holdings extends UBSScreen {
 		Map<String, Object> params32 = new HashMap<>();
 		params32.put("content", "Select all");
 		params32.put("source", "camera");
-		params32.put("timeout", "30");
+		params32.put("timeout", "10");
 		params32.put("threshold", "90");
 		isPresent = checkPointTextVisual(params32);
 		
