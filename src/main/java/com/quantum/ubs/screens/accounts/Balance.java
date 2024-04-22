@@ -57,19 +57,20 @@ public class Balance extends UBSScreen {
         Map<String, Object> params1 = new HashMap<>();
 		params1.put("content", "Investment");
 		params1.put("source", "camera");
-		params1.put("timeout", "20");
+		params1.put("timeout", "40");
 		params1.put("threshold", "90");
 		Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
         
+		  // Switch to UBS tab if not defaulted
+        switchToUBSTab();
         
-        String balance = getAttribute("total.value", "name");
+        String balance = getAttribute("total.value", "label");
         
         boolean isBalanceFormatted = UBSUtils.validateAmount(balance);
 
         assertTrue(isBalanceFormatted, "Balance amount doesn't matches the format criteria. Balance amount - " + balance);
 
-        // Switch to UBS tab if not defaulted
-        switchToUBSTab();
+      
 
         // Select intra day
         click("iphone.intraday");
