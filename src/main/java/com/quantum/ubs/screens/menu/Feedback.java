@@ -41,7 +41,8 @@ public class Feedback extends UBSScreen {
 
         Map<String, Object> params2 = new HashMap<>();
         params2.put("label", "Feedback");
-        params2.put("timeout", "30");
+        params2.put("timeout", "45");
+        params2.put("threshold", "80");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
 
         Map<String, Object> params3 = new HashMap<>();
