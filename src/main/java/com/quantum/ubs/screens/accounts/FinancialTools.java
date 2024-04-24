@@ -97,6 +97,16 @@ public class FinancialTools extends UBSScreen {
 
         // Click on Cash flow
         click("cash.flow.iphone");
+        
+        Map<String, Object> params7 = new HashMap<>();
+        params7.put("label", "Spending");
+        params7.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params7);
+        
+        Map<String, Object> params8 = new HashMap<>();
+        params8.put("label", "Cash flow");
+        params8.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params8);
 
         try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
         
