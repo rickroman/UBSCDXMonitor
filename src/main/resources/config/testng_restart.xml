@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Restart Devices" verbose="0" parallel="tests" thread-count="6">
+<suite name="Restart Devices" verbose="0" parallel="tests" thread-count="8">
     <listeners>
         <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
     </listeners>
