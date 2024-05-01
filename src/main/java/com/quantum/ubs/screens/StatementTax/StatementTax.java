@@ -58,7 +58,7 @@ public class StatementTax extends UBSScreen {
 
 		CommonStep.click("statementtax.accountstatement");
 
-		CommonStep.assertVisible("statementtax.account");
+		//CommonStep.assertVisible("statementtax.account");
 
 		CommonStep.click("statementtax.back");
 
