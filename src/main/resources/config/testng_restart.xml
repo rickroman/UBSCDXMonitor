@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Restart Devices" verbose="0" parallel="tests" thread-count="8">
+<suite name="Restart Devices" verbose="0" parallel="tests" thread-count="6">
     <listeners>
         <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
     </listeners>
@@ -12,7 +12,7 @@
 
 
 
-    <test name="iPhone restart 1" enabled="true">
+    <test name="iPhone restart 1" enabled="false">
         <parameter name="driver.capabilities.deviceName" value="00008130-001C59CE3891401C"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
@@ -25,7 +25,7 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-    <test name="iPhone restart  2" enabled="true">
+    <test name="iPhone restart  2" enabled="false">
         <parameter name="driver.capabilities.deviceName" value="00008130-00021D5E1A10001C"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
@@ -38,7 +38,7 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-    <test name="iPad restart 1" enabled="true">
+    <test name="iPad restart 1" enabled="false">
         <parameter name="driver.capabilities.deviceName" value="00008112-001439E42EF0C01E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
@@ -51,7 +51,7 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-     <test name="iPad restart 2" enabled="true">
+     <test name="iPad restart 2" enabled="false">
         <parameter name="driver.capabilities.deviceName" value="00008112-001651593A45401E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
@@ -64,36 +64,11 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-     <test name="Galaxy restart 1" enabled="true">
-        <parameter name="driver.capabilities.deviceName" value="RFCTB0R9STA"></parameter>
-        <parameter name="env.resources" value="src/main/resources/ios"/>
-
-        <groups>
-            <run>
-                <include name="@restart"/>
-            </run>
-        </groups>
-        <classes>
-            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
-        </classes>
-    </test>
-     <test name="Galaxy restart 2" enabled="true">
-        <parameter name="driver.capabilities.deviceName" value="RFCTB0R9TZY"></parameter>
-        <parameter name="env.resources" value="src/main/resources/ios"/>
-
-        <groups>
-            <run>
-                <include name="@restart"/>
-            </run>
-        </groups>
-        <classes>
-            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
-        </classes>
-    </test>
+ 
    
      <test name="Galaxy restart 3" enabled="true">
         <parameter name="driver.capabilities.deviceName" value="R3CX10538HV"></parameter>
-        <parameter name="env.resources" value="src/main/resources/ios"/>
+        <parameter name="env.resources" value="src/main/resources/android"/>
 
         <groups>
             <run>
@@ -106,7 +81,7 @@
     </test>
      <test name="Galaxy restart 4" enabled="true">
         <parameter name="driver.capabilities.deviceName" value="R5CX11MLKFH"></parameter>
-        <parameter name="env.resources" value="src/main/resources/ios"/>
+        <parameter name="env.resources" value="src/main/resources/android"/>
 
         <groups>
             <run>
