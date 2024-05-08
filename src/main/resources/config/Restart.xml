@@ -1,0 +1,105 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Restart" verbose="0" parallel="tests" thread-count="6">
+    <listeners>
+        <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
+    </listeners>
+
+    <!-- To use actual AppiumDriver classes defined    -->
+    <!-- by driverClass property in env.resources dirs -->
+    <!-- Set driver.name value to perfectoDriver       -->
+    <parameter name="driver.name" value="perfectoDriver"/>
+ 	<parameter name="driver.capabilities.perfecto:securityToken" value="${securityToken}"></parameter>
+
+ <test name="Restart iPhone 1" enabled="true">
+    	 <parameter name="driver.capabilities.platformName" value="ios"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008130-00021D5E1A10001C"/>
+        <parameter name="env.resources" value="src/main/resources/ios"/>
+
+        <groups>
+            <run>
+                <include name="@restart"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
+        </classes>
+    </test>
+    
+    <test name="Restart iPhone 2" enabled="true">
+    	 <parameter name="driver.capabilities.platformName" value="ios"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008130-001C59CE3891401C"/>
+        <parameter name="env.resources" value="src/main/resources/ios"/>
+
+        <groups>
+            <run>
+                <include name="@restart"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
+        </classes>
+    </test>
+    
+    <test name="Restart iPad 1" enabled="true">
+    	 <parameter name="driver.capabilities.platformName" value="ios"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008112-001651593A45401E"/>
+        <parameter name="env.resources" value="src/main/resources/ios"/>
+
+        <groups>
+            <run>
+                <include name="@restart"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
+        </classes>
+    </test>
+    
+    <test name="Restart iPad 2" enabled="true">
+    	 <parameter name="driver.capabilities.platformName" value="ios"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008112-001439E42EF0C01E"/>
+        <parameter name="env.resources" value="src/main/resources/ios"/>
+
+        <groups>
+            <run>
+                <include name="@restart"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
+        </classes>
+    </test>
+
+    <test name="Restart Android 1" enabled="true">
+    	 <parameter name="driver.capabilities.platformName" value="android"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="R3CX10538HV"/>
+        <parameter name="env.resources" value="src/main/resources/android"/>
+
+        <groups>
+            <run>
+                <include name="@restart"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
+        </classes>
+    </test>
+   
+    <test name="Restart Android 2" enabled="true">
+    	 <parameter name="driver.capabilities.platformName" value="android"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="R5CX11MLKFH"/>
+        <parameter name="env.resources" value="src/main/resources/android"/>
+
+        <groups>
+            <run>
+                <include name="@restart"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
+        </classes>
+    </test>
+   
+
+</suite>
+
