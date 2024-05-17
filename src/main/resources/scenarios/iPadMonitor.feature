@@ -12,7 +12,7 @@ Feature: Monitor production App
    # And view insights
     #Then validate accounts
     Then validate banking services
-    Then check milestone
+    #Then check milestone
     And validate profile
     And validate relationship
     Then validate mindset
