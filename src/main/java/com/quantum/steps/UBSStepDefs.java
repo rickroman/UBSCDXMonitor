@@ -899,7 +899,7 @@ public class UBSStepDefs {
 			click("activity.filterAccounts");
 
 			// Click On Year to Date option
-			click("ytd.android");
+			//click("ytd.android");
 
 			// Click on Apply Button
 			click("filter.apply");
