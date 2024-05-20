@@ -96,7 +96,7 @@ public class UBSUtils {
 
 				Map<String, Object> params = new HashMap<>();
 				params.put("label", "TaxDocsCloseiPad.png");
-				params.put("timeout", "30");
+				params.put("timeout", "60");
 				DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
 				
 			}
