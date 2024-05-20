@@ -852,7 +852,15 @@ public class UBSStepDefs {
 			click("accounts.activity");
 
 			// Open Select Activities
-			click("activity.filterAccounts");
+			//click("activity.filterAccounts");
+
+			
+			Map<String, Object> params4 = new HashMap<>();
+			params4.put("label", "Filter");
+			params4.put("source", "camera");
+			params4.put("timeout", "20");
+			params4.put("threshold", "90");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
 
 			try {
 				
@@ -894,7 +902,15 @@ public class UBSStepDefs {
 			click("android.activity.back");
 
 			// Click on Filter button
-			click("filter.btn");
+			//click("filter.btn");
+			
+			Map<String, Object> params44 = new HashMap<>();
+			params44.put("label", "Filter");
+			params44.put("source", "camera");
+			params44.put("timeout", "20");
+			params44.put("threshold", "90");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params44);
+
 
 			// Click On Year to Date option
 			click("ytd.android");
@@ -905,12 +921,12 @@ public class UBSStepDefs {
 			// Assert Activity screen is displayed
 			CommonStep.assertPresent("filter.btn");
 
-			Map<String, Object> params4 = new HashMap<>();
-			params4.put("label", "Home");
-			params4.put("source", "camera");
-			params4.put("timeout", "20");
-			params4.put("threshold", "90");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
+			Map<String, Object> params45 = new HashMap<>();
+			params45.put("label", "Home");
+			params45.put("source", "camera");
+			params45.put("timeout", "20");
+			params45.put("threshold", "90");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params45);
 
 			// Click on Home tab in the bottom navigationbar
 			// click("home");
@@ -931,8 +947,15 @@ public class UBSStepDefs {
 			// Click on Activity option from popup
 			click("accounts.activity");
 
+			Map<String, Object> params4 = new HashMap<>();
+			params4.put("label", "Filter");
+			params4.put("source", "camera");
+			params4.put("timeout", "20");
+			params4.put("threshold", "90");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
+
 			// Open Select Activities
-			click("activity.filterAccounts");
+			//click("activity.filterAccounts");
 
 			try {
 				
