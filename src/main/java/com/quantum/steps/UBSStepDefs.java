@@ -762,6 +762,8 @@ public class UBSStepDefs {
 
 			// Open Select Activities
 			click("activity.filterAccounts");
+			
+			
 
 			try {
 
@@ -803,7 +805,14 @@ public class UBSStepDefs {
 			click("android.activity.back");
 
 			// Click on Filter button
-			click("filter.btn");
+			//click("filter.btn");
+
+			Map<String, Object> params4 = new HashMap<>();
+			params4.put("label", "Filter");
+			params4.put("source", "camera");
+			params4.put("timeout", "20");
+			params4.put("threshold", "90");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
 
 			// Click On Year to Date option
 			click("ytd.android");
@@ -814,12 +823,12 @@ public class UBSStepDefs {
 			// Assert Activity screen is displayed
 			CommonStep.assertPresent("filter.btn");
 
-			Map<String, Object> params4 = new HashMap<>();
-			params4.put("label", "Home");
-			params4.put("source", "camera");
-			params4.put("timeout", "20");
-			params4.put("threshold", "90");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
+			Map<String, Object> params44 = new HashMap<>();
+			params44.put("label", "Home");
+			params44.put("source", "camera");
+			params44.put("timeout", "20");
+			params44.put("threshold", "90");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params44);
 
 			// Click on Home tab in the bottom navigationbar
 			// click("home");
