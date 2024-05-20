@@ -73,6 +73,7 @@ public class UBSUtils {
 		Map<String, Object> params11 = new HashMap<>();
 		params11.put("content", "Important Notice");
 		params11.put("timeout", "30");
+		params11.put("threshold", "80");
 		String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params11);
 
 		if (result.equalsIgnoreCase("true")) {
