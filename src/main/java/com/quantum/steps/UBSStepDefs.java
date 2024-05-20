@@ -936,7 +936,15 @@ public class UBSStepDefs {
 
 						
 						// Open Select Activities
-						click("activity.filterAccounts");
+						//click("activity.filterAccounts");
+						
+						Map<String, Object> params = new HashMap<>();
+						params.put("label", "PUBLIC:FilterAccountsiPhone.png");
+						params.put("timeout", "60");
+						DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
+						
+						
+						//PUBLIC:FilterAccountsiPhone.png
 
 						try {
 							
