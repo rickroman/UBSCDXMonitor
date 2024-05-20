@@ -173,7 +173,7 @@ public class UBSStepDefs {
 
 			UBSCommonSteps.login(securedUsername, securedPassword);
 
-			UBSUtils.declineFaceID();
+			//UBSUtils.declineFaceID();
 			// Assert Home Screen is displayed
 			CommonStep.assertPresent("main.net.balance");
 
