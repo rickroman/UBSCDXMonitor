@@ -852,16 +852,10 @@ public class UBSStepDefs {
 			click("accounts.activity");
 
 			// Open Select Activities
-			//click("activity.filterAccounts");
+			click("activity.filterAccounts");
 
 			
-			Map<String, Object> params4 = new HashMap<>();
-			params4.put("label", "Filter");
-			params4.put("source", "camera");
-			params4.put("timeout", "20");
-			params4.put("threshold", "90");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
-
+			
 			try {
 				
 				Map<String, Object> params2 = new HashMap<>();
@@ -876,8 +870,6 @@ public class UBSStepDefs {
 
 					// Select accounts
 					click("activity.selectAll");
-
-				
 
 				}
 			} catch (Exception e) {
@@ -904,13 +896,7 @@ public class UBSStepDefs {
 			// Click on Filter button
 			//click("filter.btn");
 			
-			Map<String, Object> params44 = new HashMap<>();
-			params44.put("label", "Filter");
-			params44.put("source", "camera");
-			params44.put("timeout", "20");
-			params44.put("threshold", "90");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params44);
-
+			click("activity.filterAccounts");
 
 			// Click On Year to Date option
 			click("ytd.android");
@@ -939,6 +925,75 @@ public class UBSStepDefs {
 			ArrayList genericOptions1 = new ArrayList();
 			genericOptions1.add("natural-language=true");
 			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params6);
+		} else if (model.equalsIgnoreCase("iPhone-15 Pro Max")) {
+			
+			
+			// Click on Account Tab in bottom Navigation Bar
+						click("iphone.main.accounts");
+
+						// Click on Activity option from popup
+						click("accounts.activity");
+
+						
+						// Open Select Activities
+						click("activity.filterAccounts");
+
+						try {
+							
+							Map<String, Object> params2 = new HashMap<>();
+							params2.put("content", "Select all");
+							params2.put("source", "camera");
+							params2.put("timeout", "15");
+							params2.put("threshold", "100");
+							boolean isPresent = checkPointTextVisual(params2);
+							
+							
+							if (isPresent) {
+
+								// Select accounts
+								click("activity.selectAll");
+
+							}
+
+							click("activity.apply");
+						} catch (Exception e) {
+
+						}
+			
+						// Click on First Activity Displayed
+						 click("iphone.activity.first");
+
+						// Get Activity Amount text
+						String activityAmount = getText("activity.amount");
+
+						// Validate the amount is well formatted.
+						boolean isAmountFormated = UBSUtils.validateAmount(activityAmount);
+
+						// Assert the isAmountFormatted is well formatted.
+						assertTrue(isAmountFormated,
+								"Activity amount is not in correct format $x,xxx.xx. Amount displayed : " + activityAmount);
+
+						// Navigate back to home screen
+						click("iphone.activity.back");
+
+						// Click on Filter button
+						click("filter.btn");
+
+						// Click On Year to Date option
+						click("ytd.iphone");
+
+						// Click on Apply Button
+						click("filter.apply");
+
+						// Assert Activity screen is displayed
+						CommonStep.assertPresent("filter.btn");
+
+						// Click on Home tab in the bottom navigationbar
+						click("home");
+
+						// Assert HOme Page is displayed
+						CommonStep.assertPresent("main.net.balance");
+
 		} else {
 
 			// Click on Account Tab in bottom Navigation Bar
@@ -947,13 +1002,7 @@ public class UBSStepDefs {
 			// Click on Activity option from popup
 			click("accounts.activity");
 
-			Map<String, Object> params4 = new HashMap<>();
-			params4.put("label", "Filter");
-			params4.put("source", "camera");
-			params4.put("timeout", "20");
-			params4.put("threshold", "90");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
-
+			click("ipad.activity.filterAccounts");
 			// Open Select Activities
 			//click("activity.filterAccounts");
 
