@@ -48,6 +48,7 @@ public class AdviceStepDefs {
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
 			//UBSUtils.declineTaxDocs();
+			UBSUtils.clearImportantNotice();
 			UBSUtils.validateHomePage();
 
 		} else if (model.equalsIgnoreCase("android")) {
@@ -76,6 +77,7 @@ public class AdviceStepDefs {
 
 			UBSUtils.declineFaceID();
 			//UBSUtils.declineTaxDocs();
+			UBSUtils.clearImportantNotice();
 			UBSUtils.validateHomePage();
 		} else {
 			Map<String, Object> params = new HashMap<>();
@@ -107,6 +109,7 @@ public class AdviceStepDefs {
 
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
+			UBSUtils.clearImportantNotice();
 			//UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		}
