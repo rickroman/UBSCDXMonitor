@@ -203,6 +203,7 @@ public class UBSStepDefs {
 //            // 2 validations of home page loading
 //
 			UBSUtils.declineFaceID();
+			UBSUtils.clearImportantNotice();
 			//UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		} else if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
@@ -246,6 +247,7 @@ public class UBSStepDefs {
 
 			new QAFExtendedWebElement("login.signin.btn").click();
 			UBSUtils.declineFaceID();
+			UBSUtils.clearImportantNotice();
 			//UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 
@@ -292,6 +294,7 @@ public class UBSStepDefs {
 
 			new QAFExtendedWebElement("login.signin.btn").click();
 			UBSUtils.declineFaceID();
+			UBSUtils.clearImportantNotice();
 			//UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		} else {
@@ -338,6 +341,7 @@ public class UBSStepDefs {
 			new QAFExtendedWebElement("login.signin.btn").click();
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
+			UBSUtils.clearImportantNotice();
 			//UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		}
