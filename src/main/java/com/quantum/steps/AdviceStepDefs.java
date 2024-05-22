@@ -342,19 +342,43 @@ public class AdviceStepDefs {
 
 		switch (coin) {
 		case 0:
+			 try {
+		            Thread.sleep(7000);
+		        } catch (InterruptedException e) {
+		            e.printStackTrace();
+		        }
+			 
 			new QAFExtendedWebElement("advice").click();
 			new QAFExtendedWebElement("adviceMenuChoice").click();
 			// *[@name="SelectionItem_1"]/XCUIElementTypeOther[1]/XCUIElementTypeOther[1]
 
 			break;
 		case 1:
+			
+			 try {
+		            Thread.sleep(7000);
+		        } catch (InterruptedException e) {
+		            e.printStackTrace();
+		        }
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "View and manage account(s)");
 			params2.put("scrolling", "scroll");
 			params2.put("next", "SWIPE=(50%,85%),(50%,55%)");
 			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
+			 try {
+		            Thread.sleep(4000);
+		        } catch (InterruptedException e) {
+		            e.printStackTrace();
+		        }
+			 
 			new QAFExtendedWebElement("advice").click();
+			
+			 try {
+		            Thread.sleep(4000);
+		        } catch (InterruptedException e) {
+		            e.printStackTrace();
+		        }
 
 			new QAFExtendedWebElement("adviceMenuChoice").click();
 
