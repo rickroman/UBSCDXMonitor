@@ -938,6 +938,12 @@ public class UBSStepDefs {
 						// Open Select Activities
 						//click("activity.filterAccounts");
 						
+						 try {
+					            Thread.sleep(7000);
+					        } catch (InterruptedException e) {
+					            e.printStackTrace();
+					        }
+						
 						Map<String, Object> params = new HashMap<>();
 						params.put("label", "PUBLIC:FilterAccountsiPhone.png");
 						params.put("timeout", "60");
