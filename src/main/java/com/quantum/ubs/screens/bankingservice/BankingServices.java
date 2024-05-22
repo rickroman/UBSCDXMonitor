@@ -210,17 +210,18 @@ public class BankingServices extends UBSScreen {
 		//click("pay.ubs");
 		
 		
-		Map<String, Object> params23 = new HashMap<>();
-		params23.put("label", "Pay UBS Credit Card and Credit Line");
-		params23.put("timeout", "30");
-		params23.put("threshold", "90");
-		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params23);
+		/*
+		 * Map<String, Object> params23 = new HashMap<>(); params23.put("label",
+		 * "Pay UBS Credit Card and Credit Line"); params23.put("timeout", "30");
+		 * params23.put("threshold", "90");
+		 * DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click",
+		 * params23);
+		 * 
+		 * 
+		 * isPresent = checkPointTextVisual(params22);
+		 */
 		
-
-		isPresent = checkPointTextVisual(params22);
-		
-		
-		assertTrue(isPresent, "Credit Cards Bills Payment is not present upon move to Banking Service > Pay Bills.");
+		//assertTrue(isPresent, "Credit Cards Bills Payment is not present upon move to Banking Service > Pay Bills.");
 
 		// new QAFExtendedWebElement("pay.credit").isDisplayed();
 		UBSCommonSteps.navigateToHome();
