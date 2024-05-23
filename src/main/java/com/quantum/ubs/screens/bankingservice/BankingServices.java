@@ -283,7 +283,7 @@ public class BankingServices extends UBSScreen {
 		// pay bills
 		new QAFExtendedWebElement("Pay Bills").click();
 		Map<String, Object> params2 = new HashMap<>();
-		params2.put("content", "pay bills outside");
+		params2.put("content", "Make a Payment");
 		params2.put("timeout", 20);
 		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 

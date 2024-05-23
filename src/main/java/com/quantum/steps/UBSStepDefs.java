@@ -700,35 +700,7 @@ public class UBSStepDefs {
 
 			scrollUp("learn more about your accounts");
 
-//            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
-			// check date
-//            String today = new QAFExtendedWebElement("home.asof").getAttribute("value");
-//            
-//            System.out.println("today is: " + today);
-//            String thisYear = Year.now().toString();
-//            System.out.println("this year: " + thisYear);
-//
-//            if(today.contains(thisYear)) {
-//
-//                String msg = "the string contains" + thisYear;
-//                System.out.println(msg);
-//                ReportUtils.logAssert(msg,true);
-//            }else {
-//                String msg = "the string DOES NOT include" + thisYear;
-//                System.out.println(msg);
-//               ReportUtils.logAssert(msg,false);
-//
-//
-//            }
-//            // return to top
-//            try { Thread.sleep(2000); } catch (InterruptedException e) { e.printStackTrace(); }
-//            Map<String, Object> params = new HashMap<>();
-//            params.put("content","\"learn more about your accounts\", \"includes ubs and external accounts\"");
-//            params.put("scrolling", "scroll");
-//            params.put("target","any");
-//            params.put("next","SWIPE_DOWN");
-//            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
 
 		} else {
 
