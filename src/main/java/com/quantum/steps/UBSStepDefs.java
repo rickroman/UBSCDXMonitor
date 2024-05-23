@@ -351,18 +351,7 @@ public class UBSStepDefs {
 	@When("debug_Login to CDX")
 	public void debugLoginCDX() {
 
-//		String Secured_duname = "secured.aDeg4J2QMoUXTt3/WHcjUg==";
-//		String Secured_dpw = "secured.ihj+yodayavfCbHyJQTJBw==";
 
-		// declare the Map for script parameters
-
-		/*
-		 * Map<String, Object> params = new HashMap<>(); params.put("text",
-		 * Secured_duname); params.put("by", "xpath"); params.put("value",
-		 * "//*[@value=\"Username\"]");
-		 * DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set",
-		 * params);
-		 */
 		new QAFExtendedWebElement("field.username").sendKeys("cdx07");
 
 		try {
@@ -761,7 +750,12 @@ public class UBSStepDefs {
 			click("accounts.activity");
 
 			// Open Select Activities
-			click("activity.filterAccounts");
+			//click("activity.filterAccounts");
+			
+			Map<String, Object> params4 = new HashMap<>();
+			params4.put("label", "PUBLIC:FilterAccountsiGalaxyS24.png");
+			params4.put("timeout", "10");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
 			
 			
 
@@ -807,12 +801,12 @@ public class UBSStepDefs {
 			// Click on Filter button
 			//click("filter.btn");
 
-			Map<String, Object> params4 = new HashMap<>();
-			params4.put("label", "Filter");
-			params4.put("source", "camera");
-			params4.put("timeout", "20");
-			params4.put("threshold", "90");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params4);
+			Map<String, Object> params = new HashMap<>();
+			params.put("label", "Filter");
+			params.put("source", "camera");
+			params.put("timeout", "20");
+			params.put("threshold", "90");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
 
 			// Click On Year to Date option
 			click("ytd.android");
@@ -877,6 +871,13 @@ public class UBSStepDefs {
 			}
 			
 			click("activity.apply");
+			
+			try {
+	            Thread.sleep(7000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+			
 			// Click on First Activity Displayed
 			click("android.activity.first");
 
