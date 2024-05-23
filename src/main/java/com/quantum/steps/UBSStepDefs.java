@@ -721,7 +721,13 @@ public class UBSStepDefs {
 			click("accounts.activity");
 
 			// Open Select Activities
-			click("activity.filterAccounts");
+			//click("activity.filterAccounts");
+			
+			Map<String, Object> params45 = new HashMap<>();
+			params45.put("label", "PUBLIC:FilterAccountsiGalaxyS24.png");
+			params45.put("timeout", "10");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params45);
+			
 
 			
 			
