@@ -713,104 +713,7 @@ public class UBSStepDefs {
 
 		String model = DeviceUtils.getDeviceProperty("model");
 
-		if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
-
-			// Click on Account Tab in bottom Navigation Bar
-			click("android.main.accounts");
-
-			// Click on Activity option from popup
-			click("accounts.activity");
-
-			// Open Select Activities
-			//click("activity.filterAccounts");
-			
-			Map<String, Object> params4 = new HashMap<>();
-			params4.put("label", "PUBLIC:FilterAccountsiGalaxyS24.png");
-			params4.put("timeout", "10");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
-			
-			
-
-			try {
-
-				Map<String, Object> params2 = new HashMap<>();
-				params2.put("content", "Select all");
-				params2.put("source", "camera");
-				params2.put("timeout", "30");
-				params2.put("threshold", "100");
-				boolean isPresent = checkPointTextVisual(params2);
-				
-				
-				if (isPresent) {
-					// Select accounts
-					click("activity.selectAll");
-
-				
-
-				}
-
-			} catch (Exception e) {
-
-			}
-			
-			click("activity.apply");
-			// Click on First Activity Displayed
-			click("android.activity.first");
-
-			// Get Activity Amount text
-			String activityAmount = getText("activity.amount");
-
-			// Validate the amount is well formatted.
-			boolean isAmountFormated = UBSUtils.validateAmount(activityAmount);
-
-			// Assert the isAmountFormatted is well formatted.
-			assertTrue(isAmountFormated,
-					"Activity amount is not in correct format $x,xxx.xx. Amount displayed : " + activityAmount);
-
-			// Navigate back to home screen
-			click("android.activity.back");
-
-			// Click on Filter button
-			//click("filter.btn");
-
-			Map<String, Object> params = new HashMap<>();
-			params.put("label", "Filter");
-			params.put("source", "camera");
-			params.put("timeout", "20");
-			params.put("threshold", "90");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
-
-			// Click On Year to Date option
-			click("ytd.android");
-
-			// Click on Apply Button
-			click("filter.apply");
-
-			// Assert Activity screen is displayed
-			CommonStep.assertPresent("filter.btn");
-
-			Map<String, Object> params44 = new HashMap<>();
-			params44.put("label", "Home");
-			params44.put("source", "camera");
-			params44.put("timeout", "20");
-			params44.put("threshold", "90");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params44);
-
-			// Click on Home tab in the bottom navigationbar
-			// click("home");
-
-			Map<String, Object> params6 = new HashMap<>();
-			params6.put("content", "Net Balance");
-			params6.put("source", "camera");
-			params6.put("timeout", "30");
-			params6.put("threshold", "90");
-			ArrayList genericOptions1 = new ArrayList();
-			genericOptions1.add("natural-language=true");
-			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params6);
-
-			// Assert HOme Page is displayed
-			// CommonStep.assertPresent("main.net.balance");
-		} else if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
+		if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 			// Click on Account Tab in bottom Navigation Bar
 			click("android.main.accounts");
 
@@ -867,9 +770,12 @@ public class UBSStepDefs {
 			click("android.activity.back");
 
 			// Click on Filter button
-			//click("filter.btn");
+		
+			Map<String, Object> params4 = new HashMap<>();
+			params4.put("label", "PUBLIC:FilterAccountsiGalaxyS24.png");
+			params4.put("timeout", "10");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
 			
-			click("activity.filterAccounts");
 
 			// Click On Year to Date option
 			//click("ytd.android");
