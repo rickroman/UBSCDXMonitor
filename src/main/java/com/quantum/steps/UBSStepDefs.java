@@ -792,12 +792,12 @@ public class UBSStepDefs {
 			// Assert Activity screen is displayed
 			CommonStep.assertPresent("filter.btn");
 
-			Map<String, Object> params45 = new HashMap<>();
-			params45.put("label", "Home");
-			params45.put("source", "camera");
-			params45.put("timeout", "20");
-			params45.put("threshold", "90");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params45);
+			Map<String, Object> params454 = new HashMap<>();
+			params454.put("label", "Home");
+			params454.put("source", "camera");
+			params454.put("timeout", "20");
+			params454.put("threshold", "90");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params454);
 
 			// Click on Home tab in the bottom navigationbar
 			// click("home");
