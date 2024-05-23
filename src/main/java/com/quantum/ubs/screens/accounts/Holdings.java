@@ -95,6 +95,12 @@ public class Holdings extends UBSScreen {
 		click("android.main.accounts");
 		//click("accounts.holdings");
 
+		Map<String, Object> params2 = new HashMap<>();
+		params2.put("content", "Balances");
+		params2.put("source", "camera");
+		params2.put("timeout", "30");
+		params2.put("threshold", "90");
+		isPresent = checkPointTextVisual(params2);
 		
 		Map<String, Object> params4 = new HashMap<>();
 		params4.put("label", "Holdings");
@@ -127,12 +133,12 @@ public class Holdings extends UBSScreen {
 		
 		click("holdings.apply");
 		
-		Map<String, Object> params2 = new HashMap<>();
-		params2.put("content", "Cash");
-		params2.put("source", "camera");
-		params2.put("timeout", "30");
-		params2.put("threshold", "100");
-		isPresent = checkPointTextVisual(params2);
+		Map<String, Object> params27 = new HashMap<>();
+		params27.put("content", "Cash");
+		params27.put("source", "camera");
+		params27.put("timeout", "30");
+		params27.put("threshold", "100");
+		isPresent = checkPointTextVisual(params27);
 		
 		assertTrue(isPresent, "Holding cash is not present upon switch to Accounts > Holdings option.");
 
