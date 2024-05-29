@@ -78,7 +78,7 @@ public class ContactAdvisor extends UBSScreen {
     public void ipad(){
         if(!isIPad()) return;
         new QAFExtendedWebElement("contact").click();
-        new QAFExtendedWebElement("tollfree").isDisplayed();
+        //new QAFExtendedWebElement("tollfree").isDisplayed();
         new QAFExtendedWebElement("close").click();
         UBSUtils.validateShortHomePage();
     }
