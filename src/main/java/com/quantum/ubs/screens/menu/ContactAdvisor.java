@@ -78,7 +78,12 @@ public class ContactAdvisor extends UBSScreen {
     public void ipad(){
         if(!isIPad()) return;
         new QAFExtendedWebElement("contact").click();
-        new QAFExtendedWebElement("ipad.contactnumber").isDisplayed();
+        
+        Map<String, Object> params3 = new HashMap<>();
+        params3.put("content", "4415");
+        params3.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+        
         new QAFExtendedWebElement("close").click();
         UBSUtils.validateShortHomePage();
     }
