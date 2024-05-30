@@ -96,6 +96,12 @@ public class Profile extends UBSScreen {
         // Navigate to Relationship screen
         
         new Relationship().navigateToRelationshipAndroid();
+        
+        try {
+            Thread.sleep(7000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         // Open Team
         click("profile.android.team");
