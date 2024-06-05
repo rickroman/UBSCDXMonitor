@@ -70,13 +70,31 @@ public class UBSUtils {
 	}
 	
 	public static void clearImportantNotice() {
-		Map<String, Object> params11 = new HashMap<>();
-		params11.put("content", "Important Notice");
-		params11.put("timeout", "30");
-		params11.put("threshold", "80");
-		String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params11);
+		/*
+		 * Map<String, Object> params11 = new HashMap<>(); params11.put("content",
+		 * "Important Notice"); params11.put("timeout", "30"); params11.put("threshold",
+		 * "80"); String result = (String)
+		 * DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params11);
+		 */
+		//params1.put("content", "PUBLIC:TaxDocsCloseiPhone.png");
+		
+		Map<String, Object> params1 = new HashMap<>();
+		if (model.equalsIgnoreCase("iphone")) { 
+		
+		params1.put("content", "PUBLIC:TaxDocsCloseiPhone.png");
+		
+		
+		} else if (model.equalsIgnoreCase("android")) {
+			params1.put("content", "PUBLIC:TaxDocsCloseS24.png");
+		} else {
+			params1.put("content", "PUBLIC:TaxDocsCloseiPad.png");
+		}
+		params1.put("timeout", "20");
+		params1.put("threshold", "90");
+		String result1 = (String) DeviceUtils.getQAFDriver().executeScript("mobile:image:find", params1);
 
-		if (result.equalsIgnoreCase("true")) {
+		
+		if (result1.equalsIgnoreCase("true")) {
 			if (model.equalsIgnoreCase("iphone")) {
 
 				Map<String, Object> params = new HashMap<>();
