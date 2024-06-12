@@ -203,7 +203,7 @@ public class UBSStepDefs {
 //            // 2 validations of home page loading
 //
 			UBSUtils.declineFaceID();
-			UBSUtils.clearImportantNotice();
+			//UBSUtils.clearImportantNotice();
 			//UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		} else if (model.equalsIgnoreCase("Galaxy S22 Ultra")) {
@@ -294,7 +294,7 @@ public class UBSStepDefs {
 
 			new QAFExtendedWebElement("login.signin.btn").click();
 			UBSUtils.declineFaceID();
-			UBSUtils.clearImportantNotice();
+			//UBSUtils.clearImportantNotice();
 			//UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		} else {
@@ -341,7 +341,7 @@ public class UBSStepDefs {
 			new QAFExtendedWebElement("login.signin.btn").click();
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
-			UBSUtils.clearImportantNotice();
+			//UBSUtils.clearImportantNotice();
 			//UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		}
@@ -719,6 +719,12 @@ public class UBSStepDefs {
 
 			// Click on Activity option from popup
 			click("accounts.activity");
+			
+			try {
+	            Thread.sleep(7000);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
 
 			// Open Select Activities
 			//click("activity.filterAccounts");
@@ -728,10 +734,12 @@ public class UBSStepDefs {
 			params45.put("timeout", "10");
 			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params45);
 			
-
+			
 			
 			
 			try {
+				
+			
 				
 				Map<String, Object> params2 = new HashMap<>();
 				params2.put("content", "Select all");
@@ -751,7 +759,16 @@ public class UBSStepDefs {
 
 			}
 			
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "Clear all");
+			params2.put("source", "camera");
+			params2.put("timeout", "30");
+			params2.put("threshold", "100");
+			boolean isPresent = checkPointTextVisual(params2);
+		
+			if (isPresent) {
 			click("activity.apply");
+			}
 			
 			try {
 	            Thread.sleep(7000);
