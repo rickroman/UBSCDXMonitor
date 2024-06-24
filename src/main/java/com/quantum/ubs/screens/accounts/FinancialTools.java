@@ -50,8 +50,15 @@ public class FinancialTools extends UBSScreen {
 	        params2.put("timeout", "30");
 	        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
 
+	        try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
+		       
 	        //click("cash.flow.android");
+	        click("cash.flow.spending");
+
+	        try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
+		       
 	        
+	        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
 
 	        try { Thread.sleep(4000); } catch (InterruptedException e) { e.printStackTrace(); }
 	        
@@ -59,7 +66,7 @@ public class FinancialTools extends UBSScreen {
 	        Map<String, Object> params7 = new HashMap<>();
 			params7.put("content", "Know how your money moves");
 			params7.put("source", "camera");
-			params7.put("timeout", "30");
+			params7.put("timeout", "60");
 			params7.put("threshold", "90");
 			isPresent = checkPointTextVisual(params7);
 	        assertTrue(isPresent,"Cash Flow Message is not present upon navigating to Financial tools screen.");
