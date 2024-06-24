@@ -48,7 +48,7 @@ public class AdviceStepDefs {
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
 			//UBSUtils.declineTaxDocs();
-			UBSUtils.clearImportantNotice();
+			//UBSUtils.clearImportantNotice();
 			UBSUtils.validateHomePage();
 
 		} else if (model.equalsIgnoreCase("android")) {
@@ -77,7 +77,7 @@ public class AdviceStepDefs {
 
 			UBSUtils.declineFaceID();
 			//UBSUtils.declineTaxDocs();
-			UBSUtils.clearImportantNotice();
+			//UBSUtils.clearImportantNotice();
 			UBSUtils.validateHomePage();
 		} else {
 			Map<String, Object> params = new HashMap<>();
@@ -109,7 +109,7 @@ public class AdviceStepDefs {
 
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
-			UBSUtils.clearImportantNotice();
+			//UBSUtils.clearImportantNotice();
 			//UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		}
@@ -149,14 +149,38 @@ public class AdviceStepDefs {
 			params5.put("threshold", "90");
 			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params5);
 			
+			////////////////////////////////////////////////////////
 			
+			new QAFExtendedWebElement("advice").click();
+			
+			Map<String, Object> editRisk = new HashMap<>();
+			editRisk.put("label", "UBS Advice Portfolio Program");
+			editRisk.put("threshold", "80");
+			editRisk.put("timeout", "40");
+
+			editRisk.put("ignorecase", "nocase");
+			editRisk.put("words", "words");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", editRisk);
 
 			
-			  for (int i = 0; i < 2; i++) { Map<String, Object> params1 = new HashMap<>();
-			  params1.put("start", "50%,75%"); params1.put("end", "50%,35%");
-			  params1.put("duration", "0"); Object result1 =
-			  DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params1); }
-			 
+			new QAFExtendedWebElement("advice").click();
+			new QAFExtendedWebElement("adviceMenuChoice").click();
+		
+
+			/*
+			 * Map<String, Object> params45 = new HashMap<>(); params45.put("content",
+			 * "Cancel"); //params45.put("timeout", "30"); params45.put("threshold", "90");
+			 * params45.put("scrolling", "scroll"); params45.put("next",
+			 * "SWIPE=(50%,85%),(50%,55%)");
+			 * DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params45);
+			 */
+			
+			/*
+			 * for (int i = 0; i < 2; i++) { Map<String, Object> params1 = new HashMap<>();
+			 * params1.put("start", "50%,75%"); params1.put("end", "50%,35%");
+			 * params1.put("duration", "0"); Object result1 =
+			 * DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params1); }
+			 */
 
 			/*
 			 * Map<String, Object> params7 = new HashMap<>(); params7.put("content",
@@ -164,13 +188,14 @@ public class AdviceStepDefs {
 			 * "SWIPE=(50%,85%),(50%,55%)");
 			 * DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params7);
 			 */
-			Map<String, Object> params6 = new HashMap<>();
-			params6.put("label", "Cancel");
-			params6.put("scrolling", "scroll");
-			params6.put("next", "SWIPE=(50%,85%),(50%,55%)");
-
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params6);
-
+			/*
+			 * Map<String, Object> params6 = new HashMap<>(); params6.put("label",
+			 * "Cancel"); //params6.put("scrolling", "scroll"); params6.put("timeout",
+			 * "30"); params6.put("next", "SWIPE=(50%,85%),(50%,55%)");
+			 * 
+			 * DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click",
+			 * params6);
+			 */
 			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
 		} else {
