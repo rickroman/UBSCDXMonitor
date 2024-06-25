@@ -52,7 +52,7 @@ public class ContactAdvisor extends UBSScreen {
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
 
         Map<String, Object> params3 = new HashMap<>();
-        params3.put("content", "toll free");
+        params3.put("content", "1096");
         params3.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
         
