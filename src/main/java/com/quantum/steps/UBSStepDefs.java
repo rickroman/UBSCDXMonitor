@@ -87,6 +87,76 @@ public class UBSStepDefs {
 		}
 
 	}
+	
+	@Then("^I Clear UBS Cache$")
+	public static void clearAdvantageCache() {
+		
+		
+		
+		launchApp("name", "Settings");
+		
+		Map<String, Object> params22 = new HashMap<>();
+		params22.put("content", "App info");
+		params22.put("source", "camera");
+		params22.put("timeout", "20");
+		params22.put("threshold", "100");
+		boolean checkPointResult = checkPointTextVisual(params22);
+		
+		if (checkPointResult) {
+			
+			click("settings.search.ubsLink");
+			
+		} else {
+		
+		Map<String, Object> params2 = new HashMap<>();
+		params2.put("content", "Samsung account");
+		params2.put("source", "camera");
+		params2.put("timeout", "30");
+		params2.put("threshold", "100");
+		Object result = checkPointTextVisual(params2);
+		
+		click("settings.search");
+		
+		Map<String, Object> params = new HashMap<>();
+		params.put("label", "Search");
+		params.put("text", "UBS");
+		params.put("timeout", "20");
+		params.put("threshold", "90");
+		Object result2 = DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params);
+		
+		click("settings.search.ubsLink");
+		
+		}
+		
+		
+		Map<String, Object> params3 = new HashMap<>();
+		params3.put("content", "Storage");
+		params3.put("scrolling", "scroll");
+		params3.put("next", "SWIPE=(50%,65%),(50%,35%)");
+		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+		
+		
+		
+		
+		Map<String, Object> params33 = new HashMap<>();
+		params33.put("label", "Storage");
+		params33.put("timeout", "30");
+		params33.put("threshold", "90");
+		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params33);
+		
+		
+		
+		Map<String, Object> params4 = new HashMap<>();
+		params4.put("content", "Cache");
+		params4.put("scrolling", "scroll");
+		params4.put("next", "SWIPE=(50%,65%),(50%,35%)");
+		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params4);
+		
+		click("settings.ubs.cache");
+		
+		//DeviceUtils.closeApp("name", "Settings");
+
+	}
 
 	// public String os = new QAFExtendedWebElement().getDescription();
 
