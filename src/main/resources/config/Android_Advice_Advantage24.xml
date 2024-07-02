@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Android Advice Advantage" verbose="0" parallel="tests" thread-count="2">
+<suite name="Android Advice Advantage" verbose="0" thread-count="2">
     <listeners>
         <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
     </listeners>
@@ -13,7 +13,7 @@
 
 
     <test name="Android Advice Advantage 1" enabled="true">
-    	 <parameter name="driver.capabilities.platformName" value="NEWandroid"></parameter>
+    	 <parameter name="driver.capabilities.platformName" value="android"></parameter>
         <parameter name="driver.capabilities.deviceName" value="R3CX10538HV"/>
         <parameter name="env.resources" value="src/main/resources/android"/>
 
