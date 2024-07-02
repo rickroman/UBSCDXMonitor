@@ -1,7 +1,9 @@
 package com.quantum.utils;
 
 
+import static com.quantum.utils.QAFDriverUtils.checkPointTextVisual;
 import static com.quantum.utils.QAFDriverUtils.click;
+import static com.quantum.utils.QAFDriverUtils.launchApp;
 import static com.quantum.utils.QAFDriverUtils.setValue;
 
 import java.util.HashMap;
@@ -9,6 +11,8 @@ import java.util.Map;
 
 import com.qmetry.qaf.automation.step.CommonStep;
 import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
+
+import cucumber.api.java.en.Then;
 
 public class UBSCommonSteps {
 	
@@ -91,6 +95,8 @@ public class UBSCommonSteps {
 		CommonStep.waitForVisible("main.sign.out");
 	}
 
+	
+	
 	public static void navigateToHome() {
 		click("home");
 	}

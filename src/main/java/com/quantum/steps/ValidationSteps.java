@@ -26,7 +26,7 @@ public class ValidationSteps {
 		String model = DeviceUtils.getDeviceProperty("model");
 		
 		
-		if (model.equalsIgnoreCase("Galaxy S22 Ultra")|| model.equalsIgnoreCase("Galaxy S24 Ultra")) {
+		if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 			
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "cash available");
