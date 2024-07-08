@@ -74,9 +74,9 @@ public class BankingServices extends UBSScreen {
 		navigateToBankingService();
 
 		// pay bills
-		if (model.equalsIgnoreCase("Galaxy S22 Ultra") || model.equalsIgnoreCase("Galaxy S24 Ultra")) {
+		if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 			Map<String, Object> params3 = new HashMap<>();
-			params3.put("label", "Pay Bills");
+			params3.put("label", "Pay a Bill");
 			params3.put("timeout", "30");
 			params3.put("threshold", "90");
 			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
