@@ -177,9 +177,7 @@ public class UBSStepDefs {
 //        if(UBSUtils.getModel().equals("iphone")) {
 //
 //
-//            try { DeviceUtils.closeApp("UBS", "name");
-//            }catch (Exception e){ System.out.println("app was not open"); }
-//            DeviceUtils.startApp("UBS", "name");
+//          
 //
 //
 //        }else {
