@@ -166,5 +166,6 @@ public class Profile extends UBSScreen {
 		}
         //new QAFExtendedWebElement("main.profile").click();
         //DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
+        new QAFExtendedWebElement("home").click();
     }
 }
