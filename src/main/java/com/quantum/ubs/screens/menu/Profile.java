@@ -159,11 +159,7 @@ public class Profile extends UBSScreen {
 			Thread.sleep(4000);
 		} catch (InterruptedException e) {
 		}
-        new QAFExtendedWebElement("ipad.setttings.close").click();
-        try {
-			Thread.sleep(4000);
-		} catch (InterruptedException e) {
-		}
+       
         //new QAFExtendedWebElement("main.profile").click();
         //DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
         //new QAFExtendedWebElement("home").click();
