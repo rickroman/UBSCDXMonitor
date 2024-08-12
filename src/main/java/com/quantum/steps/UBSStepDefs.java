@@ -87,74 +87,66 @@ public class UBSStepDefs {
 		}
 
 	}
-	
+
 	@Then("^I Clear UBS Cache$")
 	public static void clearAdvantageCache() {
-		
-		
-		
+
 		launchApp("name", "Settings");
-		
+
 		Map<String, Object> params22 = new HashMap<>();
 		params22.put("content", "App info");
 		params22.put("source", "camera");
 		params22.put("timeout", "20");
 		params22.put("threshold", "100");
 		boolean checkPointResult = checkPointTextVisual(params22);
-		
+
 		if (checkPointResult) {
-			
+
 			click("settings.search.ubsLink");
-			
+
 		} else {
-		
-		Map<String, Object> params2 = new HashMap<>();
-		params2.put("content", "Samsung account");
-		params2.put("source", "camera");
-		params2.put("timeout", "30");
-		params2.put("threshold", "100");
-		Object result = checkPointTextVisual(params2);
-		
-		click("settings.search");
-		
-		Map<String, Object> params = new HashMap<>();
-		params.put("label", "Search");
-		params.put("text", "UBS");
-		params.put("timeout", "20");
-		params.put("threshold", "90");
-		Object result2 = DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params);
-		
-		click("settings.search.ubsLink");
-		
+
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "Samsung account");
+			params2.put("source", "camera");
+			params2.put("timeout", "30");
+			params2.put("threshold", "100");
+			Object result = checkPointTextVisual(params2);
+
+			click("settings.search");
+
+			Map<String, Object> params = new HashMap<>();
+			params.put("label", "Search");
+			params.put("text", "UBS");
+			params.put("timeout", "20");
+			params.put("threshold", "90");
+			Object result2 = DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params);
+
+			click("settings.search.ubsLink");
+
 		}
-		
-		
+
 		Map<String, Object> params3 = new HashMap<>();
 		params3.put("content", "Storage");
 		params3.put("scrolling", "scroll");
 		params3.put("next", "SWIPE=(50%,65%),(50%,35%)");
 		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
-		
-		
-		
-		
+
 		Map<String, Object> params33 = new HashMap<>();
 		params33.put("label", "Storage");
 		params33.put("timeout", "30");
 		params33.put("threshold", "90");
 		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params33);
-		
-		
-		
+
 		Map<String, Object> params4 = new HashMap<>();
 		params4.put("content", "Cache");
 		params4.put("scrolling", "scroll");
 		params4.put("next", "SWIPE=(50%,65%),(50%,35%)");
 		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params4);
-		
+
 		click("settings.ubs.cache");
-		
-		//DeviceUtils.closeApp("name", "Settings");
+
+		// DeviceUtils.closeApp("name", "Settings");
 
 	}
 
@@ -243,7 +235,7 @@ public class UBSStepDefs {
 
 			UBSCommonSteps.login(securedUsername, securedPassword);
 
-			//UBSUtils.declineFaceID();
+			// UBSUtils.declineFaceID();
 			// Assert Home Screen is displayed
 			CommonStep.assertPresent("main.net.balance");
 
@@ -273,8 +265,8 @@ public class UBSStepDefs {
 //            // 2 validations of home page loading
 //
 			UBSUtils.declineFaceID();
-			//UBSUtils.clearImportantNotice();
-			//UBSUtils.declineTaxDocs();
+			// UBSUtils.clearImportantNotice();
+			// UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		} else if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 
@@ -319,8 +311,8 @@ public class UBSStepDefs {
 
 			new QAFExtendedWebElement("login.signin.btn").click();
 			UBSUtils.declineFaceID();
-			//UBSUtils.clearImportantNotice();
-			//UBSUtils.declineTaxDocs();
+			// UBSUtils.clearImportantNotice();
+			// UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		} else {
 			// enter credentials
@@ -366,8 +358,8 @@ public class UBSStepDefs {
 			new QAFExtendedWebElement("login.signin.btn").click();
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
-			//UBSUtils.clearImportantNotice();
-			//UBSUtils.declineTaxDocs();
+			// UBSUtils.clearImportantNotice();
+			// UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		}
 
@@ -375,7 +367,6 @@ public class UBSStepDefs {
 
 	@When("debug_Login to CDX")
 	public void debugLoginCDX() {
-
 
 		new QAFExtendedWebElement("field.username").sendKeys("cdx07");
 
@@ -577,7 +568,6 @@ public class UBSStepDefs {
 				params2.put("scrolling", "scroll");
 				params2.put("next", "SWIPE=(50%,85%),(50%,55%)");
 				params2.put("threshold", "90");
-				
 
 				Object result2 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
@@ -725,8 +715,6 @@ public class UBSStepDefs {
 
 			scrollUp("learn more about your accounts");
 
-
-
 		} else {
 
 		}
@@ -744,36 +732,30 @@ public class UBSStepDefs {
 
 			// Click on Activity option from popup
 			click("accounts.activity");
-			
+
 			try {
-	            Thread.sleep(7000);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
+				Thread.sleep(7000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 
 			// Open Select Activities
-			//click("activity.filterAccounts");
-			
+			// click("activity.filterAccounts");
+
 			Map<String, Object> params45 = new HashMap<>();
 			params45.put("label", "PUBLIC:FilterAccountsiGalaxyS24.png");
 			params45.put("timeout", "10");
 			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params45);
-			
-			
-			
-			
+
 			try {
-				
-			
-				
+
 				Map<String, Object> params2 = new HashMap<>();
 				params2.put("content", "Select all");
 				params2.put("source", "camera");
 				params2.put("timeout", "30");
 				params2.put("threshold", "100");
 				boolean isPresent = checkPointTextVisual(params2);
-				
-				
+
 				if (isPresent) {
 
 					// Select accounts
@@ -783,24 +765,24 @@ public class UBSStepDefs {
 			} catch (Exception e) {
 
 			}
-			
+
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "Clear all");
 			params2.put("source", "camera");
 			params2.put("timeout", "30");
 			params2.put("threshold", "100");
 			boolean isPresent = checkPointTextVisual(params2);
-		
+
 			if (isPresent) {
-			click("activity.apply");
+				click("activity.apply");
 			}
-			
+
 			try {
-	            Thread.sleep(7000);
-	        } catch (InterruptedException e) {
-	            e.printStackTrace();
-	        }
-			
+				Thread.sleep(7000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+
 			// Click on First Activity Displayed
 			click("android.activity.first");
 
@@ -818,15 +800,14 @@ public class UBSStepDefs {
 			click("android.activity.back");
 
 			// Click on Filter button
-		
+
 			Map<String, Object> params4 = new HashMap<>();
 			params4.put("label", "PUBLIC:FilterAccountsiGalaxyS24.png");
 			params4.put("timeout", "10");
 			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
-			
 
 			// Click On Year to Date option
-			//click("ytd.android");
+			// click("ytd.android");
 
 			// Click on Apply Button
 			click("filter.apply");
@@ -853,87 +834,83 @@ public class UBSStepDefs {
 			genericOptions1.add("natural-language=true");
 			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params6);
 		} else if (model.equalsIgnoreCase("iPhone-15 Pro Max")) {
-			
-			
+
 			// Click on Account Tab in bottom Navigation Bar
-						click("iphone.main.accounts");
+			click("iphone.main.accounts");
 
-						// Click on Activity option from popup
-						click("accounts.activity");
+			// Click on Activity option from popup
+			click("accounts.activity");
 
-						
-						// Open Select Activities
-						//click("activity.filterAccounts");
-						
-						 try {
-					            Thread.sleep(7000);
-					        } catch (InterruptedException e) {
-					            e.printStackTrace();
-					        }
-						
-						Map<String, Object> params = new HashMap<>();
-						params.put("label", "PUBLIC:FilterAccountsiPhone.png");
-						params.put("timeout", "60");
-						DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
-						
-						
-						//PUBLIC:FilterAccountsiPhone.png
+			// Open Select Activities
+			// click("activity.filterAccounts");
 
-						try {
-							
-							Map<String, Object> params2 = new HashMap<>();
-							params2.put("content", "Select all");
-							params2.put("source", "camera");
-							params2.put("timeout", "15");
-							params2.put("threshold", "100");
-							boolean isPresent = checkPointTextVisual(params2);
-							
-							
-							if (isPresent) {
+			try {
+				Thread.sleep(7000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 
-								// Select accounts
-								click("activity.selectAll");
+			Map<String, Object> params = new HashMap<>();
+			params.put("label", "PUBLIC:FilterAccountsiPhone.png");
+			params.put("timeout", "60");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
 
-							}
+			// PUBLIC:FilterAccountsiPhone.png
 
-							click("activity.apply");
-						} catch (Exception e) {
+			try {
 
-						}
-			
-						// Click on First Activity Displayed
-						 click("iphone.activity.first");
+				Map<String, Object> params2 = new HashMap<>();
+				params2.put("content", "Select all");
+				params2.put("source", "camera");
+				params2.put("timeout", "15");
+				params2.put("threshold", "100");
+				boolean isPresent = checkPointTextVisual(params2);
 
-						// Get Activity Amount text
-						String activityAmount = getText("activity.amount");
+				if (isPresent) {
 
-						// Validate the amount is well formatted.
-						boolean isAmountFormated = UBSUtils.validateAmount(activityAmount);
+					// Select accounts
+					click("activity.selectAll");
 
-						// Assert the isAmountFormatted is well formatted.
-						assertTrue(isAmountFormated,
-								"Activity amount is not in correct format $x,xxx.xx. Amount displayed : " + activityAmount);
+				}
 
-						// Navigate back to home screen
-						click("iphone.activity.back");
+				click("activity.apply");
+			} catch (Exception e) {
 
-						// Click on Filter button
-						click("filter.btn");
+			}
 
-						// Click On Year to Date option
-						click("ytd.iphone");
+			// Click on First Activity Displayed
+			click("iphone.activity.first");
 
-						// Click on Apply Button
-						click("filter.apply");
+			// Get Activity Amount text
+			String activityAmount = getText("activity.amount");
 
-						// Assert Activity screen is displayed
-						CommonStep.assertPresent("filter.btn");
+			// Validate the amount is well formatted.
+			boolean isAmountFormated = UBSUtils.validateAmount(activityAmount);
 
-						// Click on Home tab in the bottom navigationbar
-						click("home");
+			// Assert the isAmountFormatted is well formatted.
+			assertTrue(isAmountFormated,
+					"Activity amount is not in correct format $x,xxx.xx. Amount displayed : " + activityAmount);
 
-						// Assert HOme Page is displayed
-						CommonStep.assertPresent("main.net.balance");
+			// Navigate back to home screen
+			click("iphone.activity.back");
+
+			// Click on Filter button
+			click("filter.btn");
+
+			// Click On Year to Date option
+			click("ytd.iphone");
+
+			// Click on Apply Button
+			click("filter.apply");
+
+			// Assert Activity screen is displayed
+			CommonStep.assertPresent("filter.btn");
+
+			// Click on Home tab in the bottom navigationbar
+			click("home");
+
+			// Assert HOme Page is displayed
+			CommonStep.assertPresent("main.net.balance");
 
 		} else {
 
@@ -945,18 +922,17 @@ public class UBSStepDefs {
 
 			click("ipad.activity.filterAccounts");
 			// Open Select Activities
-			//click("activity.filterAccounts");
+			// click("activity.filterAccounts");
 
 			try {
-				
+
 				Map<String, Object> params2 = new HashMap<>();
 				params2.put("content", "Select all");
 				params2.put("source", "camera");
 				params2.put("timeout", "30");
 				params2.put("threshold", "100");
 				boolean isPresent = checkPointTextVisual(params2);
-				
-				
+
 				if (isPresent) {
 
 					// Select accounts
@@ -969,7 +945,7 @@ public class UBSStepDefs {
 
 			}
 			// Click on First Activity Displayed
-			 click("ipad.activity.first");
+			click("ipad.activity.first");
 
 			// Get Activity Amount text
 			String activityAmount = getText("activity.amount");
