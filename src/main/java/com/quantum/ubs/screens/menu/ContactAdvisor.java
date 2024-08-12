@@ -85,6 +85,7 @@ public class ContactAdvisor extends UBSScreen {
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
         
         new QAFExtendedWebElement("close").click();
+        new QAFExtendedWebElement("home").click();
         UBSUtils.validateShortHomePage();
     }
 

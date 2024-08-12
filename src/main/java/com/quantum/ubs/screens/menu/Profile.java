@@ -150,8 +150,21 @@ public class Profile extends UBSScreen {
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params1);
         new QAFExtendedWebElement("ipad.card.security").click();
         new QAFExtendedWebElement("profile.nocard").isDisplayed();
+        try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+		}
         new QAFExtendedWebElement("ipad.setttings.close").click();
-        new QAFExtendedWebElement("main.profile").click();
-        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
+        try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+		}
+        new QAFExtendedWebElement("ipad.setttings.close").click();
+        try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+		}
+        //new QAFExtendedWebElement("main.profile").click();
+        //DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
     }
 }
