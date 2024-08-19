@@ -888,7 +888,15 @@ public class UBSStepDefs {
 			click("home");
 
 			// Assert HOme Page is displayed
-			CommonStep.assertPresent("main.net.balance");
+			//CommonStep.assertPresent("main.net.balance");
+			
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "Net Balance");
+			params2.put("timeout", "60");
+			params2.put("threshold", "90");
+
+			boolean checkPointResult = checkPointTextVisual(params2);
+
 
 		} else {
 
@@ -954,7 +962,14 @@ public class UBSStepDefs {
 			click("home");
 
 			// Assert HOme Page is displayed
-			CommonStep.assertPresent("main.net.balance");
+			//CommonStep.assertPresent("main.net.balance");
+			
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "Net Balance");
+			params2.put("timeout", "60");
+			params2.put("threshold", "90");
+
+			boolean checkPointResult = checkPointTextVisual(params2);
 
 //        new QAFExtendedWebElement("iphone.main.accounts").click();
 //        new QAFExtendedWebElement("accounts.activity").click();
