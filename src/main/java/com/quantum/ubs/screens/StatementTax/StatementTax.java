@@ -149,6 +149,9 @@ public class StatementTax extends UBSScreen {
 			e.printStackTrace();
 		}
 		
+		
+		// WE ENCOUNTERED an ERROR
+		
 		CommonStep.click("statementtax.back");
 
 		try {

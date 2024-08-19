@@ -25,6 +25,8 @@ public class UBSUtils {
 		params2.put("threshold", "90");
 
 		boolean checkPointResult = checkPointTextVisual(params2);
+		
+		//net.balance
 
 		try {
 			Thread.sleep(4000);
@@ -196,7 +198,15 @@ public class UBSUtils {
 
 			boolean checkPointResult = checkPointTextVisual(params2);
 		} else {
-			new QAFExtendedWebElement("main.net.balance").isDisplayed();
+			//new QAFExtendedWebElement("main.net.balance").isDisplayed();
+			
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "Net Balance");
+			params2.put("timeout", "60");
+			params2.put("threshold", "90");
+
+			boolean checkPointResult = checkPointTextVisual(params2);
+			
 		}
 
 	}

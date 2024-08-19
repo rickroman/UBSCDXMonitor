@@ -233,35 +233,15 @@ public class UBSStepDefs {
 
 			UBSCommonSteps.login(securedUsername, securedPassword);
 
-			// UBSUtils.declineFaceID();
-			// Assert Home Screen is displayed
-			CommonStep.assertPresent("main.net.balance");
+		
+			
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "Net Balance");
+			params2.put("timeout", "60");
+			params2.put("threshold", "90");
 
-//            try {
-//                new QAFExtendedWebElement("iphone.signin").click();
-//            }catch (Exception e){}
-//
-//            //declare the Map for script parameters
-//            Map<String, Object> params = new HashMap<>();
-//                params.put("text", Secured_uname);
-//                params.put("by", "xpath");
-//                params.put("value", "//*[@value=\"Username\"]");
-//            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params);
-//
-//            new QAFExtendedWebElement("login.next.iphone").click();
-//            new QAFExtendedWebElement("field.password.iphone").click();
-//
-//
-//            Map<String, Object> params4 = new HashMap<>();
-//            params4.put("text", Secured_pw);
-//            params4.put("by", "xpath");
-//            params4.put("value", "//XCUIElementTypeSecureTextField");
-//            DeviceUtils.getQAFDriver().executeScript("mobile:application.element:set", params4);
-//
-//
-//            new QAFExtendedWebElement("login.signin.btn").click();
-//            // 2 validations of home page loading
-//
+			boolean checkPointResult = checkPointTextVisual(params2);
+
 			UBSUtils.declineFaceID();
 			// UBSUtils.clearImportantNotice();
 			// UBSUtils.declineTaxDocs();
