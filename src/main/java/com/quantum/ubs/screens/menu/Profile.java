@@ -32,10 +32,9 @@ public class Profile extends UBSScreen {
         click("profile.my.information");
         
         Map<String, Object> params2 = new HashMap<>();
-		params2.put("content", "ubs.com");
-		params2.put("scrolling", "scroll");
-		params2.put("next", "SWIPE=(50%,50%),(50%,30%)");
-		params2.put("maxscroll", "11");
+		params2.put("content", "up to date");
+		params2.put("timeout", "30");
+		params2.put("threshold", "90");
 
 		boolean isPresent = checkPointTextVisual(params2);
 
@@ -54,11 +53,9 @@ public class Profile extends UBSScreen {
        // isPresent = CommonStep.verifyVisible("profile.iphone.advice");
         
         Map<String, Object> params24 = new HashMap<>();
-		params24.put("content", "ubs.com");
-		params24.put("scrolling", "scroll");
-		params24.put("next", "SWIPE=(50%,50%),(50%,30%)");
-		params24.put("maxscroll", "11");
-
+		params24.put("content", "Wealth Management");
+		params24.put("timeout", "30");
+		params24.put("threshold", "90");
 		 isPresent = checkPointTextVisual(params24);
 		
         assertTrue(isPresent,"UBS Advisory team is not present upon navigating to Menu > Relationship > UBS Teams.");
