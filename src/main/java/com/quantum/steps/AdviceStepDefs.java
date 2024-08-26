@@ -157,11 +157,11 @@ public class AdviceStepDefs {
 				e.printStackTrace();
 			}
 			
-			Map<String, Object> params3 = new HashMap<>();
-			params3.put("label", "Cancel");
-			params3.put("scrolling", "scroll");
-			params3.put("next", "SWIPE=(50%,65%),(50%,35%)");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
+			Map<String, Object> params31 = new HashMap<>();
+			params31.put("label", "Cancel");
+			params31.put("scrolling", "scroll");
+			params31.put("next", "SWIPE=(50%,65%),(50%,35%)");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params31);
 			
 			//new QAFExtendedWebElement("advice.bottomCancel").click();
 			new QAFExtendedWebElement("explore.advice").isDisplayed();
