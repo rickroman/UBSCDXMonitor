@@ -29,8 +29,8 @@ public class BankingServices extends UBSScreen {
 		click("glance");
 
 		Map<String, Object> params2 = new HashMap<>();
-		params2.put("content", "UBS Core Savings");
-		params2.put("timeout","30");
+		params2.put("content", "Recent Cash");
+		params2.put("timeout","50");
 		params2.put("threshold", "90");
 		//params2.put("scrolling", "scroll");
 		//params2.put("next", "SWIPE=(50%,75%),(50%,55%)");
@@ -111,6 +111,8 @@ public class BankingServices extends UBSScreen {
 
 		// Navigate to glance
 		navigateToGlance();
+		
+		
 
 		String balance = getText("glance.value");
 		boolean isBalanceFormatted = UBSUtils.validateAmount(balance);
@@ -166,6 +168,12 @@ public class BankingServices extends UBSScreen {
 
 		// Navigate to glance
 		navigateToGlance();
+		
+		Map<String, Object> params2 = new HashMap<>();
+		params2.put("content", "Recent Cash");
+		params2.put("timeout", "45");
+		params2.put("threshold", "90");
+		boolean isPresent = checkPointTextVisual(params2);
 
 		String balance = getText("glance.value");
 		boolean isBalanceFormatted = UBSUtils.validateAmount(balance);
