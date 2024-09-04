@@ -115,8 +115,22 @@ public class BankingServices extends UBSScreen {
 		if (!isIPhone())
 			return;
 
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		Map<String, Object> params2 = new HashMap<>();
+		params2.put("content", "UBS Cash");
+		params2.put("timeout","50");
+		params2.put("threshold", "90");
+		//params2.put("scrolling", "scroll");
+		//params2.put("next", "SWIPE=(50%,75%),(50%,55%)");
+		boolean isPresent3 = checkPointTextVisual(params2);
 		// Navigate to glance
 		navigateToGlance();
+		
 		
 		
 
@@ -174,6 +188,14 @@ public class BankingServices extends UBSScreen {
 
 		// Navigate to glance
 		navigateToGlance();
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		
 		
 		Map<String, Object> params22 = new HashMap<>();
 		params22.put("content", "UBS Cash");
@@ -266,6 +288,22 @@ public class BankingServices extends UBSScreen {
 			e.printStackTrace();
 		}
 
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
+		Map<String, Object> params2 = new HashMap<>();
+		params2.put("content", "UBS Cash");
+		params2.put("timeout","50");
+		params2.put("threshold", "90");
+		//params2.put("scrolling", "scroll");
+		//params2.put("next", "SWIPE=(50%,75%),(50%,55%)");
+		boolean isPresent4 = checkPointTextVisual(params2);
+		
+		
+		// Navigate to glance
 		// At a glance
 		new QAFExtendedWebElement("glance.recent").isDisplayed();
 		String a = new QAFExtendedWebElement("glance.value").getText();
@@ -299,10 +337,10 @@ public class BankingServices extends UBSScreen {
 
 		// pay bills
 		new QAFExtendedWebElement("Pay Bills").click();
-		Map<String, Object> params2 = new HashMap<>();
-		params2.put("content", "Make a Payment");
-		params2.put("timeout", 20);
-		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
+		Map<String, Object> params6 = new HashMap<>();
+		params6.put("content", "Make a Payment");
+		params6.put("timeout", 20);
+		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params6);
 
 		// pay credit card
 		new QAFExtendedWebElement("ipad.credit").click();
