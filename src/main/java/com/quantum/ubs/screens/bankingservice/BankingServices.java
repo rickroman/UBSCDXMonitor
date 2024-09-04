@@ -29,7 +29,7 @@ public class BankingServices extends UBSScreen {
 		click("glance");
 
 		Map<String, Object> params2 = new HashMap<>();
-		params2.put("content", "Recent Cash");
+		params2.put("content", "UBS Cash");
 		params2.put("timeout","50");
 		params2.put("threshold", "90");
 		//params2.put("scrolling", "scroll");
@@ -170,7 +170,7 @@ public class BankingServices extends UBSScreen {
 		navigateToGlance();
 		
 		Map<String, Object> params22 = new HashMap<>();
-		params22.put("content", "Recent Cash");
+		params22.put("content", "UBS Cash");
 		params22.put("timeout", "45");
 		params22.put("threshold", "90");
 		boolean isPresent = checkPointTextVisual(params22);
