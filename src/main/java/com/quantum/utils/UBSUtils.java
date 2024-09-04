@@ -183,7 +183,7 @@ public class UBSUtils {
 		String model = DeviceUtils.getDeviceProperty("model");
 		if (model.equalsIgnoreCase("Galaxy S22 Ultra")||model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 5; i++) {
 				Map<String, Object> params1 = new HashMap<>();
 				params1.put("start", ",50%,15%");
 				params1.put("end", "50%,85%");
@@ -199,6 +199,14 @@ public class UBSUtils {
 			boolean checkPointResult = checkPointTextVisual(params2);
 		} else {
 			//new QAFExtendedWebElement("main.net.balance").isDisplayed();
+			
+			for (int i = 0; i < 5; i++) {
+				Map<String, Object> params1 = new HashMap<>();
+				params1.put("start", ",50%,15%");
+				params1.put("end", "50%,85%");
+				params1.put("duration", "0");
+				Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params1);
+			}
 			
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "Net Balance");
