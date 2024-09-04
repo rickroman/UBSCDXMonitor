@@ -169,11 +169,11 @@ public class BankingServices extends UBSScreen {
 		// Navigate to glance
 		navigateToGlance();
 		
-		Map<String, Object> params2 = new HashMap<>();
-		params2.put("content", "Recent Cash");
-		params2.put("timeout", "45");
-		params2.put("threshold", "90");
-		boolean isPresent = checkPointTextVisual(params2);
+		Map<String, Object> params22 = new HashMap<>();
+		params22.put("content", "Recent Cash");
+		params22.put("timeout", "45");
+		params22.put("threshold", "90");
+		boolean isPresent = checkPointTextVisual(params22);
 
 		String balance = getText("glance.value");
 		boolean isBalanceFormatted = UBSUtils.validateAmount(balance);
@@ -198,7 +198,7 @@ public class BankingServices extends UBSScreen {
 		params2.put("timeout", "30");
 		params2.put("threshold", "90");
 
-		boolean isPresent = checkPointTextVisual(params2);
+		boolean isPresent2 = checkPointTextVisual(params2);
 
 		assertTrue(isPresent,
 				"Transferring out is not present upon move to Banking Service > Transfer Fund > Scheduled Transfers.");
@@ -212,11 +212,12 @@ public class BankingServices extends UBSScreen {
 		navigateToBankingService();
 
 		// pay credit card
-		Map<String, Object> params22 = new HashMap<>();
-		params22.put("content", "Take care of UBS credit card payments");
-		params22.put("timeout", "30");
-		params22.put("threshold", "90");
+		Map<String, Object> params223 = new HashMap<>();
+		params223.put("content", "Take care of UBS credit card payments");
+		params223.put("timeout", "30");
+		params223.put("threshold", "90");
 
+		boolean isPresent3 = checkPointTextVisual(params223);
 		//click("pay.ubs");
 		
 		
