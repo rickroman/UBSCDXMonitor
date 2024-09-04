@@ -27,6 +27,12 @@ public class BankingServices extends UBSScreen {
 
 		// At a glance
 		click("glance");
+		
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
 		Map<String, Object> params2 = new HashMap<>();
 		params2.put("content", "UBS Cash");
