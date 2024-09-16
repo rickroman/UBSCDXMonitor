@@ -39,7 +39,7 @@ public class UBSCommonSteps {
 			params.put("label.offset", "3%");
 			Object result = DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params);
 
-			new QAFExtendedWebElement("field.password").click();
+			//new QAFExtendedWebElement("field.password").click();
 			
 			  Map<String, Object> params4 = new HashMap<>(); 
 			  params4.put("label", "Password"); params4.put("text", password); 
