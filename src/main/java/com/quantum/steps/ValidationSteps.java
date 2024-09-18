@@ -28,11 +28,17 @@ public class ValidationSteps {
 		
 		if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 			
+			Map<String, Object> params = new HashMap<>();
+			params.put("start", "20%,60%");
+			params.put("end", "20%,30%");
+			params.put("duration", "3");
+			Object res = DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params);
+			
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "cash available");
 			params2.put("scrolling", "scroll");
 			params2.put("next", "SWIPE=(50%,85%),(50%,30%)");
-			//params2.put("maxscroll", 10);
+			params2.put("maxscroll", 12);
 			Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 	        
 			
