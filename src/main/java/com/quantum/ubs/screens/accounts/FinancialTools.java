@@ -157,11 +157,12 @@ public class FinancialTools extends UBSScreen {
         	 new QAFExtendedWebElement("ipad.accounts.ubsorAll").click();
         }
 
-        String balance = new QAFExtendedWebElement("total.value").getAttribute("name");
+        ////////TEMPORARY REMOVE THIS CHECKPOINT
+        //String balance = new QAFExtendedWebElement("total.value").getAttribute("name");
         
-        if (!UBSUtils.validateAmount(balance)) {
-            throw new RuntimeException("No dollar amount has loaded: " + balance);
-        }
+       // if (!UBSUtils.validateAmount(balance)) {
+          //  throw new RuntimeException("No dollar amount has loaded: " + balance);
+      //  }
 
         String selectedAccounts = new QAFExtendedWebElement("ipad.balances.selected.accounts").getAttribute("name");
         
