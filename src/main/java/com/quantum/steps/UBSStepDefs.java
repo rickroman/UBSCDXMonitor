@@ -166,13 +166,23 @@ public class UBSStepDefs {
 			}
 
 			launchApp("identifier", "com.ubs.clientMobile");
-		} else {
+			CommonStep.assertPresent("login.signin.btn");
+		} else if (UBSUtils.getModel().equals("ipad")) {
+				launchApp("name", "UBS");
+				
+				CommonStep.assertPresent("iPad.signin.btn");
+			} else {
+				
+			
 			launchApp("name", "UBS");
+			CommonStep.assertPresent("login.signin.btn");
+			}
 		}
+		
 
 		// Assert that Login Message is displayed
 
-		CommonStep.assertPresent("login.signin.btn");
+		
 
 //        if(UBSUtils.getModel().equals("iphone")) {
 //
@@ -190,7 +200,8 @@ public class UBSStepDefs {
 //        }
 //        DeviceUtils.getQAFDriver().findElement("login.message").isPresent();
 
-	}
+	
+
 
 	@When("I debug launch CDX")
 	public void debugLaunch_cdx() {
@@ -287,6 +298,7 @@ public class UBSStepDefs {
 			} catch (InterruptedException e) {
 			}
 
+			
 			new QAFExtendedWebElement("login.signin.btn").click();
 			UBSUtils.declineFaceID();
 			// UBSUtils.clearImportantNotice();
@@ -333,7 +345,8 @@ public class UBSStepDefs {
 			DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params4);
 
 			// new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
-			new QAFExtendedWebElement("login.signin.btn").click();
+			
+			new QAFExtendedWebElement("iPad.signin.btn").click();
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
 			// UBSUtils.clearImportantNotice();

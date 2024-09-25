@@ -363,7 +363,7 @@ public class BankingServices extends UBSScreen {
 		new QAFExtendedWebElement("noaccount").isDisplayed();
 
 		// return home
-		new QAFExtendedWebElement("back").click();
+		new QAFExtendedWebElement("profile.back").click();
 		new QAFExtendedWebElement("home").click();
 		Map<String, Object> params13 = new HashMap<>();
 		params13.put("label", "Home");

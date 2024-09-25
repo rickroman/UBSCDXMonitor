@@ -24,7 +24,7 @@ public class Feedback extends UBSScreen {
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
         new QAFExtendedWebElement("feedback.cancel").click();
 
-        new QAFExtendedWebElement("profile.return").click();
+        new QAFExtendedWebElement("profile.back").click();
 
         Map<String, Object> params4 = new HashMap<>();
         params4.put("label", "PUBLIC:monitoring/ipad_home.png");
