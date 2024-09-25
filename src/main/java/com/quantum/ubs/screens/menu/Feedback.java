@@ -9,6 +9,7 @@ import com.quantum.utils.UBSUtils;
 import static com.quantum.utils.QAFDriverUtils.checkPointTextVisual;
 import static org.testng.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -66,7 +67,10 @@ public class Feedback extends UBSScreen {
 
         Map<String, Object> params2 = new HashMap<>();
         params2.put("label", "Feedback");
-        params2.put("timeout", "30");
+        params2.put("timeout", "60");
+        ArrayList genericOptions1 = new ArrayList();
+		genericOptions1.add("natural-language=true");
+		params2.put("ocr", genericOptions1);
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
 
         Map<String, Object> params3 = new HashMap<>();

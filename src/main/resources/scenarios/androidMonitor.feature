@@ -10,9 +10,9 @@ Feature: Monitor production App
     Then check account activity
     Then validate cash at a glance
     And view insights
-    ###Then view market insights
+    ##Then view market insights
     Then validate accounts
-    #Then check milestone
+    Then check milestone
     And validate profile
     Then validate banking services
     And validate relationship
