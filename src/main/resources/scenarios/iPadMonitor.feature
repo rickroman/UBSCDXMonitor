@@ -2,7 +2,6 @@
 Feature: Monitor production App
   #Sample Test Scenario Description
 
-
   @ipad
   Scenario: Login to CDX
     When I switch to native context
