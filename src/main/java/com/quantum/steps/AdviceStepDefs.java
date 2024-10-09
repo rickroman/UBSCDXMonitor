@@ -246,8 +246,16 @@ public class AdviceStepDefs {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-
-			Map<String, Object> params1 = new HashMap<>();
+			
+			Map<String, Object> params7 = new HashMap<>();
+			params7.put("content", "When thinking about risk");
+			params7.put("timeout", "45");
+			params7.put("threshold", "90");
+			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params7);
+			
+			new QAFExtendedWebElement("advice.riskClose").click();
+			
+			/*Map<String, Object> params1 = new HashMap<>();
 			params1.put("label", "PUBLIC:CloseRisk_X.png");
 			params1.put("timeout", "45");
 			params1.put("threshold", "90");
@@ -255,7 +263,7 @@ public class AdviceStepDefs {
 			params1.put("screen.height", "10%");
 			params1.put("screen.width", "100%");
 			params1.put("screen.left", "0%");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params1);
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params1);*/
 
 			Map<String, Object> params3 = new HashMap<>();
 			params3.put("content", "Contact your financial advisor");
