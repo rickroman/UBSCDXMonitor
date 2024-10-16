@@ -59,8 +59,17 @@ public class Settings extends UBSScreen {
         params2.put("label", "Settings");
         params2.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-        new QAFExtendedWebElement("settings.reset").isDisplayed();
+        
+        Map<String, Object> params22 = new HashMap<>();
+        params22.put("content", "Reset Password");
+        params22.put("threshold", "90");
+        params22.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params22);
+        
+        
+        //new QAFExtendedWebElement("settings.reset").isDisplayed();
         new QAFExtendedWebElement("information").click();
+        
         Map<String, Object> params3 = new HashMap<>();
         params3.put("label", "information");
         params3.put("timeout", "30");
