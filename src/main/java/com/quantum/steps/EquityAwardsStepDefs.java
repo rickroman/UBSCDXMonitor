@@ -209,7 +209,16 @@ public class EquityAwardsStepDefs {
 			new QAFExtendedWebElement("cashFlow").click();
 			new QAFExtendedWebElement("know.moves").isDisplayed();
 			new QAFExtendedWebElement("spending").click();
-			new QAFExtendedWebElement("expense.analysis").isDisplayed();
+			
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("content", "Expense Analysis");
+			params1.put("source", "camera");
+			params1.put("timeout", "90");
+			params1.put("threshold", "90");
+			Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
+
+			
+			//new QAFExtendedWebElement("expense.analysis").isDisplayed();
 
 		}
 		new QAFExtendedWebElement("Home").click();

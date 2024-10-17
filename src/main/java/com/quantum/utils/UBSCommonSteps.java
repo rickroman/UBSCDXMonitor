@@ -87,7 +87,9 @@ public class UBSCommonSteps {
 		String model = DeviceUtils.getDeviceProperty("model");
 		if (model.equalsIgnoreCase("iPhone-15 Pro Max")) {
 			click("menu.iphone");
-		} else if(model.equalsIgnoreCase("Galaxy S22 Ultra") || model.equalsIgnoreCase("Galaxy S24 Ultra")) {
+		} else if(model.equalsIgnoreCase("iPhone-16 Pro Max")) {
+			click("menu.iphone");
+		} else if(model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 			click("menu.android");
 		}
 		

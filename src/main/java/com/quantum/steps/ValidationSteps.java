@@ -71,6 +71,13 @@ public class ValidationSteps {
 //                throw new RuntimeException("No dollar amount has loaded: " + a);
 //            }
 
+		} else if(model.equalsIgnoreCase("iPhone-16 Pro Max")) {
+			String glanceAmount = QAFDriverUtils.getText("iphone.cash.glance");
+        	boolean isAmountFormatted = UBSUtils.validateAmount(glanceAmount);
+        	
+        	assertTrue(isAmountFormatted, 
+        			"Amount in a Glance is not in correct format $x,xxx.xx. Amount displayed : " + glanceAmount);
+        	
 		} else {
 
 			Map<String, Object> params2 = new HashMap<>();

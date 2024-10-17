@@ -257,6 +257,26 @@ public class UBSStepDefs {
 			// UBSUtils.clearImportantNotice();
 			// UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
+			
+		} else if (model.equalsIgnoreCase("iPhone-16 Pro Max")) {
+			
+	UBSCommonSteps.login(securedUsername, securedPassword);
+
+		
+			
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "Net Balance");
+			params2.put("timeout", "60");
+			params2.put("threshold", "90");
+
+			boolean checkPointResult = checkPointTextVisual(params2);
+
+			UBSUtils.declineFaceID();
+			// UBSUtils.clearImportantNotice();
+			// UBSUtils.declineTaxDocs();
+			UBSUtils.validateHomePage();
+			
+			
 		} else if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 
 			// enter credentials
@@ -551,7 +571,19 @@ public class UBSStepDefs {
 
 //            DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params2);
 
-		} else if (model.equalsIgnoreCase("Galaxy S22 Ultra") || model.equalsIgnoreCase("Galaxy S24 Ultra")) {
+		} else if (model.equalsIgnoreCase("iPhone-16 Pro Max")) {
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "AS OF");
+			params2.put("scrolling", "scroll");
+			params2.put("next", "SWIPE=(50%,50%),(50%,30%)");
+			params2.put("maxscroll", "18");
+
+			boolean checkPointResult = checkPointTextVisual(params2);
+
+			System.out.println(checkPointResult);
+
+			assertTrue(checkPointResult, "Scroll to 'Market Insights failed");
+		} else if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 
 			try {
 				Map<String, Object> params2 = new HashMap<>();
