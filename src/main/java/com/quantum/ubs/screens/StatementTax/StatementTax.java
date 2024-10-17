@@ -39,7 +39,16 @@ public class StatementTax extends UBSScreen {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		CommonStep.click("statementtax.taxforms");
+		
+		Map<String, Object> params454 = new HashMap<>();
+		params454.put("label", "Tax Forms");
+		params454.put("source", "camera");
+		params454.put("timeout", "20");
+		params454.put("threshold", "90");
+		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params454);
+
+		
+		//CommonStep.click("statementtax.taxforms");
 		
 		try {
 			Thread.sleep(3000);
