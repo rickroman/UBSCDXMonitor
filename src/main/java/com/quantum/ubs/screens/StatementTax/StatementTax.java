@@ -45,6 +45,12 @@ public class StatementTax extends UBSScreen {
 		params454.put("source", "camera");
 		params454.put("timeout", "40");
 		params454.put("threshold", "90");
+		params454.put("label.direction", "left");
+		params454.put("label.offset", "70%");
+		params454.put("screen.top", "12%");
+		params454.put("screen.left", "0%");
+		params454.put("screen.height", "28%");
+		params454.put("screen.width", "100%");
 		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params454);
 
 		
