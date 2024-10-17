@@ -43,7 +43,7 @@ public class StatementTax extends UBSScreen {
 		Map<String, Object> params454 = new HashMap<>();
 		params454.put("label", "Tax Forms");
 		params454.put("source", "camera");
-		params454.put("timeout", "20");
+		params454.put("timeout", "40");
 		params454.put("threshold", "90");
 		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params454);
 
