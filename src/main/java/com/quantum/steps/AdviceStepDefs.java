@@ -293,7 +293,7 @@ public class AdviceStepDefs {
 
 			new QAFExtendedWebElement("home").click();
 
-		} else {
+		} else  {
 
 			System.out.println(DeviceUtils.getCurrentContextHandles());
 
