@@ -856,7 +856,7 @@ public class UBSStepDefs {
 			ArrayList genericOptions1 = new ArrayList();
 			genericOptions1.add("natural-language=true");
 			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params6);
-		} else if (model.equalsIgnoreCase("iPhone-15 Pro Max")) {
+		} else if (model.equalsIgnoreCase("iPhone-15 Pro Max") || model.equalsIgnoreCase("iPhone-16 Pro Max")){
 
 			// Click on Account Tab in bottom Navigation Bar
 			click("iphone.main.accounts");
@@ -949,6 +949,7 @@ public class UBSStepDefs {
 			click("iphone.main.accounts");
 
 			// Click on Activity option from popup
+		
 			click("accounts.activity");
 
 			click("ipad.activity.filterAccounts");
