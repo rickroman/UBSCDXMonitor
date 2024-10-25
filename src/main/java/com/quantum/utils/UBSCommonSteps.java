@@ -91,6 +91,8 @@ public class UBSCommonSteps {
 			click("menu.iphone");
 		} else if(model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 			click("menu.android");
+		} else {
+			click("menu.android");
 		}
 		
 		
