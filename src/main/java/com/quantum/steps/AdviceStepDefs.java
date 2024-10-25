@@ -293,7 +293,7 @@ public class AdviceStepDefs {
 			//PUBLIC:CloseRisk_X_iPhone15.png
 			
 			
-			//new QAFExtendedWebElement("advisor.close").click();
+			new QAFExtendedWebElement("advisor.close").click();
 
 			new QAFExtendedWebElement("home").click();
 			
