@@ -289,7 +289,19 @@ public class AdviceStepDefs {
 			params6.put("threshold", "90");
 			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params6);
 
-			new QAFExtendedWebElement("advisor.close").click();
+			//PUBLIC:CloseRisk_X_iPhone15.png
+			
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("label", "PUBLIC:CloseRisk_X_iPhone15.png");
+			params1.put("timeout", "45");
+			params1.put("threshold", "90");
+			params1.put("screen.top", "7%");
+			params1.put("screen.height", "10%");
+			params1.put("screen.width", "100%");
+			params1.put("screen.left", "0%");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params1);
+			
+			//new QAFExtendedWebElement("advisor.close").click();
 
 			new QAFExtendedWebElement("home").click();
 
