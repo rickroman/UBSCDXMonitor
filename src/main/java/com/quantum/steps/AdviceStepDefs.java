@@ -253,17 +253,17 @@ public class AdviceStepDefs {
 			params7.put("threshold", "90");
 			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params7);
 			
-			new QAFExtendedWebElement("advice.riskClose").click();
+			//new QAFExtendedWebElement("advice.riskClose").click();
 			
-			/*Map<String, Object> params1 = new HashMap<>();
-			params1.put("label", "PUBLIC:CloseRisk_X.png");
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("label", "PUBLIC:CloseRisk_X_GalaxyS23.png");
 			params1.put("timeout", "45");
 			params1.put("threshold", "90");
 			params1.put("screen.top", "7%");
 			params1.put("screen.height", "10%");
 			params1.put("screen.width", "100%");
 			params1.put("screen.left", "0%");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params1);*/
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params1);
 
 			Map<String, Object> params3 = new HashMap<>();
 			params3.put("content", "Contact your financial advisor");
