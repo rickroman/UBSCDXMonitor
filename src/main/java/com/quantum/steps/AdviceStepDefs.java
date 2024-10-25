@@ -291,19 +291,12 @@ public class AdviceStepDefs {
 
 			//PUBLIC:CloseRisk_X_iPhone15.png
 			
-			Map<String, Object> params1 = new HashMap<>();
-			params1.put("label", "PUBLIC:CloseRisk_X_iPhone15.png");
-			params1.put("timeout", "45");
-			params1.put("threshold", "90");
-			params1.put("screen.top", "7%");
-			params1.put("screen.height", "10%");
-			params1.put("screen.width", "100%");
-			params1.put("screen.left", "0%");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params1);
 			
 			//new QAFExtendedWebElement("advisor.close").click();
 
 			new QAFExtendedWebElement("home").click();
+			
+		
 
 		} else  {
 
@@ -328,8 +321,16 @@ public class AdviceStepDefs {
 				e.printStackTrace();
 			}
 
-			new QAFExtendedWebElement("close.Questionnaire").click();
-
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("label", "PUBLIC:CloseRisk_X_iPhone16.png");
+			params1.put("timeout", "45");
+			params1.put("threshold", "90");
+			params1.put("screen.top", "7%");
+			params1.put("screen.height", "10%");
+			params1.put("screen.width", "100%");
+			params1.put("screen.left", "0%");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params1);
+			
 			Map<String, Object> params3 = new HashMap<>();
 			params3.put("content", "Contact your financial advisor");
 			params3.put("scrolling", "scroll");
