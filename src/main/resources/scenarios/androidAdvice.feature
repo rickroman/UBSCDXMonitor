@@ -4,8 +4,8 @@ Feature: Monitor production App
 
   @cdxAdviceAndroid
   Scenario: Advice Advantage
-    When I switch to native context
-    Then I Clear UBS Cache
+    #When I switch to native context
+    #Then I Clear UBS Cache
     Then I launch CDX
     And Advice Login to CDX
     Then Check Advice Section
