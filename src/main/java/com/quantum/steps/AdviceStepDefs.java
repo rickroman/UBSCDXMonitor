@@ -310,7 +310,7 @@ public class AdviceStepDefs {
 			new QAFExtendedWebElement(By.name("Edit Risk Tolerance has popup, link"));
 
 			Map<String, Object> editRisk = new HashMap<>();
-			editRisk.put("label", "Edit Risk");
+			editRisk.put("label", "Edit Risk Tolerance");
 			editRisk.put("threshold", "80");
 			editRisk.put("ignorecase", "nocase");
 			editRisk.put("words", "words");
