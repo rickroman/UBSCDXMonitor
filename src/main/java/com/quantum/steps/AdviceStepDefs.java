@@ -312,6 +312,7 @@ public class AdviceStepDefs {
 			Map<String, Object> editRisk = new HashMap<>();
 			editRisk.put("label", "Edit Risk Tolerance");
 			editRisk.put("threshold", "80");
+			editRisk.put("timeout", "60");
 			editRisk.put("ignorecase", "nocase");
 			editRisk.put("words", "words");
 			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", editRisk);
