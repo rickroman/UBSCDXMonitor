@@ -32,14 +32,23 @@ public class StatementTax extends UBSScreen {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+
 		CommonStep.click("main.statementtax");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+
+		CommonStep.assertVisible("statement.tax.header");
+
+		Map<String, Object> acctNO = new HashMap<>();
+		acctNO.put("content", "UN 91973");
+		acctNO.put("source", "camera");
+		acctNO.put("timeout", "30");
+		acctNO.put("threshold", "100");
+		///////////////////////////////////////////////
+
 		Map<String, Object> params454 = new HashMap<>();
 		params454.put("label", "Tax Forms");
 		params454.put("source", "camera");
@@ -53,42 +62,17 @@ public class StatementTax extends UBSScreen {
 		params454.put("screen.width", "100%");
 		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params454);
 
-		
-		//CommonStep.click("statementtax.taxforms");
-		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-		CommonStep.click("statementtax.AllOf2Accounts");
-		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-		//Error 3-15-24 CommonStep.assertVisible("statementtax.account");
-
-		//CommonStep.assertVisible("statementtax.liqiudity");
-		
-		CommonStep.click("statementtax.back");
-		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
-		CommonStep.assertVisible("statementtax.AllOf2Accounts");
+		// Look for Acct No
+		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", acctNO);
+		// CommonStep.click("statementtax.taxforms");
 
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+
+		// CommonStep.click("statementtax.AllOf2Accounts");
 
 		CommonStep.click("statementtax.back");
 
@@ -97,9 +81,17 @@ public class StatementTax extends UBSScreen {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
+
+		CommonStep.assertVisible("statement.tax.header");
+
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+
 		CommonStep.assertVisible("statementtax.accountstatement");
-		
+
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -107,14 +99,15 @@ public class StatementTax extends UBSScreen {
 		}
 
 		CommonStep.click("statementtax.accountstatement");
-		
+
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 
-		//CommonStep.assertVisible("statementtax.account");
+		// Look for Acct No
+		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", acctNO);
 
 		CommonStep.click("statementtax.back");
 
@@ -124,18 +117,17 @@ public class StatementTax extends UBSScreen {
 			e.printStackTrace();
 		}
 
-		//CommonStep.click("statementtax.ccstatements");
+		// CommonStep.click("statementtax.ccstatements");
 
 		CommonStep.assertVisible("statementtax.houseStateWSummary");
-		
+
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 
-		//CommonStep.click("statementtax.back");
-
+		// CommonStep.click("statementtax.back");
 
 		CommonStep.click("statementtax.houseStateWSummary");
 
@@ -144,7 +136,9 @@ public class StatementTax extends UBSScreen {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		//CommonStep.assertVisible("statementtax.account");
+
+		// Look for Acct No
+		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", acctNO);
 
 		CommonStep.click("statementtax.back");
 
@@ -156,17 +150,16 @@ public class StatementTax extends UBSScreen {
 
 		CommonStep.click("statementtax.houseStaSummary");
 
-		//CommonStep.assertVisible("statementtax.account");
+		// CommonStep.assertVisible("statementtax.account");
 
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		// WE ENCOUNTERED an ERROR
-		
+
 		CommonStep.click("statementtax.back");
 
 		try {
@@ -176,31 +169,23 @@ public class StatementTax extends UBSScreen {
 		}
 
 		CommonStep.assertVisible("statementtax.commodityFX");
-		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
-		CommonStep.click("statementtax.commodityFX");
 
-		//CommonStep.assertVisible("statementtax.account");
-		
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
-		CommonStep.click("statementtax.back");
-
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-
+		/*
+		 * try { Thread.sleep(3000); } catch (InterruptedException e) {
+		 * e.printStackTrace(); }
+		 * 
+		 * CommonStep.click("statementtax.commodityFX");
+		 * 
+		 * //CommonStep.assertVisible("statementtax.account");
+		 * 
+		 * try { Thread.sleep(3000); } catch (InterruptedException e) {
+		 * e.printStackTrace(); }
+		 * 
+		 * CommonStep.click("statementtax.back");
+		 * 
+		 * try { Thread.sleep(3000); } catch (InterruptedException e) {
+		 * e.printStackTrace(); }
+		 */
 		CommonStep.verifyPresent("home");
 
 		try {
@@ -209,7 +194,7 @@ public class StatementTax extends UBSScreen {
 			e.printStackTrace();
 		}
 		CommonStep.click("home");
-		
+
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -258,11 +243,11 @@ public class StatementTax extends UBSScreen {
 			e.printStackTrace();
 		}
 
-		//CommonStep.click("statementtax.ccstatements");
+		// CommonStep.click("statementtax.ccstatements");
 
-		//DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
+		// DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params1);
 
-		//CommonStep.click("statementtax.back");
+		// CommonStep.click("statementtax.back");
 
 		try {
 			Thread.sleep(3000);
