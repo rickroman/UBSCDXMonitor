@@ -322,6 +322,13 @@ public class AdviceStepDefs {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			
+			Map<String, Object> params6 = new HashMap<>();
+			params6.put("content", "When thinking about");
+			params6.put("timeout", "30");
+			params6.put("threshold", "90");
+			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params6);
+
 
 			Map<String, Object> params1 = new HashMap<>();
 			params1.put("label", "PUBLIC:CloseRisk_X_iPhone16.png");
