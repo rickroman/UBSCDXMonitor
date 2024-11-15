@@ -1,5 +1,7 @@
 package com.quantum.steps;
 
+import static com.quantum.utils.QAFDriverUtils.checkPointTextVisual;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 //import javafx.scene.web.WebView;
@@ -323,13 +325,16 @@ public class AdviceStepDefs {
 				e.printStackTrace();
 			}
 			
+			
 			Map<String, Object> params6 = new HashMap<>();
 			params6.put("content", "When thinking about");
 			params6.put("timeout", "30");
 			params6.put("threshold", "90");
-			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params6);
+			boolean thinking = checkPointTextVisual(params6);
+					//DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params6);
 
 
+			if (thinking) {
 			Map<String, Object> params1 = new HashMap<>();
 			params1.put("label", "PUBLIC:CloseRisk_X_iPhone16.png");
 			params1.put("timeout", "45");
@@ -339,6 +344,7 @@ public class AdviceStepDefs {
 			params1.put("screen.width", "100%");
 			params1.put("screen.left", "0%");
 			DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params1);
+			}
 			
 			Map<String, Object> params3 = new HashMap<>();
 			params3.put("content", "Contact your financial advisor");
