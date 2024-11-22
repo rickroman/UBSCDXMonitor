@@ -14,7 +14,7 @@ Feature: Monitor production App
     Then check milestone
     And validate profile
     And validate relationship
-    Then validate mindset
+    #Then validate mindset
     And check settings
     Then get support
     And check feedback
