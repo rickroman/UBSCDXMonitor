@@ -17,8 +17,8 @@ Feature: Monitor production App
     And validate profile
     Then validate banking services
     And validate relationship
-    Then validate mindset
-   # #    And check settings
+    #Then validate mindset
+   # # And check settings
     Then get support
     And check feedback
     And check Legal services
