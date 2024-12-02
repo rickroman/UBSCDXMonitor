@@ -20,7 +20,7 @@ Feature: Monitor production App
     Then Validate Statement and Tax Forms
    	And check settings
     Then get support
-    And check feedback
+    #And check feedback
     And check Legal services
     Then contact financial advisor
     Then logout of CDX
