@@ -20,7 +20,7 @@ public class Feedback extends UBSScreen {
         if(!isIPad()) return;
         new QAFExtendedWebElement("feedback").click();
         Map<String, Object> params3 = new HashMap<>();
-        params3.put("content", "tell us what you think");
+        params3.put("content", "how satisfied are you");
         params3.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
         new QAFExtendedWebElement("feedback.cancel").click();
@@ -47,7 +47,7 @@ public class Feedback extends UBSScreen {
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
 
         Map<String, Object> params3 = new HashMap<>();
-        params3.put("content", "tell us what you think");
+        params3.put("content", "how satisfied are you");
         params3.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
@@ -74,7 +74,7 @@ public class Feedback extends UBSScreen {
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
 
         Map<String, Object> params3 = new HashMap<>();
-        params3.put("content", "tell us what you think");
+        params3.put("content", "how satisfied are you");
         params3.put("timeout", "30");
         params3.put("threshold", "90");
         boolean isPresent = checkPointTextVisual(params3);
