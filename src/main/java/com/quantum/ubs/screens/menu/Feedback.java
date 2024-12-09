@@ -50,10 +50,15 @@ public class Feedback extends UBSScreen {
         params3.put("content", "how satisfied are you");
         params3.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+        
+        new QAFExtendedWebElement("feedback.ten").click();
 
+        
+        new QAFExtendedWebElement("feedback.yes").click();
+        
         new QAFExtendedWebElement("feedback.send").click();
         try {
-            Thread.sleep(4000);
+            Thread.sleep(6000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
