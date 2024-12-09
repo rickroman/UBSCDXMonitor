@@ -33,7 +33,7 @@ public class Feedback extends UBSScreen {
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params32);
        
         
-        new QAFExtendedWebElement("feedback.back").click();
+        new QAFExtendedWebElement("Myinfo.back").click();
         
         
         
