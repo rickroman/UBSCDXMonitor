@@ -23,7 +23,7 @@ public class Feedback extends UBSScreen {
         params3.put("content", "how satisfied are you");
         params3.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
-        new QAFExtendedWebElement("feedback.cancel").click();
+        //new QAFExtendedWebElement("feedback.cancel").click();
 
         new QAFExtendedWebElement("profile.back").click();
 
