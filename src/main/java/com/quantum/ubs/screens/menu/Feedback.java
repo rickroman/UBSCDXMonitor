@@ -26,7 +26,17 @@ public class Feedback extends UBSScreen {
         //new QAFExtendedWebElement("feedback.cancel").click();
 
         new QAFExtendedWebElement("feedback.back").click();
-
+        
+        Map<String, Object> params32 = new HashMap<>();
+        params32.put("content", "My Information");
+        params32.put("timeout", "30");
+        DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params32);
+       
+        
+        new QAFExtendedWebElement("feedback.back").click();
+        
+        
+        
         Map<String, Object> params4 = new HashMap<>();
         params4.put("label", "PUBLIC:monitoring/ipad_home.png");
         params4.put("timeout", "30");
