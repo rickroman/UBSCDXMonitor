@@ -28,11 +28,11 @@ public class ValidationSteps {
 		
 		if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 			
-			Map<String, Object> params = new HashMap<>();
-			params.put("start", "20%,60%");
-			params.put("end", "20%,30%");
-			params.put("duration", "3");
-			Object res = DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params);
+			/*
+			 * Map<String, Object> params = new HashMap<>(); params.put("start", "20%,60%");
+			 * params.put("end", "20%,30%"); params.put("duration", "3"); Object res =
+			 * DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params);
+			 */
 			
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "cash available");
