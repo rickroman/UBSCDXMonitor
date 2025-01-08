@@ -71,6 +71,41 @@ public class UBSUtils {
 
 	}
 	
+	public static void declineMarketClosures() {
+		Map<String, Object> params11 = new HashMap<>();
+		params11.put("content", "Market Closures");
+		params11.put("timeout", "30");
+		String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params11);
+
+		if (result.equalsIgnoreCase("true")) {
+			if (model.equalsIgnoreCase("iphone")) {
+
+				Map<String, Object> params = new HashMap<>();
+				params.put("label", "PUBLIC:marketClosuresiPhone16.png");
+				params.put("timeout", "30");
+				DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
+				
+				//PUBLIC:TaxDocsCloseiPhone.png
+			} else if (model.equalsIgnoreCase("android")) {
+
+				Map<String, Object> params = new HashMap<>();
+				params.put("label", "PUBLIC:marketClosuresCloseS23.png");
+				params.put("timeout", "30");
+				DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
+				// PUBLIC:TaxDocsCloseS24.png
+			} else {
+
+				Map<String, Object> params = new HashMap<>();
+				params.put("label", "PUBLIC:marketClosuresCloseiPad.png");
+				params.put("timeout", "30");
+				DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
+				
+			}
+
+		}
+
+	}
+	
 	public static void clearImportantNotice() {
 		/*
 		 * Map<String, Object> params11 = new HashMap<>(); params11.put("content",
