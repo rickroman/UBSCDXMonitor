@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Restart Devices" verbose="0" parallel="tests" thread-count="1">
+<suite name="Restart Devices" verbose="0" parallel="tests" thread-count="6">
     <listeners>
         <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
     </listeners>
@@ -12,8 +12,8 @@
 
 
 
-    <test name="iPhone restart 1" enabled="false">
-        <parameter name="driver.capabilities.deviceName" value="00008130-001C59CE3891401C"></parameter>
+    <test name="iPhone restart 1" enabled="true">
+        <parameter name="driver.capabilities.deviceName" value="00008140-000221900C7B001C"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
@@ -25,8 +25,8 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-    <test name="iPhone restart  2" enabled="false">
-        <parameter name="driver.capabilities.deviceName" value="00008130-00021D5E1A10001C"></parameter>
+    <test name="iPhone restart  2" enabled="true">
+        <parameter name="driver.capabilities.deviceName" value="00008140-00120D401EFB001C"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
@@ -79,7 +79,7 @@
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-     <test name="Galaxy restart 4" enabled="false">
+     <test name="Galaxy restart 4" enabled="true">
         <parameter name="driver.capabilities.deviceName" value="R5CX11MLKFH"></parameter>
         <parameter name="env.resources" value="src/main/resources/android"/>
 
