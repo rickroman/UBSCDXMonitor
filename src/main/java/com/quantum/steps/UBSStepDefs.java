@@ -322,7 +322,8 @@ public class UBSStepDefs {
 			new QAFExtendedWebElement("login.signin.btn").click();
 			UBSUtils.declineFaceID();
 			// UBSUtils.clearImportantNotice();
-			// UBSUtils.declineTaxDocs();
+			UBSUtils.declineMarketClosures();
+			//UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		} else {
 			// enter credentials
