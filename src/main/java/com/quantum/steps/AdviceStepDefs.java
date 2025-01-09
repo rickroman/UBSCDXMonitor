@@ -258,7 +258,7 @@ public class AdviceStepDefs {
 			//new QAFExtendedWebElement("advice.riskClose").click();
 			
 			Map<String, Object> params1 = new HashMap<>();
-			params1.put("label", "PUBLIC:CloseRisk_X_GalaxyS23.png");
+			params1.put("label", "PUBLIC:CloseRisk_X_S24.png");
 			params1.put("timeout", "45");
 			params1.put("threshold", "90");
 			params1.put("screen.top", "7%");
@@ -308,7 +308,8 @@ public class AdviceStepDefs {
 //        Map<String, Object> params2 = new HashMap<>();
 //            params2.put("label","Edit Risk Tolerance");
 //        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
-
+			
+			
 			new QAFExtendedWebElement(By.name("Edit Risk Tolerance has popup, link"));
 
 			Map<String, Object> editRisk = new HashMap<>();
