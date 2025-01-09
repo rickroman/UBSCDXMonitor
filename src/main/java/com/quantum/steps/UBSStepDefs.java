@@ -254,7 +254,7 @@ public class UBSStepDefs {
 			boolean checkPointResult = checkPointTextVisual(params2);
 
 			UBSUtils.declineFaceID();
-			// UBSUtils.clearImportantNotice();
+			 UBSUtils.clearImportantNotice();
 			// UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 			
@@ -274,6 +274,7 @@ public class UBSStepDefs {
 			UBSUtils.declineFaceID();
 			// UBSUtils.clearImportantNotice();
 			// UBSUtils.declineTaxDocs();
+			UBSUtils.declineMarketClosures();
 			UBSUtils.validateHomePage();
 			
 			
@@ -372,6 +373,7 @@ public class UBSStepDefs {
 			UBSUtils.declineFaceID();
 			// UBSUtils.clearImportantNotice();
 			// UBSUtils.declineTaxDocs();
+			UBSUtils.declineMarketClosures();
 			UBSUtils.validateHomePage();
 		}
 

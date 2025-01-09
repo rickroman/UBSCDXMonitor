@@ -51,7 +51,9 @@ public class AdviceStepDefs {
 			UBSUtils.declineFaceID();
 			//UBSUtils.declineTaxDocs();
 			//UBSUtils.clearImportantNotice();
+			UBSUtils.declineMarketClosures();
 			UBSUtils.validateHomePage();
+			
 
 		} else if (model.equalsIgnoreCase("android")) {
 
@@ -80,6 +82,7 @@ public class AdviceStepDefs {
 			UBSUtils.declineFaceID();
 			//UBSUtils.declineTaxDocs();
 			//UBSUtils.clearImportantNotice();
+			UBSUtils.declineMarketClosures();
 			UBSUtils.validateHomePage();
 		} else {
 			Map<String, Object> params = new HashMap<>();
