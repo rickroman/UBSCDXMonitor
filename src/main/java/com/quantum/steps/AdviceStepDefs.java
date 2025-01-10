@@ -49,9 +49,9 @@ public class AdviceStepDefs {
 			new QAFExtendedWebElement("login.signin.btn").click();
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
-			//UBSUtils.declineTaxDocs();
+			UBSUtils.declineTaxDocs();
 			//UBSUtils.clearImportantNotice();
-			UBSUtils.declineMarketClosures();
+			//UBSUtils.declineMarketClosures();
 			UBSUtils.validateHomePage();
 			
 
@@ -80,9 +80,9 @@ public class AdviceStepDefs {
 			// 2 validations of home page loading
 
 			UBSUtils.declineFaceID();
-			//UBSUtils.declineTaxDocs();
+			UBSUtils.declineTaxDocs();
 			//UBSUtils.clearImportantNotice();
-			UBSUtils.declineMarketClosures();
+			//UBSUtils.declineMarketClosures();
 			UBSUtils.validateHomePage();
 		} else {
 			Map<String, Object> params = new HashMap<>();
@@ -115,7 +115,7 @@ public class AdviceStepDefs {
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
 			//UBSUtils.clearImportantNotice();
-			//UBSUtils.declineTaxDocs();
+			UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		}
 

@@ -38,7 +38,7 @@ public class UBSUtils {
 
 	public static void declineTaxDocs() {
 		Map<String, Object> params11 = new HashMap<>();
-		params11.put("content", "Looking for tax documents?");
+		params11.put("content", "Looking for tax forms?");
 		params11.put("timeout", "30");
 		String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params11);
 
