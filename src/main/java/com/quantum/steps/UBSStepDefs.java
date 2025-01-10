@@ -254,8 +254,8 @@ public class UBSStepDefs {
 			boolean checkPointResult = checkPointTextVisual(params2);
 
 			UBSUtils.declineFaceID();
-			 UBSUtils.clearImportantNotice();
-			// UBSUtils.declineTaxDocs();
+			// UBSUtils.clearImportantNotice();
+			 UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 			
 		} else if (model.equalsIgnoreCase("iPhone-16 Pro Max")) {
@@ -273,8 +273,8 @@ public class UBSStepDefs {
 
 			UBSUtils.declineFaceID();
 			// UBSUtils.clearImportantNotice();
-			// UBSUtils.declineTaxDocs();
-			UBSUtils.declineMarketClosures();
+			 UBSUtils.declineTaxDocs();
+			//UBSUtils.declineMarketClosures();
 			UBSUtils.validateHomePage();
 			
 			
@@ -323,8 +323,8 @@ public class UBSStepDefs {
 			new QAFExtendedWebElement("login.signin.btn").click();
 			UBSUtils.declineFaceID();
 			// UBSUtils.clearImportantNotice();
-			UBSUtils.declineMarketClosures();
-			//UBSUtils.declineTaxDocs();
+			//UBSUtils.declineMarketClosures();
+			UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		} else {
 			// enter credentials
@@ -372,8 +372,8 @@ public class UBSStepDefs {
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
 			// UBSUtils.clearImportantNotice();
-			// UBSUtils.declineTaxDocs();
-			UBSUtils.declineMarketClosures();
+			 UBSUtils.declineTaxDocs();
+			//UBSUtils.declineMarketClosures();
 			UBSUtils.validateHomePage();
 		}
 
