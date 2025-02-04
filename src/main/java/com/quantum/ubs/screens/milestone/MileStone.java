@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.qmetry.qaf.automation.step.CommonStep;
+import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 import com.quantum.ubs.screens.UBSScreen;
 import com.quantum.utils.DeviceUtils;
 import com.quantum.utils.UBSUtils;
@@ -15,10 +16,9 @@ public class MileStone extends UBSScreen {
 		
 		if (!isIPad()) return;
 		
-		Map<String, Object> params4 = new HashMap<>();
-		params4.put("label", "PUBLIC:monitoring/milestones_ipad.png");
-		params4.put("timeout", "30");
-		DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params4);
+		
+		new QAFExtendedWebElement("main.ipad.milestone").click();
+		
 		
 		CommonStep.click("mile.scouts");
 		
@@ -26,12 +26,11 @@ public class MileStone extends UBSScreen {
 		
 
 		// click on article - Currently no articles so I am excluding this RR-1-31-23
-		Map<String, Object> params2 = new HashMap<>();
-		params2.put("label", "Resources");
-		params2.put("ignorecase", "case");
-		params2.put("timeout", 30);
-		params2.put("label.direction", "Above");
-		params2.put("label.offset", "9%");
+		/*
+		 * Map<String, Object> params2 = new HashMap<>(); params2.put("label",
+		 * "Resources"); params2.put("ignorecase", "case"); params2.put("timeout", 30);
+		 * params2.put("label.direction", "Above"); params2.put("label.offset", "9%");
+		 */
 		//DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
 		
 		try {
@@ -42,6 +41,7 @@ public class MileStone extends UBSScreen {
 
 		//Currently no articles so I am excluding this RR-1-31-23
 		//CommonStep.click("xbutton");
+		CommonStep.click("mile.back");
 		
 		CommonStep.assertVisible("milestones.page");
 		
@@ -56,13 +56,14 @@ public class MileStone extends UBSScreen {
 		 */
 		
 		
-//		CommonStep.click("home");
+		CommonStep.click("home");
 		
-		Map<String, Object> params5 = new HashMap<>();
-		params5.put("label", "home");
-		params5.put("timeout", "30");
-		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
-		
+		/*
+		 * Map<String, Object> params5 = new HashMap<>(); params5.put("label", "home");
+		 * params5.put("timeout", "30");
+		 * DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click",
+		 * params5);
+		 */
 		
 		UBSUtils.validateShortHomePage();
 		

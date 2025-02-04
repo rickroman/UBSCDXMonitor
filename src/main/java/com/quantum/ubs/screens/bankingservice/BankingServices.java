@@ -293,17 +293,20 @@ public class BankingServices extends UBSScreen {
 		params5.put("label", "Banking Services");
 		params5.put("timeout", "30");
 		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
+		Map<String, Object> params321 = new HashMap<>();
+		params321.put("content", "Transfer Funds In");
+		params321.put("timeout", "30");
+		params321.put("threshold", "90");
+		boolean isPresent3 = checkPointTextVisual(params321);
 
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		
+		
+		
+		new QAFExtendedWebElement("bankingServices.glance").click();
+		
+		
+		
 
 		Map<String, Object> params2 = new HashMap<>();
 		params2.put("content", "UBS Cash");
@@ -316,18 +319,28 @@ public class BankingServices extends UBSScreen {
 		
 		// Navigate to glance
 		// At a glance
-		new QAFExtendedWebElement("glance.recent").isDisplayed();
+		
+		Map<String, Object> params432 = new HashMap<>();
+		params432.put("content", "Recent Cash and Credit Activity");
+		params432.put("timeout", "30");
+		params432.put("threshold", "90");
+		boolean isPresent432 = checkPointTextVisual(params432);
+		
+		//new QAFExtendedWebElement("glance.recent").isDisplayed();
 		String a = new QAFExtendedWebElement("glance.value").getText();
 		System.out.println("glance value is: " + a);
 		if (!UBSUtils.validateAmount(a)) {
 			throw new RuntimeException("No dollar amount has loaded: " + a);
 		}
 
+		new QAFExtendedWebElement("bankingServices.glance").click();
+		
 		// transfer funds
 		// new QAFExtendedWebElement("transfer.funds").click();
 		Map<String, Object> params10 = new HashMap<>();
 		params10.put("label", "Transfer Funds");
 		params10.put("timeout", "30");
+		params10.put("index", "2");
 		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params10);
 		try {
 			Thread.sleep(4000);
@@ -342,30 +355,38 @@ public class BankingServices extends UBSScreen {
 		params.put("content", "does not have any scheduled transfers");
 		params.put("timeout", 20);
 		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params);
-		new QAFExtendedWebElement("profile.back").click();
+		//new QAFExtendedWebElement("profile.back").click();
 
 		new QAFExtendedWebElement("banking.services").click();
 
 		// pay bills
-		new QAFExtendedWebElement("Pay Bills").click();
+		Map<String, Object> params11 = new HashMap<>();
+		params11.put("label", "Pay a Bill");
+		params11.put("timeout", "30");
+		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params11);
+		
 		Map<String, Object> params6 = new HashMap<>();
-		params6.put("content", "Make a Payment");
+		params6.put("content", "Choose payee");
 		params6.put("timeout", 20);
 		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params6);
 
+		new QAFExtendedWebElement("banking.services").click();
+
+		
 		// pay credit card
 		new QAFExtendedWebElement("ipad.credit").click();
 		Map<String, Object> params20 = new HashMap<>();
-		params20.put("content", "credit card payment");
+		params20.put("content", "Take care of UBS credit");
 		params20.put("timeout", 20);
 		DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params20);
 
+		new QAFExtendedWebElement("banking.services").click();
 		// deposit check
 		new QAFExtendedWebElement("deposit.check").click();
-		Map<String, Object> params11 = new HashMap<>();
-		params11.put("label", "deposit checks");
-		params11.put("timeout", "30");
-		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params11);
+		Map<String, Object> params1111 = new HashMap<>();
+		params1111.put("label", "You have not added any eligible account");
+		params1111.put("timeout", "30");
+		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params1111);
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -374,7 +395,7 @@ public class BankingServices extends UBSScreen {
 		new QAFExtendedWebElement("noaccount").isDisplayed();
 
 		// return home
-		new QAFExtendedWebElement("profile.back").click();
+		//new QAFExtendedWebElement("profile.back").click();
 		new QAFExtendedWebElement("home").click();
 		Map<String, Object> params13 = new HashMap<>();
 		params13.put("label", "Home");

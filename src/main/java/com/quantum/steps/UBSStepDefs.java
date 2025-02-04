@@ -255,7 +255,7 @@ public class UBSStepDefs {
 
 			UBSUtils.declineFaceID();
 			// UBSUtils.clearImportantNotice();
-			 UBSUtils.declineTaxDocs();
+			 //UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 			
 		} else if (model.equalsIgnoreCase("iPhone-16 Pro Max")) {
@@ -328,22 +328,20 @@ public class UBSStepDefs {
 			UBSUtils.validateHomePage();
 		} else {
 			// enter credentials
-			Map<String, Object> params1 = new HashMap<>();
-			params1.put("content", "Username");
-			DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params1);
-			try {
-				Thread.sleep(4000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			/*
+			 * Map<String, Object> params1 = new HashMap<>(); params1.put("content",
+			 * "Username"); DeviceUtils.getQAFDriver().executeScript("mobile:text:select",
+			 * params1); try { Thread.sleep(4000); } catch (InterruptedException e) {
+			 * e.printStackTrace(); }
+			 */
 
 			Map<String, Object> params = new HashMap<>();
 			params.put("label", "Username");
 			params.put("text", securedUsername);
 			params.put("timeout", "20");
 			params.put("threshold", "90");
-			params.put("label.direction", "above");
-			params.put("label.offset", "3%");
+			//params.put("label.direction", "above");
+			//params.put("label.offset", "3%");
 			Object result = DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params);
 
 			/*
@@ -355,15 +353,15 @@ public class UBSStepDefs {
 			 * params3);
 			 */
 			// new QAFExtendedWebElement("field.username").sendKeys("securetest66");
-			new QAFExtendedWebElement("login.next").click();
+			//new QAFExtendedWebElement("login.next").click();
 
 			Map<String, Object> params4 = new HashMap<>();
 			params4.put("label", "Password");
 			params4.put("text", securedPassword);
 			params4.put("timeout", "20");
 			params4.put("threshold", "90");
-			params4.put("label.direction", "above");
-			params4.put("label.offset", "3%");
+			//params4.put("label.direction", "above");
+			//params4.put("label.offset", "3%");
 			DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params4);
 
 			// new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
@@ -372,7 +370,7 @@ public class UBSStepDefs {
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
 			// UBSUtils.clearImportantNotice();
-			 UBSUtils.declineTaxDocs();
+			 //UBSUtils.declineTaxDocs();
 			//UBSUtils.declineMarketClosures();
 			UBSUtils.validateHomePage();
 		}

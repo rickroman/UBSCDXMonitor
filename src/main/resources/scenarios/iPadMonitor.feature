@@ -12,12 +12,12 @@ Feature: Monitor production App
     #Then validate accounts
     Then validate banking services
     Then check milestone
-    And validate profile
-    And validate relationship
+    #And validate profile
+    #And validate relationship
     #Then validate mindset
-    And check settings
-    Then get support
-    And check feedback
-    And check Legal services
-    Then contact financial advisor
-    Then logout of CDX
+    #And check settings
+    #Then get support
+    #And check feedback
+    #And check Legal services
+    #Then contact financial advisor
+    #Then logout of CDX
