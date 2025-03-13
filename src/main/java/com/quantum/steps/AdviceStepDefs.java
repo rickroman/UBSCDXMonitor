@@ -49,7 +49,7 @@ public class AdviceStepDefs {
 			new QAFExtendedWebElement("login.signin.btn").click();
 			// 2 validations of home page loading
 			UBSUtils.declineFaceID();
-			UBSUtils.declineTaxDocs();
+			//UBSUtils.declineTaxDocs();
 			//UBSUtils.clearImportantNotice();
 			//UBSUtils.declineMarketClosures();
 			UBSUtils.validateHomePage();
@@ -219,6 +219,18 @@ public class AdviceStepDefs {
 			
 			new QAFExtendedWebElement("select.accounts").isPresent();
 
+			
+			
+			for (int i = 0; i < 2; i++) {
+				Map<String, Object> params1 = new HashMap<>();
+				params1.put("start", ",50%,45%");
+				params1.put("end", "50%,25%");
+				params1.put("duration", "0");
+				Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params1);
+			}
+			
+			
+			
 			Map<String, Object> params3 = new HashMap<>();
 			params3.put("content", "Cancel");
 			params3.put("scrolling", "scroll");
@@ -388,7 +400,8 @@ public class AdviceStepDefs {
 
 			// new QAFExtendedWebElement("adv.advisor").click();
 			Map<String, Object> params4 = new HashMap<>();
-			params4.put("content", "toll free");
+			params4.put("content", "Direct");
+			params4.put("threshold", "80");
 			params4.put("timeout", "35");
 			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params4);
 
