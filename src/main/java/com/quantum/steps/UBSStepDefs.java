@@ -273,7 +273,7 @@ public class UBSStepDefs {
 
 			UBSUtils.declineFaceID();
 			// UBSUtils.clearImportantNotice();
-			 UBSUtils.declineTaxDocs();
+			 //UBSUtils.declineTaxDocs();
 			//UBSUtils.declineMarketClosures();
 			UBSUtils.validateHomePage();
 			
@@ -335,6 +335,11 @@ public class UBSStepDefs {
 			 * e.printStackTrace(); }
 			 */
 
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+			}
+
 			Map<String, Object> params = new HashMap<>();
 			params.put("label", "Username");
 			params.put("text", securedUsername);
@@ -354,6 +359,11 @@ public class UBSStepDefs {
 			 */
 			// new QAFExtendedWebElement("field.username").sendKeys("securetest66");
 			//new QAFExtendedWebElement("login.next").click();
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+			}
+
 
 			Map<String, Object> params4 = new HashMap<>();
 			params4.put("label", "Password");
@@ -363,6 +373,12 @@ public class UBSStepDefs {
 			//params4.put("label.direction", "above");
 			//params4.put("label.offset", "3%");
 			DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params4);
+			
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+			}
+
 
 			// new QAFExtendedWebElement("field.password").sendKeys("cantGue33");
 			
