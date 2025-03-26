@@ -276,6 +276,7 @@ public class UBSStepDefs {
 			// UBSUtils.clearImportantNotice();
 			 //UBSUtils.declineTaxDocs();
 			//UBSUtils.declineMarketClosures();
+			UBSUtils.declineZelleMotice();
 			UBSUtils.validateHomePage();
 			
 			
