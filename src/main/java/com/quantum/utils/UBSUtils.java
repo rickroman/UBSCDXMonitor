@@ -82,7 +82,7 @@ public class UBSUtils {
 			if (model.equalsIgnoreCase("iphone")) {
 
 				Map<String, Object> params = new HashMap<>();
-				params.put("label", "PUBLIC:TaxDocsCloseiPhone.png");
+				params.put("label", "PUBLIC:ZelleNotifyPhone.png");
 				params.put("timeout", "30");
 				DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params);
 				
