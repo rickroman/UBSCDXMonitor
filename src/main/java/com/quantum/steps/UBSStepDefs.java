@@ -254,8 +254,9 @@ public class UBSStepDefs {
 			boolean checkPointResult = checkPointTextVisual(params2);
 
 			UBSUtils.declineFaceID();
-			// UBSUtils.clearImportantNotice();
+			 //UBSUtils.clearImportantNotice();
 			 //UBSUtils.declineTaxDocs();
+			UBSUtils.declineZelleMotice();
 			UBSUtils.validateHomePage();
 			
 		} else if (model.equalsIgnoreCase("iPhone-16 Pro Max")) {
