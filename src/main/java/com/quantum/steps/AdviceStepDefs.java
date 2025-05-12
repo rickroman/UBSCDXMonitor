@@ -221,10 +221,10 @@ public class AdviceStepDefs {
 
 			
 			
-			for (int i = 0; i < 1; i++) {
+			for (int i = 0; i < 2; i++) {
 				Map<String, Object> params1 = new HashMap<>();
 				params1.put("start", ",50%,45%");
-				params1.put("end", "50%,33%");
+				params1.put("end", "50%,40%");
 				params1.put("duration", "0");
 				Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params1);
 			}
