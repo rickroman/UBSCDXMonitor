@@ -221,7 +221,7 @@ public class AdviceStepDefs {
 
 			
 			
-			for (int i = 0; i < 2; i++) {
+			for (int i = 0; i < 1; i++) {
 				Map<String, Object> params1 = new HashMap<>();
 				params1.put("start", ",50%,45%");
 				params1.put("end", "50%,40%");
@@ -233,8 +233,10 @@ public class AdviceStepDefs {
 			
 			Map<String, Object> params3 = new HashMap<>();
 			params3.put("content", "Cancel");
-			params3.put("scrolling", "scroll");
-			params3.put("next", "SWIPE=(50%,65%),(50%,35%)");
+			//params3.put("scrolling", "scroll");
+			//params3.put("next", "SWIPE=(50%,65%),(50%,35%)");
+			params3.put("timeout", "30");
+			params3.put("threshold", "90");
 			DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 			new QAFExtendedWebElement("advice.bottomCancel").click();
 			new QAFExtendedWebElement("explore.advice").isDisplayed();
