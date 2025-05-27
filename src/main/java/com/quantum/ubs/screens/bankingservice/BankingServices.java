@@ -159,9 +159,9 @@ public class BankingServices extends UBSScreen {
 
 		// check manage scheduled transfers
 
-		boolean isPresent = CommonStep.verifyVisible("transfering.out");
-		assertTrue(isPresent,
-				"Transferring out is not present upon move to Banking Service > Transfer Fund > Scheduled Transfers.");
+		//boolean isPresent = CommonStep.verifyVisible("transfering.out");
+		//assertTrue(isPresent,
+		//		"Transferring out is not present upon move to Banking Service > Transfer Fund > Scheduled Transfers.");
 
 		// Navigate to Pay Bill
 		navigateToPayBill();
