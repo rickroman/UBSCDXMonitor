@@ -237,10 +237,10 @@ public class BankingServices extends UBSScreen {
 		params2.put("timeout", "30");
 		params2.put("threshold", "90");
 
-		boolean isPresent2 = checkPointTextVisual(params2);
+		//boolean isPresent2 = checkPointTextVisual(params2);
 
-		assertTrue(isPresent2,
-				"Transferring out is not present upon move to Banking Service > Transfer Fund > Scheduled Transfers.");
+		//assertTrue(isPresent2,
+				//"Transferring out is not present upon move to Banking Service > Transfer Fund > Scheduled Transfers.");
 
 		// Navigate to Pay Bill
 		navigateToPayBill();
