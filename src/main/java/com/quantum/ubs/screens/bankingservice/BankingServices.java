@@ -128,7 +128,7 @@ public class BankingServices extends UBSScreen {
 		}
 
 		Map<String, Object> params2 = new HashMap<>();
-		params2.put("content", "UBS Cash");
+		params2.put("content", "Cash Available");
 		params2.put("timeout","50");
 		params2.put("threshold", "90");
 		//params2.put("scrolling", "scroll");
