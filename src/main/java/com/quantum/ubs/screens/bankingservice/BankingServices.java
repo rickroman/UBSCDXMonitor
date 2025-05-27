@@ -41,10 +41,10 @@ public class BankingServices extends UBSScreen {
 
 		Map<String, Object> params2 = new HashMap<>();
 		params2.put("content", "UBS Cash");
-		params2.put("timeout","50");
-		params2.put("threshold", "90");
-		//params2.put("scrolling", "scroll");
-		//params2.put("next", "SWIPE=(50%,75%),(50%,55%)");
+		//params2.put("timeout","50");
+		//params2.put("threshold", "90");
+		params2.put("scrolling", "scroll");
+		params2.put("next", "SWIPE=(50%,75%),(50%,55%)");
 		boolean isPresent = checkPointTextVisual(params2);
 		assertTrue(isPresent, "Glance Core Savings is not present upon navigating to Banking Service > At Glance.");
 
