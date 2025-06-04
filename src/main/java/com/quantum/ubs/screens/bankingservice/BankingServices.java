@@ -87,12 +87,17 @@ public class BankingServices extends UBSScreen {
 
 		// pay bills
 		if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
-			Map<String, Object> params3 = new HashMap<>();
-			params3.put("label", "Pay a Bill");
-			params3.put("timeout", "30");
-			params3.put("threshold", "90");
-			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params3);
-
+			
+			
+			
+			new QAFExtendedWebElement("bankingServices.payBill").click();
+			
+			/*
+			 * Map<String, Object> params3 = new HashMap<>(); params3.put("label",
+			 * "Pay a Bill"); params3.put("timeout", "30"); params3.put("threshold", "90");
+			 * DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click",
+			 * params3);
+			 */
 			Map<String, Object> params2 = new HashMap<>();
 			params2.put("content", "Choose a UBS withdrawl account");
 			params2.put("timeout", "30");
