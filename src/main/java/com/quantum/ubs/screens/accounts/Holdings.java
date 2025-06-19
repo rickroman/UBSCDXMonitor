@@ -144,16 +144,16 @@ public class Holdings extends UBSScreen {
 
 		// Switch to UBS tab
 		
-//		try {
-//		Map<String, Object> params3 = new HashMap<>();	
-//		params3.put("content", "Intraday");
-//		params3.put("source", "camera");
-//		params3.put("timeout", "30");
-//		params3.put("threshold", "90");
-//		isPresent = checkPointTextVisual(params3);
-//		} catch (Exception e) {
-//			
-//		}
+		try {
+		Map<String, Object> params3 = new HashMap<>();	
+		params3.put("content", "Intraday");
+		params3.put("source", "camera");
+		params3.put("timeout", "30");
+		params3.put("threshold", "90");
+		isPresent = checkPointTextVisual(params3);
+		} catch (Exception e) {
+			
+		}
 		
 		if (!isPresent) {
 			click("android.ubs");

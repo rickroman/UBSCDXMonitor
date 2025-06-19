@@ -254,7 +254,7 @@ public class UBSStepDefs {
 			boolean checkPointResult = checkPointTextVisual(params2);
 
 			UBSUtils.declineFaceID();
-			 //UBSUtils.clearImportantNotice();
+			 UBSUtils.clearImportantNotice();
 			 //UBSUtils.declineTaxDocs();
 			UBSUtils.declineZelleMotice();
 			UBSUtils.validateHomePage();
@@ -324,9 +324,9 @@ public class UBSStepDefs {
 			
 			new QAFExtendedWebElement("login.signin.btn").click();
 			UBSUtils.declineFaceID();
-			// UBSUtils.clearImportantNotice();
+		 UBSUtils.clearImportantNotice();
 			//UBSUtils.declineMarketClosures();
-			UBSUtils.declineTaxDocs();
+			//UBSUtils.declineTaxDocs();
 			UBSUtils.validateHomePage();
 		} else {
 			// enter credentials
