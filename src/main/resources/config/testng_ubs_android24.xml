@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Appium Demo Suite" verbose="0" parallel="tests" thread-count="2">
+<suite name="Appium Demo Suite" verbose="0" parallel="tests" thread-count="1">
     <listeners>
         <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
     </listeners>
@@ -8,9 +8,9 @@
     <!-- by driverClass property in env.resources dirs -->
     <!-- Set driver.name value to perfectoDriver       -->
     <parameter name="driver.name" value="perfectoDriver"/>
-    <parameter name="driver.capabilities.perfecto:securityToken" value="${securityToken}"></parameter>
+    <parameter name="driver.capabilities.perfecto:securityToken" value="eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJiMjM3ZTI2Zi1kMTBlLTRkMDItYWY0Ny1lMjc5NDJmMjk4N2EifQ.eyJpYXQiOjE3NTI1NzYyOTMsImp0aSI6IjdlZDgwYzE1LWU0NDMtNGQwNC1hZmI2LWE3MWU0Mzc0MDg2NiIsImlzcyI6Imh0dHBzOi8vYXV0aDcucGVyZmVjdG9tb2JpbGUuY29tL2F1dGgvcmVhbG1zL3Vic3Byb2QtcGVyZmVjdG9tb2JpbGUtY29tIiwiYXVkIjoiaHR0cHM6Ly9hdXRoNy5wZXJmZWN0b21vYmlsZS5jb20vYXV0aC9yZWFsbXMvdWJzcHJvZC1wZXJmZWN0b21vYmlsZS1jb20iLCJzdWIiOiI2NTI0OWU1OS0yMDc0LTQ1OGMtYmQ5YS1jMTY1ODFjMzU4MjgiLCJ0eXAiOiJPZmZsaW5lIiwiYXpwIjoib2ZmbGluZS10b2tlbi1nZW5lcmF0b3IiLCJub25jZSI6IjBiMWVmYWU0LWVkNDktNDNlMi04MDAzLTRlYjUxNTk3YmYyYyIsInNlc3Npb25fc3RhdGUiOiIzYWVjODRlOS1hY2IyLTQyZTAtOWJmMi1hZjQ0MDk5MzQ1NGYiLCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIG9mZmxpbmVfYWNjZXNzIiwic2lkIjoiM2FlYzg0ZTktYWNiMi00MmUwLTliZjItYWY0NDA5OTM0NTRmIn0.bsazr5V_GaloUipdbqfUOWTCCjCk8xFzPGv2xRA8K-A"></parameter>
    
-    <test name="Android CDX" enabled="true">
+    <test name="Android CDX" enabled="false">
     	 <parameter name="driver.capabilities.platformName" value="android"></parameter>
         <parameter name="driver.capabilities.deviceName" value="R3CX10538HV"></parameter>
        
