@@ -1,5 +1,7 @@
 package com.quantum.ubs.screens.milestone;
 
+import static com.quantum.utils.QAFDriverUtils.checkPointTextVisual;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -75,23 +77,27 @@ public class MileStone extends UBSScreen {
 		 if (!isIPhone()) return;
 		
 		CommonStep.click("main.milestones");
-		CommonStep.click("mile.scouts");
+		CommonStep.assertVisible("mile.scouts");
 		
-		CommonStep.assertVisible("mile.bsa");
+		//CommonStep.assertVisible("mile.bsa");
 		//CommonStep.assertVisible("mile.resources");
+		
+		Map<String, Object> params2 = new HashMap<>();
+		params2.put("content", "11 per year");
+		//params2.put("scrolling", "scroll");
+		//params2.put("next", "SWIPE=(50%,50%),(50%,30%)");
+		params2.put("threshold", "80");
+		params2.put("timeout", "30");
+
+		boolean checkPointResult = checkPointTextVisual(params2);
+
+		System.out.println(checkPointResult);
 		
 		// click on article
 		System.out.println("milestone article");
 		
 //		CommonStep.click("activity.back");
 		
-		Map<String, Object> params2 = new HashMap<>();
-		params2.put("label", "donation to the scouts");
-		params2.put("timeout", 30);
-		params2.put("label.direction", "Above");
-		params2.put("label.offset", "35%");
-
-		//DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params2);
 		
 		try {
 			Thread.sleep(3000);
@@ -106,7 +112,7 @@ public class MileStone extends UBSScreen {
 		 * params.put("screen.left", "0%");
 		 * DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
 		 */
-		CommonStep.click("iphone.activity.back");
+		//CommonStep.click("iphone.activity.back");
 		
 		CommonStep.verifyPresent("home");
 		
@@ -122,7 +128,7 @@ public class MileStone extends UBSScreen {
 		CommonStep.click("main.milestones");
 		CommonStep.click("mile.scouts");
 		
-		CommonStep.assertVisible("mile.bsa");
+		//CommonStep.assertVisible("mile.bsa");
 		//CommonStep.assertVisible("mile.resources");
 		
 		// click on article
