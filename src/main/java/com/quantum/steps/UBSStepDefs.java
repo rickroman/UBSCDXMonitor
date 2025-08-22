@@ -240,26 +240,7 @@ public class UBSStepDefs {
 		String model = DeviceUtils.getDeviceProperty("model");
 
 		// if(UBSUtils.getModel().equals("iphone")) {
-		if (model.equalsIgnoreCase("iPhone-15 Pro Max")) {
-
-			UBSCommonSteps.login(securedUsername, securedPassword);
-
-		
-			
-			Map<String, Object> params2 = new HashMap<>();
-			params2.put("content", "Net Balance");
-			params2.put("timeout", "60");
-			params2.put("threshold", "90");
-
-			boolean checkPointResult = checkPointTextVisual(params2);
-
-			UBSUtils.declineFaceID();
-			 UBSUtils.clearImportantNotice();
-			 //UBSUtils.declineTaxDocs();
-			UBSUtils.declineZelleMotice();
-			UBSUtils.validateHomePage();
-			
-		} else if (model.equalsIgnoreCase("iPhone-16 Pro Max")) {
+		if (model.equalsIgnoreCase("iPhone-16 Pro Max")) {
 			
 	UBSCommonSteps.login(securedUsername, securedPassword);
 

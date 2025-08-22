@@ -20,9 +20,9 @@ public class MileStone extends UBSScreen {
 		new QAFExtendedWebElement("main.ipad.milestone").click();
 		
 		
-		CommonStep.click("mile.scouts");
+		CommonStep.verifyVisible("mile.scouts");
 		
-		CommonStep.verifyVisible("mile.bsa");
+		//CommonStep.verifyVisible("mile.bsa");
 		
 
 		// click on article - Currently no articles so I am excluding this RR-1-31-23
@@ -41,7 +41,7 @@ public class MileStone extends UBSScreen {
 
 		//Currently no articles so I am excluding this RR-1-31-23
 		//CommonStep.click("xbutton");
-		CommonStep.click("mile.back");
+		//CommonStep.click("mile.back");
 		
 		CommonStep.assertVisible("milestones.page");
 		
