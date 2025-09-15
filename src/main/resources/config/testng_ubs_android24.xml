@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Appium Demo Suite" verbose="0" parallel="tests" thread-count="1">
+<suite name="Appium Demo Suite" verbose="0" parallel="tests" thread-count="2">
     <listeners>
         <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
     </listeners>
@@ -10,7 +10,7 @@
     <parameter name="driver.name" value="perfectoDriver"/>
    <parameter name="driver.capabilities.perfecto:securityToken" value="${securityToken}"></parameter>
   
-    <test name="Android CDX" enabled="false">
+    <test name="Android CDX" enabled="true">
     	 <parameter name="driver.capabilities.platformName" value="android"></parameter>
         <parameter name="driver.capabilities.deviceName" value="R3CX10538HV"></parameter>
        
