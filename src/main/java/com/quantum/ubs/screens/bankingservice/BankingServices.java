@@ -297,7 +297,13 @@ public class BankingServices extends UBSScreen {
 		Map<String, Object> params5 = new HashMap<>();
 		params5.put("label", "Banking Services");
 		params5.put("timeout", "30");
-		DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
+		//DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
+		
+		////*[@label="Banking Services"]
+		
+		//banking.services
+		
+		click("banking.services");
 		
 		Map<String, Object> params321 = new HashMap<>();
 		params321.put("content", "Transfer Funds In");
