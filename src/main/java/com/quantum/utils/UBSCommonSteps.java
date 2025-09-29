@@ -88,7 +88,7 @@ public class UBSCommonSteps {
 		if (model.equalsIgnoreCase("iPhone-15 Pro Max")) {
 			click("menu.iphone");
 		} else if(model.equalsIgnoreCase("iPhone-16 Pro Max")) {
-			click("menu.iphone");
+			//click("menu.iphone");
 		} else if(model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 			click("menu.android");
 		} else {
