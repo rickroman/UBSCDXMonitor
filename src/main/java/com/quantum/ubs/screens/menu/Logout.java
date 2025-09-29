@@ -3,6 +3,7 @@ package com.quantum.ubs.screens.menu;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.qmetry.qaf.automation.step.CommonStep;
 import com.quantum.ubs.screens.UBSScreen;
 import com.quantum.utils.DeviceUtils;
 import com.quantum.utils.QAFDriverUtils;
@@ -15,7 +16,8 @@ public class Logout extends UBSScreen {
         if (!isIPhone()) return;
 
         // If iPhone Menu needs to be Open
-        UBSCommonSteps.openMenu();
+        //UBSCommonSteps.openMenu();
+        CommonStep.waitForVisible("main.sign.out");
     }
 
     public void android(){
