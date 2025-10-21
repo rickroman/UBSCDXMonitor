@@ -164,7 +164,7 @@ public class MileStone extends UBSScreen {
 		}
 		
 		Map<String, Object> params2 = new HashMap<>();
-		params2.put("label", "donation to the scouts");
+		params2.put("label", "Import another horse");
 		params2.put("timeout", 30);
 		params2.put("label.direction", "Above");
 		params2.put("label.offset", "35%");
