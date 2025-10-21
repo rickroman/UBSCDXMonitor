@@ -124,8 +124,18 @@ public class MileStone extends UBSScreen {
 	public void android() {
 		
 		 if (!isAndroid()) return;
+		 
 		
 		CommonStep.click("main.milestones");
+		
+		for (int i = 0; i < 5; i++) {
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("start", ",50%,15%");
+			params1.put("end", "50%,85%");
+			params1.put("duration", "0");
+			Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params1);
+		}
+		
 		CommonStep.click("mile.scouts");
 		
 		//CommonStep.assertVisible("mile.bsa");
@@ -135,6 +145,14 @@ public class MileStone extends UBSScreen {
 		System.out.println("milestone article");
 		
 //		CommonStep.click("activity.back");
+		
+		for (int i = 0; i < 5; i++) {
+			Map<String, Object> params1 = new HashMap<>();
+			params1.put("start", ",50%,15%");
+			params1.put("end", "50%,85%");
+			params1.put("duration", "0");
+			Object result1 = DeviceUtils.getQAFDriver().executeScript("mobile:touch:swipe", params1);
+		}
 		
 		Map<String, Object> params2 = new HashMap<>();
 		params2.put("label", "donation to the scouts");
