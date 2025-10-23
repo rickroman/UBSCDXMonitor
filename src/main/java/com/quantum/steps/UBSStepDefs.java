@@ -167,15 +167,10 @@ public class UBSStepDefs {
 			
 			launchApp("identifier", "com.ubs.clientMobile");
 			
-			if (DeviceUtils.getDeviceProperty("model").equalsIgnoreCase("iPhone-17 Pro Max")) {
-				CommonStep.assertPresent("iphone.welcometoubs");
-			} else {
-			
-			
 
 			
 			CommonStep.assertPresent("login.signin.btn");
-			}
+			
 		} else if (UBSUtils.getModel().equals("ipad")) {
 				launchApp("name", "UBS");
 				
@@ -323,7 +318,7 @@ public class UBSStepDefs {
 			UBSUtils.validateHomePage();
 		} else if (model.equalsIgnoreCase("iPhone-17 Pro Max")) {
 			
-			click("iphone.welcome.signin");
+			//click("iphone.welcome.signin");
 			
 			UBSCommonSteps.login(securedUsername, securedPassword);
 
