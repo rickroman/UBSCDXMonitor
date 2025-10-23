@@ -1,0 +1,47 @@
+ <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Appium Demo Suite" verbose="0" parallel="tests" thread-count="1">
+    <listeners>
+        <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
+    </listeners>
+
+    <!-- To use actual AppiumDriver classes defined    -->
+    <!-- by driverClass property in env.resources dirs -->
+    <!-- Set driver.name value to perfectoDriver       -->
+    <parameter name="driver.name" value="perfectoDriver"/>
+    <parameter name="driver.capabilities.perfecto:securityToken" value="${securityToken}"></parameter>
+    
+    <test name="iPhone CDX" enabled="false">
+    	 <parameter name="driver.capabilities.platformName" value="iOS"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008150-000645D42608401C"></parameter>
+       
+        <!-- <parameter name="driver.capabilities.deviceName" value="00008120-000E24C20C44C01E"></parameter> -->
+        <parameter name="env.resources" value="src/main/resources/ios"/>
+
+        <groups>
+            <run>
+                <include name="@cdxiPhone"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
+        </classes>
+    </test>
+    
+    <test name="iPhone CDX 2" enabled="true">
+    	<parameter name="driver.capabilities.platformName" value="iOS"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008150-000150AA0CC0401C"></parameter>
+        <parameter name="env.resources" value="src/main/resources/ios"/>
+
+        <groups>
+            <run>
+                <include name="@cdxiPhone"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
+        </classes>
+    </test>
+
+
+</suite>
+

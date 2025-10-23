@@ -18,6 +18,7 @@ public class Logout extends UBSScreen {
         // If iPhone Menu needs to be Open
         //UBSCommonSteps.openMenu();
         CommonStep.waitForVisible("main.sign.out");
+        QAFDriverUtils.click("main.sign.out");
     }
 
     public void android(){
@@ -44,7 +45,7 @@ public class Logout extends UBSScreen {
         android();
         // Click on Logout
         if (!isAndroid()) {
-        	 QAFDriverUtils.click("main.sign.out");
+        	// QAFDriverUtils.click("main.sign.out");
         }
        
     }

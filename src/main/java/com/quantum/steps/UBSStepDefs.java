@@ -696,7 +696,7 @@ public class UBSStepDefs {
 		} else if (model.equalsIgnoreCase("iPhone-17 Pro Max")) {
 
 			Map<String, Object> params2 = new HashMap<>();
-			params2.put("content", "DJIA");
+			params2.put("content", "NASDAQ");
 			params2.put("scrolling", "scroll");
 			params2.put("next", "SWIPE=(50%,90%),(50%,45%)");
 			params2.put("target", "all");
@@ -706,7 +706,7 @@ public class UBSStepDefs {
 
 			boolean checkPointResult = checkPointTextVisual(params2);
 
-			assertTrue(checkPointResult, "DJIA not displayed");
+			assertTrue(checkPointResult, "NASDAQ not displayed");
 
 			String djiaAsOf = getText("iphone.djia.asof");
 

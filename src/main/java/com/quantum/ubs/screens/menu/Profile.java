@@ -124,14 +124,14 @@ public class Profile extends UBSScreen {
     public void ipad(){
         if (!isIPad()) return;
 
-        click("main.profile");
+        click("main.menu");
 
         Map<String, Object> params5 = new HashMap<>();
         params5.put("label", "Profile");
         params5.put("timeout", "30");
         DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params5);
 
-        new QAFExtendedWebElement("profile.primary").isDisplayed();
+        new QAFExtendedWebElement("profile.my.information").isDisplayed();
         /*
          * // meeting window new QAFExtendedWebElement("profile.meetings").click(); new
          * QAFExtendedWebElement("profile.no.meeting").isDisplayed();
@@ -141,17 +141,17 @@ public class Profile extends UBSScreen {
          */
         // card
         new QAFExtendedWebElement("profile.settings").click();
-        Map<String, Object> params1 = new HashMap<>();
-        params1.put("label", "Settings");
-        params1.put("timeout", "30");
-        DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params1);
+        new QAFExtendedWebElement("settings").click();
+        
+        new QAFExtendedWebElement("ipad.card.security").isDisplayed();
+        
         new QAFExtendedWebElement("ipad.card.security").click();
         new QAFExtendedWebElement("profile.nocard").isDisplayed();
         try {
 			Thread.sleep(4000);
 		} catch (InterruptedException e) {
 		}
-        new QAFExtendedWebElement("ipad.setttings.close").click();
+        new QAFExtendedWebElement("home").click();
         try {
 			Thread.sleep(4000);
 		} catch (InterruptedException e) {
