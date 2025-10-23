@@ -164,13 +164,25 @@ public class UBSStepDefs {
 			} catch (Exception e) {
 				System.out.println("app was not open");
 			}
-
+			
 			launchApp("identifier", "com.ubs.clientMobile");
+			
+			if (DeviceUtils.getDeviceProperty("model").equalsIgnoreCase("iPhone-17 Pro Max")) {
+				CommonStep.assertPresent("iphone.welcometoubs");
+			} else {
+			
+			
+
+			
 			CommonStep.assertPresent("login.signin.btn");
+			}
 		} else if (UBSUtils.getModel().equals("ipad")) {
 				launchApp("name", "UBS");
 				
+				
+				
 				CommonStep.assertPresent("iPad.signin.btn");
+				
 			} else {
 				
 			
