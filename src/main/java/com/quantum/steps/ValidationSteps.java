@@ -50,7 +50,7 @@ public class ValidationSteps {
 					"Amount in a Glance is not in correct format $x,xxx.xx. Amount displayed : " + glanceAmount);
 
 			
-		} else if(model.equalsIgnoreCase("iPhone-15 Pro Max")) {
+		} else if(model.equalsIgnoreCase("iPhone-17 Pro Max")) {
 		
 			
 
