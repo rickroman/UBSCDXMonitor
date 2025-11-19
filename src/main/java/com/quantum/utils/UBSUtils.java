@@ -196,6 +196,49 @@ public class UBSUtils {
 
 	}
 
+	public static void declineAccessCode() {
+
+		try {
+			
+			Map<String, Object> params3 = new HashMap<>();
+			if (model.equalsIgnoreCase("android")) {
+				params3.put("content", "Set up an Access Code");
+			}else {
+				
+				
+			}
+			
+			params3.put("timeout", "10");
+			String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
+
+			if (result.equalsIgnoreCase("true")) {
+
+				if (model.equalsIgnoreCase("iphone")) {
+					// successful checkpoint code
+					
+				} else if (model.equalsIgnoreCase("android")) {
+
+					
+
+					Map<String, Object> params = new HashMap<>();
+					params.put("label", "Not Now");
+					params.put("timeout", "30");
+					params.put("threshold", "90");
+					DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
+
+				} else {
+					
+
+				}
+			}
+
+		} catch (Exception e) {
+			System.out.println("caught declinefaceID:");
+		}
+
+	}
+
+	
 	public static void declineFaceID() {
 
 		try {
@@ -249,6 +292,8 @@ public class UBSUtils {
 
 	}
 
+	
+	
 	public static void validateShortHomePage() {
 
 		String model = DeviceUtils.getDeviceProperty("model");

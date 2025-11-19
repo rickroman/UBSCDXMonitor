@@ -311,6 +311,7 @@ public class UBSStepDefs {
 
 			
 			new QAFExtendedWebElement("login.signin.btn").click();
+			UBSUtils.declineAccessCode();
 			UBSUtils.declineFaceID();
 			UBSUtils.clearImportantNotice();
 			//UBSUtils.declineMarketClosures();
