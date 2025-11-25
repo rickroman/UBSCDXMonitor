@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Android Advice Advantage" verbose="0" parallel="tests" thread-count="1">
+<suite name="Android Equity Awards" verbose="0" parallel="tests" thread-count="1">
     <listeners>
         <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
     </listeners>
@@ -12,30 +12,28 @@
 
 
 
-    <test name="Android Advice Advantage 1" enabled="true">
-    	<!--  <parameter name="driver.capabilities.platformName" value="android"></parameter>--> 
-        <parameter name="perfecto.capabilities.deviceName" value="R3CX10538HV"/>
+    <test name="Android Equity Awards 1" enabled="true">
+    	<parameter name="driver.capabilities.platformName" value="NEWandroid"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="R5CX11MLKFH"/>
         <parameter name="env.resources" value="src/main/resources/android"/>
-        <parameter name="perfecto.capabilities.appiumVersion" value="1.22.3" />
 
         <groups>
             <run>
-                <include name="@cdxAdviceAndroid"/>
+                <include name="@androidEquity"/>
             </run>
         </groups>
         <classes>
             <class name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory"/>
         </classes>
     </test>
-    <test name="Android Advice Advantage 2" enabled="false">
-    	
-        <parameter name="perfecto.capabilities.deviceName" value="R5CX11MLKFH"></parameter>
+    <test name="Android Equity Awards 2" enabled="false">
+    	 <parameter name="driver.capabilities.platformName" value="android"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="RFCTB0R9TZY"></parameter>
         <parameter name="env.resources" value="src/main/resources/android"/>
-        <parameter name="perfecto.capabilities.appiumVersion" value="1.22.3" />
 
         <groups>
             <run>
-                <include name="@cdxAdviceAndroid"/>
+                <include name="@androidEquity"/>
             </run>
         </groups>
         <classes>

@@ -12,7 +12,7 @@ import java.util.Map;
 import com.qmetry.qaf.automation.step.CommonStep;
 import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 
-import cucumber.api.java.en.Then;
+import  io.cucumber.java.en.Then;
 
 public class UBSCommonSteps {
 	

@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Advice Advantage" verbose="0" parallel="tests" thread-count="2">
+<suite name="Advice Advantage" verbose="0" parallel="tests" thread-count="1">
     <listeners>
         <listener class-name="com.quantum.listeners.QuantumReportiumListener"/>
     </listeners>
@@ -11,7 +11,7 @@
   <parameter name="driver.capabilities.perfecto:securityToken" value="${securityToken}"></parameter>
 
 
-    <test name="iPhone  Advantage 1" enabled="true">
+    <test name="iPhone  Advantage 1" enabled="false">
         <parameter name="driver.capabilities.deviceName" value="00008140-000221900C7B001C"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 		<parameter name="driver.capabilities.platformName" value="iOS"></parameter>

@@ -25,7 +25,7 @@
         </classes>
     </test>
 
-    <test name="iPad CDX 2" enabled="true">
+    <test name="iPad CDX 2" enabled="false">
         <parameter name="driver.capabilities.deviceName" value="00008112-001651593A45401E"/>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 

@@ -16,7 +16,7 @@ import com.quantum.utils.DeviceUtils;
 import com.quantum.utils.QAFDriverUtils;
 import com.quantum.utils.UBSUtils;
 
-import cucumber.api.java.en.Then;
+import  io.cucumber.java.en.Then;
 
 @QAFTestStepProvider
 public class ValidationSteps {

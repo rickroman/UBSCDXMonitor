@@ -8,7 +8,7 @@ import com.qmetry.qaf.automation.ui.webdriver.QAFExtendedWebElement;
 import com.quantum.utils.DeviceUtils;
 import com.quantum.utils.UBSCommonSteps;
 
-import cucumber.api.java.en.When;
+import  io.cucumber.java.en.When;
 
 @QAFTestStepProvider
 public class EquityAwardsStepDefs {

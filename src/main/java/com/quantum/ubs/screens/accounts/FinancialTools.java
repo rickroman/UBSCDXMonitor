@@ -261,72 +261,7 @@ public class FinancialTools extends UBSScreen {
 		});
 
         CommonStep.waitForVisible("accounts.balances");
-        /*
-         * // click on holdings & validate // set long timeout for holdings page on iPad
-         * DeviceUtils.getQAFDriver().manage().timeouts().implicitlyWait(300,
-         * TimeUnit.SECONDS);
-         * DeviceUtils.getQAFDriver().manage().timeouts().setScriptTimeout(300,
-         * TimeUnit.SECONDS);
-         *
-         *
-         * new QAFExtendedWebElement("accounts.holdings").click();
-         *
-         * // check holdings values try { Thread.sleep(20000); } catch
-         * (InterruptedException e) { e.printStackTrace(); }
-         *
-         *
-         *
-         *
-         * String holdingsGrandTotal = new
-         * QAFExtendedWebElement("ipad.holdings.grandTotal").getText();
-         * System.out.println("holding grand total:" + holdingsGrandTotal);
-         * if(!UBSUtils.validateNumber(holdingsGrandTotal)) {
-         *
-         * Map<String, Object> params12 = new HashMap<>(); params12.put("label",
-         * "Holdings"); params12.put("timeout", "30");
-         * DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click",
-         * params12);
-         *
-         *
-         * holdingsGrandTotal = new
-         * QAFExtendedWebElement("ipad.holdings.grandTotal").getText();
-         * System.out.println("holding grand total:" + holdingsGrandTotal);
-         *
-         *
-         *
-         * throw new RuntimeException("No dollar amount has loaded: " +
-         * holdingsGrandTotal); }
-         *
-         * String holdingsAmount = new
-         * QAFExtendedWebElement("activity.amounts").findElements("activity.amounts").
-         * get(0).getText(); System.out.println("holdings amount: " + holdingsAmount);
-         * if(!UBSUtils.validateNumber(holdingsAmount)) {throw new
-         * RuntimeException("No dollar amount has loaded: " + holdingsAmount); }
-         *
-         *
-         *
-         * new QAFExtendedWebElement("iphone.ubs").click(); new
-         * QAFExtendedWebElement("holdings.ubs.change").isPresent();
-         *
-         * DeviceUtils.getQAFDriver().manage().timeouts().implicitlyWait(60,
-         * TimeUnit.SECONDS);
-         *
-         * // check prior day
-         *
-         * try{ new QAFExtendedWebElement("balances.priorday").isDisplayed(); }catch
-         * (Exception e) { System.out.println("clicking on ubs"); new
-         * QAFExtendedWebElement("iphone.ubs").click(); }
-         *
-         *
-         * new QAFExtendedWebElement("balances.priorday").click(); new
-         * QAFExtendedWebElement("holdings.quantity").isPresent(); new
-         * QAFExtendedWebElement("balances.intraday").click();
-         *
-         * new QAFExtendedWebElement("balances.all").click(); new
-         * QAFExtendedWebElement("holdings.cash").isPresent();
-         *
-         *
-         */
+       
 
         // click on Activity & validate
 

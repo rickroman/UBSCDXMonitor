@@ -48,8 +48,8 @@ import com.quantum.utils.QAFDriverUtils;
 import com.quantum.utils.UBSCommonSteps;
 import com.quantum.utils.UBSUtils;
 
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import  io.cucumber.java.en.Then;
+import  io.cucumber.java.en.When;
 
 @QAFTestStepProvider
 public class UBSStepDefs {

@@ -11,11 +11,11 @@
     <parameter name="driver.capabilities.perfecto:securityToken" value="${securityToken}"></parameter>
 
 
-    <test name="iPad Advantage 1" enabled="true">
+    <test name="iPad Advantage 1" enabled="false">
 
 
 
-        <parameter name="driver.capabilities.deviceName" value="00008027-001831D83A6A402E"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008112-001439E42EF0C01E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
@@ -29,7 +29,7 @@
     </test>
 
     <test name="iPad Advantage 2" enabled="true">
-        <parameter name="driver.capabilities.deviceName" value="00008027-001E79E41E6A402E"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008112-001651593A45401E"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>

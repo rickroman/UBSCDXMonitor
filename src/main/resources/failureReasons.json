@@ -16,6 +16,23 @@
       "CustomError": "Scroll to periodically",
       "StackTraceErrors":[ 
          "here are your periodically"
-        ]
-   }
+        ],
+         "CustomFields" : 
+         [
+            "OS-Android"
+         ],
+         "Tags" : ["insights", "CDXAndroid"]
+  }
+  
+  { 
+      "CustomError": "SSWW-Statements-Tax",
+      "StackTraceErrors":[ 
+         "here are your periodically"
+        ],
+         "CustomFields" : 
+         [
+            "OS-Android"
+         ],
+         "Tags" : ["insights", "CDXAndroid"]
+  }
 ]
