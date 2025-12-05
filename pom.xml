@@ -10,7 +10,7 @@
 		<testngXmlDir>src/main/resources/config</testngXmlDir>
 		<testngXmlFile>testng_ubs_android24.xml</testngXmlFile>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<quantum.version>1.31.0</quantum.version>
+		<quantum.version>3.0.0</quantum.version>
 		<org.json.version>20160810</org.json.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -71,7 +71,7 @@
 		<repository>
 			<id>jai</id>
 			<url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
-		</repository>
+		</repository> 
 	</repositories>
 
 
@@ -94,9 +94,12 @@
 		</dependency>
 
 		<dependency>
+			<!--<groupId>io.perfecto</groupId>
+			<artifactId>quantum</artifactId>
+			<version>${quantum.version}</version>-->
 			<groupId>com.quantum</groupId>
 			<artifactId>quantum-support</artifactId>
-			<version>${quantum.version}</version>
+			<version>1.31.0</version>
 			<exclusions>
 				<exclusion>
 					<groupId>log4j</groupId>

@@ -44,6 +44,7 @@ import com.quantum.ubs.screens.menu.Settings;
 import com.quantum.ubs.screens.menu.Support;
 import com.quantum.ubs.screens.milestone.MileStone;
 import com.quantum.utils.DeviceUtils;
+import com.quantum.utils.DriverUtils;
 import com.quantum.utils.QAFDriverUtils;
 import com.quantum.utils.UBSCommonSteps;
 import com.quantum.utils.UBSUtils;
@@ -182,7 +183,11 @@ public class UBSStepDefs {
 				
 			
 			launchApp("name", "UBS");
-			CommonStep.assertPresent("login.signin.btn");
+			DriverUtils.getAndroidDriver().getPageSource();
+			CommonStep.assertPresent("login.rememberMe");
+			
+			//System.out.println(DriverUtils.getAndroidDriver().getContext();
+			
 			}
 		}
 		

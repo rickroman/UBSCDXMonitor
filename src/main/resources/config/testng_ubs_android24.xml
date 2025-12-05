@@ -9,8 +9,10 @@
     <!-- Set driver.name value to perfectoDriver       -->
     <parameter name="driver.name" value="perfectoDriver"/>
    <parameter name="perfecto.capabilities.securityToken" value="${securityToken}"></parameter>
+    <parameter name="perfecto.capabilities.noReset" value="true"/>
+   <!-- <parameter name="driver.additional.capabilities" value="{'noReset':true}" /> -->
   
-    <test name="Android CDX" enabled="true">
+    <test name="Android CDX" enabled="false">
     	 <parameter name="perfecto.capabilities.platformName" value="android"></parameter>
         <parameter name="perfecto.capabilities.deviceName" value="R3CX10538HV"></parameter>
        
