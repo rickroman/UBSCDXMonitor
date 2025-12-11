@@ -23,6 +23,7 @@
 				<filtering>true</filtering>
 			</resource>
 		</resources>
+		
 
 		<plugins>
 			<plugin>
