@@ -64,11 +64,11 @@
 	</build>
 
 	<repositories>
-		<repository>
+	<!--	<repository>
 			<id>perfectomobile</id>
 			<name>Perfecto mobile</name>
 			<url>https://repo1.perfectomobile.com/public/repositories/maven</url>
-		</repository>
+		</repository> -->
 		<repository>
 			<id>jai</id>
 			<url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
