@@ -259,7 +259,7 @@ public class UBSUtils {
 				if (model.equalsIgnoreCase("iphone")) {
 					// successful checkpoint code
 					Thread.sleep(4000);
-					click("field.bioPassword");
+					//click("field.bioPassword");
 
 					//Map<String, Object> params33 = new HashMap<>();
 					//params33.put("location", "232,1705");
