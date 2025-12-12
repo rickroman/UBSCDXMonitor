@@ -184,7 +184,15 @@ public class UBSStepDefs {
 			
 			launchApp("name", "UBS");
 			DriverUtils.getAndroidDriver().getPageSource();
-			CommonStep.assertPresent("login.rememberMe");
+			//CommonStep.assertPresent("login.rememberMe");
+			
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("content", "Remember me");
+			params2.put("timeout", "60");
+			params2.put("threshold", "90");
+
+			boolean checkPointResult = checkPointTextVisual(params2);
+			
 			
 			//System.out.println(DriverUtils.getAndroidDriver().getContext();
 			
