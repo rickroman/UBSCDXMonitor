@@ -11,6 +11,7 @@
 		<testngXmlFile>testng_ubs_android24.xml</testngXmlFile>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<quantum.version>3.0.0</quantum.version>
+		<cukes.version>7.11.1</cukes.version>
 		<org.json.version>20160810</org.json.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -114,6 +115,11 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${cukes.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
