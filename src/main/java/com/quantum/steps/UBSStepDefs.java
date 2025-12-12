@@ -281,7 +281,7 @@ public class UBSStepDefs {
 			UBSUtils.validateHomePage();
 			
 			
-		} else if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
+		} else if (model.equalsIgnoreCase("Galaxy S20+")) {
 
 			// enter credentials
 			Map<String, Object> params1 = new HashMap<>();
@@ -304,18 +304,17 @@ public class UBSStepDefs {
 			params.put("label.offset", "3%");
 			Object result = DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params);
 
-			new QAFExtendedWebElement("field.password").click();
+			//new QAFExtendedWebElement("field.password").click();
 
-			Map<String, Object> params4 = new HashMap<>();
-			params4.put("label", "Password");
-			params4.put("text", securedPassword);
-			params4.put("timeout", "20");
-			params4.put("threshold", "90");
-			// params4.put("label.direction","above"); //params4.put("label.offset", "3%");
-			// DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params4);
-			DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params4);
-
-			// new QAFExtendedWebElement("field.password").sendKeys(securedPassword);
+			/*
+			 * Map<String, Object> params4 = new HashMap<>(); params4.put("label",
+			 * "Password"); params4.put("text", securedPassword); params4.put("timeout",
+			 * "20"); params4.put("threshold", "90"); //
+			 * params4.put("label.direction","above"); //params4.put("label.offset", "3%");
+			 * // DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params4);
+			 * DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params4);
+			 */
+			 new QAFExtendedWebElement("field.password").sendKeys(securedPassword);
 
 			try {
 				Thread.sleep(4000);
