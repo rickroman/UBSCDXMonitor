@@ -13,7 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<reportium-sdk.version>2.3</reportium-sdk.version>
 		<testng.version>6.10</testng.version>
-		<cukes.version>7.11.1</cukes.version>
+		<cukes.version>1.2.5</cukes.version>
 		<qaf.version>2.1.14</qaf.version>
 		<qafsupport.version>2.1.14</qafsupport.version>
 		<quantum.version>1.30.1</quantum.version>
@@ -87,14 +87,17 @@
 			<artifactId>hamcrest-core</artifactId>
 			<version>1.3</version>
 		</dependency>
-		
 
 		<dependency>
 			<groupId>xml-apis</groupId>
 			<artifactId>xml-apis</artifactId>
 			<version>1.4.01</version>
 		</dependency>
-
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${cukes.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>com.quantum</groupId>
 			<artifactId>quantum-support</artifactId>
