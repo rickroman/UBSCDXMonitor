@@ -247,7 +247,7 @@ public class UBSUtils {
 			if (model.equalsIgnoreCase("android")) {
 				params3.put("content", "Biometric Authentication");
 			}else {
-				params3.put("content", "Enable Face ID");
+				params3.put("content", "Sign in Faster with Face ID");
 				
 			}
 			
@@ -267,8 +267,10 @@ public class UBSUtils {
 
 					Thread.sleep(4000);
 					Map<String, Object> params = new HashMap<>();
-					params.put("content", "Not Now");
-					DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params);
+					params.put("label", "Skip");
+					params.put("timeout", "20");
+					params.put("threshold", "100");
+					DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
 
 				} else if (model.equalsIgnoreCase("android")) {
 
