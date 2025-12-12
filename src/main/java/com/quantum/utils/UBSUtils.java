@@ -247,7 +247,7 @@ public class UBSUtils {
 			if (model.equalsIgnoreCase("android")) {
 				params3.put("content", "Biometric Authentication");
 			}else {
-				params3.put("content", "Sign in Faster with Face ID");
+				params3.put("content", "Sign in faster with Face ID");
 				
 			}
 			
