@@ -250,7 +250,7 @@ public class UBSUtils {
 				params3.put("content", "Sign in faster with Face ID");
 				
 			}
-			
+			params3.put("threshold", "90");
 			params3.put("timeout", "10");
 			String result = (String) DeviceUtils.getQAFDriver().executeScript("mobile:checkpoint:text", params3);
 
