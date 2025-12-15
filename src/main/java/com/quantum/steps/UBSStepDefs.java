@@ -281,7 +281,7 @@ public class UBSStepDefs {
 			UBSUtils.validateHomePage();
 			
 			
-		} else if (model.equalsIgnoreCase("Galaxy S20+")) {
+		} else if (model.equalsIgnoreCase("Galaxy S24 Ultra")) {
 
 			// enter credentials
 			Map<String, Object> params1 = new HashMap<>();

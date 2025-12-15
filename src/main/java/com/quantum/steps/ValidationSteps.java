@@ -11,6 +11,7 @@ import static org.testng.Assert.assertTrue;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.qmetry.qaf.automation.step.CommonStep;
 import com.qmetry.qaf.automation.step.QAFTestStepProvider;
 import com.quantum.utils.DeviceUtils;
 import com.quantum.utils.QAFDriverUtils;
@@ -82,7 +83,7 @@ public class ValidationSteps {
 		} else {
 
 			Map<String, Object> params2 = new HashMap<>();
-			params2.put("content", "cash at a glance");
+			params2.put("content", "UBS Cash");
 			params2.put("timeout","30");
 			params2.put("threshold","80");
 			//params2.put("scrolling", "scroll");
@@ -100,7 +101,7 @@ public class ValidationSteps {
 			}
 			
 			Map<String, Object> params3 = new HashMap<>();
-			params3.put("content", "See why cash matters");
+			params3.put("content", "Customize your cash summary");
 			params3.put("timeout","30");
 			params3.put("threshold","80");
 			//params2.put("scrolling", "scroll");
@@ -108,9 +109,9 @@ public class ValidationSteps {
 
 			boolean checkPointResult2 = checkPointTextVisual(params3);
 			
-			assertTrue(checkPointResult2, "Click to Glance Amount failed");
+			assertTrue(checkPointResult2, "Click to Cash Amount failed");
 			
-			String amountAtGlance = getText("glance.value");
+			String amountAtGlance = getText("glance.withdrawable");
 			assertTrue(UBSUtils.validateAmount(amountAtGlance),
 					"Amount in a Glance is not in correct format $x,xxx.xx. Amount displayed : " + amountAtGlance);
 
@@ -121,7 +122,16 @@ public class ValidationSteps {
 //            }
 
 			// back home
-			click("home");
+			
+			//click("glance.backbtn");
+			
+			Map<String, Object> params11 = new HashMap<>();
+		  params11.put("label","PUBLIC:iPadBack.png");
+		  params11.put("timeout", "30");
+		  DeviceUtils.getQAFDriver().executeScript("mobile:button-image:click", params11); 
+			
+						
+
 			
 			
 			

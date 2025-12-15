@@ -8,15 +8,14 @@
     <!-- by driverClass property in env.resources dirs -->
     <!-- Set driver.name value to perfectoDriver       -->
     <parameter name="driver.name" value="perfectoDriver"/>
-  <parameter name="perfecto.capabilities.securityToken" value="${securityToken}"></parameter>
+  <!--<parameter name="perfecto.capabilities.securityToken" value="${securityToken}"></parameter>-->
    
-   <parameter name="perfecto.capabilities.securityToken" value="eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyODhhNDIyNS1jOTE1LTQwZDctOTc2YS04MDhiMWE3YTFmODYifQ.eyJpYXQiOjE3NjU1NTcyMTUsImp0aSI6IjJhYzRhZThiLTNkMzQtNGU0Mi05MzBlLTNkODU4N2NiODcyMiIsImlzcyI6Imh0dHBzOi8vYXV0aC5wZXJmZWN0b21vYmlsZS5jb20vYXV0aC9yZWFsbXMvcHMtcGVyZmVjdG9tb2JpbGUtY29tIiwiYXVkIjoiaHR0cHM6Ly9hdXRoLnBlcmZlY3RvbW9iaWxlLmNvbS9hdXRoL3JlYWxtcy9wcy1wZXJmZWN0b21vYmlsZS1jb20iLCJzdWIiOiJjOTljYzFhYi0wYmNmLTQyNTgtODllYy02Yzc4ZWUxNmU2NzgiLCJ0eXAiOiJPZmZsaW5lIiwiYXpwIjoib2ZmbGluZS10b2tlbi1nZW5lcmF0b3IiLCJub25jZSI6IjgzODI5Njg3LTIyOGMtNGRhZC1iODcyLTZhNTQ0ZTMyM2E2OSIsInNlc3Npb25fc3RhdGUiOiIzNDExNWZmZC1iNWJkLTRkNmItYTZlYi05ODZjZDRlNzc5NTIiLCJzY29wZSI6Im9wZW5pZCBvZmZsaW5lX2FjY2VzcyIsInNpZCI6IjM0MTE1ZmZkLWI1YmQtNGQ2Yi1hNmViLTk4NmNkNGU3Nzk1MiJ9.QwPWeil2qPVzbwbSVimiJ0aRYveukS7XtS6IpFKpnbI"/>
-    <parameter name="perfecto.capabilities.noReset" value="true"/>
+      <parameter name="perfecto.capabilities.noReset" value="true"/>
    <!-- <parameter name="driver.additional.capabilities" value="{'noReset':true}" /> -->
   
-    <test name="Android CDX" enabled="true">
+    <test name="Android CDX" enabled="false">
     	 <parameter name="perfecto.capabilities.platformName" value="android"></parameter>
-        <parameter name="perfecto.capabilities.deviceName" value="R5CN308PMRW"></parameter>
+        <parameter name="perfecto.capabilities.deviceName" value="R3CX10538HV"></parameter>
        
         <!-- <parameter name="driver.capabilities.deviceName" value="00008120-000E24C20C44C01E"></parameter> -->
         <parameter name="env.resources" value="src/main/resources/android"/>
@@ -31,7 +30,7 @@
         </classes>
     </test>
     
-    <test name="Android CDX 2" enabled="false">
+    <test name="Android CDX 2" enabled="true">
     	<parameter name="perfecto.capabilities.platformName" value="android"></parameter>
         <parameter name="perfecto.capabilities.deviceName" value="R5CX11MLKFH"></parameter>
         <parameter name="env.resources" value="src/main/resources/android"/>
