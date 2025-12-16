@@ -305,6 +305,12 @@ public class UBSStepDefs {
 			Object result = DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params);
 
 			//new QAFExtendedWebElement("field.password").click();
+			
+			Map<String, Object> params333 = new HashMap<>();
+			params333.put("label", "Sign In");
+			params333.put("timeout", "30");
+			params333.put("threshold", "90");
+			DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params333);
 
 			/*
 			 * Map<String, Object> params4 = new HashMap<>(); params4.put("label",
@@ -314,7 +320,17 @@ public class UBSStepDefs {
 			 * // DeviceUtils.getQAFDriver().executeScript("mobile:text:select", params4);
 			 * DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params4);
 			 */
-			 new QAFExtendedWebElement("field.password").sendKeys(securedPassword);
+			
+			Map<String, Object> params2 = new HashMap<>();
+			params2.put("label", "Password");
+			params2.put("text", securedPassword);
+			params2.put("timeout", "20");
+			params2.put("threshold", "90");
+			//params2.put("label.direction", "above");
+			//params2.put("label.offset", "3%");
+			Object result2 = DeviceUtils.getQAFDriver().executeScript("mobile:edit-text:set", params2);
+
+			 //new QAFExtendedWebElement("field.password").sendKeys(securedPassword);
 
 			try {
 				Thread.sleep(4000);
