@@ -13,7 +13,7 @@
       <parameter name="perfecto.capabilities.noReset" value="true"/>
    <!-- <parameter name="driver.additional.capabilities" value="{'noReset':true}" /> -->
   
-    <test name="Android CDX" enabled="false">
+    <test name="Android CDX" enabled="true">
     	 <parameter name="perfecto.capabilities.platformName" value="android"></parameter>
         <parameter name="perfecto.capabilities.deviceName" value="R3CX10538HV"></parameter>
        
