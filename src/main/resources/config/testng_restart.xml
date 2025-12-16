@@ -13,7 +13,7 @@
 
 
     <test name="iPhone restart 1" enabled="true">
-        <parameter name="driver.capabilities.deviceName" value="00008140-000221900C7B001C"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008150-000150AA0CC0401C"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
@@ -26,7 +26,7 @@
         </classes>
     </test>
     <test name="iPhone restart  2" enabled="true">
-        <parameter name="driver.capabilities.deviceName" value="00008140-00120D401EFB001C"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008150-000645D42608401C"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
@@ -39,7 +39,7 @@
         </classes>
     </test>
     <test name="iPad restart 1" enabled="false">
-        <parameter name="driver.capabilities.deviceName" value="00008112-001439E42EF0C01E"></parameter>
+        <parameter name="driver.capabilities.deviceName" value="00008132-001868DC2163801C"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
 
         <groups>
