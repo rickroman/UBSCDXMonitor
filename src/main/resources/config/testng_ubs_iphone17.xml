@@ -8,7 +8,6 @@
     <!-- by driverClass property in env.resources dirs -->
     <!-- Set driver.name value to perfectoDriver       -->
     <parameter name="driver.name" value="perfectoDriver"/>
-    <parameter name="perfecto.capabilities.securityToken" value="${securityToken}"></parameter>
     
     <test name="iPhone CDX" enabled="true">
     	 <parameter name="perfecto.capabilities.platformName" value="iOS"></parameter>
@@ -27,7 +26,7 @@
         </classes>
     </test>
     
-    <test name="iPhone CDX 2" enabled="false">
+    <test name="iPhone CDX 2" enabled="true">
     	<parameter name="perfecto.capabilities.platformName" value="iOS"></parameter>
         <parameter name="perfecto.capabilities.deviceName" value="00008150-000150AA0CC0401C"></parameter>
         <parameter name="env.resources" value="src/main/resources/ios"/>
