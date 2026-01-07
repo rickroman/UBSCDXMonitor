@@ -268,7 +268,7 @@ public class UBSUtils {
 					Thread.sleep(4000);
 					Map<String, Object> params = new HashMap<>();
 					params.put("label", "Skip");
-					params.put("timeout", "20");
+					params.put("timeout", "40");
 					params.put("threshold", "100");
 					DeviceUtils.getQAFDriver().executeScript("mobile:button-text:click", params);
 
